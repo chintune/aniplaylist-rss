@@ -2,10 +2,11 @@
   "name": "aniplaylist-rss",
   "private": true,
   "type": "module",
-  "dependencies": {
-    "playwright": "1.55.0"
-  },
+  "version": "1.0.0",
   "scripts": {
     "build": "node scrape.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.55.0"
   }
 }
