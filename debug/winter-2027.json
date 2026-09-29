@@ -12,6 +12,7 @@
   "withApple": 1,
   "withDetailUrl": 5,
   "resolvedSpotify": 1,
+  "recordThumbnails": 5,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
@@ -23,7 +24,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/5mJGLBNJM0GULqAoL5mb9C",
       "apple": "https://music.apple.com/us/album/1586410660?i=1586410664&at=1001l384j&ct=website-the-guy-she-was-interested-in-op&app=music",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/829dbb34b66a8943b4f34b42d81dfe2afc164088@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/play/the-guy-she-was-interested-in-wasnt-a-guy-at-all-opening",
       "season": "Winter 2027",
       "rawKeys": [
@@ -80,7 +81,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -141,7 +142,7 @@
       "kind": "ED",
       "spotify": "",
       "apple": "",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -202,7 +203,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c09f8111cb10fca7c672220c9ec9160e856facc1@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -255,7 +256,7 @@
       "kind": "IN",
       "spotify": "",
       "apple": "",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5fa6ff6ca107aa497a8eb30d78b6fa6b7079f2bb@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -312,7 +313,7 @@
       "thumbnail_hash": "LNI63wb;lu$~-#IUI[xp%InoIWrw",
       "blurImageType": "number",
       "blur_image": 0,
-      "resolved": ""
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/829dbb34b66a8943b4f34b42d81dfe2afc164088@2xl.jpg"
     },
     {
       "id": "us_3214",
@@ -322,7 +323,7 @@
       "thumbnail_hash": "LCH{.?oy01-o00Rk~BIVD*kC~VxZ",
       "blurImageType": "number",
       "blur_image": 0,
-      "resolved": ""
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg"
     },
     {
       "id": "us_3215",
@@ -332,7 +333,7 @@
       "thumbnail_hash": "LCH{.?oy01-o00Rk~BIVD*kC~VxZ",
       "blurImageType": "number",
       "blur_image": 0,
-      "resolved": ""
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg"
     },
     {
       "id": "us_3018",
@@ -342,7 +343,7 @@
       "thumbnail_hash": "LVOpMf-:M#02~USKRQ$|WXX9ait5",
       "blurImageType": "number",
       "blur_image": 0,
-      "resolved": ""
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/c09f8111cb10fca7c672220c9ec9160e856facc1@2xl.jpg"
     },
     {
       "id": "us_2832",
@@ -352,10 +353,9 @@
       "thumbnail_hash": "L;KK==ay~qofx]fkV@aytRj[aeay",
       "blurImageType": "number",
       "blur_image": 0,
-      "resolved": ""
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/5fa6ff6ca107aa497a8eb30d78b6fa6b7079f2bb@2xl.jpg"
     }
   ],
-  "recordThumbnails": 0,
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
@@ -383,7 +383,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/5mJGLBNJM0GULqAoL5mb9C",
       "apple": "https://music.apple.com/us/album/1586410660?i=1586410664&at=1001l384j&ct=website-the-guy-she-was-interested-in-op&app=music",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/829dbb34b66a8943b4f34b42d81dfe2afc164088@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/play/the-guy-she-was-interested-in-wasnt-a-guy-at-all-opening",
       "season": "Winter 2027",
       "rawKeys": [
@@ -440,7 +440,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -501,7 +501,7 @@
       "kind": "ED",
       "spotify": "",
       "apple": "",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -562,7 +562,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c09f8111cb10fca7c672220c9ec9160e856facc1@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -615,7 +615,7 @@
       "kind": "IN",
       "spotify": "",
       "apple": "",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5fa6ff6ca107aa497a8eb30d78b6fa6b7079f2bb@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -708,7 +708,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/5mJGLBNJM0GULqAoL5mb9C",
       "apple": "https://music.apple.com/us/album/1586410660?i=1586410664&at=1001l384j&ct=website-the-guy-she-was-interested-in-op&app=music",
-      "thumbnail": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/829dbb34b66a8943b4f34b42d81dfe2afc164088@2xl.jpg",
       "detailUrl": "https://aniplaylist.com/play/the-guy-she-was-interested-in-wasnt-a-guy-at-all-opening",
       "season": "Winter 2027",
       "rawKeys": [
