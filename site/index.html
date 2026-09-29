@@ -272,7 +272,7 @@
         </div>
       </div>
       <p class="lead">
-        Seasonal anime music feeds built from AniPlaylist. Each feed contains entries for that season that currently have a direct Spotify or Apple Music link.
+        Seasonal anime music feeds from AniPlaylist, with Spotify and Apple Music links when available. Each season also has a browsable release list.
       </p>
       <div class="meta">
         <span class="pill"><span class="dot"></span> Updates every 30 minutes</span>
@@ -371,6 +371,7 @@
             <div class="url">${escapeHtml(location.origin + location.pathname.replace(/\/?$/, "/") + feedUrl)}</div>
             <div class="actions">
               <a class="btn primary" href="${feedUrl}">Open RSS</a>
+              <a class="btn secondary" href="browse/${slug(season)}/">Browse</a>
               <button class="btn secondary" type="button" data-copy="${feedUrl}">Copy URL</button>
             </div>
           </article>
