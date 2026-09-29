@@ -7903,5 +7903,122 @@
       "13290779",
       "UCnZK-AT0Yrx8uXcFRqUy87g"
     ]
+  },
+  "a72947c6fd52031c": {
+    "firstSeen": "2026-09-29T08:00:48.182Z",
+    "season": "Fall 2026",
+    "id": "27823",
+    "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
+    "song": "Shinu ka Ikiru ka, 死ぬか生きるか, Shinukaikiruka",
+    "artist": "Yuki Chiba",
+    "kind": "ED",
+    "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+    "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
+    "rawKeys": [
+      "id",
+      "alert_id",
+      "anime_id",
+      "type",
+      "score",
+      "titles",
+      "created_at",
+      "updated_at",
+      "season",
+      "artists",
+      "links",
+      "platforms",
+      "preview_url",
+      "song_key",
+      "song_type",
+      "song_type_short",
+      "anime_titles",
+      "thumbnail",
+      "thumbnail_hash",
+      "blur_image",
+      "display_artists",
+      "label",
+      "short_link",
+      "status",
+      "tags",
+      "other_link_ids",
+      "unreleased",
+      "objectID"
+    ],
+    "titleCandidates": [
+      "Shinu ka Ikiru ka",
+      "死ぬか生きるか",
+      "Shinukaikiruka"
+    ],
+    "animeCandidates": [
+      "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
+      "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
+      "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
+      "SBR"
+    ],
+    "artistCandidates": [
+      "24741",
+      "Yuki Chiba",
+      "千葉雄喜",
+      "6Qhgat07PNOdnJSnCXJigu",
+      "1727997785",
+      "1337238",
+      "UCnPf2oZPzg_pxf6RzjUoCgw"
+    ]
+  },
+  "c66a545ec061b0a0": {
+    "firstSeen": "2026-09-29T08:00:48.182Z",
+    "season": "Fall 2026",
+    "id": "27858",
+    "anime": "Umayuru: Full Gate!, うまゆるふるげ〜と!",
+    "song": "Shiba Haeru wa~, 芝生えるわ～, Touchin' turf lollll",
+    "artist": "Special Week (CV: Azumi Waki), Winning Ticket (CV: Yui Watanabe), Sakura Chiyono O (CV: Ruriko Noguchi), Verxina (CV: Kaya Okuno), Samson Big (CV: Miyari Nemoto), Royce and Royce (CV: Rui Tanabe), Win Variation (CV: Hika Tsukishiro), Phalaenopsis (CV: Haruna Asami), Uma Musume Pretty Derby",
+    "kind": "ED",
+    "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
+    "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1",
+    "rawKeys": [
+      "id",
+      "alert_id",
+      "anime_id",
+      "type",
+      "score",
+      "titles",
+      "created_at",
+      "updated_at",
+      "season",
+      "artists",
+      "links",
+      "platforms",
+      "preview_url",
+      "song_key",
+      "song_number",
+      "song_type",
+      "song_type_short",
+      "anime_titles",
+      "thumbnail",
+      "thumbnail_hash",
+      "blur_image",
+      "display_artists",
+      "label",
+      "short_link",
+      "status",
+      "tags",
+      "other_link_ids",
+      "unreleased",
+      "objectID"
+    ],
+    "titleCandidates": [
+      "Shiba Haeru wa~",
+      "芝生えるわ～",
+      "Touchin' turf lollll"
+    ],
+    "animeCandidates": [
+      "Umayuru: Full Gate!",
+      "うまゆるふるげ〜と!"
+    ],
+    "artistCandidates": [
+      "Various artists"
+    ]
   }
 }

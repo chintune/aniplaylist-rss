@@ -1,16 +1,16 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 140,
+  "resultCount": 142,
   "jsonResponses": 20,
   "algoliaResponses": 9,
   "hitArrays": 18,
-  "rawHits": 140,
-  "uniqueHits": 140,
-  "normalized": 140,
-  "withSpotify": 9,
-  "withDetailUrl": 140,
-  "resolvedSpotify": 9,
+  "rawHits": 142,
+  "uniqueHits": 142,
+  "normalized": 142,
+  "withSpotify": 11,
+  "withDetailUrl": 142,
+  "resolvedSpotify": 11,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
@@ -134,6 +134,68 @@
       ]
     },
     {
+      "id": "27823",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
+      "song": "Shinu ka Ikiru ka, 死ぬか生きるか, Shinukaikiruka",
+      "artist": "Yuki Chiba",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shinu ka Ikiru ka",
+        "死ぬか生きるか",
+        "Shinukaikiruka"
+      ],
+      "animeCandidates": [
+        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
+        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
+        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
+        "SBR"
+      ],
+      "artistCandidates": [
+        "24741",
+        "Yuki Chiba",
+        "千葉雄喜",
+        "6Qhgat07PNOdnJSnCXJigu",
+        "1727997785",
+        "1337238",
+        "UCnPf2oZPzg_pxf6RzjUoCgw"
+      ]
+    },
+    {
       "id": "27816",
       "anime": "Chitose Is in the Ramune Bottle Part 2, Chitose-kun wa Ramune Bin no Naka Part 2, Chiramune, Chitose-kun is Inside a Ramune Bottle, Ramune no Bin ni Shizunda Biidama no Tsuki, 千歳くんはラムネ瓶のなか 第2クール",
       "song": "Saku, 咲く",
@@ -253,60 +315,6 @@
         "163234327",
         "UCg3fieU_nWIdFBOrqVqNUGQ"
       ]
-    },
-    {
-      "id": "us_3243",
-      "anime": "Detective Conan, Case Closed, 名探偵コナン, Meitantei Conan",
-      "song": "Ai de Zenbu Dakishimete Aishite, 愛で全部抱きしめて愛して",
-      "artist": "Mai Kuraki",
-      "kind": "ED",
-      "spotify": "",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Ai de Zenbu Dakishimete Aishite",
-        "愛で全部抱きしめて愛して"
-      ],
-      "animeCandidates": [
-        "Detective Conan",
-        "Case Closed",
-        "名探偵コナン",
-        "Meitantei Conan"
-      ],
-      "artistCandidates": [
-        "6366",
-        "Mai Kuraki",
-        "倉木麻衣",
-        "4x3GOic9xXFOoOBrEMuvN9",
-        "73794923",
-        "UCIBz9tGLGRyC2MXQdIHjxwQ"
-      ]
     }
   ],
   "errors": [],
@@ -314,7 +322,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 140,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -322,7 +330,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -330,7 +338,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 140,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -338,7 +346,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -346,7 +354,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 140,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -354,7 +362,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -362,7 +370,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 140,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -370,7 +378,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -378,7 +386,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 140,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -386,7 +394,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -394,7 +402,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 140,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -402,7 +410,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -410,7 +418,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 140,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -418,7 +426,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -426,7 +434,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 140,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -434,7 +442,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -442,15 +450,15 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 140,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
-      "count": 12
+      "count": 14
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -574,6 +582,68 @@
         "671623880",
         "10963206",
         "UCPs1IqAe9_1RU9Dq7_yy8Eg"
+      ]
+    },
+    {
+      "id": "27823",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
+      "song": "Shinu ka Ikiru ka, 死ぬか生きるか, Shinukaikiruka",
+      "artist": "Yuki Chiba",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shinu ka Ikiru ka",
+        "死ぬか生きるか",
+        "Shinukaikiruka"
+      ],
+      "animeCandidates": [
+        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
+        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
+        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
+        "SBR"
+      ],
+      "artistCandidates": [
+        "24741",
+        "Yuki Chiba",
+        "千葉雄喜",
+        "6Qhgat07PNOdnJSnCXJigu",
+        "1727997785",
+        "1337238",
+        "UCnPf2oZPzg_pxf6RzjUoCgw"
       ]
     },
     {
@@ -2052,56 +2122,6 @@
         "Kawaguchi Yurina",
         "川口 ゆりな"
       ]
-    },
-    {
-      "id": "us_3203",
-      "anime": "Beyblade X, ベイブレードエックス",
-      "song": "SPIN",
-      "artist": "BAND-MAID",
-      "kind": "ED",
-      "spotify": "",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "SPIN"
-      ],
-      "animeCandidates": [
-        "Beyblade X",
-        "ベイブレードエックス"
-      ],
-      "artistCandidates": [
-        "27",
-        "BAND-MAID",
-        "5Wh3G01Xfxn2zzEZNpuYHH",
-        "1102275947",
-        "52494612"
-      ]
     }
   ],
   "detailUrlSamples": [
@@ -2118,6 +2138,13 @@
       "song": "TRICKSTER, トリックスター",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending"
+    },
+    {
+      "id": "27823",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
+      "song": "Shinu ka Ikiru ka, 死ぬか生きるか, Shinukaikiruka",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending"
     },
     {
       "id": "27816",
@@ -2307,13 +2334,6 @@
       "song": "Hoshiakari, 星灯",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3203",
-      "anime": "Beyblade X, ベイブレードエックス",
-      "song": "SPIN",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
     }
   ],
   "usableSamples": [
@@ -2434,6 +2454,68 @@
         "671623880",
         "10963206",
         "UCPs1IqAe9_1RU9Dq7_yy8Eg"
+      ]
+    },
+    {
+      "id": "27823",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
+      "song": "Shinu ka Ikiru ka, 死ぬか生きるか, Shinukaikiruka",
+      "artist": "Yuki Chiba",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shinu ka Ikiru ka",
+        "死ぬか生きるか",
+        "Shinukaikiruka"
+      ],
+      "animeCandidates": [
+        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
+        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
+        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
+        "SBR"
+      ],
+      "artistCandidates": [
+        "24741",
+        "Yuki Chiba",
+        "千葉雄喜",
+        "6Qhgat07PNOdnJSnCXJigu",
+        "1727997785",
+        "1337238",
+        "UCnPf2oZPzg_pxf6RzjUoCgw"
       ]
     },
     {
@@ -2844,6 +2926,59 @@
         "1124210967",
         "73204762",
         "UCZ3k79bJuQd5w9qAiH4VPwQ"
+      ]
+    },
+    {
+      "id": "27858",
+      "anime": "Umayuru: Full Gate!, うまゆるふるげ〜と!",
+      "song": "Shiba Haeru wa~, 芝生えるわ～, Touchin' turf lollll",
+      "artist": "Special Week (CV: Azumi Waki), Winning Ticket (CV: Yui Watanabe), Sakura Chiyono O (CV: Ruriko Noguchi), Verxina (CV: Kaya Okuno), Samson Big (CV: Miyari Nemoto), Royce and Royce (CV: Rui Tanabe), Win Variation (CV: Hika Tsukishiro), Phalaenopsis (CV: Haruna Asami), Uma Musume Pretty Derby",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
+      "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shiba Haeru wa~",
+        "芝生えるわ～",
+        "Touchin' turf lollll"
+      ],
+      "animeCandidates": [
+        "Umayuru: Full Gate!",
+        "うまゆるふるげ〜と!"
+      ],
+      "artistCandidates": [
+        "Various artists"
       ]
     }
   ]
