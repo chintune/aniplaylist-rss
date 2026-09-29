@@ -3,6 +3,9 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "playwright": "^1.55.0"
+    "playwright": "1.55.0"
+  },
+  "scripts": {
+    "build": "node scrape.mjs"
   }
 }
