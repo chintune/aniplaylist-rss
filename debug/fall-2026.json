@@ -8,10 +8,10 @@
   "rawHits": 142,
   "uniqueHits": 142,
   "normalized": 142,
-  "withSpotify": 15,
-  "withApple": 15,
+  "withSpotify": 18,
+  "withApple": 17,
   "withDetailUrl": 142,
-  "resolvedSpotify": 15,
+  "resolvedSpotify": 18,
   "recordThumbnails": 142,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
@@ -74,6 +74,62 @@
         "1715643610",
         "240810171",
         "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
+    {
+      "id": "27884",
+      "anime": "Diamond no Ace: Act II Second Season Part 2",
+      "song": "NEVER SAY NEVER AGAIN",
+      "artist": "GLAY",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3G0mTzZwFHYvji44Nk4qdO",
+      "apple": "https://geo.music.apple.com/album/6809684037?i=6809684039&at=1001l384j&ct=website-diamond-no-ace-act-ii-second-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/f5865433f97959a920b28253f41249b828e30017@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/diamond-no-ace-act-ii-second-season-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "NEVER SAY NEVER AGAIN"
+      ],
+      "animeCandidates": [
+        "Diamond no Ace: Act II Second Season Part 2",
+        "ダイヤのA actⅡ Second Season 第2クール",
+        "Ace of Diamond Act II Season 2 Part 2"
+      ],
+      "artistCandidates": [
+        "655",
+        "GLAY",
+        "00AFbqxvdDK6T1D6MQZ9c1",
+        "705683182",
+        "UCXRmrNzERQzfA_2XI1OzJ9A"
       ]
     },
     {
@@ -192,15 +248,15 @@
       ]
     },
     {
-      "id": "27850",
-      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
-      "song": "Hibi o Koete",
-      "artist": "Akuru Yo no Hitsuji",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/46JwNeuFjEoq81yqATFUFQ",
-      "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2cb6f30bfd4c71ce77845850e1c400695166aa49@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending",
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "artist": "Touko Kirishima",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
+      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -233,85 +289,21 @@
         "objectID"
       ],
       "titleCandidates": [
-        "Hibi o Koete",
-        "日々を越えて",
-        "Beyond the Past"
+        "Turn The World Upside Down"
       ],
       "animeCandidates": [
-        "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
-        "Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season",
-        "Reincarnated as an Aristocrat with an Appraisal Skill Season 3",
-        "転生貴族、鑑定スキルで成り上がる 第3期"
+        "Rascal Does Not Dream of a Dear Friend",
+        "Seishun Buta Yarou wa Dear Friend no Yume wo Minai",
+        "青春ブタ野郎はディアフレンドの夢を見ない"
       ],
       "artistCandidates": [
-        "24167",
-        "Akuru Yo no Hitsuji",
-        "明くる夜の羊",
-        "Akuruyo-Sheep",
-        "akuruyo-sheep",
-        "0a6W3KiBwHJQwCbh5blGwi",
-        "1477703833",
-        "72569072",
-        "UCC92qqV6EyESLuLrssqkUrA"
-      ]
-    },
-    {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "artist": "go!go!vanillas",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
-      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "TRICKSTER",
-        "トリックスター"
-      ],
-      "animeCandidates": [
-        "Tokyo Revengers: War of the Three Titan Arc",
-        "Tokyo Revengers: Santen Sensou-hen",
-        "東京リベンジャーズ 三天戦争編"
-      ],
-      "artistCandidates": [
-        "794",
-        "go!go!vanillas",
-        "0aqPTOZlKG6ltJHv7BNlsm",
-        "671623880",
-        "10963206",
-        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
+        "17885",
+        "Touko Kirishima",
+        "霧島透子",
+        "7IrMYd2djETd56sjTPt3UP",
+        "1811798060",
+        "320905841",
+        "UC2ZVM7UDClF1fvew91aajbg"
       ]
     }
   ],
@@ -326,6 +318,16 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg"
+    },
+    {
+      "id": "27884",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/f5865433f97959a920b28253f41249b828e30017.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LbG9?$9a~2ozA2RkJEbHIx-:t7Rj",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/f5865433f97959a920b28253f41249b828e30017@2xl.jpg"
     },
     {
       "id": "27859",
@@ -346,6 +348,16 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/151ac5833d3d4223d2ca2c14acb17eb978d11637@2xl.jpeg"
+    },
+    {
+      "id": "27883",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LCDv]2009E?wTe8w#%kQ5G-nxZo}",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg"
     },
     {
       "id": "27850",
@@ -416,26 +428,6 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg"
-    },
-    {
-      "id": "us_3222",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/856dc9850369a03dcb9f7e2d0d0616f79250ee6e.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LHIDLx0J9F=y0J-5x[wz1H}at2I:",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/856dc9850369a03dcb9f7e2d0d0616f79250ee6e@2xl.jpg"
-    },
-    {
-      "id": "us_3230",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/655c3f21e24a54af50e5f742af8370ee8597a9fe.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LDGkqV}=004.00ElRQxH4TMx?bxv",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/655c3f21e24a54af50e5f742af8370ee8597a9fe@2xl.jpg"
     }
   ],
   "hitMeta": [
@@ -450,7 +442,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28200,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -466,7 +458,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28200,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -482,7 +474,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28200,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -498,7 +490,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28200,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -514,7 +506,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28200,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -530,7 +522,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28200,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -546,7 +538,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28200,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -562,7 +554,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28200,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -578,7 +570,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28200,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -642,6 +634,62 @@
         "1715643610",
         "240810171",
         "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
+    {
+      "id": "27884",
+      "anime": "Diamond no Ace: Act II Second Season Part 2",
+      "song": "NEVER SAY NEVER AGAIN",
+      "artist": "GLAY",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3G0mTzZwFHYvji44Nk4qdO",
+      "apple": "https://geo.music.apple.com/album/6809684037?i=6809684039&at=1001l384j&ct=website-diamond-no-ace-act-ii-second-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/f5865433f97959a920b28253f41249b828e30017@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/diamond-no-ace-act-ii-second-season-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "NEVER SAY NEVER AGAIN"
+      ],
+      "animeCandidates": [
+        "Diamond no Ace: Act II Second Season Part 2",
+        "ダイヤのA actⅡ Second Season 第2クール",
+        "Ace of Diamond Act II Season 2 Part 2"
+      ],
+      "artistCandidates": [
+        "655",
+        "GLAY",
+        "00AFbqxvdDK6T1D6MQZ9c1",
+        "705683182",
+        "UCXRmrNzERQzfA_2XI1OzJ9A"
       ]
     },
     {
@@ -757,6 +805,65 @@
       ],
       "artistCandidates": [
         "Various artists"
+      ]
+    },
+    {
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "artist": "Touko Kirishima",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
+      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Turn The World Upside Down"
+      ],
+      "animeCandidates": [
+        "Rascal Does Not Dream of a Dear Friend",
+        "Seishun Buta Yarou wa Dear Friend no Yume wo Minai",
+        "青春ブタ野郎はディアフレンドの夢を見ない"
+      ],
+      "artistCandidates": [
+        "17885",
+        "Touko Kirishima",
+        "霧島透子",
+        "7IrMYd2djETd56sjTPt3UP",
+        "1811798060",
+        "320905841",
+        "UC2ZVM7UDClF1fvew91aajbg"
       ]
     },
     {
@@ -1756,61 +1863,6 @@
       ]
     },
     {
-      "id": "us_3219",
-      "anime": "Magic Knight Rayearth (2026)",
-      "song": "Otome no Tsurugi",
-      "artist": "Toaka",
-      "kind": "OP",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/ab4f391fd6b2c7356a2538da3aac45cb97e0f5ee@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Otome no Tsurugi",
-        "乙女の剣"
-      ],
-      "animeCandidates": [
-        "Magic Knight Rayearth (2026)",
-        "Mahou Kishi Rayearth",
-        "魔法騎士レイアース"
-      ],
-      "artistCandidates": [
-        "13040",
-        "Toaka",
-        "十明",
-        "0xFsJRSOYJmmuozISzreTR",
-        "3GzVC7GGbmO2SuBu92DqUn",
-        "137872082"
-      ]
-    },
-    {
       "id": "us_3248",
       "anime": "Psyren",
       "song": "ICARUS",
@@ -2270,56 +2322,6 @@
         "285478361",
         "UCeXzCxZsDcaF5xI68fK5owA"
       ]
-    },
-    {
-      "id": "us_3207",
-      "anime": "Firefly Wedding",
-      "song": "Period",
-      "artist": "iri",
-      "kind": "OP",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/0a5126ffb7d7577e0a38d14906b5a05564c1f20b@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Period"
-      ],
-      "animeCandidates": [
-        "Firefly Wedding",
-        "Hotaru no Yomeiri",
-        "ホタルの嫁入り",
-        "Les Noces des Lucioles"
-      ],
-      "artistCandidates": [
-        "24229",
-        "iri"
-      ]
     }
   ],
   "detailUrlSamples": [
@@ -2329,6 +2331,13 @@
       "song": "BACKLASH",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening"
+    },
+    {
+      "id": "27884",
+      "anime": "Diamond no Ace: Act II Second Season Part 2",
+      "song": "NEVER SAY NEVER AGAIN",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/diamond-no-ace-act-ii-second-season-part-2-opening"
     },
     {
       "id": "27859",
@@ -2343,6 +2352,13 @@
       "song": "Shiba Haeru wa~",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1"
+    },
+    {
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "kind": "IN",
+      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down"
     },
     {
       "id": "27850",
@@ -2464,13 +2480,6 @@
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
-      "id": "us_3219",
-      "anime": "Magic Knight Rayearth (2026)",
-      "song": "Otome no Tsurugi",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
       "id": "us_3248",
       "anime": "Psyren",
       "song": "ICARUS",
@@ -2525,13 +2534,6 @@
       "song": "Nikoichi Mirai",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/ghost-meets-gal-opening"
-    },
-    {
-      "id": "us_3207",
-      "anime": "Firefly Wedding",
-      "song": "Period",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
     }
   ],
   "usableSamples": [
@@ -2592,6 +2594,62 @@
         "1715643610",
         "240810171",
         "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
+    {
+      "id": "27884",
+      "anime": "Diamond no Ace: Act II Second Season Part 2",
+      "song": "NEVER SAY NEVER AGAIN",
+      "artist": "GLAY",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3G0mTzZwFHYvji44Nk4qdO",
+      "apple": "https://geo.music.apple.com/album/6809684037?i=6809684039&at=1001l384j&ct=website-diamond-no-ace-act-ii-second-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/f5865433f97959a920b28253f41249b828e30017@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/diamond-no-ace-act-ii-second-season-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "NEVER SAY NEVER AGAIN"
+      ],
+      "animeCandidates": [
+        "Diamond no Ace: Act II Second Season Part 2",
+        "ダイヤのA actⅡ Second Season 第2クール",
+        "Ace of Diamond Act II Season 2 Part 2"
+      ],
+      "artistCandidates": [
+        "655",
+        "GLAY",
+        "00AFbqxvdDK6T1D6MQZ9c1",
+        "705683182",
+        "UCXRmrNzERQzfA_2XI1OzJ9A"
       ]
     },
     {
@@ -2707,6 +2765,65 @@
       ],
       "artistCandidates": [
         "Various artists"
+      ]
+    },
+    {
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "artist": "Touko Kirishima",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
+      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Turn The World Upside Down"
+      ],
+      "animeCandidates": [
+        "Rascal Does Not Dream of a Dear Friend",
+        "Seishun Buta Yarou wa Dear Friend no Yume wo Minai",
+        "青春ブタ野郎はディアフレンドの夢を見ない"
+      ],
+      "artistCandidates": [
+        "17885",
+        "Touko Kirishima",
+        "霧島透子",
+        "7IrMYd2djETd56sjTPt3UP",
+        "1811798060",
+        "320905841",
+        "UC2ZVM7UDClF1fvew91aajbg"
       ]
     },
     {
@@ -3380,6 +3497,72 @@
       ]
     },
     {
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "artist": "Ryu Matsuyama",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
+      "apple": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "flow"
+      ],
+      "animeCandidates": [
+        "Red River",
+        "Sora wa Akai Kawa no Hotori",
+        "Anatolia Story",
+        "Heaven by the Red River",
+        "Orontes Renka",
+        "Orontes Love Song",
+        "Where the Sky and the Red River Meet",
+        "天は赤い河のほとり"
+      ],
+      "artistCandidates": [
+        "24185",
+        "Ryu Matsuyama",
+        "59krd1xNH8IJFknx9wFiVf",
+        "796767434",
+        "5512",
+        "Yuko Ando",
+        "安藤裕子",
+        "12dhEcVUnJVnIQLt91VdA3"
+      ]
+    },
+    {
       "id": "27870",
       "anime": "The Ramparts of Ice Season 2",
       "song": "Hanakage",
@@ -3448,6 +3631,14 @@
       "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music"
     },
     {
+      "id": "27884",
+      "anime": "Diamond no Ace: Act II Second Season Part 2",
+      "song": "NEVER SAY NEVER AGAIN",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3G0mTzZwFHYvji44Nk4qdO",
+      "apple": "https://geo.music.apple.com/album/6809684037?i=6809684039&at=1001l384j&ct=website-diamond-no-ace-act-ii-second-op&app=music"
+    },
+    {
       "id": "27859",
       "anime": "The Iceblade Sorcerer Shall Rule the World II",
       "song": "COMPRESSION :[",
@@ -3462,6 +3653,14 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
       "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music"
+    },
+    {
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
+      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music"
     },
     {
       "id": "27850",
@@ -3550,6 +3749,14 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
       "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music"
+    },
+    {
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
+      "apple": ""
     },
     {
       "id": "27870",
