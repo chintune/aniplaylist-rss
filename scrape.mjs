@@ -17,7 +17,15 @@ let state = {};
 let resolveCache = {};
 
 try { state = JSON.parse(await fs.readFile(STATE_PATH, "utf8")); } catch {}
-try { resolveCache = JSON.parse(await fs.readFile(CACHE_PATH, "utf8")); } catch {}
+
+// v7/v8 cached arbitrary Spotify URLs from rendered pages. Never reuse them.
+// v9 starts a new validated resolver cache.
+try {
+  const oldCache = JSON.parse(await fs.readFile(CACHE_PATH, "utf8"));
+  resolveCache = oldCache && oldCache.__cacheVersion === 2 ? oldCache : { __cacheVersion: 2 };
+} catch {
+  resolveCache = { __cacheVersion: 2 };
+}
 
 const SPOTIFY_RE = /https?:\/\/open\.spotify\.com\/(?:track|album|playlist|artist)\/[A-Za-z0-9]+/i;
 
@@ -235,7 +243,7 @@ function normaliseHit(hit) {
     || ""
   );
 
-  const spotify = findSpotify(hit.links) || findSpotify(hit.platforms) || findSpotify(hit);
+  const spotify = findSpotify(hit.links) || findSpotify(hit.platforms);
   const detailUrl =
     firstAniPlaylistUrl(hit.web)
     || firstAniPlaylistUrl(hit.short_link)
@@ -257,12 +265,72 @@ function normaliseHit(hit) {
   };
 }
 
+function normalizeForMatch(value) {
+  return String(value ?? "")
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function significantWords(value) {
+  return normalizeForMatch(value)
+    .split(" ")
+    .filter(w => w.length >= 3)
+    .slice(0, 12);
+}
+
+function pageMatchesItem(bodyText, item) {
+  const body = normalizeForMatch(bodyText);
+  const song = normalizeForMatch(item.song);
+  const anime = normalizeForMatch(item.anime);
+
+  // The detail page must at least mention the song title.
+  if (song && !body.includes(song)) return false;
+
+  // Anime title is a second guard against accidentally resolving a generic/
+  // stale page. For very long titles, accept a strong word overlap.
+  if (anime) {
+    if (body.includes(anime)) return true;
+
+    const words = significantWords(anime);
+    const matches = words.filter(w => body.includes(w)).length;
+    if (words.length >= 3 && matches >= Math.max(2, Math.ceil(words.length * 0.5))) return true;
+
+    return false;
+  }
+
+  return !!song;
+}
+
+function pageSaysUnavailable(bodyText) {
+  const body = normalizeForMatch(bodyText);
+
+  const phrases = [
+    "not available for streaming yet",
+    "not yet released on streaming platforms",
+    "not available on streaming",
+    "notify me",
+    "add it to your wishlist",
+    "wishlist to be notified",
+  ];
+
+  return phrases.some(p => body.includes(p));
+}
+
 async function resolveSpotifyFromDetail(page, item) {
   if (!item.detailUrl || !/^https?:\/\//i.test(item.detailUrl)) return "";
 
   const key = item.detailUrl;
   const cached = resolveCache[key];
-  if (cached && cached.spotify) return cached.spotify;
+
+  // Only reuse the new validated cache format. Older v7/v8 cache entries may
+  // contain false positives produced by the old resolver.
+  if (cached && cached.version === 2 && typeof cached.spotify === "string") {
+    return cached.spotify;
+  }
 
   try {
     await page.goto(item.detailUrl, {
@@ -270,37 +338,62 @@ async function resolveSpotifyFromDetail(page, item) {
       timeout: 45000,
     });
 
-    // AniPlaylist's detail pages hydrate their platform links after the HTML shell loads.
     await page.waitForTimeout(1200);
 
-    const hrefs = await page.locator('a[href]').evaluateAll(as =>
-      as.map(a => a.href).filter(Boolean)
-    ).catch(() => []);
+    const bodyText = await page.locator("body").innerText().catch(() => "");
+    const matchesItem = pageMatchesItem(bodyText, item);
 
-    for (const href of hrefs) {
-      const m = href.match(SPOTIFY_RE);
-      if (m) {
-        resolveCache[key] = {
-          spotify: m[0],
-          checkedAt: new Date().toISOString(),
-        };
-        return m[0];
-      }
+    if (!matchesItem) {
+      resolveCache[key] = {
+        version: 2,
+        spotify: "",
+        status: "mismatch",
+        checkedAt: new Date().toISOString(),
+      };
+      return "";
     }
 
-    // Also inspect the rendered HTML in case the platform link is embedded in a script.
-    const html = await page.content();
-    const m = html.match(SPOTIFY_RE);
+    // This is the most important guard: AniPlaylist explicitly marks these
+    // cards/pages as unavailable and shows "Notify me". Never trust any
+    // unrelated Spotify URL that happens to be present in the page HTML.
+    if (pageSaysUnavailable(bodyText)) {
+      resolveCache[key] = {
+        version: 2,
+        spotify: "",
+        status: "unavailable",
+        checkedAt: new Date().toISOString(),
+      };
+      return "";
+    }
+
+    // Only use a Spotify URL from a real anchor, not arbitrary text in scripts,
+    // JSON-LD, site navigation, recommendations, etc.
+    const hrefs = await page.locator('a[href]').evaluateAll(as =>
+      as.map(a => ({
+        href: a.href || "",
+        text: (a.innerText || a.getAttribute("aria-label") || "").trim()
+      }))
+    ).catch(() => []);
+
+    const candidates = hrefs
+      .map(x => x.href)
+      .filter(h => SPOTIFY_RE.test(h));
+
+    const spotify = candidates[0]?.match(SPOTIFY_RE)?.[0] || "";
 
     resolveCache[key] = {
-      spotify: m?.[0] || "",
+      version: 2,
+      spotify,
+      status: spotify ? "available" : "no-spotify-link",
       checkedAt: new Date().toISOString(),
     };
 
-    return m?.[0] || "";
+    return spotify;
   } catch (e) {
     resolveCache[key] = {
+      version: 2,
       spotify: "",
+      status: "error",
       checkedAt: new Date().toISOString(),
       error: String(e.message || e).slice(0, 300),
     };
@@ -409,6 +502,8 @@ for (const season of CFG.seasons) {
     withSpotify: 0,
     withDetailUrl: 0,
     resolvedSpotify: 0,
+    unavailableDetailPages: 0,
+    mismatchedDetailPages: 0,
     sample: [],
     errors: [],
   };
@@ -575,6 +670,20 @@ for (const season of CFG.seasons) {
     }, null, 2)
   );
 
+  let unavailableCount = 0;
+  let mismatchCount = 0;
+  for (const item of normalized) {
+    if (!item.detailUrl) continue;
+    const c = resolveCache[item.detailUrl];
+    if (!c || c.version !== 2) continue;
+    if (c.status === "unavailable") unavailableCount++;
+    if (c.status === "mismatch") mismatchCount++;
+  }
+  diag.unavailableDetailPages = unavailableCount;
+  diag.mismatchedDetailPages = mismatchCount;
+  console.log(`Validated unavailable detail pages: ${diag.unavailableDetailPages}`);
+  console.log(`Validated mismatched detail pages: ${diag.mismatchedDetailPages}`);
+
   const rssItems = usable.map(x => makeRssItem(x, season));
   await fs.writeFile(
     path.join(RSS_DIR, `${slug(season)}.xml`),
@@ -589,6 +698,7 @@ for (const season of CFG.seasons) {
 }
 
 await fs.writeFile(STATE_PATH, JSON.stringify(state, null, 2) + "\n");
+resolveCache.__cacheVersion = 2;
 await fs.writeFile(CACHE_PATH, JSON.stringify(resolveCache, null, 2) + "\n");
 
 await browser.close();
