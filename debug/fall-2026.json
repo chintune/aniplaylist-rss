@@ -8,15 +8,74 @@
   "rawHits": 142,
   "uniqueHits": 142,
   "normalized": 142,
-  "withSpotify": 12,
-  "withApple": 12,
+  "withSpotify": 15,
+  "withApple": 15,
   "withDetailUrl": 142,
-  "resolvedSpotify": 12,
+  "resolvedSpotify": 15,
   "recordThumbnails": 142,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
+    {
+      "id": "27860",
+      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
+      "song": "BACKLASH",
+      "artist": "Hiromitsu Kitayama",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
+      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "BACKLASH"
+      ],
+      "animeCandidates": [
+        "Tougen Anki: Nikko Kegon Falls Arc",
+        "Tougen Anki: Nikko Kegon no Taki-hen",
+        "桃源暗鬼 日光・華厳の滝編"
+      ],
+      "artistCandidates": [
+        "24252",
+        "Hiromitsu Kitayama",
+        "北山宏光",
+        "5aj6oLCY3WS8HZ7zd5VWQ9",
+        "1715643610",
+        "240810171",
+        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
     {
       "id": "27859",
       "anime": "The Iceblade Sorcerer Shall Rule the World II",
@@ -254,74 +313,20 @@
         "10963206",
         "UCPs1IqAe9_1RU9Dq7_yy8Eg"
       ]
-    },
-    {
-      "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "Shinu ka Ikiru ka",
-      "artist": "Yuki Chiba",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
-      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e401524581656fa101348307b5daabc8550975f7@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Shinu ka Ikiru ka",
-        "死ぬか生きるか",
-        "Shinukaikiruka"
-      ],
-      "animeCandidates": [
-        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
-        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
-        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
-        "SBR"
-      ],
-      "artistCandidates": [
-        "24741",
-        "Yuki Chiba",
-        "千葉雄喜",
-        "6Qhgat07PNOdnJSnCXJigu",
-        "1727997785",
-        "1337238",
-        "UCnPf2oZPzg_pxf6RzjUoCgw"
-      ]
     }
   ],
   "errors": [],
   "thumbnailFieldSamples": [
+    {
+      "id": "27860",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/39455659ba07145200138b47a179c2902f681330.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LOLNk;.A0000s{Ri%Lt8^=s*xv%L",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg"
+    },
     {
       "id": "27859",
       "thumbnailType": "string",
@@ -431,16 +436,6 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/655c3f21e24a54af50e5f742af8370ee8597a9fe@2xl.jpg"
-    },
-    {
-      "id": "us_3228",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/655c3f21e24a54af50e5f742af8370ee8597a9fe.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LDGkqV}=004.00ElRQxH4TMx?bxv",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/655c3f21e24a54af50e5f742af8370ee8597a9fe@2xl.jpg"
     }
   ],
   "hitMeta": [
@@ -455,7 +450,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -471,7 +466,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -487,7 +482,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -503,7 +498,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -519,7 +514,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -535,7 +530,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -551,7 +546,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -567,7 +562,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -583,13 +578,72 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
     }
   ],
   "normalizedSamples": [
+    {
+      "id": "27860",
+      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
+      "song": "BACKLASH",
+      "artist": "Hiromitsu Kitayama",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
+      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "BACKLASH"
+      ],
+      "animeCandidates": [
+        "Tougen Anki: Nikko Kegon Falls Arc",
+        "Tougen Anki: Nikko Kegon no Taki-hen",
+        "桃源暗鬼 日光・華厳の滝編"
+      ],
+      "artistCandidates": [
+        "24252",
+        "Hiromitsu Kitayama",
+        "北山宏光",
+        "5aj6oLCY3WS8HZ7zd5VWQ9",
+        "1715643610",
+        "240810171",
+        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
     {
       "id": "27859",
       "anime": "The Iceblade Sorcerer Shall Rule the World II",
@@ -2159,6 +2213,65 @@
       ]
     },
     {
+      "id": "27783",
+      "anime": "Ghost Meets Gal!",
+      "song": "Nikoichi Mirai",
+      "artist": "Mugendai Mewtype",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/33OvdvQWlQ7Djzo6HeSfYC",
+      "apple": "https://geo.music.apple.com/album/6810087884?i=6810087885&at=1001l384j&ct=website-ghost-meets-gal-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/17300d90ac62a784dfb62c3d1ffcf123abe68f1f@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/ghost-meets-gal-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Nikoichi Mirai",
+        "にこいちミライ"
+      ],
+      "animeCandidates": [
+        "Ghost Meets Gal!",
+        "ごーすと・みーつ・ぎゃる！",
+        "Ghost Meets Gyaru!"
+      ],
+      "artistCandidates": [
+        "18637",
+        "Mugendai Mewtype",
+        "夢限大みゅーたいぷ",
+        "2EzWYxIHqUD1RWBOuSjxtK",
+        "1715788150",
+        "285478361",
+        "UCeXzCxZsDcaF5xI68fK5owA"
+      ]
+    },
+    {
       "id": "us_3207",
       "anime": "Firefly Wedding",
       "song": "Period",
@@ -2207,119 +2320,16 @@
         "24229",
         "iri"
       ]
-    },
-    {
-      "id": "27738",
-      "anime": "Tank Chair",
-      "song": "DALALA",
-      "artist": "SiM",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
-      "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/893b16711e5bf15eb0e897201bb222aa30a76aa7@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tank-chair-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "DALALA"
-      ],
-      "animeCandidates": [
-        "Tank Chair",
-        "Sensha Isu",
-        "TANK CHAIR-戦車椅子-"
-      ],
-      "artistCandidates": [
-        "253",
-        "SiM",
-        "2BM933ADIluGGrPBOhPgIt",
-        "1124210967",
-        "73204762",
-        "UCZ3k79bJuQd5w9qAiH4VPwQ"
-      ]
-    },
-    {
-      "id": "us_3220",
-      "anime": "Magic Knight Rayearth (2026)",
-      "song": "Hoshiakari",
-      "artist": "Kawaguchi Yurina",
-      "kind": "ED",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/ab4f391fd6b2c7356a2538da3aac45cb97e0f5ee@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Hoshiakari",
-        "星灯"
-      ],
-      "animeCandidates": [
-        "Magic Knight Rayearth (2026)",
-        "Mahou Kishi Rayearth",
-        "魔法騎士レイアース"
-      ],
-      "artistCandidates": [
-        "24254",
-        "Kawaguchi Yurina",
-        "川口 ゆりな"
-      ]
     }
   ],
   "detailUrlSamples": [
+    {
+      "id": "27860",
+      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
+      "song": "BACKLASH",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening"
+    },
     {
       "id": "27859",
       "anime": "The Iceblade Sorcerer Shall Rule the World II",
@@ -2510,28 +2520,80 @@
       "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte"
     },
     {
+      "id": "27783",
+      "anime": "Ghost Meets Gal!",
+      "song": "Nikoichi Mirai",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/ghost-meets-gal-opening"
+    },
+    {
       "id": "us_3207",
       "anime": "Firefly Wedding",
       "song": "Period",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "27738",
-      "anime": "Tank Chair",
-      "song": "DALALA",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/tank-chair-opening"
-    },
-    {
-      "id": "us_3220",
-      "anime": "Magic Knight Rayearth (2026)",
-      "song": "Hoshiakari",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
     }
   ],
   "usableSamples": [
+    {
+      "id": "27860",
+      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
+      "song": "BACKLASH",
+      "artist": "Hiromitsu Kitayama",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
+      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "BACKLASH"
+      ],
+      "animeCandidates": [
+        "Tougen Anki: Nikko Kegon Falls Arc",
+        "Tougen Anki: Nikko Kegon no Taki-hen",
+        "桃源暗鬼 日光・華厳の滝編"
+      ],
+      "artistCandidates": [
+        "24252",
+        "Hiromitsu Kitayama",
+        "北山宏光",
+        "5aj6oLCY3WS8HZ7zd5VWQ9",
+        "1715643610",
+        "240810171",
+        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
     {
       "id": "27859",
       "anime": "The Iceblade Sorcerer Shall Rule the World II",
@@ -3201,6 +3263,65 @@
       ]
     },
     {
+      "id": "27783",
+      "anime": "Ghost Meets Gal!",
+      "song": "Nikoichi Mirai",
+      "artist": "Mugendai Mewtype",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/33OvdvQWlQ7Djzo6HeSfYC",
+      "apple": "https://geo.music.apple.com/album/6810087884?i=6810087885&at=1001l384j&ct=website-ghost-meets-gal-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/17300d90ac62a784dfb62c3d1ffcf123abe68f1f@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/ghost-meets-gal-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Nikoichi Mirai",
+        "にこいちミライ"
+      ],
+      "animeCandidates": [
+        "Ghost Meets Gal!",
+        "ごーすと・みーつ・ぎゃる！",
+        "Ghost Meets Gyaru!"
+      ],
+      "artistCandidates": [
+        "18637",
+        "Mugendai Mewtype",
+        "夢限大みゅーたいぷ",
+        "2EzWYxIHqUD1RWBOuSjxtK",
+        "1715788150",
+        "285478361",
+        "UCeXzCxZsDcaF5xI68fK5owA"
+      ]
+    },
+    {
       "id": "27738",
       "anime": "Tank Chair",
       "song": "DALALA",
@@ -3257,9 +3378,75 @@
         "73204762",
         "UCZ3k79bJuQd5w9qAiH4VPwQ"
       ]
+    },
+    {
+      "id": "27870",
+      "anime": "The Ramparts of Ice Season 2",
+      "song": "Hanakage",
+      "artist": "Superfly",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
+      "apple": "https://music.apple.com/nz/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hanakage",
+        "花蔭"
+      ],
+      "animeCandidates": [
+        "The Ramparts of Ice Season 2",
+        "Koori no Jouheki 2nd Season",
+        "氷の城壁 第2期"
+      ],
+      "artistCandidates": [
+        "372",
+        "Superfly",
+        "5M8AXrOifBT8elkLKbGPQZ",
+        "150974880",
+        "142878"
+      ]
     }
   ],
   "platformSamples": [
+    {
+      "id": "27860",
+      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
+      "song": "BACKLASH",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
+      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music"
+    },
     {
       "id": "27859",
       "anime": "The Iceblade Sorcerer Shall Rule the World II",
@@ -3349,12 +3536,28 @@
       "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music"
     },
     {
+      "id": "27783",
+      "anime": "Ghost Meets Gal!",
+      "song": "Nikoichi Mirai",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/33OvdvQWlQ7Djzo6HeSfYC",
+      "apple": "https://geo.music.apple.com/album/6810087884?i=6810087885&at=1001l384j&ct=website-ghost-meets-gal-op&app=music"
+    },
+    {
       "id": "27738",
       "anime": "Tank Chair",
       "song": "DALALA",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
       "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music"
+    },
+    {
+      "id": "27870",
+      "anime": "The Ramparts of Ice Season 2",
+      "song": "Hanakage",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
+      "apple": "https://music.apple.com/nz/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music"
     }
   ]
 }
