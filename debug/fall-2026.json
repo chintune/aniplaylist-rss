@@ -1,26 +1,87 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 141,
+  "resultCount": 142,
   "jsonResponses": 20,
   "algoliaResponses": 9,
   "hitArrays": 18,
-  "rawHits": 141,
-  "uniqueHits": 141,
-  "normalized": 141,
-  "withSpotify": 11,
-  "withDetailUrl": 141,
-  "resolvedSpotify": 11,
+  "rawHits": 142,
+  "uniqueHits": 142,
+  "normalized": 142,
+  "withSpotify": 12,
+  "withApple": 12,
+  "withDetailUrl": 142,
+  "resolvedSpotify": 12,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
     {
+      "id": "27859",
+      "anime": "The Iceblade Sorcerer Shall Rule the World II",
+      "song": "COMPRESSION :[",
+      "artist": "Maaya Uchida",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/6Arimk70y0ryeFVMKOXNRs",
+      "apple": "https://geo.music.apple.com/album/6809174084?i=6809174155&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-ed&app=music",
+      "detailUrl": "https://aniplaylist.com/play/the-iceblade-sorcerer-shall-rule-the-world-ii-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "COMPRESSION :["
+      ],
+      "animeCandidates": [
+        "The Iceblade Sorcerer Shall Rule the World II",
+        "冰剣の魔術師が世界を統べるII",
+        "Hyouken no Majutsushi ga Sekai wo Suberu II",
+        "Hyouken no Majutsushi ga Sekai wo Suberu 2nd Season"
+      ],
+      "artistCandidates": [
+        "245",
+        "Maaya Uchida",
+        "内田真礼",
+        "4hJl41jTq14yNuc1f3bLe6",
+        "808648654",
+        "14108225",
+        "UCG_xHIWGhBDSGDZV0PgNaXg"
+      ]
+    },
+    {
       "id": "27850",
-      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3, Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season, Reincarnated as an Aristocrat with an Appraisal Skill Season 3, 転生貴族、鑑定スキルで成り上がる 第3期",
-      "song": "Hibi o Koete, 日々を越えて, Beyond the Past",
+      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
+      "song": "Hibi o Koete",
       "artist": "Akuru Yo no Hitsuji",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/46JwNeuFjEoq81yqATFUFQ",
+      "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -78,11 +139,12 @@
     },
     {
       "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc, Tokyo Revengers: Santen Sensou-hen, 東京リベンジャーズ 三天戦争編",
-      "song": "TRICKSTER, トリックスター",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
       "artist": "go!go!vanillas",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
+      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -135,11 +197,12 @@
     },
     {
       "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
-      "song": "Shinu ka Ikiru ka, 死ぬか生きるか, Shinukaikiruka",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "Shinu ka Ikiru ka",
       "artist": "Yuki Chiba",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -197,11 +260,12 @@
     },
     {
       "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2, Chitose-kun wa Ramune Bin no Naka Part 2, Chiramune, Chitose-kun is Inside a Ramune Bottle, Ramune no Bin ni Shizunda Biidama no Tsuki, 千歳くんはラムネ瓶のなか 第2クール",
-      "song": "Saku, 咲く",
+      "anime": "Chitose Is in the Ramune Bottle Part 2",
+      "song": "Saku",
       "artist": "Cidergirl",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
+      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -256,64 +320,6 @@
         "1159148258",
         "13082439",
         "UCPsZegYUPKEsylhuz4Qs1Aw"
-      ]
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2, Kikansha no Mahou wa Tokubetsu desu 2nd Season, Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida, 귀환자의 마법은 특별해야 합니다, 帰還者の魔法は特別です 2期",
-      "song": "Everlasting",
-      "artist": "krage",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Everlasting"
-      ],
-      "animeCandidates": [
-        "A Returner's Magic Should Be Special Season 2",
-        "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
-        "Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida",
-        "귀환자의 마법은 특별해야 합니다",
-        "帰還者の魔法は特別です 2期"
-      ],
-      "artistCandidates": [
-        "13108",
-        "krage",
-        "35jRIUtWCUITFLfjhYwkFx",
-        "1542904221",
-        "163234327",
-        "UCg3fieU_nWIdFBOrqVqNUGQ"
       ]
     }
   ],
@@ -354,7 +360,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 141,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -362,7 +368,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -370,7 +376,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 141,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -378,7 +384,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -386,7 +392,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 141,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -394,7 +400,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -402,7 +408,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 141,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -410,7 +416,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -418,7 +424,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 141,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -426,7 +432,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -434,7 +440,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 141,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -442,7 +448,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -450,15 +456,15 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 141,
+      "nbHits": 142,
       "hitsPerPage": 16,
       "nbPages": 9,
-      "count": 13
+      "count": 14
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28191,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -466,12 +472,72 @@
   ],
   "normalizedSamples": [
     {
+      "id": "27859",
+      "anime": "The Iceblade Sorcerer Shall Rule the World II",
+      "song": "COMPRESSION :[",
+      "artist": "Maaya Uchida",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/6Arimk70y0ryeFVMKOXNRs",
+      "apple": "https://geo.music.apple.com/album/6809174084?i=6809174155&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-ed&app=music",
+      "detailUrl": "https://aniplaylist.com/play/the-iceblade-sorcerer-shall-rule-the-world-ii-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "COMPRESSION :["
+      ],
+      "animeCandidates": [
+        "The Iceblade Sorcerer Shall Rule the World II",
+        "冰剣の魔術師が世界を統べるII",
+        "Hyouken no Majutsushi ga Sekai wo Suberu II",
+        "Hyouken no Majutsushi ga Sekai wo Suberu 2nd Season"
+      ],
+      "artistCandidates": [
+        "245",
+        "Maaya Uchida",
+        "内田真礼",
+        "4hJl41jTq14yNuc1f3bLe6",
+        "808648654",
+        "14108225",
+        "UCG_xHIWGhBDSGDZV0PgNaXg"
+      ]
+    },
+    {
       "id": "27850",
-      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3, Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season, Reincarnated as an Aristocrat with an Appraisal Skill Season 3, 転生貴族、鑑定スキルで成り上がる 第3期",
-      "song": "Hibi o Koete, 日々を越えて, Beyond the Past",
+      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
+      "song": "Hibi o Koete",
       "artist": "Akuru Yo no Hitsuji",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/46JwNeuFjEoq81yqATFUFQ",
+      "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -529,11 +595,12 @@
     },
     {
       "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc, Tokyo Revengers: Santen Sensou-hen, 東京リベンジャーズ 三天戦争編",
-      "song": "TRICKSTER, トリックスター",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
       "artist": "go!go!vanillas",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
+      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -586,11 +653,12 @@
     },
     {
       "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
-      "song": "Shinu ka Ikiru ka, 死ぬか生きるか, Shinukaikiruka",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "Shinu ka Ikiru ka",
       "artist": "Yuki Chiba",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -648,11 +716,12 @@
     },
     {
       "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2, Chitose-kun wa Ramune Bin no Naka Part 2, Chiramune, Chitose-kun is Inside a Ramune Bottle, Ramune no Bin ni Shizunda Biidama no Tsuki, 千歳くんはラムネ瓶のなか 第2クール",
-      "song": "Saku, 咲く",
+      "anime": "Chitose Is in the Ramune Bottle Part 2",
+      "song": "Saku",
       "artist": "Cidergirl",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
+      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -711,11 +780,12 @@
     },
     {
       "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2, Kikansha no Mahou wa Tokubetsu desu 2nd Season, Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida, 귀환자의 마법은 특별해야 합니다, 帰還者の魔法は特別です 2期",
+      "anime": "A Returner's Magic Should Be Special Season 2",
       "song": "Everlasting",
       "artist": "krage",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
+      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -769,11 +839,12 @@
     },
     {
       "id": "us_3243",
-      "anime": "Detective Conan, Case Closed, 名探偵コナン, Meitantei Conan",
-      "song": "Ai de Zenbu Dakishimete Aishite, 愛で全部抱きしめて愛して",
+      "anime": "Detective Conan",
+      "song": "Ai de Zenbu Dakishimete Aishite",
       "artist": "Mai Kuraki",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -823,11 +894,12 @@
     },
     {
       "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
       "song": "SPIN",
       "artist": "Kroi",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
+      "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -882,11 +954,12 @@
     },
     {
       "id": "us_3239",
-      "anime": "Please Excuse My Younger Brothers, Uchi no Otouto-domo ga Sumimasen, うちの弟どもがすみません, Sorry About My Little Brothers, Uchioto",
-      "song": "Mabataki, まばたき",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "Mabataki",
       "artist": "MEminor",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -938,11 +1011,12 @@
     },
     {
       "id": "us_3248",
-      "anime": "Psyren, Siren, PSYЯEN -サイレン-",
+      "anime": "Psyren",
       "song": "ICARUS",
       "artist": "Who-ya Extended",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -989,11 +1063,12 @@
     },
     {
       "id": "us_3222",
-      "anime": "Nia Liston: The Merciless Maiden, Kyouran Reijou Nia Liston: Byoujaku Reijou ni Tensei shita Kamigoroshi no Bujin no Karei Naru Musouroku, 凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
-      "song": "Tokimeki Un Deux Trois♪, ときめきアン・ドゥ・トロワ♪",
+      "anime": "Nia Liston: The Merciless Maiden",
+      "song": "Tokimeki Un Deux Trois♪",
       "artist": "Magic Vision Girls Party",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1038,11 +1113,12 @@
     },
     {
       "id": "us_3230",
-      "anime": "Aoki Denshou Welsh & Shedar, 蒼き伝承 ウェルシュ＆シェダー, Welsh & Shedar",
+      "anime": "Aoki Denshou Welsh & Shedar",
       "song": "I'm in you",
-      "artist": "Hironobu Kageyama, KUKO",
+      "artist": "Hironobu Kageyama",
       "kind": "IN",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1097,11 +1173,12 @@
     },
     {
       "id": "us_3228",
-      "anime": "Aoki Denshou Welsh & Shedar, 蒼き伝承 ウェルシュ＆シェダー, Welsh & Shedar",
-      "song": "Bokura no Mirai e, 僕らの未来へ",
-      "artist": "Hironobu Kageyama, Masami Okui",
+      "anime": "Aoki Denshou Welsh & Shedar",
+      "song": "Bokura no Mirai e",
+      "artist": "Hironobu Kageyama",
       "kind": "TS",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1159,11 +1236,12 @@
     },
     {
       "id": "us_3229",
-      "anime": "Aoki Denshou Welsh & Shedar, 蒼き伝承 ウェルシュ＆シェダー, Welsh & Shedar",
-      "song": "Omelette, オムレツ",
+      "anime": "Aoki Denshou Welsh & Shedar",
+      "song": "Omelette",
       "artist": "Hironobu Kageyama",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1217,11 +1295,12 @@
     },
     {
       "id": "us_3238",
-      "anime": "The Apothecary Diaries Season 3, Kusuriya no Hitorigoto 3rd Season, The Pharmacist's Monologue, Drugstore Soliloquy, 薬屋のひとりごと 第3期",
+      "anime": "The Apothecary Diaries Season 3",
       "song": "AIYOU",
       "artist": "Eve",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1270,11 +1349,12 @@
     },
     {
       "id": "us_3244",
-      "anime": "Paws & Palaces, Zi Jin: Yu Miao Fang, 紫禁·御喵房, Forbidden City: Cat Imperial Study, Paw & Palaces, On Myao Bo, 紫禁・御猫房〜紫禁城猫警備室〜",
+      "anime": "Paws & Palaces",
       "song": "Truly",
       "artist": "Riko Azuna",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1328,11 +1408,12 @@
     },
     {
       "id": "us_3233",
-      "anime": "Duel Masters LOST: Danzai no Shounen, Duel Masters LOST ～断罪の少年～",
-      "song": "Sakujitsu, 朔日",
-      "artist": "Tsukuyomi, Yoshino",
+      "anime": "Duel Masters LOST: Danzai no Shounen",
+      "song": "Sakujitsu",
+      "artist": "Tsukuyomi",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1389,11 +1470,12 @@
     },
     {
       "id": "us_3247",
-      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan, 仙逆剧场版 弑仙之战, Xian Ni Juchang Ban: Shi Xian Zhi Zhan",
-      "song": "Wo Zi Dang Shan, 我自当山",
+      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan",
+      "song": "Wo Zi Dang Shan",
       "artist": "Air",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1438,11 +1520,12 @@
     },
     {
       "id": "us_3246",
-      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan, 仙逆剧场版 弑仙之战, Xian Ni Juchang Ban: Shi Xian Zhi Zhan",
-      "song": "Shi Xian, 弑仙",
+      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan",
+      "song": "Shi Xian",
       "artist": "Tang Hanxiao",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1487,11 +1570,12 @@
     },
     {
       "id": "us_3225",
-      "anime": "Choujun! Choujou-senpai, Super Psychic Policeman Chojo, 超巡!超条先輩",
-      "song": "Mata Ashita, またあした",
+      "anime": "Choujun! Choujou-senpai",
+      "song": "Mata Ashita",
       "artist": "Shifuku Poncho",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1536,11 +1620,12 @@
     },
     {
       "id": "us_3224",
-      "anime": "Choujun! Choujou-senpai, Super Psychic Policeman Chojo, 超巡!超条先輩",
-      "song": "That's! Choujou, ザッツ！超常",
+      "anime": "Choujun! Choujou-senpai",
+      "song": "That's! Choujou",
       "artist": "M!LK",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1587,11 +1672,12 @@
     },
     {
       "id": "us_3219",
-      "anime": "Magic Knight Rayearth (2026), Mahou Kishi Rayearth, 魔法騎士レイアース",
-      "song": "Otome no Tsurugi, 乙女の剣",
+      "anime": "Magic Knight Rayearth (2026)",
+      "song": "Otome no Tsurugi",
       "artist": "Toaka",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1640,11 +1726,12 @@
     },
     {
       "id": "27761",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc, Tokyo Revengers: Santen Sensou-hen, 東京リベンジャーズ 三天戦争編",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
       "song": "IGNITE",
       "artist": "JO1",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/4AAiz8MarztbqTCTMfwXYr",
+      "apple": "https://geo.music.apple.com/album/6797375185?i=6797375186&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1695,11 +1782,12 @@
     },
     {
       "id": "us_3217",
-      "anime": "Tougen Anki: Nikko Kegon no Taki-hen, 桃源暗鬼 日光・華厳の滝編, Tougen Anki: Nikko Kegon Falls Arc",
+      "anime": "Tougen Anki: Nikko Kegon no Taki-hen",
       "song": "BACKLASH",
       "artist": "Hiromitsu Kitayama",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1743,11 +1831,12 @@
     },
     {
       "id": "us_3232",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System, Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru, The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge, 追放された転生重騎士はゲーム知識で無双する",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
       "song": "Rewrite the Answer",
       "artist": "Tokoyami Towa",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1798,11 +1887,12 @@
     },
     {
       "id": "us_3231",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System, Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru, The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge, 追放された転生重騎士はゲーム知識で無双する",
-      "song": "Contemporary Dance, コンテンポラリーダンス",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Contemporary Dance",
       "artist": "PompadollS",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1852,11 +1942,12 @@
     },
     {
       "id": "26706",
-      "anime": "To You in the Beyond, Doko yori mo Tooi Basho ni Iru Kimi e, どこよりも遠い場所にいる君へ",
-      "song": "Housenka, 鳳仙花, Balsam",
+      "anime": "To You in the Beyond",
+      "song": "Housenka",
       "artist": "Tota",
       "kind": "IN",
       "spotify": "https://open.spotify.com/track/4CpEbsn3QeOEmZPAjouBLO",
+      "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music",
       "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1910,11 +2001,12 @@
     },
     {
       "id": "27146",
-      "anime": "Uncle's Obsession with Cute Things, Ojisan wa Kawaii Mono ga Osuki., Pops Loves Kawaii Stuff, This Uncle Likes Cute Things, おじさんはカワイイものがお好き。, Pops Loves Kawaii Stuff, This Uncle Likes Cute Things",
-      "song": "PAGUtto itchatte~, パグっといっちゃって～",
+      "anime": "Uncle's Obsession with Cute Things",
+      "song": "PAGUtto itchatte~",
       "artist": "PAGTARO & Friends",
       "kind": "IN",
       "spotify": "https://open.spotify.com/track/4XgzvE1TYsNnyrTWy9mAa8",
+      "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music",
       "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1971,11 +2063,12 @@
     },
     {
       "id": "us_3207",
-      "anime": "Firefly Wedding, Hotaru no Yomeiri, ホタルの嫁入り, Les Noces des Lucioles",
+      "anime": "Firefly Wedding",
       "song": "Period",
       "artist": "iri",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2019,11 +2112,12 @@
     },
     {
       "id": "27738",
-      "anime": "Tank Chair, Sensha Isu, TANK CHAIR-戦車椅子-",
+      "anime": "Tank Chair",
       "song": "DALALA",
       "artist": "SiM",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
+      "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/tank-chair-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2072,15 +2166,230 @@
         "73204762",
         "UCZ3k79bJuQd5w9qAiH4VPwQ"
       ]
+    }
+  ],
+  "detailUrlSamples": [
+    {
+      "id": "27859",
+      "anime": "The Iceblade Sorcerer Shall Rule the World II",
+      "song": "COMPRESSION :[",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/the-iceblade-sorcerer-shall-rule-the-world-ii-ending"
     },
     {
-      "id": "us_3220",
-      "anime": "Magic Knight Rayearth (2026), Mahou Kishi Rayearth, 魔法騎士レイアース",
-      "song": "Hoshiakari, 星灯",
-      "artist": "Kawaguchi Yurina",
+      "id": "27850",
+      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
+      "song": "Hibi o Koete",
       "kind": "ED",
-      "spotify": "",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending"
+    },
+    {
+      "id": "27817",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending"
+    },
+    {
+      "id": "27823",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "Shinu ka Ikiru ka",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending"
+    },
+    {
+      "id": "27816",
+      "anime": "Chitose Is in the Ramune Bottle Part 2",
+      "song": "Saku",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening"
+    },
+    {
+      "id": "27814",
+      "anime": "A Returner's Magic Should Be Special Season 2",
+      "song": "Everlasting",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending"
+    },
+    {
+      "id": "us_3243",
+      "anime": "Detective Conan",
+      "song": "Ai de Zenbu Dakishimete Aishite",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "27821",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "SPIN",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening"
+    },
+    {
+      "id": "us_3239",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "Mabataki",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3248",
+      "anime": "Psyren",
+      "song": "ICARUS",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3222",
+      "anime": "Nia Liston: The Merciless Maiden",
+      "song": "Tokimeki Un Deux Trois♪",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3230",
+      "anime": "Aoki Denshou Welsh & Shedar",
+      "song": "I'm in you",
+      "kind": "IN",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3228",
+      "anime": "Aoki Denshou Welsh & Shedar",
+      "song": "Bokura no Mirai e",
+      "kind": "TS",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3229",
+      "anime": "Aoki Denshou Welsh & Shedar",
+      "song": "Omelette",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3238",
+      "anime": "The Apothecary Diaries Season 3",
+      "song": "AIYOU",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3244",
+      "anime": "Paws & Palaces",
+      "song": "Truly",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3233",
+      "anime": "Duel Masters LOST: Danzai no Shounen",
+      "song": "Sakujitsu",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3247",
+      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan",
+      "song": "Wo Zi Dang Shan",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3246",
+      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan",
+      "song": "Shi Xian",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3225",
+      "anime": "Choujun! Choujou-senpai",
+      "song": "Mata Ashita",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3224",
+      "anime": "Choujun! Choujou-senpai",
+      "song": "That's! Choujou",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3219",
+      "anime": "Magic Knight Rayearth (2026)",
+      "song": "Otome no Tsurugi",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "27761",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "IGNITE",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening"
+    },
+    {
+      "id": "us_3217",
+      "anime": "Tougen Anki: Nikko Kegon no Taki-hen",
+      "song": "BACKLASH",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3232",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Rewrite the Answer",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3231",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Contemporary Dance",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "26706",
+      "anime": "To You in the Beyond",
+      "song": "Housenka",
+      "kind": "IN",
+      "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka"
+    },
+    {
+      "id": "27146",
+      "anime": "Uncle's Obsession with Cute Things",
+      "song": "PAGUtto itchatte~",
+      "kind": "IN",
+      "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte"
+    },
+    {
+      "id": "us_3207",
+      "anime": "Firefly Wedding",
+      "song": "Period",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "27738",
+      "anime": "Tank Chair",
+      "song": "DALALA",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/tank-chair-opening"
+    }
+  ],
+  "usableSamples": [
+    {
+      "id": "27859",
+      "anime": "The Iceblade Sorcerer Shall Rule the World II",
+      "song": "COMPRESSION :[",
+      "artist": "Maaya Uchida",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/6Arimk70y0ryeFVMKOXNRs",
+      "apple": "https://geo.music.apple.com/album/6809174084?i=6809174155&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-ed&app=music",
+      "detailUrl": "https://aniplaylist.com/play/the-iceblade-sorcerer-shall-rule-the-world-ii-ending",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -2093,8 +2402,10 @@
         "updated_at",
         "season",
         "artists",
+        "links",
+        "platforms",
+        "preview_url",
         "song_key",
-        "song_number",
         "song_type",
         "song_type_short",
         "anime_titles",
@@ -2102,248 +2413,41 @@
         "thumbnail_hash",
         "blur_image",
         "display_artists",
+        "label",
         "short_link",
+        "status",
         "tags",
-        "web",
+        "other_link_ids",
         "unreleased",
         "objectID"
       ],
       "titleCandidates": [
-        "Hoshiakari",
-        "星灯"
+        "COMPRESSION :["
       ],
       "animeCandidates": [
-        "Magic Knight Rayearth (2026)",
-        "Mahou Kishi Rayearth",
-        "魔法騎士レイアース"
+        "The Iceblade Sorcerer Shall Rule the World II",
+        "冰剣の魔術師が世界を統べるII",
+        "Hyouken no Majutsushi ga Sekai wo Suberu II",
+        "Hyouken no Majutsushi ga Sekai wo Suberu 2nd Season"
       ],
       "artistCandidates": [
-        "24254",
-        "Kawaguchi Yurina",
-        "川口 ゆりな"
+        "245",
+        "Maaya Uchida",
+        "内田真礼",
+        "4hJl41jTq14yNuc1f3bLe6",
+        "808648654",
+        "14108225",
+        "UCG_xHIWGhBDSGDZV0PgNaXg"
       ]
-    }
-  ],
-  "detailUrlSamples": [
+    },
     {
       "id": "27850",
-      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3, Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season, Reincarnated as an Aristocrat with an Appraisal Skill Season 3, 転生貴族、鑑定スキルで成り上がる 第3期",
-      "song": "Hibi o Koete, 日々を越えて, Beyond the Past",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending"
-    },
-    {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc, Tokyo Revengers: Santen Sensou-hen, 東京リベンジャーズ 三天戦争編",
-      "song": "TRICKSTER, トリックスター",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending"
-    },
-    {
-      "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
-      "song": "Shinu ka Ikiru ka, 死ぬか生きるか, Shinukaikiruka",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending"
-    },
-    {
-      "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2, Chitose-kun wa Ramune Bin no Naka Part 2, Chiramune, Chitose-kun is Inside a Ramune Bottle, Ramune no Bin ni Shizunda Biidama no Tsuki, 千歳くんはラムネ瓶のなか 第2クール",
-      "song": "Saku, 咲く",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening"
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2, Kikansha no Mahou wa Tokubetsu desu 2nd Season, Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida, 귀환자의 마법은 특별해야 합니다, 帰還者の魔法は特別です 2期",
-      "song": "Everlasting",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending"
-    },
-    {
-      "id": "us_3243",
-      "anime": "Detective Conan, Case Closed, 名探偵コナン, Meitantei Conan",
-      "song": "Ai de Zenbu Dakishimete Aishite, 愛で全部抱きしめて愛して",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
-      "song": "SPIN",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening"
-    },
-    {
-      "id": "us_3239",
-      "anime": "Please Excuse My Younger Brothers, Uchi no Otouto-domo ga Sumimasen, うちの弟どもがすみません, Sorry About My Little Brothers, Uchioto",
-      "song": "Mabataki, まばたき",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3248",
-      "anime": "Psyren, Siren, PSYЯEN -サイレン-",
-      "song": "ICARUS",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3222",
-      "anime": "Nia Liston: The Merciless Maiden, Kyouran Reijou Nia Liston: Byoujaku Reijou ni Tensei shita Kamigoroshi no Bujin no Karei Naru Musouroku, 凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
-      "song": "Tokimeki Un Deux Trois♪, ときめきアン・ドゥ・トロワ♪",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3230",
-      "anime": "Aoki Denshou Welsh & Shedar, 蒼き伝承 ウェルシュ＆シェダー, Welsh & Shedar",
-      "song": "I'm in you",
-      "kind": "IN",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3228",
-      "anime": "Aoki Denshou Welsh & Shedar, 蒼き伝承 ウェルシュ＆シェダー, Welsh & Shedar",
-      "song": "Bokura no Mirai e, 僕らの未来へ",
-      "kind": "TS",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3229",
-      "anime": "Aoki Denshou Welsh & Shedar, 蒼き伝承 ウェルシュ＆シェダー, Welsh & Shedar",
-      "song": "Omelette, オムレツ",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3238",
-      "anime": "The Apothecary Diaries Season 3, Kusuriya no Hitorigoto 3rd Season, The Pharmacist's Monologue, Drugstore Soliloquy, 薬屋のひとりごと 第3期",
-      "song": "AIYOU",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3244",
-      "anime": "Paws & Palaces, Zi Jin: Yu Miao Fang, 紫禁·御喵房, Forbidden City: Cat Imperial Study, Paw & Palaces, On Myao Bo, 紫禁・御猫房〜紫禁城猫警備室〜",
-      "song": "Truly",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3233",
-      "anime": "Duel Masters LOST: Danzai no Shounen, Duel Masters LOST ～断罪の少年～",
-      "song": "Sakujitsu, 朔日",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3247",
-      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan, 仙逆剧场版 弑仙之战, Xian Ni Juchang Ban: Shi Xian Zhi Zhan",
-      "song": "Wo Zi Dang Shan, 我自当山",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3246",
-      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan, 仙逆剧场版 弑仙之战, Xian Ni Juchang Ban: Shi Xian Zhi Zhan",
-      "song": "Shi Xian, 弑仙",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3225",
-      "anime": "Choujun! Choujou-senpai, Super Psychic Policeman Chojo, 超巡!超条先輩",
-      "song": "Mata Ashita, またあした",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3224",
-      "anime": "Choujun! Choujou-senpai, Super Psychic Policeman Chojo, 超巡!超条先輩",
-      "song": "That's! Choujou, ザッツ！超常",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3219",
-      "anime": "Magic Knight Rayearth (2026), Mahou Kishi Rayearth, 魔法騎士レイアース",
-      "song": "Otome no Tsurugi, 乙女の剣",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "27761",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc, Tokyo Revengers: Santen Sensou-hen, 東京リベンジャーズ 三天戦争編",
-      "song": "IGNITE",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening"
-    },
-    {
-      "id": "us_3217",
-      "anime": "Tougen Anki: Nikko Kegon no Taki-hen, 桃源暗鬼 日光・華厳の滝編, Tougen Anki: Nikko Kegon Falls Arc",
-      "song": "BACKLASH",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3232",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System, Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru, The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge, 追放された転生重騎士はゲーム知識で無双する",
-      "song": "Rewrite the Answer",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3231",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System, Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru, The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge, 追放された転生重騎士はゲーム知識で無双する",
-      "song": "Contemporary Dance, コンテンポラリーダンス",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "26706",
-      "anime": "To You in the Beyond, Doko yori mo Tooi Basho ni Iru Kimi e, どこよりも遠い場所にいる君へ",
-      "song": "Housenka, 鳳仙花, Balsam",
-      "kind": "IN",
-      "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka"
-    },
-    {
-      "id": "27146",
-      "anime": "Uncle's Obsession with Cute Things, Ojisan wa Kawaii Mono ga Osuki., Pops Loves Kawaii Stuff, This Uncle Likes Cute Things, おじさんはカワイイものがお好き。, Pops Loves Kawaii Stuff, This Uncle Likes Cute Things",
-      "song": "PAGUtto itchatte~, パグっといっちゃって～",
-      "kind": "IN",
-      "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte"
-    },
-    {
-      "id": "us_3207",
-      "anime": "Firefly Wedding, Hotaru no Yomeiri, ホタルの嫁入り, Les Noces des Lucioles",
-      "song": "Period",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "27738",
-      "anime": "Tank Chair, Sensha Isu, TANK CHAIR-戦車椅子-",
-      "song": "DALALA",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/tank-chair-opening"
-    },
-    {
-      "id": "us_3220",
-      "anime": "Magic Knight Rayearth (2026), Mahou Kishi Rayearth, 魔法騎士レイアース",
-      "song": "Hoshiakari, 星灯",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    }
-  ],
-  "usableSamples": [
-    {
-      "id": "27850",
-      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3, Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season, Reincarnated as an Aristocrat with an Appraisal Skill Season 3, 転生貴族、鑑定スキルで成り上がる 第3期",
-      "song": "Hibi o Koete, 日々を越えて, Beyond the Past",
+      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
+      "song": "Hibi o Koete",
       "artist": "Akuru Yo no Hitsuji",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/46JwNeuFjEoq81yqATFUFQ",
+      "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2401,11 +2505,12 @@
     },
     {
       "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc, Tokyo Revengers: Santen Sensou-hen, 東京リベンジャーズ 三天戦争編",
-      "song": "TRICKSTER, トリックスター",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
       "artist": "go!go!vanillas",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
+      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2458,11 +2563,12 @@
     },
     {
       "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
-      "song": "Shinu ka Ikiru ka, 死ぬか生きるか, Shinukaikiruka",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "Shinu ka Ikiru ka",
       "artist": "Yuki Chiba",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2520,11 +2626,12 @@
     },
     {
       "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2, Chitose-kun wa Ramune Bin no Naka Part 2, Chiramune, Chitose-kun is Inside a Ramune Bottle, Ramune no Bin ni Shizunda Biidama no Tsuki, 千歳くんはラムネ瓶のなか 第2クール",
-      "song": "Saku, 咲く",
+      "anime": "Chitose Is in the Ramune Bottle Part 2",
+      "song": "Saku",
       "artist": "Cidergirl",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
+      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2583,11 +2690,12 @@
     },
     {
       "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2, Kikansha no Mahou wa Tokubetsu desu 2nd Season, Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida, 귀환자의 마법은 특별해야 합니다, 帰還者の魔法は特別です 2期",
+      "anime": "A Returner's Magic Should Be Special Season 2",
       "song": "Everlasting",
       "artist": "krage",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
+      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
       "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2641,11 +2749,12 @@
     },
     {
       "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE, STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE, JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE, ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE, JoJo's Bizarre Adventure: Part 7–Steel Ball Run, SBR",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
       "song": "SPIN",
       "artist": "Kroi",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
+      "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2700,11 +2809,12 @@
     },
     {
       "id": "27761",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc, Tokyo Revengers: Santen Sensou-hen, 東京リベンジャーズ 三天戦争編",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
       "song": "IGNITE",
       "artist": "JO1",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/4AAiz8MarztbqTCTMfwXYr",
+      "apple": "https://geo.music.apple.com/album/6797375185?i=6797375186&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2755,11 +2865,12 @@
     },
     {
       "id": "26706",
-      "anime": "To You in the Beyond, Doko yori mo Tooi Basho ni Iru Kimi e, どこよりも遠い場所にいる君へ",
-      "song": "Housenka, 鳳仙花, Balsam",
+      "anime": "To You in the Beyond",
+      "song": "Housenka",
       "artist": "Tota",
       "kind": "IN",
       "spotify": "https://open.spotify.com/track/4CpEbsn3QeOEmZPAjouBLO",
+      "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music",
       "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2813,11 +2924,12 @@
     },
     {
       "id": "27146",
-      "anime": "Uncle's Obsession with Cute Things, Ojisan wa Kawaii Mono ga Osuki., Pops Loves Kawaii Stuff, This Uncle Likes Cute Things, おじさんはカワイイものがお好き。, Pops Loves Kawaii Stuff, This Uncle Likes Cute Things",
-      "song": "PAGUtto itchatte~, パグっといっちゃって～",
+      "anime": "Uncle's Obsession with Cute Things",
+      "song": "PAGUtto itchatte~",
       "artist": "PAGTARO & Friends",
       "kind": "IN",
       "spotify": "https://open.spotify.com/track/4XgzvE1TYsNnyrTWy9mAa8",
+      "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music",
       "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2874,11 +2986,12 @@
     },
     {
       "id": "27738",
-      "anime": "Tank Chair, Sensha Isu, TANK CHAIR-戦車椅子-",
+      "anime": "Tank Chair",
       "song": "DALALA",
       "artist": "SiM",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
+      "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/tank-chair-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2930,11 +3043,12 @@
     },
     {
       "id": "27858",
-      "anime": "Umayuru: Full Gate!, うまゆるふるげ〜と!",
-      "song": "Shiba Haeru wa~, 芝生えるわ～, Touchin' turf lollll",
-      "artist": "Special Week (CV: Azumi Waki), Winning Ticket (CV: Yui Watanabe), Sakura Chiyono O (CV: Ruriko Noguchi), Verxina (CV: Kaya Okuno), Samson Big (CV: Miyari Nemoto), Royce and Royce (CV: Rui Tanabe), Win Variation (CV: Hika Tsukishiro), Phalaenopsis (CV: Haruna Asami), Uma Musume Pretty Derby",
+      "anime": "Umayuru: Full Gate!",
+      "song": "Shiba Haeru wa~",
+      "artist": "Special Week (CV: Azumi Waki)",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
+      "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music",
       "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2980,6 +3094,104 @@
       "artistCandidates": [
         "Various artists"
       ]
+    }
+  ],
+  "platformSamples": [
+    {
+      "id": "27859",
+      "anime": "The Iceblade Sorcerer Shall Rule the World II",
+      "song": "COMPRESSION :[",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/6Arimk70y0ryeFVMKOXNRs",
+      "apple": "https://geo.music.apple.com/album/6809174084?i=6809174155&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-ed&app=music"
+    },
+    {
+      "id": "27850",
+      "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
+      "song": "Hibi o Koete",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/46JwNeuFjEoq81yqATFUFQ",
+      "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music"
+    },
+    {
+      "id": "27817",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
+      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music"
+    },
+    {
+      "id": "27823",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "Shinu ka Ikiru ka",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music"
+    },
+    {
+      "id": "27816",
+      "anime": "Chitose Is in the Ramune Bottle Part 2",
+      "song": "Saku",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
+      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music"
+    },
+    {
+      "id": "27814",
+      "anime": "A Returner's Magic Should Be Special Season 2",
+      "song": "Everlasting",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
+      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music"
+    },
+    {
+      "id": "27821",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "SPIN",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
+      "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music"
+    },
+    {
+      "id": "27761",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "IGNITE",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/4AAiz8MarztbqTCTMfwXYr",
+      "apple": "https://geo.music.apple.com/album/6797375185?i=6797375186&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-op&app=music"
+    },
+    {
+      "id": "26706",
+      "anime": "To You in the Beyond",
+      "song": "Housenka",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/4CpEbsn3QeOEmZPAjouBLO",
+      "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music"
+    },
+    {
+      "id": "27146",
+      "anime": "Uncle's Obsession with Cute Things",
+      "song": "PAGUtto itchatte~",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/4XgzvE1TYsNnyrTWy9mAa8",
+      "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music"
+    },
+    {
+      "id": "27738",
+      "anime": "Tank Chair",
+      "song": "DALALA",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
+      "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music"
+    },
+    {
+      "id": "27858",
+      "anime": "Umayuru: Full Gate!",
+      "song": "Shiba Haeru wa~",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
+      "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music"
     }
   ]
 }

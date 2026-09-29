@@ -9,6 +9,7 @@
   "uniqueHits": 0,
   "normalized": 0,
   "withSpotify": 0,
+  "withApple": 0,
   "withDetailUrl": 0,
   "resolvedSpotify": 0,
   "unavailableDetailPages": 0,
@@ -35,5 +36,6 @@
   ],
   "normalizedSamples": [],
   "detailUrlSamples": [],
-  "usableSamples": []
+  "usableSamples": [],
+  "platformSamples": []
 }

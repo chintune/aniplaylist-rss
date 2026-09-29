@@ -9,6 +9,7 @@
   "uniqueHits": 5,
   "normalized": 5,
   "withSpotify": 1,
+  "withApple": 1,
   "withDetailUrl": 5,
   "resolvedSpotify": 1,
   "unavailableDetailPages": 0,
@@ -16,11 +17,12 @@
   "sample": [
     {
       "id": "27297",
-      "anime": "The Guy She Was Interested in Wasn't a Guy at All, Kininatteru Hito ga Otoko ja Nakatta, Kinioto, 気になってる人が男じゃなかった",
+      "anime": "The Guy She Was Interested in Wasn't a Guy at All",
       "song": "Breed",
       "artist": "Nirvana",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/5mJGLBNJM0GULqAoL5mb9C",
+      "apple": "https://music.apple.com/us/album/1586410660?i=1586410664&at=1001l384j&ct=website-the-guy-she-was-interested-in-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/the-guy-she-was-interested-in-wasnt-a-guy-at-all-opening",
       "season": "Winter 2027",
       "rawKeys": [
@@ -71,11 +73,12 @@
     },
     {
       "id": "us_3214",
-      "anime": "Kaze wo Tsugumono, 風を継ぐもの, Inherit the Winds",
-      "song": "Kaze o Tsugumono, 風を継ぐもの",
-      "artist": "Quruli, Hitsujibungaku",
+      "anime": "Kaze wo Tsugumono",
+      "song": "Kaze o Tsugumono",
+      "artist": "Quruli",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -130,11 +133,12 @@
     },
     {
       "id": "us_3215",
-      "anime": "Kaze wo Tsugumono, 風を継ぐもの, Inherit the Winds",
-      "song": "Namida no Kawa, 涙の河",
-      "artist": "Hitsujibungaku, Quruli",
+      "anime": "Kaze wo Tsugumono",
+      "song": "Namida no Kawa",
+      "artist": "Hitsujibungaku",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -189,11 +193,12 @@
     },
     {
       "id": "us_3018",
-      "anime": "Matsurika Kanriden, The Legend of Bureaucrat Matsurika, 茉莉花官吏伝",
-      "song": "Hanabanashi, 花噺",
+      "anime": "Matsurika Kanriden",
+      "song": "Hanabanashi",
       "artist": "KANA-BOON",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -240,11 +245,12 @@
     },
     {
       "id": "us_2832",
-      "anime": "ghost / Yoru no Hate, ghost／夜の果て, Ghost: Yoru no Hate",
+      "anime": "ghost / Yoru no Hate",
       "song": "Sugar",
       "artist": "Hitsujibungaku",
       "kind": "IN",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -313,11 +319,12 @@
   "normalizedSamples": [
     {
       "id": "27297",
-      "anime": "The Guy She Was Interested in Wasn't a Guy at All, Kininatteru Hito ga Otoko ja Nakatta, Kinioto, 気になってる人が男じゃなかった",
+      "anime": "The Guy She Was Interested in Wasn't a Guy at All",
       "song": "Breed",
       "artist": "Nirvana",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/5mJGLBNJM0GULqAoL5mb9C",
+      "apple": "https://music.apple.com/us/album/1586410660?i=1586410664&at=1001l384j&ct=website-the-guy-she-was-interested-in-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/the-guy-she-was-interested-in-wasnt-a-guy-at-all-opening",
       "season": "Winter 2027",
       "rawKeys": [
@@ -368,11 +375,12 @@
     },
     {
       "id": "us_3214",
-      "anime": "Kaze wo Tsugumono, 風を継ぐもの, Inherit the Winds",
-      "song": "Kaze o Tsugumono, 風を継ぐもの",
-      "artist": "Quruli, Hitsujibungaku",
+      "anime": "Kaze wo Tsugumono",
+      "song": "Kaze o Tsugumono",
+      "artist": "Quruli",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -427,11 +435,12 @@
     },
     {
       "id": "us_3215",
-      "anime": "Kaze wo Tsugumono, 風を継ぐもの, Inherit the Winds",
-      "song": "Namida no Kawa, 涙の河",
-      "artist": "Hitsujibungaku, Quruli",
+      "anime": "Kaze wo Tsugumono",
+      "song": "Namida no Kawa",
+      "artist": "Hitsujibungaku",
       "kind": "ED",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -486,11 +495,12 @@
     },
     {
       "id": "us_3018",
-      "anime": "Matsurika Kanriden, The Legend of Bureaucrat Matsurika, 茉莉花官吏伝",
-      "song": "Hanabanashi, 花噺",
+      "anime": "Matsurika Kanriden",
+      "song": "Hanabanashi",
       "artist": "KANA-BOON",
       "kind": "OP",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -537,11 +547,12 @@
     },
     {
       "id": "us_2832",
-      "anime": "ghost / Yoru no Hate, ghost／夜の果て, Ghost: Yoru no Hate",
+      "anime": "ghost / Yoru no Hate",
       "song": "Sugar",
       "artist": "Hitsujibungaku",
       "kind": "IN",
       "spotify": "",
+      "apple": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Winter 2027",
       "rawKeys": [
@@ -591,35 +602,35 @@
   "detailUrlSamples": [
     {
       "id": "27297",
-      "anime": "The Guy She Was Interested in Wasn't a Guy at All, Kininatteru Hito ga Otoko ja Nakatta, Kinioto, 気になってる人が男じゃなかった",
+      "anime": "The Guy She Was Interested in Wasn't a Guy at All",
       "song": "Breed",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/the-guy-she-was-interested-in-wasnt-a-guy-at-all-opening"
     },
     {
       "id": "us_3214",
-      "anime": "Kaze wo Tsugumono, 風を継ぐもの, Inherit the Winds",
-      "song": "Kaze o Tsugumono, 風を継ぐもの",
+      "anime": "Kaze wo Tsugumono",
+      "song": "Kaze o Tsugumono",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
       "id": "us_3215",
-      "anime": "Kaze wo Tsugumono, 風を継ぐもの, Inherit the Winds",
-      "song": "Namida no Kawa, 涙の河",
+      "anime": "Kaze wo Tsugumono",
+      "song": "Namida no Kawa",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
       "id": "us_3018",
-      "anime": "Matsurika Kanriden, The Legend of Bureaucrat Matsurika, 茉莉花官吏伝",
-      "song": "Hanabanashi, 花噺",
+      "anime": "Matsurika Kanriden",
+      "song": "Hanabanashi",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
       "id": "us_2832",
-      "anime": "ghost / Yoru no Hate, ghost／夜の果て, Ghost: Yoru no Hate",
+      "anime": "ghost / Yoru no Hate",
       "song": "Sugar",
       "kind": "IN",
       "detailUrl": "https://aniplaylist.com/hidden"
@@ -628,11 +639,12 @@
   "usableSamples": [
     {
       "id": "27297",
-      "anime": "The Guy She Was Interested in Wasn't a Guy at All, Kininatteru Hito ga Otoko ja Nakatta, Kinioto, 気になってる人が男じゃなかった",
+      "anime": "The Guy She Was Interested in Wasn't a Guy at All",
       "song": "Breed",
       "artist": "Nirvana",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/5mJGLBNJM0GULqAoL5mb9C",
+      "apple": "https://music.apple.com/us/album/1586410660?i=1586410664&at=1001l384j&ct=website-the-guy-she-was-interested-in-op&app=music",
       "detailUrl": "https://aniplaylist.com/play/the-guy-she-was-interested-in-wasnt-a-guy-at-all-opening",
       "season": "Winter 2027",
       "rawKeys": [
@@ -680,6 +692,16 @@
         "112018",
         "415"
       ]
+    }
+  ],
+  "platformSamples": [
+    {
+      "id": "27297",
+      "anime": "The Guy She Was Interested in Wasn't a Guy at All",
+      "song": "Breed",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/5mJGLBNJM0GULqAoL5mb9C",
+      "apple": "https://music.apple.com/us/album/1586410660?i=1586410664&at=1001l384j&ct=website-the-guy-she-was-interested-in-op&app=music"
     }
   ]
 }
