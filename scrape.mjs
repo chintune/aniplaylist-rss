@@ -633,17 +633,13 @@ for (const season of CFG.seasons) {
   console.log(`Normalized records with AniPlaylist detail URL: ${diag.withDetailUrl}`);
   console.log(`Spotify directly in hit: ${diag.withSpotify}`);
 
-  const usable = [];
-  for (const item of normalized) {
-    let spotify = item.spotify;
-    if (!spotify && item.detailUrl) {
-      spotify = await resolveSpotifyFromDetail(page, item);
-    }
-    if (spotify) usable.push({ ...item, spotify });
-  }
+  // v10: only trust a Spotify URL explicitly attached to this exact Algolia
+  // record's `links`/`platforms` fields. Do not scrape arbitrary Spotify URLs
+  // from detail pages, because unrelated/recommended links can leak in.
+  const usable = normalized.filter(item => !!item.spotify);
 
   diag.resolvedSpotify = usable.length;
-  console.log(`Spotify after detail resolution: ${diag.resolvedSpotify}`);
+  console.log(`Spotify links accepted from record itself: ${diag.resolvedSpotify}`);
 
   // Save a concise but rich diagnostic file.
   await fs.writeFile(
@@ -670,19 +666,8 @@ for (const season of CFG.seasons) {
     }, null, 2)
   );
 
-  let unavailableCount = 0;
-  let mismatchCount = 0;
-  for (const item of normalized) {
-    if (!item.detailUrl) continue;
-    const c = resolveCache[item.detailUrl];
-    if (!c || c.version !== 2) continue;
-    if (c.status === "unavailable") unavailableCount++;
-    if (c.status === "mismatch") mismatchCount++;
-  }
-  diag.unavailableDetailPages = unavailableCount;
-  diag.mismatchedDetailPages = mismatchCount;
-  console.log(`Validated unavailable detail pages: ${diag.unavailableDetailPages}`);
-  console.log(`Validated mismatched detail pages: ${diag.mismatchedDetailPages}`);
+  diag.unavailableDetailPages = 0;
+  diag.mismatchedDetailPages = 0;
 
   const rssItems = usable.map(x => makeRssItem(x, season));
   await fs.writeFile(
@@ -704,7 +689,7 @@ await fs.writeFile(CACHE_PATH, JSON.stringify(resolveCache, null, 2) + "\n");
 await browser.close();
 
 const summaryText = summary.map(s =>
-  `${s.season}: results=${s.resultCount ?? "?"} uniqueHits=${s.uniqueHits} normalized=${s.normalized} detailUrls=${s.withDetailUrl} directSpotify=${s.withSpotify} resolvedSpotify=${s.resolvedSpotify}`
+  `${s.season}: results=${s.resultCount ?? "?"} uniqueHits=${s.uniqueHits} normalized=${s.normalized} detailUrls=${s.withDetailUrl} directSpotify=${s.withSpotify} acceptedSpotify=${s.resolvedSpotify}`
 ).join("\n");
 
 await fs.writeFile(path.join(ROOT, "build-summary.txt"), summaryText + "\n");
