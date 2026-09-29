@@ -1,25 +1,39 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { createHash } from "node:crypto";
-import { chromium } from "playwright";
+import { chromium, request as playwrightRequest } from "playwright";
 
 const CONFIG = JSON.parse(await fs.readFile("./seasons.json", "utf8"));
 const outDir = path.resolve("./rss");
 const statePath = path.resolve("./rss-state.json");
+const resolveCachePath = path.resolve("./resolve-cache.json");
 const debugDir = path.resolve("./debug");
 
 await fs.mkdir(outDir, { recursive: true });
 await fs.mkdir(debugDir, { recursive: true });
 
-let state = {};
-try {
-  state = JSON.parse(await fs.readFile(statePath, "utf8"));
-  if (!state || typeof state !== "object" || Array.isArray(state)) state = {};
-} catch {
-  state = {};
+function loadJson(file, fallback) {
+  return fs.readFile(file, "utf8")
+    .then((text) => JSON.parse(text))
+    .catch(() => fallback);
 }
 
+let state = await loadJson(statePath, {});
+if (!state || typeof state !== "object" || Array.isArray(state)) state = {};
+
+let resolveCache = await loadJson(resolveCachePath, {});
+if (!resolveCache || typeof resolveCache !== "object" || Array.isArray(resolveCache)) resolveCache = {};
+
 const browser = await chromium.launch({ headless: true });
+const api = await playwrightRequest.newContext({
+  extraHTTPHeaders: {
+    "User-Agent": "Mozilla/5.0 (compatible; AniPlaylistRSS/3.0)",
+    "Accept-Language": "en-US,en;q=0.9",
+  },
+});
+
+const RECHECK_UNAVAILABLE_MS = 2 * 60 * 60 * 1000; // retry Spotify-unavailable items every 2h
+const RESOLVE_CONCURRENCY = 6;
 
 function slug(season) {
   return season.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -41,9 +55,9 @@ function cleanText(value) {
 const TYPE_NAMES = {
   OP: "Opening",
   ED: "Ending",
-  IN: "Insert",
+  IN: "Insert Song",
   CS: "Character Song",
-  OST: "OST",
+  OST: "Original Soundtrack",
   VA: "Vocal Album",
   IMGA: "Image Album",
   IMGS: "Image Song",
@@ -66,18 +80,37 @@ function normalizeType(raw) {
   };
 }
 
-function findType(lines) {
-  for (let i = 0; i < lines.length; i++) {
-    const line = cleanText(lines[i]);
-    if (!line) continue;
-    if (/^(OP|ED|IN|CS|OST|VA|IMGA|IMGS|TS|MV|PV)\d*(?:\s*\([^)]*\))?$/i.test(line)) {
-      return { index: i, raw: line };
-    }
-    if (/^Other(?:\s*\([^)]*\))?$/i.test(line)) {
-      return { index: i, raw: "Other" };
-    }
-  }
-  return null;
+function isTypeLine(line) {
+  const text = cleanText(line);
+  return /^(OP|ED|IN|CS|OST|VA|IMGA|IMGS|TS|MV|PV)\d*(?:\s*\([^)]*\))?$/i.test(text)
+    || /^Other(?:\s*\([^)]*\))?$/i.test(text);
+}
+
+function parseCardLines(lines) {
+  const cleaned = lines.map(cleanText).filter(Boolean);
+  if (cleaned.length < 4) return null;
+
+  const typeIndex = cleaned.findIndex(isTypeLine);
+  if (typeIndex < 1) return null;
+
+  const before = cleaned.slice(0, typeIndex);
+  const after = cleaned.slice(typeIndex + 1);
+  const byIndex = after.findIndex((line) => /^by\s+/i.test(line));
+  if (byIndex < 1) return null;
+
+  const anime = before.at(-1) || "";
+  const song = after.slice(0, byIndex).find((line) => line && !/^by\s+/i.test(line)) || "";
+  const artist = cleanText(after[byIndex].replace(/^by\s+/i, ""));
+
+  if (!anime || !song) return null;
+
+  return {
+    anime,
+    typeRaw: cleaned[typeIndex],
+    song,
+    artist,
+    unavailable: cleaned.some((line) => /not available for streaming yet/i.test(line)),
+  };
 }
 
 async function waitForResults(page) {
@@ -87,7 +120,7 @@ async function waitForResults(page) {
       { timeout: 45000 },
     );
   } catch {
-    // Keep going; some filtered states can take a different rendering path.
+    // Continue; some transient/empty filter states render without the text.
   }
 }
 
@@ -95,23 +128,23 @@ async function exhaustResults(page) {
   let stable = 0;
   let previousHeight = -1;
 
-  for (let i = 0; i < 40; i++) {
-    const height = await page.evaluate(() => document.body.scrollHeight || 0);
+  for (let i = 0; i < 50; i++) {
+    const height = await page.evaluate(() => document.body?.scrollHeight || 0);
     await page.mouse.wheel(0, 3000);
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(450);
+    const newHeight = await page.evaluate(() => document.body?.scrollHeight || 0);
 
-    const newHeight = await page.evaluate(() => document.body.scrollHeight || 0);
     if (newHeight === previousHeight && height === newHeight) stable++;
     else stable = 0;
     previousHeight = newHeight;
-
-    if (stable >= 3) break;
+    if (stable >= 4) break;
   }
 
-  for (let round = 0; round < 15; round++) {
+  for (let round = 0; round < 20; round++) {
     const clicked = await page.evaluate(() => {
-      const buttons = [...document.querySelectorAll("button, a")];
-      const target = buttons.find((el) => {
+      const clean = (s) => String(s).replace(/\s+/g, " ").trim();
+      const controls = [...document.querySelectorAll("button, a")];
+      const target = controls.find((el) => {
         const text = clean(el.textContent || "");
         const disabled = el.disabled || el.getAttribute("aria-disabled") === "true";
         return !disabled && /^(show more|load more|more|next)$/i.test(text);
@@ -119,160 +152,221 @@ async function exhaustResults(page) {
       if (!target) return false;
       target.click();
       return true;
-
-      function clean(s) {
-        return String(s).replace(/\s+/g, " ").trim();
-      }
     });
     if (!clicked) break;
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(800);
   }
 }
 
 async function extractSeason(page, season) {
   const url = `https://aniplaylist.com/?seasons=${encodeURIComponent(season)}`;
-  console.log(`\\n=== ${season} ===`);
+  console.log(`\n=== ${season} ===`);
   console.log(`Loading ${url}`);
 
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90000 });
   await waitForResults(page);
-  await page.waitForTimeout(2500);
+  await page.waitForTimeout(2000);
   await exhaustResults(page);
 
   const diagnostics = await page.evaluate(() => {
     const body = document.body?.innerText || "";
     const countMatch = body.match(/([\d,]+)\s+results found/i);
-    const spotify = [...document.querySelectorAll('a[href*="open.spotify.com/"]')]
-      .map((a) => a.href)
-      .filter((href) => /open\.spotify\.com\/(track|album)\//i.test(href));
     return {
       url: location.href,
       title: document.title,
       bodyLength: body.length,
       resultCount: countMatch ? Number(countMatch[1].replaceAll(",", "")) : null,
-      spotifyLinkCount: spotify.length,
+      playLinkCount: document.querySelectorAll('a[href*="/play/"]').length,
     };
   });
 
   console.log(`Rendered result count: ${diagnostics.resultCount ?? "unknown"}`);
-  console.log(`Spotify links in DOM: ${diagnostics.spotifyLinkCount}`);
+  console.log(`AniPlaylist play links in DOM: ${diagnostics.playLinkCount}`);
 
-  const result = await page.evaluate(() => {
+  const cards = await page.evaluate(() => {
     const clean = (s) => String(s || "").replace(/\s+/g, " ").trim();
-    const spotifyAnchors = [...document.querySelectorAll('a[href*="open.spotify.com/"]')]
-      .filter((a) => /open\.spotify\.com\/(track|album)\//i.test(a.href));
+    const isType = (line) =>
+      /^(OP|ED|IN|CS|OST|VA|IMGA|IMGS|TS|MV|PV)\d*(?:\s*\([^)]*\))?$/i.test(line)
+      || /^Other(?:\s*\([^)]*\))?$/i.test(line);
 
     const out = [];
     const seen = new Set();
 
-    const typeRe = /^(OP|ED|IN|CS|OST|VA|IMGA|IMGS|TS|MV|PV)\d*(?:\s*\([^)]*\))?$/i;
+    for (const anchor of [...document.querySelectorAll('a[href*="/play/"]')]) {
+      const href = anchor.href;
+      if (!href || !/^https?:\/\/aniplaylist\.com\/play\//i.test(href)) continue;
 
-    for (const anchor of spotifyAnchors) {
+      let chosen = null;
       let node = anchor;
-      const candidates = [];
-
-      for (let depth = 0; depth < 12 && node; depth++, node = node.parentElement) {
+      for (let depth = 0; depth < 14 && node; depth++, node = node.parentElement) {
         const lines = (node.innerText || "")
           .split(/\r?\n/)
           .map(clean)
           .filter(Boolean);
-
-        if (lines.length < 3 || lines.length > 30) continue;
-
-        let typeIndex = -1;
-        let typeRaw = "";
-        for (let i = 0; i < lines.length; i++) {
-          if (typeRe.test(lines[i]) || /^Other(?:\s*\([^)]*\))?$/i.test(lines[i])) {
-            typeIndex = i;
-            typeRaw = lines[i];
-            break;
-          }
-        }
+        if (lines.length < 4 || lines.length > 40) continue;
+        const typeIndex = lines.findIndex(isType);
         if (typeIndex < 1) continue;
-
-        const hasBy = lines.some((line) => /^by\s+/i.test(line));
-        if (!hasBy) continue;
-
-        candidates.push({ depth, lines, typeIndex, typeRaw });
+        const after = lines.slice(typeIndex + 1);
+        const byIndex = after.findIndex((line) => /^by\s+/i.test(line));
+        if (byIndex < 1) continue;
+        chosen = { lines, depth, typeIndex };
+        break;
       }
 
-      if (!candidates.length) continue;
-      candidates.sort((a, b) => a.depth - b.depth);
-      const card = candidates[0];
+      if (!chosen) continue;
+      const parsed = (() => {
+        const lines = chosen.lines;
+        const typeIndex = chosen.typeIndex;
+        const before = lines.slice(0, typeIndex);
+        const after = lines.slice(typeIndex + 1);
+        const byIndex = after.findIndex((line) => /^by\s+/i.test(line));
+        const anime = before.at(-1) || "";
+        const song = after.slice(0, byIndex).find((line) => line && !/^by\s+/i.test(line)) || "";
+        const artist = byIndex >= 0 ? clean(after[byIndex].replace(/^by\s+/i, "")) : "";
+        return {
+          anime,
+          typeRaw: lines[typeIndex],
+          song,
+          artist,
+          unavailable: lines.some((line) => /not available for streaming yet/i.test(line)),
+        };
+      })();
 
-      const before = card.lines.slice(0, card.typeIndex);
-      const after = card.lines.slice(card.typeIndex + 1);
-      const anime = before.at(-1) || "";
-      const song = after.find((line) => line && !/^by\s+/i.test(line)) || "";
-      const byLine = after.find((line) => /^by\s+/i.test(line));
-      const artist = byLine ? clean(byLine.replace(/^by\s+/i, "")) : "";
-
-      if (!anime || !song) continue;
-
-      const links = [...(nodeOrParents(card.depth, anchor)?.querySelectorAll?.("a[href]") || [])]
-        .map((a) => ({ href: a.href, text: clean(a.innerText) }));
-      const play = links.find((x) => /aniplaylist\.com\/play\//i.test(x.href));
-
-      const item = {
-        anime,
-        typeRaw: card.typeRaw,
-        song,
-        artist,
-        spotify: anchor.href,
-        aniplaylist: play?.href || "",
-      };
-
-      const sig = [item.anime, item.typeRaw, item.song, item.artist, item.spotify].join("|");
-      if (seen.has(sig)) continue;
-      seen.add(sig);
-      out.push(item);
+      if (!parsed.anime || !parsed.song) continue;
+      const key = `${href}|${parsed.typeRaw}|${parsed.song}|${parsed.artist}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push({ ...parsed, playUrl: href });
     }
 
     return out;
-
-    function nodeOrParents(depth, start) {
-      let node = start;
-      for (let i = 0; i < depth && node; i++) node = node.parentElement;
-      return node;
-    }
   });
 
-  const baseFile = path.join(debugDir, `${slug(season)}.txt`);
   const bodyText = await page.locator("body").innerText().catch(() => "");
   await fs.writeFile(
-    baseFile,
+    path.join(debugDir, `${slug(season)}.txt`),
     [
       `URL=${diagnostics.url}`,
       `TITLE=${diagnostics.title}`,
       `RESULT_COUNT=${diagnostics.resultCount ?? "unknown"}`,
-      `SPOTIFY_LINKS=${diagnostics.spotifyLinkCount}`,
-      `EXTRACTED_CARDS=${result.length}`,
+      `PLAY_LINKS=${diagnostics.playLinkCount}`,
+      `EXTRACTED_CARDS=${cards.length}`,
       "",
       bodyText,
     ].join("\n"),
     "utf8",
   );
 
-  return { diagnostics, result };
+  return { diagnostics, cards };
 }
 
-function parseItem(item) {
-  const lines = [item.anime, item.typeRaw, item.song, item.artist].map(cleanText).filter(Boolean);
-  const type = normalizeType(item.typeRaw);
-  if (!item.anime || !item.song || !item.spotify) return null;
-  return {
-    anime: item.anime,
-    type: type.code,
-    typeLabel: type.display,
-    song: item.song,
-    artist: item.artist,
-    spotify: item.spotify,
-    aniplaylist: item.aniplaylist,
+function decodeHtml(s) {
+  return String(s)
+    .replaceAll("&amp;", "&")
+    .replaceAll("&#x2F;", "/")
+    .replaceAll("&#47;", "/")
+    .replaceAll("\\/", "/")
+    .replaceAll("\\u002F", "/")
+    .replaceAll("\\u003A", ":");
+}
+
+function extractSpotifyFromHtml(html) {
+  const text = decodeHtml(html);
+  const patterns = [
+    /https?:\\?\/\\?\/open\.spotify\.com\/(?:intl-[^/]+\/)?(?:track|album)\/[A-Za-z0-9]+(?:\?[^"'<>\\s]*)?/gi,
+    /spotify:(?:track|album):([A-Za-z0-9]+)/gi,
+  ];
+
+  for (const pattern of patterns) {
+    const matches = [...text.matchAll(pattern)];
+    for (const match of matches) {
+      const value = match[0];
+      if (value.startsWith("spotify:")) {
+        const [, kind, id] = value.match(/^spotify:(track|album):([A-Za-z0-9]+)$/i) || [];
+        if (kind && id) return `https://open.spotify.com/${kind.toLowerCase()}/${id}`;
+      }
+      const normalized = value.replace(/\\\//g, "/").replace(/&amp;/g, "&");
+      if (/^https?:\/\/open\.spotify\.com\/(?:track|album)\//i.test(normalized)) return normalized;
+    }
+  }
+  return "";
+}
+
+async function resolveSpotify(playUrl, fallbackPage) {
+  const cached = resolveCache[playUrl];
+  const now = Date.now();
+  if (cached?.spotify) return cached.spotify;
+  if (cached?.checkedAt && now - new Date(cached.checkedAt).getTime() < RECHECK_UNAVAILABLE_MS) {
+    return "";
+  }
+
+  let spotify = "";
+  try {
+    const response = await api.get(playUrl, { timeout: 30000 });
+    const html = await response.text();
+    spotify = extractSpotifyFromHtml(html);
+  } catch (error) {
+    console.log(`  request failed ${playUrl}: ${error.message}`);
+  }
+
+  if (!spotify && fallbackPage) {
+    try {
+      await fallbackPage.goto(playUrl, { waitUntil: "domcontentloaded", timeout: 60000 });
+      await fallbackPage.waitForTimeout(900);
+      spotify = await fallbackPage.evaluate(() => {
+        const attrs = ["href", "data-href", "data-url", "data-spotify", "data-link"];
+        const values = [];
+        for (const el of document.querySelectorAll("a,button,[data-href],[data-url],[data-spotify],[data-link]")) {
+          for (const attr of attrs) {
+            const v = el.getAttribute?.(attr);
+            if (v) values.push(v);
+          }
+        }
+        const html = document.documentElement?.outerHTML || "";
+        values.push(html);
+        for (const raw of values) {
+          const text = String(raw).replaceAll("&amp;", "&").replaceAll("\\/", "/").replaceAll("\\u002F", "/");
+          const m = text.match(/https?:\/\/open\.spotify\.com\/(?:intl-[^/]+\/)?(track|album)\/([A-Za-z0-9]+)(?:\?[^\s"'<>]*)?/i);
+          if (m) return `https://open.spotify.com/${m[1].toLowerCase()}/${m[2]}`;
+          const s = text.match(/spotify:(track|album):([A-Za-z0-9]+)/i);
+          if (s) return `https://open.spotify.com/${s[1].toLowerCase()}/${s[2]}`;
+        }
+        return "";
+      });
+    } catch (error) {
+      console.log(`  browser fallback failed ${playUrl}: ${error.message}`);
+    }
+  }
+
+  resolveCache[playUrl] = {
+    spotify,
+    checkedAt: new Date().toISOString(),
   };
+  return spotify;
+}
+
+async function withConcurrency(items, limit, fn) {
+  const results = new Array(items.length);
+  let cursor = 0;
+
+  async function worker() {
+    while (true) {
+      const index = cursor++;
+      if (index >= items.length) return;
+      try {
+        results[index] = await fn(items[index], index);
+      } catch (error) {
+        results[index] = { error };
+      }
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, () => worker()));
+  return results;
 }
 
 function itemKey(item) {
-  const basis = [item.spotify, item.anime, item.type, item.song, item.artist]
+  const basis = [item.playUrl, item.spotify, item.anime, item.type, item.song, item.artist]
     .filter(Boolean)
     .join("|");
   return createHash("sha256").update(basis).digest("hex");
@@ -298,8 +392,8 @@ function buildRss(season, parsed) {
         `<strong>${xmlEscape(item.anime)}</strong><br>` +
         `${xmlEscape(item.typeLabel)} (${xmlEscape(item.type)}) — ${xmlEscape(item.song)}` +
         (item.artist ? `<br>by ${xmlEscape(item.artist)}` : "") +
-        (item.aniplaylist ? `<br><a href="${xmlEscape(item.aniplaylist)}">AniPlaylist</a>` : "") +
-        `<br><a href="${xmlEscape(item.spotify)}">Open on Spotify</a>`;
+        `<br><a href="${xmlEscape(item.spotify)}">Open on Spotify</a>` +
+        (item.playUrl ? `<br><a href="${xmlEscape(item.playUrl)}">AniPlaylist</a>` : "");
       const pubDate = pubDateFor(item.key).toUTCString();
 
       return [
@@ -314,8 +408,6 @@ function buildRss(season, parsed) {
     })
     .join("\n");
 
-  // Deterministic: do not use the current time here, otherwise every 30-minute
-  // poll would create a pointless git commit and redeploy.
   const latest = [...unique.values()]
     .map((item) => pubDateFor(item.key))
     .sort((a, b) => b - a)[0] || new Date(0);
@@ -326,7 +418,7 @@ function buildRss(season, parsed) {
     "  <channel>",
     `    <title>AniPlaylist — ${xmlEscape(season)}</title>`,
     `    <link>https://aniplaylist.com/?seasons=${encodeURIComponent(season)}</link>`,
-    `    <description>All Spotify-available AniPlaylist entries for ${xmlEscape(season)}.</description>`,
+    `    <description>Spotify-available AniPlaylist entries for ${xmlEscape(season)}.</description>`,
     `    <lastBuildDate>${latest.toUTCString()}</lastBuildDate>`,
     items,
     "  </channel>",
@@ -343,20 +435,59 @@ try {
   for (const season of CONFIG.seasons) {
     const page = await browser.newPage({
       viewport: { width: 1440, height: 1000 },
-      userAgent: "Mozilla/5.0 (compatible; AniPlaylistRSS/2.0)",
+      userAgent: "Mozilla/5.0 (compatible; AniPlaylistRSS/3.0)",
     });
 
     try {
-      const { diagnostics, result } = await extractSeason(page, season);
-      const parsed = result.map(parseItem).filter(Boolean);
-      const spotifyOnly = parsed.filter((x) => /open\.spotify\.com\/(track|album)\//i.test(x.spotify));
+      const { diagnostics, cards } = await extractSeason(page, season);
+      console.log(`Parsed AniPlaylist cards: ${cards.length}`);
+
+      const unresolved = cards.filter((item) => !item.unavailable && !resolveCache[item.playUrl]?.spotify);
+      console.log(`Need Spotify resolution: ${unresolved.length}`);
+
+      const fallbackPages = [];
+      for (let i = 0; i < Math.min(RESOLVE_CONCURRENCY, unresolved.length); i++) {
+        fallbackPages.push(await browser.newPage({
+          viewport: { width: 1200, height: 900 },
+          userAgent: "Mozilla/5.0 (compatible; AniPlaylistRSS/3.0)",
+        }));
+      }
+
+      try {
+        let nextFallback = 0;
+        await withConcurrency(unresolved, RESOLVE_CONCURRENCY, async (card) => {
+          const fallback = fallbackPages[nextFallback++ % Math.max(1, fallbackPages.length)] || null;
+          const spotify = await resolveSpotify(card.playUrl, fallback);
+          if (spotify) console.log(`  Spotify: ${card.anime} / ${card.typeRaw} / ${card.song}`);
+          return spotify;
+        });
+      } finally {
+        await Promise.all(fallbackPages.map((p) => p.close()));
+      }
+
+      const parsed = [];
+      for (const card of cards) {
+        if (card.unavailable) continue;
+        const spotify = resolveCache[card.playUrl]?.spotify || "";
+        if (!spotify) continue;
+        const type = normalizeType(card.typeRaw);
+        parsed.push({
+          anime: card.anime,
+          type: type.code,
+          typeLabel: type.display,
+          song: card.song,
+          artist: card.artist,
+          spotify,
+          playUrl: card.playUrl,
+        });
+      }
 
       console.log(
-        `${season}: rendered=${diagnostics.resultCount ?? "?"} spotifyLinks=${diagnostics.spotifyLinkCount} extracted=${spotifyOnly.length}`,
+        `${season}: rendered=${diagnostics.resultCount ?? "?"} cards=${cards.length} spotifyResolved=${parsed.length}`,
       );
 
       const file = path.join(outDir, `${slug(season)}.xml`);
-      await fs.writeFile(file, buildRss(season, spotifyOnly), "utf8");
+      await fs.writeFile(file, buildRss(season, parsed), "utf8");
     } catch (error) {
       console.error(`${season}: scrape failed:`, error);
       throw error;
@@ -366,6 +497,8 @@ try {
   }
 
   await fs.writeFile(statePath, `${JSON.stringify(state, null, 2)}\n`, "utf8");
+  await fs.writeFile(resolveCachePath, `${JSON.stringify(resolveCache, null, 2)}\n`, "utf8");
 } finally {
+  await api.dispose();
   await browser.close();
 }
