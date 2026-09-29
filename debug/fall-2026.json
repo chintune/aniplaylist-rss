@@ -319,6 +319,128 @@
     }
   ],
   "errors": [],
+  "thumbnailFieldSamples": [
+    {
+      "id": "27859",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/5b4a1c4f93e24d5357ed3c39b671d41549beae04.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LIHVb@Ub1NKL00#l#S%0rXD+t1cu",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "27858",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/151ac5833d3d4223d2ca2c14acb17eb978d11637.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LMHe%ft+%3cqP{I?M*tQB|wfr;RP",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "27850",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/2cb6f30bfd4c71ce77845850e1c400695166aa49.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LhIY;3?^bYf6caf5s8enW[Vtogoc",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "27817",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LED04h?14mWmD%D$t5M^$~RiX9tQ",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "27823",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/e401524581656fa101348307b5daabc8550975f7.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LEH^eY}t8wMx+DEfK8bvMfIV0}tk",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "27816",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LPLh3*~WT0IpxZt6i_ozxZtRVskC",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "27814",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LRM6C.|_kWX80L^O-pg3E1E1IURj",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "27821",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/62f935a021ce799e1890dd2bacab33a446e03999.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LRPzPz+vn3$i{0K5OsNcJUNaxGs-",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "us_3239",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LaOpn_f:.5EQ_HJBEAWbs}n+sSt1",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "us_3222",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/856dc9850369a03dcb9f7e2d0d0616f79250ee6e.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LHIDLx0J9F=y0J-5x[wz1H}at2I:",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "us_3230",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/655c3f21e24a54af50e5f742af8370ee8597a9fe.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LDGkqV}=004.00ElRQxH4TMx?bxv",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    },
+    {
+      "id": "us_3228",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/655c3f21e24a54af50e5f742af8370ee8597a9fe.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LDGkqV}=004.00ElRQxH4TMx?bxv",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": ""
+    }
+  ],
   "recordThumbnails": 0,
   "hitMeta": [
     {
