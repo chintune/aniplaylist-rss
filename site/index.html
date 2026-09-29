@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Seasonal anime music RSS feeds from AniPlaylist.">
+  <title>AniPlaylist RSS</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0d12;
+      --panel: #11151d;
+      --panel-2: #171c26;
+      --border: #252c38;
+      --text: #eef2f7;
+      --muted: #9da7b6;
+      --accent: #9d7bff;
+      --accent-2: #6f5ce7;
+      --green: #65d39a;
+      --shadow: 0 18px 50px rgba(0,0,0,.28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(157,123,255,.12), transparent 60%),
+        radial-gradient(700px 420px at 100% 0%, rgba(81,144,255,.08), transparent 58%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 64px 0 34px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      background: linear-gradient(135deg, var(--accent), #5e73f3);
+      color: white;
+      box-shadow: 0 10px 30px rgba(120, 98, 255, .28);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(17,21,29,.7);
+      color: #c9d1dc;
+      font-size: 13px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(101,211,154,.08);
+    }
+
+    main {
+      padding: 10px 0 72px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -.02em;
+    }
+
+    .section-head a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .section-head a:hover { color: var(--text); }
+
+    .feeds {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .feeds { grid-template-columns: 1fr; }
+      header { padding-top: 42px; }
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(23,28,38,.94), rgba(17,21,29,.94));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .season {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -.03em;
+    }
+
+    .status {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(101,211,154,.08);
+      color: #8fe2b5;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .status.empty {
+      background: rgba(157,123,255,.08);
+      color: #c0adff;
+    }
+
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .url {
+      margin-top: 15px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(11,13,18,.65);
+      border: 1px solid #202631;
+      color: #aeb8c7;
+      font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: flex;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 13px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: #3a4352;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      border-color: transparent;
+      color: white;
+      font-weight: 600;
+    }
+
+    .btn.secondary {
+      background: #131821;
+      color: #d5dbe4;
+    }
+
+    .notice {
+      margin-top: 24px;
+      padding: 15px 17px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(17,21,29,.7);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 0 0 38px;
+      color: #707a89;
+      font-size: 12px;
+    }
+
+    .loading {
+      color: var(--muted);
+      padding: 18px 0;
+    }
+
+    .error {
+      color: #f0a6a6;
+      padding: 18px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="mark">AP</div>
+        <div>
+          <h1>AniPlaylist RSS</h1>
+        </div>
+      </div>
+      <p class="lead">
+        Seasonal anime music feeds built from AniPlaylist. Each feed contains only entries for that season that currently have a direct Spotify link.
+      </p>
+      <div class="meta">
+        <span class="pill"><span class="dot"></span> Updates every 30 minutes</span>
+        <span class="pill">Spotify links</span>
+        <span class="pill">OP · ED · IN · OST · and more</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="section-head">
+        <h2>Season feeds</h2>
+        <a href="https://aniplaylist.com/" target="_blank" rel="noreferrer">AniPlaylist ↗</a>
+      </div>
+
+      <div id="feeds" class="feeds">
+        <div class="loading">Loading feeds…</div>
+      </div>
+
+      <div class="notice">
+        Add or remove seasons in <code>seasons.json</code>. The workflow will generate the matching RSS feed automatically.
+      </div>
+    </main>
+
+    <footer>
+      AniPlaylist RSS · Generated by GitHub Actions · Hosted on GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    const feeds = document.getElementById("feeds");
+
+    function slug(season) {
+      return season.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, ch => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+      }[ch]));
+    }
+
+    async function readFeed(url) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) return { count: null, updated: null };
+        const xml = await res.text();
+        const doc = new DOMParser().parseFromString(xml, "application/xml");
+        const items = [...doc.querySelectorAll("item")];
+        const lastBuild = doc.querySelector("lastBuildDate")?.textContent || "";
+        return {
+          count: items.length,
+          updated: lastBuild ? new Date(lastBuild) : null
+        };
+      } catch {
+        return { count: null, updated: null };
+      }
+    }
+
+    async function render() {
+      let seasons;
+      try {
+        const res = await fetch("seasons.json", { cache: "no-store" });
+        seasons = (await res.json()).seasons || [];
+      } catch {
+        feeds.innerHTML = '<div class="error">Could not load seasons.json.</div>';
+        return;
+      }
+
+      if (!seasons.length) {
+        feeds.innerHTML = '<div class="loading">No seasons configured.</div>';
+        return;
+      }
+
+      const cards = await Promise.all(seasons.map(async season => {
+        const feedUrl = `rss/${slug(season)}.xml`;
+        const data = await readFeed(feedUrl);
+        const countText = data.count == null ? "Feed unavailable" :
+          `${data.count} ${data.count === 1 ? "entry" : "entries"}`;
+        const status = data.count == null ? "Unavailable" : data.count ? "Active" : "No entries";
+        const statusClass = data.count ? "" : "empty";
+        const updated = data.updated && !Number.isNaN(data.updated.getTime())
+          ? `Updated ${data.updated.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" })}`
+          : "Waiting for data";
+
+        return `
+          <article class="card">
+            <div class="card-top">
+              <h3 class="season">${escapeHtml(season)}</h3>
+              <span class="status ${statusClass}">${status}</span>
+            </div>
+            <div class="details">
+              <span>${escapeHtml(countText)}</span>
+              <span>·</span>
+              <span>${escapeHtml(updated)}</span>
+            </div>
+            <div class="url">${escapeHtml(location.origin + location.pathname.replace(/\/?$/, "/") + feedUrl)}</div>
+            <div class="actions">
+              <a class="btn primary" href="${feedUrl}">Open RSS</a>
+              <button class="btn secondary" type="button" data-copy="${feedUrl}">Copy URL</button>
+            </div>
+          </article>
+        `;
+      }));
+
+      feeds.innerHTML = cards.join("");
+
+      feeds.querySelectorAll("[data-copy]").forEach(button => {
+        button.addEventListener("click", async () => {
+          const value = new URL(button.dataset.copy, location.href).href;
+          try {
+            await navigator.clipboard.writeText(value);
+            const old = button.textContent;
+            button.textContent = "Copied";
+            setTimeout(() => button.textContent = old, 1200);
+          } catch {
+            button.textContent = "Copy failed";
+            setTimeout(() => button.textContent = "Copy URL", 1200);
+          }
+        });
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>
