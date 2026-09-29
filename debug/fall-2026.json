@@ -23,6 +23,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/6Arimk70y0ryeFVMKOXNRs",
       "apple": "https://geo.music.apple.com/album/6809174084?i=6809174155&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/the-iceblade-sorcerer-shall-rule-the-world-ii-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -75,6 +76,61 @@
       ]
     },
     {
+      "id": "27858",
+      "anime": "Umayuru: Full Gate!",
+      "song": "Shiba Haeru wa~",
+      "artist": "Special Week (CV: Azumi Waki)",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
+      "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music",
+      "thumbnail": "",
+      "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shiba Haeru wa~",
+        "芝生えるわ～",
+        "Touchin' turf lollll"
+      ],
+      "animeCandidates": [
+        "Umayuru: Full Gate!",
+        "うまゆるふるげ〜と!"
+      ],
+      "artistCandidates": [
+        "Various artists"
+      ]
+    },
+    {
       "id": "27850",
       "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
       "song": "Hibi o Koete",
@@ -82,6 +138,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/46JwNeuFjEoq81yqATFUFQ",
       "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -145,6 +202,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
       "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -203,6 +261,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
       "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -256,70 +315,6 @@
         "1727997785",
         "1337238",
         "UCnPf2oZPzg_pxf6RzjUoCgw"
-      ]
-    },
-    {
-      "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2",
-      "song": "Saku",
-      "artist": "Cidergirl",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
-      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
-      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Saku",
-        "咲く"
-      ],
-      "animeCandidates": [
-        "Chitose Is in the Ramune Bottle Part 2",
-        "Chitose-kun wa Ramune Bin no Naka Part 2",
-        "Chiramune",
-        "Chitose-kun is Inside a Ramune Bottle",
-        "Ramune no Bin ni Shizunda Biidama no Tsuki",
-        "千歳くんはラムネ瓶のなか 第2クール"
-      ],
-      "artistCandidates": [
-        "2731",
-        "Cidergirl",
-        "CIDER GIRL",
-        "サイダーガール",
-        "CIDERGIRL",
-        "3hprFQEXS7glX1Jxxwv9Dn",
-        "1159148258",
-        "13082439",
-        "UCPsZegYUPKEsylhuz4Qs1Aw"
       ]
     }
   ],
@@ -479,6 +474,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/6Arimk70y0ryeFVMKOXNRs",
       "apple": "https://geo.music.apple.com/album/6809174084?i=6809174155&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/the-iceblade-sorcerer-shall-rule-the-world-ii-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -531,6 +527,61 @@
       ]
     },
     {
+      "id": "27858",
+      "anime": "Umayuru: Full Gate!",
+      "song": "Shiba Haeru wa~",
+      "artist": "Special Week (CV: Azumi Waki)",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
+      "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music",
+      "thumbnail": "",
+      "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shiba Haeru wa~",
+        "芝生えるわ～",
+        "Touchin' turf lollll"
+      ],
+      "animeCandidates": [
+        "Umayuru: Full Gate!",
+        "うまゆるふるげ〜と!"
+      ],
+      "artistCandidates": [
+        "Various artists"
+      ]
+    },
+    {
       "id": "27850",
       "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
       "song": "Hibi o Koete",
@@ -538,6 +589,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/46JwNeuFjEoq81yqATFUFQ",
       "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -601,6 +653,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
       "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -659,6 +712,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
       "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -722,6 +776,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
       "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -786,6 +841,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
       "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -838,61 +894,6 @@
       ]
     },
     {
-      "id": "us_3243",
-      "anime": "Detective Conan",
-      "song": "Ai de Zenbu Dakishimete Aishite",
-      "artist": "Mai Kuraki",
-      "kind": "ED",
-      "spotify": "",
-      "apple": "",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Ai de Zenbu Dakishimete Aishite",
-        "愛で全部抱きしめて愛して"
-      ],
-      "animeCandidates": [
-        "Detective Conan",
-        "Case Closed",
-        "名探偵コナン",
-        "Meitantei Conan"
-      ],
-      "artistCandidates": [
-        "6366",
-        "Mai Kuraki",
-        "倉木麻衣",
-        "4x3GOic9xXFOoOBrEMuvN9",
-        "73794923",
-        "UCIBz9tGLGRyC2MXQdIHjxwQ"
-      ]
-    },
-    {
       "id": "27821",
       "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
       "song": "SPIN",
@@ -900,6 +901,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
       "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -960,6 +962,7 @@
       "kind": "ED",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1010,58 +1013,6 @@
       ]
     },
     {
-      "id": "us_3248",
-      "anime": "Psyren",
-      "song": "ICARUS",
-      "artist": "Who-ya Extended",
-      "kind": "ED",
-      "spotify": "",
-      "apple": "",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "ICARUS"
-      ],
-      "animeCandidates": [
-        "Psyren",
-        "Siren",
-        "PSYЯEN -サイレン-"
-      ],
-      "artistCandidates": [
-        "2360",
-        "Who-ya Extended",
-        "3sE3971KYAw7t9ENx8Eqwk",
-        "1483002533",
-        "78441442",
-        "UCKTVugF8cPCt8UeGY9zUDMw"
-      ]
-    },
-    {
       "id": "us_3222",
       "anime": "Nia Liston: The Merciless Maiden",
       "song": "Tokimeki Un Deux Trois♪",
@@ -1069,6 +1020,7 @@
       "kind": "ED",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1119,6 +1071,7 @@
       "kind": "IN",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1179,6 +1132,7 @@
       "kind": "TS",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1242,6 +1196,7 @@
       "kind": "ED",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1294,60 +1249,6 @@
       ]
     },
     {
-      "id": "us_3238",
-      "anime": "The Apothecary Diaries Season 3",
-      "song": "AIYOU",
-      "artist": "Eve",
-      "kind": "ED",
-      "spotify": "",
-      "apple": "",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "AIYOU"
-      ],
-      "animeCandidates": [
-        "The Apothecary Diaries Season 3",
-        "Kusuriya no Hitorigoto 3rd Season",
-        "The Pharmacist's Monologue",
-        "Drugstore Soliloquy",
-        "薬屋のひとりごと 第3期"
-      ],
-      "artistCandidates": [
-        "1376",
-        "Eve",
-        "58oPVy7oihAEXE0Ott6JOf",
-        "1080967231",
-        "69128312",
-        "UCXW81UHV3UeWUjVMr11ov2A"
-      ]
-    },
-    {
       "id": "us_3244",
       "anime": "Paws & Palaces",
       "song": "Truly",
@@ -1355,6 +1256,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1414,6 +1316,7 @@
       "kind": "ED",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1476,6 +1379,7 @@
       "kind": "ED",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1526,6 +1430,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1576,6 +1481,7 @@
       "kind": "ED",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1626,6 +1532,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1678,6 +1585,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1725,6 +1633,115 @@
       ]
     },
     {
+      "id": "us_3248",
+      "anime": "Psyren",
+      "song": "ICARUS",
+      "artist": "Who-ya Extended",
+      "kind": "ED",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "ICARUS"
+      ],
+      "animeCandidates": [
+        "Psyren",
+        "Siren",
+        "PSYЯEN -サイレン-"
+      ],
+      "artistCandidates": [
+        "2360",
+        "Who-ya Extended",
+        "3sE3971KYAw7t9ENx8Eqwk",
+        "1483002533",
+        "78441442",
+        "UCKTVugF8cPCt8UeGY9zUDMw"
+      ]
+    },
+    {
+      "id": "us_3243",
+      "anime": "Detective Conan",
+      "song": "Ai de Zenbu Dakishimete Aishite",
+      "artist": "Mai Kuraki",
+      "kind": "ED",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Ai de Zenbu Dakishimete Aishite",
+        "愛で全部抱きしめて愛して"
+      ],
+      "animeCandidates": [
+        "Detective Conan",
+        "Case Closed",
+        "名探偵コナン",
+        "Meitantei Conan"
+      ],
+      "artistCandidates": [
+        "6366",
+        "Mai Kuraki",
+        "倉木麻衣",
+        "4x3GOic9xXFOoOBrEMuvN9",
+        "73794923",
+        "UCIBz9tGLGRyC2MXQdIHjxwQ"
+      ]
+    },
+    {
       "id": "27761",
       "anime": "Tokyo Revengers: War of the Three Titan Arc",
       "song": "IGNITE",
@@ -1732,6 +1749,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/4AAiz8MarztbqTCTMfwXYr",
       "apple": "https://geo.music.apple.com/album/6797375185?i=6797375186&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-op&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1788,6 +1806,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1837,6 +1856,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1893,6 +1913,7 @@
       "kind": "ED",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -1948,6 +1969,7 @@
       "kind": "IN",
       "spotify": "https://open.spotify.com/track/4CpEbsn3QeOEmZPAjouBLO",
       "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2007,6 +2029,7 @@
       "kind": "IN",
       "spotify": "https://open.spotify.com/track/4XgzvE1TYsNnyrTWy9mAa8",
       "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2069,6 +2092,7 @@
       "kind": "OP",
       "spotify": "",
       "apple": "",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/hidden",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2118,6 +2142,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
       "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/tank-chair-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2177,6 +2202,13 @@
       "detailUrl": "https://aniplaylist.com/play/the-iceblade-sorcerer-shall-rule-the-world-ii-ending"
     },
     {
+      "id": "27858",
+      "anime": "Umayuru: Full Gate!",
+      "song": "Shiba Haeru wa~",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1"
+    },
+    {
       "id": "27850",
       "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
       "song": "Hibi o Koete",
@@ -2212,13 +2244,6 @@
       "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending"
     },
     {
-      "id": "us_3243",
-      "anime": "Detective Conan",
-      "song": "Ai de Zenbu Dakishimete Aishite",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
       "id": "27821",
       "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
       "song": "SPIN",
@@ -2229,13 +2254,6 @@
       "id": "us_3239",
       "anime": "Please Excuse My Younger Brothers",
       "song": "Mabataki",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3248",
-      "anime": "Psyren",
-      "song": "ICARUS",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
     },
@@ -2264,13 +2282,6 @@
       "id": "us_3229",
       "anime": "Aoki Denshou Welsh & Shedar",
       "song": "Omelette",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3238",
-      "anime": "The Apothecary Diaries Season 3",
-      "song": "AIYOU",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
     },
@@ -2321,6 +2332,20 @@
       "anime": "Magic Knight Rayearth (2026)",
       "song": "Otome no Tsurugi",
       "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3248",
+      "anime": "Psyren",
+      "song": "ICARUS",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3243",
+      "anime": "Detective Conan",
+      "song": "Ai de Zenbu Dakishimete Aishite",
+      "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
@@ -2389,6 +2414,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/6Arimk70y0ryeFVMKOXNRs",
       "apple": "https://geo.music.apple.com/album/6809174084?i=6809174155&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/the-iceblade-sorcerer-shall-rule-the-world-ii-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2441,6 +2467,61 @@
       ]
     },
     {
+      "id": "27858",
+      "anime": "Umayuru: Full Gate!",
+      "song": "Shiba Haeru wa~",
+      "artist": "Special Week (CV: Azumi Waki)",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
+      "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music",
+      "thumbnail": "",
+      "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shiba Haeru wa~",
+        "芝生えるわ～",
+        "Touchin' turf lollll"
+      ],
+      "animeCandidates": [
+        "Umayuru: Full Gate!",
+        "うまゆるふるげ〜と!"
+      ],
+      "artistCandidates": [
+        "Various artists"
+      ]
+    },
+    {
       "id": "27850",
       "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
       "song": "Hibi o Koete",
@@ -2448,6 +2529,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/46JwNeuFjEoq81yqATFUFQ",
       "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2511,6 +2593,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
       "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2569,6 +2652,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
       "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2632,6 +2716,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
       "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2696,6 +2781,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
       "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2755,6 +2841,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
       "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2815,6 +2902,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/4AAiz8MarztbqTCTMfwXYr",
       "apple": "https://geo.music.apple.com/album/6797375185?i=6797375186&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-op&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2871,6 +2959,7 @@
       "kind": "IN",
       "spotify": "https://open.spotify.com/track/4CpEbsn3QeOEmZPAjouBLO",
       "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2930,6 +3019,7 @@
       "kind": "IN",
       "spotify": "https://open.spotify.com/track/4XgzvE1TYsNnyrTWy9mAa8",
       "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2992,6 +3082,7 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
       "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music",
+      "thumbnail": "",
       "detailUrl": "https://aniplaylist.com/play/tank-chair-opening",
       "season": "Fall 2026",
       "rawKeys": [
@@ -3040,60 +3131,6 @@
         "73204762",
         "UCZ3k79bJuQd5w9qAiH4VPwQ"
       ]
-    },
-    {
-      "id": "27858",
-      "anime": "Umayuru: Full Gate!",
-      "song": "Shiba Haeru wa~",
-      "artist": "Special Week (CV: Azumi Waki)",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
-      "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music",
-      "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Shiba Haeru wa~",
-        "芝生えるわ～",
-        "Touchin' turf lollll"
-      ],
-      "animeCandidates": [
-        "Umayuru: Full Gate!",
-        "うまゆるふるげ〜と!"
-      ],
-      "artistCandidates": [
-        "Various artists"
-      ]
     }
   ],
   "platformSamples": [
@@ -3104,6 +3141,14 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/6Arimk70y0ryeFVMKOXNRs",
       "apple": "https://geo.music.apple.com/album/6809174084?i=6809174155&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-ed&app=music"
+    },
+    {
+      "id": "27858",
+      "anime": "Umayuru: Full Gate!",
+      "song": "Shiba Haeru wa~",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
+      "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music"
     },
     {
       "id": "27850",
@@ -3184,14 +3229,6 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
       "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music"
-    },
-    {
-      "id": "27858",
-      "anime": "Umayuru: Full Gate!",
-      "song": "Shiba Haeru wa~",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
-      "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music"
     }
   ]
 }
