@@ -584,12 +584,85 @@ function platformButton(label, url, className) {
   return `<a class="platform ${className}" href="${htmlEscape(url)}" target="_blank" rel="noopener noreferrer"><span>${htmlEscape(label)}</span><span class="arrow">↗</span></a>`;
 }
 
+
+function extractMetaContent(html, propertyName) {
+  const tags = html.match(/<meta\b[^>]*>/gi) || [];
+
+  for (const tag of tags) {
+    const propertyMatch =
+      tag.match(/\bproperty\s*=\s*["']([^"']+)["']/i)
+      || tag.match(/\bname\s*=\s*["']([^"']+)["']/i);
+
+    if (!propertyMatch || propertyMatch[1].toLowerCase() !== propertyName.toLowerCase()) {
+      continue;
+    }
+
+    const contentMatch = tag.match(/\bcontent\s*=\s*["']([^"']+)["']/i);
+    if (contentMatch?.[1]) return contentMatch[1];
+  }
+
+  return "";
+}
+
+function normalizeImageUrl(url, baseUrl) {
+  if (!url) return "";
+  try {
+    return new URL(url, baseUrl).href;
+  } catch {
+    return "";
+  }
+}
+
+async function resolveImageFromDetail(page, item) {
+  if (!item.detailUrl || !/^https?:\/\//i.test(item.detailUrl)) return "";
+
+  // The direct record thumbnail remains preferred. The detail page is the
+  // authoritative fallback for the exact song/anime page.
+  if (item.thumbnail && /^https?:\/\//i.test(item.thumbnail)) {
+    return item.thumbnail;
+  }
+
+  try {
+    const res = await page.request.get(item.detailUrl, {
+      timeout: 30000,
+      failOnStatusCode: false,
+      headers: { "user-agent": "Mozilla/5.0" },
+    });
+
+    if (!res.ok()) return "";
+
+    const html = await res.text();
+
+    const candidates = [
+      extractMetaContent(html, "og:image"),
+      extractMetaContent(html, "twitter:image"),
+    ];
+
+    for (const candidate of candidates) {
+      const url = normalizeImageUrl(candidate, item.detailUrl);
+      if (url) return url;
+    }
+
+    // As a final fallback, use a thumbnail path embedded in the page HTML.
+    const thumbMatch = html.match(
+      /(?:https?:\/\/cdn\.aniplaylist\.com\/)?thumbnails\/([a-f0-9]+)\.(jpe?g|png|webp)/i
+    );
+
+    if (thumbMatch) {
+      const ext = thumbMatch[2].toLowerCase();
+      return `https://cdn.aniplaylist.com/thumbnails/${thumbMatch[1]}@2xl.${ext}`;
+    }
+  } catch {}
+
+  return "";
+}
+
 function buildSongPage(item, season, key) {
   const title = `[${item.kind || "Other"}] ${item.anime || "Unknown anime"}`;
   const anime = item.anime || "Unknown anime";
   const song = item.song || "Unknown song";
   const artist = item.artist || "";
-  const thumb = firstUrl(item.thumbnail);
+  const thumb = normalizeImageUrl(item.thumbnail, SITE_BASE);
   const canonical = `${SITE_BASE}/song/${key}/`;
 
   const buttons = [
@@ -1224,6 +1297,7 @@ for (const season of CFG.seasons) {
     withDetailUrl: 0,
     resolvedSpotify: 0,
     recordThumbnails: 0,
+    detailImagesResolved: 0,
     unavailableDetailPages: 0,
     mismatchedDetailPages: 0,
     sample: [],
@@ -1379,10 +1453,25 @@ for (const season of CFG.seasons) {
   // from detail pages, because unrelated/recommended links can leak in.
   const usable = normalized.filter(item => !!item.spotify || !!item.apple);
 
+  // For the small set that actually enters the RSS feed, resolve the image
+  // from the exact AniPlaylist detail page when the record did not give us a
+  // usable absolute image URL. This avoids title/card matching and guarantees
+  // the image belongs to the same song page.
+  for (const item of usable) {
+    if (!item.thumbnail || !/^https?:\/\//i.test(item.thumbnail)) {
+      const image = await resolveImageFromDetail(page, item);
+      if (image) {
+        item.thumbnail = image;
+        diag.detailImagesResolved++;
+      }
+    }
+  }
+
   diag.resolvedSpotify = usable.filter(item => !!item.spotify).length;
   console.log(`Entries accepted from record itself (Spotify or Apple Music): ${usable.length}`);
   console.log(`Spotify accepted: ${diag.resolvedSpotify}`);
   console.log(`Apple Music accepted: ${usable.filter(item => !!item.apple).length}`);
+  console.log(`Images resolved from exact AniPlaylist pages: ${diag.detailImagesResolved}`);
 
   // Save a concise but rich diagnostic file.
   await fs.writeFile(
