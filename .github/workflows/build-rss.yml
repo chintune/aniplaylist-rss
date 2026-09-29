@@ -3,69 +3,103 @@ name: Build RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/30 * * * *'
-
-concurrency:
-  group: aniplaylist-rss
-  cancel-in-progress: false
+    - cron: "*/30 * * * *"
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: 0
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.1
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
+
       - name: Setup Node
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           package-manager-cache: false
+
       - name: Install dependencies
         run: npm install
-      - name: Install Playwright Chromium
+
+      - name: Install Chromium
         run: npx playwright install --with-deps chromium
+
       - name: Build RSS
-        run: node scrape.mjs
-      - name: Persist scraper state and diagnostics
+        run: npm run build
+
+      - name: Show build summary
+        if: always()
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add rss-state.json resolve-cache.json debug/
+          echo "===== RSS BUILD SUMMARY ====="
+          if [ -f build-summary.txt ]; then cat build-summary.txt; fi
+          echo "===== DEBUG FILES ====="
+          find debug -maxdepth 2 -type f -print 2>/dev/null || true
+
+      - name: Commit state and diagnostics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state.json resolve-cache.json debug/ 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo 'No scraper state changes to commit.'
+            echo "No state/debug changes to commit."
           else
-            git commit -m 'Update AniPlaylist RSS state'
+            git commit -m "Update AniPlaylist RSS state"
             git push
           fi
-      - name: Prepare Pages site
+
+      - name: Build Pages site
         run: |
           rm -rf site
           mkdir -p site/rss
-          cp -f rss/*.xml site/rss/
+          cp -r rss/. site/rss/
           cat > site/index.html <<'HTML'
-          <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AniPlaylist RSS</title></head><body><h1>AniPlaylist RSS</h1><ul>
+          <!doctype html>
+          <html>
+          <head><meta charset="utf-8"><title>AniPlaylist RSS</title></head>
+          <body>
+          <h1>AniPlaylist RSS</h1>
+          <p>Season RSS feeds:</p>
+          <ul id="feeds"></ul>
+          <script>
+          const files = [
+            "fall-2026.xml",
+            "winter-2027.xml",
+            "spring-2027.xml",
+            "summer-2027.xml",
+            "fall-2027.xml"
+          ];
+          const ul = document.getElementById("feeds");
+          for (const f of files) {
+            const a = document.createElement("a");
+            a.href = "rss/" + f;
+            a.textContent = f;
+            const li = document.createElement("li");
+            li.appendChild(a);
+            ul.appendChild(li);
+          }
+          </script>
+          </body>
+          </html>
           HTML
-          for f in site/rss/*.xml; do name="$(basename "$f")"; printf '<li><a href="rss/%s">%s</a></li>\n' "$name" "$name" >> site/index.html; done
-          printf '</ul></body></html>\n' >> site/index.html
+
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5.0.0
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5.0.1
+
+      - name: Deploy Pages
+        uses: actions/deploy-pages@v5
