@@ -15,28 +15,22 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
-
       - name: Setup Node
         uses: actions/setup-node@v7.0.0
         with:
           node-version: 22
           package-manager-cache: false
-
       - name: Install dependencies
         run: npm install
-
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
-
       - name: Build RSS
         run: node scrape.mjs
-
       - name: Persist scraper state and diagnostics
         run: |
           git config user.name 'github-actions[bot]'
@@ -48,54 +42,29 @@ jobs:
             git commit -m 'Update AniPlaylist RSS state'
             git push
           fi
-
       - name: Prepare Pages site
         run: |
           rm -rf site
           mkdir -p site/rss
           cp -f rss/*.xml site/rss/
-
           cat > site/index.html <<'HTML'
-          <!doctype html>
-          <html lang="en">
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>AniPlaylist RSS</title>
-          </head>
-          <body>
-            <h1>AniPlaylist RSS</h1>
-            <p>Available seasonal feeds:</p>
-            <ul>
+          <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AniPlaylist RSS</title></head><body><h1>AniPlaylist RSS</h1><ul>
           HTML
-
-          for f in site/rss/*.xml; do
-            name="$(basename "$f")"
-            printf '      <li><a href="rss/%s">%s</a></li>\n' "$name" "$name" >> site/index.html
-          done
-
-          cat >> site/index.html <<'HTML'
-            </ul>
-          </body>
-          </html>
-          HTML
-
+          for f in site/rss/*.xml; do name="$(basename "$f")"; printf '<li><a href="rss/%s">%s</a></li>\n' "$name" "$name" >> site/index.html; done
+          printf '</ul></body></html>\n' >> site/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: site
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
