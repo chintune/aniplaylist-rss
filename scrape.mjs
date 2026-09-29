@@ -28,6 +28,7 @@ try {
 }
 
 const SPOTIFY_RE = /https?:\/\/open\.spotify\.com\/(?:track|album|playlist|artist)\/[A-Za-z0-9]+/i;
+const APPLE_RE = /https?:\/\/(?:geo\.)?music\.apple\.com\/[^\s"'<>]+/i;
 
 function slug(s) {
   return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -218,22 +219,59 @@ function firstAniPlaylistUrl(value, depth = 0) {
   return "";
 }
 
+function findAppleMusic(value, depth = 0) {
+  if (value == null || depth > 12) return "";
+
+  if (typeof value === "string") {
+    const match = value.match(APPLE_RE);
+    return match ? match[0].replace(/[),.;]+$/, "") : "";
+  }
+
+  if (Array.isArray(value)) {
+    for (const v of value) {
+      const found = findAppleMusic(v, depth + 1);
+      if (found) return found;
+    }
+    return "";
+  }
+
+  if (typeof value === "object") {
+    for (const [key, v] of Object.entries(value)) {
+      if (/apple|itunes/i.test(key)) {
+        const found = findAppleMusic(v, depth + 1);
+        if (found) return found;
+      }
+    }
+    for (const v of Object.values(value)) {
+      const found = findAppleMusic(v, depth + 1);
+      if (found) return found;
+    }
+  }
+
+  return "";
+}
+
 function normaliseHit(hit) {
   const titles = textListFrom(hit.titles, ["title", "name", "text"]);
   const animeTitles = textListFrom(hit.anime_titles, ["title", "name", "text"]);
   const artists = textListFrom(hit.artists, ["name", "artist", "title"]);
   const displayArtists = textListFrom(hit.display_artists, ["name", "artist", "title"]);
 
-  const song = textFrom(hit.titles, ["title", "name", "text"])
+  // AniPlaylist generally puts its preferred English/display title first.
+  // Use that single title in RSS instead of concatenating every alias.
+  const anime =
+    animeTitles[0]
+    || textFrom(hit.anime, ["title", "name", "text"])
+    || textFrom(hit.series, ["title", "name"]);
+
+  const song =
+    titles[0]
     || textFrom(hit.song_key, ["name", "title"])
     || textFrom(hit.name, ["name", "title"])
     || textFrom(hit.title, ["title", "name"]);
 
-  const anime = textFrom(hit.anime_titles, ["title", "name", "text"])
-    || textFrom(hit.anime, ["title", "name", "text"])
-    || textFrom(hit.series, ["title", "name"]);
-
-  const artist = displayArtists.join(", ") || artists.join(", ")
+  const artist = displayArtists[0]
+    || artists[0]
     || textFrom(hit.artist, ["name", "artist"]);
 
   const kind = clean(
@@ -244,6 +282,8 @@ function normaliseHit(hit) {
   );
 
   const spotify = findSpotify(hit.links) || findSpotify(hit.platforms);
+  const apple = findAppleMusic(hit.links) || findAppleMusic(hit.platforms);
+
   const detailUrl =
     firstAniPlaylistUrl(hit.web)
     || firstAniPlaylistUrl(hit.short_link)
@@ -256,6 +296,7 @@ function normaliseHit(hit) {
     artist,
     kind,
     spotify,
+    apple,
     detailUrl,
     season: textFrom(hit.season, ["name", "title"]),
     rawKeys: Object.keys(hit),
@@ -264,7 +305,6 @@ function normaliseHit(hit) {
     artistCandidates: artists,
   };
 }
-
 function normalizeForMatch(value) {
   return String(value ?? "")
     .toLowerCase()
@@ -409,17 +449,27 @@ function rssEscape(s) {
     .replace(/'/g, "&apos;");
 }
 
+function htmlEscape(s) {
+  return rssEscape(s);
+}
+
+function makePlatformHtml(label, url) {
+  return `<p><strong>${htmlEscape(label)}</strong> — <a href="${htmlEscape(url)}">Open ${htmlEscape(label)}</a></p>`;
+}
+
 function makeRssItem(item, season) {
   const kind = item.kind || "Other";
-  const title = `[${kind}] ${item.anime || "Unknown anime"} — ${item.song || "Unknown song"}`;
-  const description = [
-    item.anime ? `Anime: ${item.anime}` : "",
-    item.kind ? `Type: ${item.kind}` : "",
-    item.song ? `Song: ${item.song}` : "",
-    item.artist ? `Artist: ${item.artist}` : "",
-    `Season: ${season}`,
-  ].filter(Boolean).join("\n");
+  const title = `[${kind}] ${item.anime || "Unknown anime"}`;
 
+  const platformParts = [];
+  if (item.spotify) platformParts.push(makePlatformHtml("Spotify", item.spotify));
+  if (item.apple) platformParts.push(makePlatformHtml("Apple Music", item.apple));
+
+  const description = platformParts.join("\n")
+    || `<p>${htmlEscape(item.song || "Music entry")}</p>`;
+
+  // Keep the GUID independent of platform URLs. A later Apple/Spotify link
+  // being added must update the existing item, not create a duplicate item.
   const key = sha1([
     season,
     item.id || "",
@@ -427,7 +477,6 @@ function makeRssItem(item, season) {
     item.kind,
     item.song,
     item.artist,
-    item.spotify,
   ].join("|"));
 
   const firstSeen = state[key]?.firstSeen || new Date().toISOString();
@@ -440,7 +489,7 @@ function makeRssItem(item, season) {
   return {
     title,
     description,
-    link: item.spotify,
+    link: item.spotify || item.apple,
     guid: `aniplaylist:${key}`,
     pubDate: firstSeen,
   };
@@ -451,7 +500,7 @@ function buildRss(season, items) {
 
   const body = items.map(i => `    <item>
       <title>${rssEscape(i.title)}</title>
-      <description>${rssEscape(i.description)}</description>
+      <description><![CDATA[${i.description}]]></description>
       <link>${rssEscape(i.link)}</link>
       <guid isPermaLink="false">${rssEscape(i.guid)}</guid>
       <pubDate>${new Date(i.pubDate).toUTCString()}</pubDate>
@@ -462,13 +511,14 @@ function buildRss(season, items) {
   <channel>
     <title>${rssEscape(`AniPlaylist — ${season}`)}</title>
     <link>https://aniplaylist.com/?seasons=${encodeURIComponent(season)}</link>
-    <description>New AniPlaylist entries for ${rssEscape(season)} with Spotify links.</description>
+    <description>New AniPlaylist entries for ${rssEscape(season)} with Spotify and Apple Music links.</description>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${body}
   </channel>
 </rss>
 `;
 }
+
 
 const browser = await chromium.launch({
   headless: true,
@@ -500,6 +550,7 @@ for (const season of CFG.seasons) {
     uniqueHits: 0,
     normalized: 0,
     withSpotify: 0,
+    withApple: 0,
     withDetailUrl: 0,
     resolvedSpotify: 0,
     unavailableDetailPages: 0,
@@ -624,22 +675,29 @@ for (const season of CFG.seasons) {
   diag.normalized = normalized.length;
 
   const withSpotify = normalized.filter(x => !!x.spotify);
+  const withApple = normalized.filter(x => !!x.apple);
+  const withPlatform = normalized.filter(x => !!x.spotify || !!x.apple);
   const withDetailUrl = normalized.filter(x => !!x.detailUrl);
   console.log(`Normalized records with AniPlaylist detail URL: ${withDetailUrl.length}`);
   diag.withSpotify = withSpotify.length;
+  diag.withApple = withApple.length;
   diag.withDetailUrl = withDetailUrl.length;
 
   console.log(`Normalized records: ${diag.normalized}`);
   console.log(`Normalized records with AniPlaylist detail URL: ${diag.withDetailUrl}`);
-  console.log(`Spotify directly in hit: ${diag.withSpotify}`);
+  console.log(`Spotify links in hit: ${diag.withSpotify}`);
+  console.log(`Apple Music links in hit: ${diag.withApple}`);
+  console.log(`Entries with Spotify or Apple Music: ${withPlatform.length}`);
 
   // v10: only trust a Spotify URL explicitly attached to this exact Algolia
   // record's `links`/`platforms` fields. Do not scrape arbitrary Spotify URLs
   // from detail pages, because unrelated/recommended links can leak in.
-  const usable = normalized.filter(item => !!item.spotify);
+  const usable = normalized.filter(item => !!item.spotify || !!item.apple);
 
-  diag.resolvedSpotify = usable.length;
-  console.log(`Spotify links accepted from record itself: ${diag.resolvedSpotify}`);
+  diag.resolvedSpotify = usable.filter(item => !!item.spotify).length;
+  console.log(`Entries accepted from record itself (Spotify or Apple Music): ${usable.length}`);
+  console.log(`Spotify accepted: ${diag.resolvedSpotify}`);
+  console.log(`Apple Music accepted: ${usable.filter(item => !!item.apple).length}`);
 
   // Save a concise but rich diagnostic file.
   await fs.writeFile(
@@ -663,6 +721,14 @@ for (const season of CFG.seasons) {
         detailUrl: x.detailUrl
       })),
       usableSamples: usable.slice(0, 30),
+      platformSamples: usable.slice(0, 30).map(x => ({
+        id: x.id,
+        anime: x.anime,
+        song: x.song,
+        kind: x.kind,
+        spotify: x.spotify,
+        apple: x.apple
+      })),
     }, null, 2)
   );
 
@@ -689,7 +755,7 @@ await fs.writeFile(CACHE_PATH, JSON.stringify(resolveCache, null, 2) + "\n");
 await browser.close();
 
 const summaryText = summary.map(s =>
-  `${s.season}: results=${s.resultCount ?? "?"} uniqueHits=${s.uniqueHits} normalized=${s.normalized} detailUrls=${s.withDetailUrl} directSpotify=${s.withSpotify} acceptedSpotify=${s.resolvedSpotify}`
+  `${s.season}: results=${s.resultCount ?? "?"} uniqueHits=${s.uniqueHits} normalized=${s.normalized} spotify=${s.withSpotify} apple=${s.withApple} accepted=${s.resolvedSpotify}`
 ).join("\n");
 
 await fs.writeFile(path.join(ROOT, "build-summary.txt"), summaryText + "\n");
