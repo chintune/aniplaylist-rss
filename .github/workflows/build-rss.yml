@@ -32,14 +32,14 @@ jobs:
           node-version: 22
           package-manager-cache: false
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install Playwright
+        run: npm install --no-save playwright@1.55.0
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
       - name: Build RSS
-        run: npm run build
+        run: node scrape.mjs
 
       - name: Show build summary
         if: always()
