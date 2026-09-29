@@ -306,8 +306,9 @@ function normaliseHit(hit) {
     kind,
     spotify,
     apple,
-    thumbnail: aniplaylistThumbnail(hit.thumbnail)
-      || aniplaylistThumbnail(hit.thumbnail_hash),
+    thumbnail: findAniPlaylistThumbnail(hit.thumbnail)
+      || findAniPlaylistThumbnail(hit.thumbnail_hash)
+      || findAniPlaylistThumbnail(hit.blur_image),
     detailUrl,
     season: textFrom(hit.season, ["name", "title"]),
     rawKeys: Object.keys(hit),
@@ -461,24 +462,64 @@ function rssEscape(s) {
 }
 
 
-function aniplaylistThumbnail(value, baseUrl = "https://aniplaylist.com") {
-  if (typeof value !== "string") return "";
+function findAniPlaylistThumbnail(value, baseUrl = "https://aniplaylist.com", depth = 0) {
+  if (value == null || depth > 10) return "";
 
-  const v = value.trim();
-  if (!v) return "";
+  if (typeof value === "string") {
+    const v = value.trim();
+    if (!v || v.startsWith("data:") || v.startsWith("blob:")) return "";
 
-  if (/^https?:\/\//i.test(v)) return v;
+    // Direct CDN/image URL.
+    if (/^https?:\/\//i.test(v)) {
+      if (/cdn\.aniplaylist\.com\/thumbnails\//i.test(v) || /\.(?:jpe?g|png|webp)(?:\?|$)/i.test(v)) {
+        return v;
+      }
+      return "";
+    }
 
-  // AniPlaylist's current search records expose the thumbnail as a hash.
-  // The current site builds the CDN URL as <hash>@2xl.jpg.
-  if (/^[a-f0-9]{40,64}$/i.test(v)) {
-    return `https://cdn.aniplaylist.com/thumbnails/${v}@2xl.jpg`;
+    // AniPlaylist's current thumbnail records can expose the image as a
+    // 40-character SHA-1-like hash. The site's CDN uses @2xl.jpg.
+    if (/^[a-f0-9]{40,64}$/i.test(v)) {
+      return `https://cdn.aniplaylist.com/thumbnails/${v}@2xl.jpg`;
+    }
+
+    // Relative image URL/path.
+    if (v.startsWith("/")) {
+      try {
+        return new URL(v, baseUrl).href;
+      } catch {}
+    }
+
+    return "";
   }
 
-  if (v.startsWith("/")) {
-    try {
-      return new URL(v, baseUrl).href;
-    } catch {}
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const found = findAniPlaylistThumbnail(item, baseUrl, depth + 1);
+      if (found) return found;
+    }
+    return "";
+  }
+
+  if (typeof value === "object") {
+    // Prefer thumbnail-specific fields.
+    const preferredKeys = [
+      "url", "src", "href", "image", "thumbnail", "thumbnail_url",
+      "thumbnailUrl", "thumbnail_hash", "hash", "original", "large", "2xl"
+    ];
+
+    for (const key of preferredKeys) {
+      if (Object.prototype.hasOwnProperty.call(value, key)) {
+        const found = findAniPlaylistThumbnail(value[key], baseUrl, depth + 1);
+        if (found) return found;
+      }
+    }
+
+    // Then scan remaining nested values.
+    for (const nested of Object.values(value)) {
+      const found = findAniPlaylistThumbnail(nested, baseUrl, depth + 1);
+      if (found) return found;
+    }
   }
 
   return "";
@@ -1274,6 +1315,19 @@ for (const season of CFG.seasons) {
   diag.rawHits = hitArrays.reduce((n, a) => n + a.hits.length, 0);
   diag.uniqueHits = rawHits.length;
   diag.sample = rawHits.slice(0, 5).map(normaliseHit);
+  diag.thumbnailFieldSamples = rawHits.slice(0, 12).map(h => ({
+    id: h.objectID ?? h.id ?? "",
+    thumbnailType: Array.isArray(h.thumbnail) ? "array" : typeof h.thumbnail,
+    thumbnail: h.thumbnail,
+    thumbnailHashType: Array.isArray(h.thumbnail_hash) ? "array" : typeof h.thumbnail_hash,
+    thumbnail_hash: h.thumbnail_hash,
+    blurImageType: Array.isArray(h.blur_image) ? "array" : typeof h.blur_image,
+    blur_image: h.blur_image,
+    resolved: findAniPlaylistThumbnail(h.thumbnail)
+      || findAniPlaylistThumbnail(h.thumbnail_hash)
+      || findAniPlaylistThumbnail(h.blur_image)
+      || ""
+  }));
 
   console.log(`JSON responses: ${diag.jsonResponses}`);
   console.log(`Algolia-ish responses: ${diag.algoliaResponses}`);
