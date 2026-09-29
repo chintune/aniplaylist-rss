@@ -64,35 +64,16 @@ jobs:
 
       - name: Build Pages site
         run: |
-          rm -rf site
-          mkdir -p site/rss
-          cp -r rss/. site/rss/
-          cat > site/index.html <<'HTML'
-          <!doctype html>
-          <html>
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width,initial-scale=1">
-            <title>AniPlaylist RSS</title>
-          </head>
-          <body>
-            <h1>AniPlaylist RSS</h1>
-            <p>Season feeds generated from AniPlaylist.</p>
-            <ul>
-              <li><a href="rss/fall-2026.xml">Fall 2026</a></li>
-              <li><a href="rss/winter-2027.xml">Winter 2027</a></li>
-              <li><a href="rss/spring-2027.xml">Spring 2027</a></li>
-              <li><a href="rss/summer-2027.xml">Summer 2027</a></li>
-              <li><a href="rss/fall-2027.xml">Fall 2027</a></li>
-            </ul>
-          </body>
-          </html>
-          HTML
+          rm -rf site_build
+          mkdir -p site_build/rss
+          cp -r site/. site_build/
+          cp seasons.json site_build/seasons.json
+          cp -r rss/. site_build/rss/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: site
+          path: site_build
 
       - name: Deploy Pages
         uses: actions/deploy-pages@v5
