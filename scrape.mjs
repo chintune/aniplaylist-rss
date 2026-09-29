@@ -168,16 +168,33 @@ function findSpotify(value, depth = 0) {
   return "";
 }
 
-function firstHttpUrl(value, depth = 0) {
+function asAniPlaylistUrl(value) {
+  if (typeof value !== "string") return "";
+  const v = value.trim();
+  if (!v) return "";
+
+  if (/^https?:\/\//i.test(v)) return v;
+
+  // Current Algolia records can expose a relative `short_link`/`web` path.
+  if (v.startsWith("/")) return `https://aniplaylist.com${v}`;
+
+  // Some fields contain just the path without a leading slash.
+  if (/^[A-Za-z0-9._~!$&'()*+,;=:@%/?-]+$/.test(v) &&
+      !/^(spotify|apple|deezer|youtube):/i.test(v)) {
+    return `https://aniplaylist.com/${v}`;
+  }
+
+  return "";
+}
+
+function firstAniPlaylistUrl(value, depth = 0) {
   if (value == null || depth > 10) return "";
 
-  if (typeof value === "string") {
-    return /^https?:\/\//i.test(value) ? value : "";
-  }
+  if (typeof value === "string") return asAniPlaylistUrl(value);
 
   if (Array.isArray(value)) {
     for (const v of value) {
-      const u = firstHttpUrl(v, depth + 1);
+      const u = firstAniPlaylistUrl(v, depth + 1);
       if (u) return u;
     }
     return "";
@@ -185,7 +202,7 @@ function firstHttpUrl(value, depth = 0) {
 
   if (typeof value === "object") {
     for (const v of Object.values(value)) {
-      const u = firstHttpUrl(v, depth + 1);
+      const u = firstAniPlaylistUrl(v, depth + 1);
       if (u) return u;
     }
   }
@@ -219,7 +236,10 @@ function normaliseHit(hit) {
   );
 
   const spotify = findSpotify(hit.links) || findSpotify(hit.platforms) || findSpotify(hit);
-  const detailUrl = firstHttpUrl(hit.web) || firstHttpUrl(hit.short_link) || firstHttpUrl(hit.url);
+  const detailUrl =
+    firstAniPlaylistUrl(hit.web)
+    || firstAniPlaylistUrl(hit.short_link)
+    || firstAniPlaylistUrl(hit.url);
 
   return {
     id: clean(hit.objectID || hit.id || hit.song_key || ""),
@@ -239,31 +259,54 @@ function normaliseHit(hit) {
 
 async function resolveSpotifyFromDetail(page, item) {
   if (!item.detailUrl || !/^https?:\/\//i.test(item.detailUrl)) return "";
-  if (resolveCache[item.detailUrl]?.spotify) return resolveCache[item.detailUrl].spotify;
+
+  const key = item.detailUrl;
+  const cached = resolveCache[key];
+  if (cached && cached.spotify) return cached.spotify;
 
   try {
-    const res = await page.request.get(item.detailUrl, {
-      timeout: 30000,
-      failOnStatusCode: false,
-      headers: { "user-agent": "Mozilla/5.0" },
+    await page.goto(item.detailUrl, {
+      waitUntil: "domcontentloaded",
+      timeout: 45000,
     });
-    const html = await res.text();
-    const matches = [...html.matchAll(SPOTIFY_RE)];
-    const spotify = matches[0]?.[0] || "";
-    resolveCache[item.detailUrl] = {
-      spotify,
+
+    // AniPlaylist's detail pages hydrate their platform links after the HTML shell loads.
+    await page.waitForTimeout(1200);
+
+    const hrefs = await page.locator('a[href]').evaluateAll(as =>
+      as.map(a => a.href).filter(Boolean)
+    ).catch(() => []);
+
+    for (const href of hrefs) {
+      const m = href.match(SPOTIFY_RE);
+      if (m) {
+        resolveCache[key] = {
+          spotify: m[0],
+          checkedAt: new Date().toISOString(),
+        };
+        return m[0];
+      }
+    }
+
+    // Also inspect the rendered HTML in case the platform link is embedded in a script.
+    const html = await page.content();
+    const m = html.match(SPOTIFY_RE);
+
+    resolveCache[key] = {
+      spotify: m?.[0] || "",
       checkedAt: new Date().toISOString(),
     };
-    return spotify;
-  } catch {
-    resolveCache[item.detailUrl] = {
+
+    return m?.[0] || "";
+  } catch (e) {
+    resolveCache[key] = {
       spotify: "",
       checkedAt: new Date().toISOString(),
+      error: String(e.message || e).slice(0, 300),
     };
     return "";
   }
 }
-
 function rssEscape(s) {
   return String(s)
     .replace(/&/g, "&amp;")
@@ -364,6 +407,7 @@ for (const season of CFG.seasons) {
     uniqueHits: 0,
     normalized: 0,
     withSpotify: 0,
+    withDetailUrl: 0,
     resolvedSpotify: 0,
     sample: [],
     errors: [],
@@ -485,9 +529,13 @@ for (const season of CFG.seasons) {
   diag.normalized = normalized.length;
 
   const withSpotify = normalized.filter(x => !!x.spotify);
+  const withDetailUrl = normalized.filter(x => !!x.detailUrl);
+  console.log(`Normalized records with AniPlaylist detail URL: ${withDetailUrl.length}`);
   diag.withSpotify = withSpotify.length;
+  diag.withDetailUrl = withDetailUrl.length;
 
   console.log(`Normalized records: ${diag.normalized}`);
+  console.log(`Normalized records with AniPlaylist detail URL: ${diag.withDetailUrl}`);
   console.log(`Spotify directly in hit: ${diag.withSpotify}`);
 
   const usable = [];
@@ -516,6 +564,13 @@ for (const season of CFG.seasons) {
         count: x.hits.length,
       })),
       normalizedSamples: normalized.slice(0, 30),
+      detailUrlSamples: normalized.filter(x => x.detailUrl).slice(0, 30).map(x => ({
+        id: x.id,
+        anime: x.anime,
+        song: x.song,
+        kind: x.kind,
+        detailUrl: x.detailUrl
+      })),
       usableSamples: usable.slice(0, 30),
     }, null, 2)
   );
@@ -539,7 +594,7 @@ await fs.writeFile(CACHE_PATH, JSON.stringify(resolveCache, null, 2) + "\n");
 await browser.close();
 
 const summaryText = summary.map(s =>
-  `${s.season}: results=${s.resultCount ?? "?"} uniqueHits=${s.uniqueHits} normalized=${s.normalized} directSpotify=${s.withSpotify} resolvedSpotify=${s.resolvedSpotify}`
+  `${s.season}: results=${s.resultCount ?? "?"} uniqueHits=${s.uniqueHits} normalized=${s.normalized} detailUrls=${s.withDetailUrl} directSpotify=${s.withSpotify} resolvedSpotify=${s.resolvedSpotify}`
 ).join("\n");
 
 await fs.writeFile(path.join(ROOT, "build-summary.txt"), summaryText + "\n");
