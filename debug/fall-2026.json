@@ -1923,56 +1923,6 @@
       ]
     },
     {
-      "id": "us_3217",
-      "anime": "Tougen Anki: Nikko Kegon no Taki-hen",
-      "song": "BACKLASH",
-      "artist": "Hiromitsu Kitayama",
-      "kind": "OP",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e2d16e1909f28a17194d3cc9ae47d28b533ab1ef@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "BACKLASH"
-      ],
-      "animeCandidates": [
-        "Tougen Anki: Nikko Kegon no Taki-hen",
-        "桃源暗鬼 日光・華厳の滝編",
-        "Tougen Anki: Nikko Kegon Falls Arc"
-      ],
-      "artistCandidates": [
-        "24252",
-        "Hiromitsu Kitayama",
-        "北山宏光"
-      ]
-    },
-    {
       "id": "us_3232",
       "anime": "The Exiled Heavy Knight Knows How to Game the System",
       "song": "Rewrite the Answer",
@@ -2315,6 +2265,58 @@
         "73204762",
         "UCZ3k79bJuQd5w9qAiH4VPwQ"
       ]
+    },
+    {
+      "id": "us_3220",
+      "anime": "Magic Knight Rayearth (2026)",
+      "song": "Hoshiakari",
+      "artist": "Kawaguchi Yurina",
+      "kind": "ED",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/ab4f391fd6b2c7356a2538da3aac45cb97e0f5ee@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hoshiakari",
+        "星灯"
+      ],
+      "animeCandidates": [
+        "Magic Knight Rayearth (2026)",
+        "Mahou Kishi Rayearth",
+        "魔法騎士レイアース"
+      ],
+      "artistCandidates": [
+        "24254",
+        "Kawaguchi Yurina",
+        "川口 ゆりな"
+      ]
     }
   ],
   "detailUrlSamples": [
@@ -2480,13 +2482,6 @@
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening"
     },
     {
-      "id": "us_3217",
-      "anime": "Tougen Anki: Nikko Kegon no Taki-hen",
-      "song": "BACKLASH",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
       "id": "us_3232",
       "anime": "The Exiled Heavy Knight Knows How to Game the System",
       "song": "Rewrite the Answer",
@@ -2527,6 +2522,13 @@
       "song": "DALALA",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/tank-chair-opening"
+    },
+    {
+      "id": "us_3220",
+      "anime": "Magic Knight Rayearth (2026)",
+      "song": "Hoshiakari",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
     }
   ],
   "usableSamples": [
