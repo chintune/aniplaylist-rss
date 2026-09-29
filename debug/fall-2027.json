@@ -11,6 +11,8 @@
   "withSpotify": 0,
   "withDetailUrl": 0,
   "resolvedSpotify": 0,
+  "unavailableDetailPages": 0,
+  "mismatchedDetailPages": 0,
   "sample": [],
   "errors": [],
   "hitMeta": [

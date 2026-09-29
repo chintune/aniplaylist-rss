@@ -10,7 +10,9 @@
   "normalized": 5,
   "withSpotify": 1,
   "withDetailUrl": 5,
-  "resolvedSpotify": 5,
+  "resolvedSpotify": 1,
+  "unavailableDetailPages": 0,
+  "mismatchedDetailPages": 0,
   "sample": [
     {
       "id": "27297",
@@ -302,7 +304,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28190,
+      "nbHits": 28191,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -677,227 +679,6 @@
         "6olE6TJLqED3rqDCT0FyPh",
         "112018",
         "415"
-      ]
-    },
-    {
-      "id": "us_3214",
-      "anime": "Kaze wo Tsugumono, 風を継ぐもの, Inherit the Winds",
-      "song": "Kaze o Tsugumono, 風を継ぐもの",
-      "artist": "Quruli, Hitsujibungaku",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/2vB0EKXrPcYIshTXZFtQVP",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Winter 2027",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Kaze o Tsugumono",
-        "風を継ぐもの"
-      ],
-      "animeCandidates": [
-        "Kaze wo Tsugumono",
-        "風を継ぐもの",
-        "Inherit the Winds"
-      ],
-      "artistCandidates": [
-        "315",
-        "Quruli",
-        "26WuprsX7JRG69T0PXkze4",
-        "105025123",
-        "8018528",
-        "UCLIFRNQRDAaD5H4REYsRdmA",
-        "7233",
-        "Hitsujibungaku",
-        "羊文学",
-        "6S8w5rLsEwjN21jQeRES0n",
-        "1281384242",
-        "13290779",
-        "UCnZK-AT0Yrx8uXcFRqUy87g"
-      ]
-    },
-    {
-      "id": "us_3215",
-      "anime": "Kaze wo Tsugumono, 風を継ぐもの, Inherit the Winds",
-      "song": "Namida no Kawa, 涙の河",
-      "artist": "Hitsujibungaku, Quruli",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/2vB0EKXrPcYIshTXZFtQVP",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Winter 2027",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Namida no Kawa",
-        "涙の河"
-      ],
-      "animeCandidates": [
-        "Kaze wo Tsugumono",
-        "風を継ぐもの",
-        "Inherit the Winds"
-      ],
-      "artistCandidates": [
-        "7233",
-        "Hitsujibungaku",
-        "羊文学",
-        "6S8w5rLsEwjN21jQeRES0n",
-        "1281384242",
-        "13290779",
-        "UCnZK-AT0Yrx8uXcFRqUy87g",
-        "315",
-        "Quruli",
-        "26WuprsX7JRG69T0PXkze4",
-        "105025123",
-        "8018528",
-        "UCLIFRNQRDAaD5H4REYsRdmA"
-      ]
-    },
-    {
-      "id": "us_3018",
-      "anime": "Matsurika Kanriden, The Legend of Bureaucrat Matsurika, 茉莉花官吏伝",
-      "song": "Hanabanashi, 花噺",
-      "artist": "KANA-BOON",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/2vB0EKXrPcYIshTXZFtQVP",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Winter 2027",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Hanabanashi",
-        "花噺"
-      ],
-      "animeCandidates": [
-        "Matsurika Kanriden",
-        "The Legend of Bureaucrat Matsurika",
-        "茉莉花官吏伝"
-      ],
-      "artistCandidates": [
-        "97",
-        "KANA-BOON",
-        "3PWp9R5HvbQgxI5KBx5kVd",
-        "633973271",
-        "4726033"
-      ]
-    },
-    {
-      "id": "us_2832",
-      "anime": "ghost / Yoru no Hate, ghost／夜の果て, Ghost: Yoru no Hate",
-      "song": "Sugar",
-      "artist": "Hitsujibungaku",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/2vB0EKXrPcYIshTXZFtQVP",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Winter 2027",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Sugar"
-      ],
-      "animeCandidates": [
-        "ghost / Yoru no Hate",
-        "ghost／夜の果て",
-        "Ghost: Yoru no Hate"
-      ],
-      "artistCandidates": [
-        "7233",
-        "Hitsujibungaku",
-        "羊文学",
-        "6S8w5rLsEwjN21jQeRES0n",
-        "1281384242",
-        "13290779",
-        "UCnZK-AT0Yrx8uXcFRqUy87g"
       ]
     }
   ]

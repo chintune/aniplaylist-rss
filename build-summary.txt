@@ -1,5 +1,5 @@
-Fall 2026: results=140 uniqueHits=140 normalized=140 detailUrls=140 directSpotify=9 resolvedSpotify=140
-Winter 2027: results=5 uniqueHits=5 normalized=5 detailUrls=5 directSpotify=1 resolvedSpotify=5
+Fall 2026: results=140 uniqueHits=140 normalized=140 detailUrls=140 directSpotify=9 resolvedSpotify=9
+Winter 2027: results=5 uniqueHits=5 normalized=5 detailUrls=5 directSpotify=1 resolvedSpotify=1
 Spring 2027: results=? uniqueHits=0 normalized=0 detailUrls=0 directSpotify=0 resolvedSpotify=0
 Summer 2027: results=? uniqueHits=0 normalized=0 detailUrls=0 directSpotify=0 resolvedSpotify=0
 Fall 2027: results=? uniqueHits=0 normalized=0 detailUrls=0 directSpotify=0 resolvedSpotify=0
