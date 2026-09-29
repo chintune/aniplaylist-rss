@@ -32,8 +32,8 @@ jobs:
           node-version: 22
           package-manager-cache: false
 
-      - name: Install Playwright
-        run: npm install --no-save playwright@1.55.0
+      - name: Install dependencies
+        run: npm install
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
@@ -45,15 +45,16 @@ jobs:
         if: always()
         run: |
           echo "===== RSS BUILD SUMMARY ====="
-          if [ -f build-summary.txt ]; then cat build-summary.txt; fi
+          cat build-summary.txt 2>/dev/null || true
           echo "===== DEBUG FILES ====="
-          find debug -maxdepth 2 -type f -print 2>/dev/null || true
+          find debug -maxdepth 1 -type f -print 2>/dev/null || true
 
       - name: Commit state and diagnostics
+        if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state.json resolve-cache.json debug/ 2>/dev/null || true
+          git add state.json resolve-cache.json debug/ build-summary.txt
           if git diff --cached --quiet; then
             echo "No state/debug changes to commit."
           else
@@ -69,29 +70,21 @@ jobs:
           cat > site/index.html <<'HTML'
           <!doctype html>
           <html>
-          <head><meta charset="utf-8"><title>AniPlaylist RSS</title></head>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+            <title>AniPlaylist RSS</title>
+          </head>
           <body>
-          <h1>AniPlaylist RSS</h1>
-          <p>Season RSS feeds:</p>
-          <ul id="feeds"></ul>
-          <script>
-          const files = [
-            "fall-2026.xml",
-            "winter-2027.xml",
-            "spring-2027.xml",
-            "summer-2027.xml",
-            "fall-2027.xml"
-          ];
-          const ul = document.getElementById("feeds");
-          for (const f of files) {
-            const a = document.createElement("a");
-            a.href = "rss/" + f;
-            a.textContent = f;
-            const li = document.createElement("li");
-            li.appendChild(a);
-            ul.appendChild(li);
-          }
-          </script>
+            <h1>AniPlaylist RSS</h1>
+            <p>Season feeds generated from AniPlaylist.</p>
+            <ul>
+              <li><a href="rss/fall-2026.xml">Fall 2026</a></li>
+              <li><a href="rss/winter-2027.xml">Winter 2027</a></li>
+              <li><a href="rss/spring-2027.xml">Spring 2027</a></li>
+              <li><a href="rss/summer-2027.xml">Summer 2027</a></li>
+              <li><a href="rss/fall-2027.xml">Fall 2027</a></li>
+            </ul>
           </body>
           </html>
           HTML
