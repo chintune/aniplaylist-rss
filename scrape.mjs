@@ -306,7 +306,8 @@ function normaliseHit(hit) {
     kind,
     spotify,
     apple,
-    thumbnail: firstUrl(hit.thumbnail),
+    thumbnail: aniplaylistThumbnail(hit.thumbnail)
+      || aniplaylistThumbnail(hit.thumbnail_hash),
     detailUrl,
     season: textFrom(hit.season, ["name", "title"]),
     rawKeys: Object.keys(hit),
@@ -457,6 +458,30 @@ function rssEscape(s) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
+}
+
+
+function aniplaylistThumbnail(value, baseUrl = "https://aniplaylist.com") {
+  if (typeof value !== "string") return "";
+
+  const v = value.trim();
+  if (!v) return "";
+
+  if (/^https?:\/\//i.test(v)) return v;
+
+  // AniPlaylist's current search records expose the thumbnail as a hash.
+  // The current site builds the CDN URL as <hash>@2xl.jpg.
+  if (/^[a-f0-9]{40,64}$/i.test(v)) {
+    return `https://cdn.aniplaylist.com/thumbnails/${v}@2xl.jpg`;
+  }
+
+  if (v.startsWith("/")) {
+    try {
+      return new URL(v, baseUrl).href;
+    } catch {}
+  }
+
+  return "";
 }
 
 function firstUrl(value, depth = 0) {
@@ -1265,6 +1290,7 @@ for (const season of CFG.seasons) {
   const withApple = normalized.filter(x => !!x.apple);
   const withPlatform = normalized.filter(x => !!x.spotify || !!x.apple);
   const withDetailUrl = normalized.filter(x => !!x.detailUrl);
+  diag.recordThumbnails = normalized.filter(x => !!x.thumbnail).length;
   console.log(`Normalized records with AniPlaylist detail URL: ${withDetailUrl.length}`);
   diag.withSpotify = withSpotify.length;
   diag.withApple = withApple.length;
