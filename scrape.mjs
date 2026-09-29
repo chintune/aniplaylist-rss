@@ -7,11 +7,20 @@ const ROOT = process.cwd();
 const CFG = JSON.parse(await fs.readFile(path.join(ROOT, "seasons.json"), "utf8"));
 const RSS_DIR = path.join(ROOT, "rss");
 const DEBUG_DIR = path.join(ROOT, "debug");
+const SITE_DIR = path.join(ROOT, "site");
+const SONGS_DIR = path.join(SITE_DIR, "song");
+const BROWSE_DIR = path.join(SITE_DIR, "browse");
 const STATE_PATH = path.join(ROOT, "state.json");
 const CACHE_PATH = path.join(ROOT, "resolve-cache.json");
 
 await fs.mkdir(RSS_DIR, { recursive: true });
 await fs.mkdir(DEBUG_DIR, { recursive: true });
+await fs.mkdir(SONGS_DIR, { recursive: true });
+await fs.mkdir(BROWSE_DIR, { recursive: true });
+
+const SITE_BASE = String(
+  process.env.SITE_BASE || "https://chintune.github.io/aniplaylist-rss"
+).replace(/\/$/, "");
 
 let state = {};
 let resolveCache = {};
@@ -297,6 +306,7 @@ function normaliseHit(hit) {
     kind,
     spotify,
     apple,
+    thumbnail: firstUrl(hit.thumbnail),
     detailUrl,
     season: textFrom(hit.season, ["name", "title"]),
     rawKeys: Object.keys(hit),
@@ -449,6 +459,265 @@ function rssEscape(s) {
     .replace(/'/g, "&apos;");
 }
 
+function firstUrl(value, depth = 0) {
+  if (value == null || depth > 8) return "";
+  if (typeof value === "string") {
+    return /^https?:\/\//i.test(value) ? value.trim() : "";
+  }
+  if (Array.isArray(value)) {
+    for (const v of value) {
+      const u = firstUrl(v, depth + 1);
+      if (u) return u;
+    }
+    return "";
+  }
+  if (typeof value === "object") {
+    for (const v of Object.values(value)) {
+      const u = firstUrl(v, depth + 1);
+      if (u) return u;
+    }
+  }
+  return "";
+}
+
+function prettyKind(kind) {
+  const map = {
+    OP: "Opening",
+    ED: "Ending",
+    IN: "Insert",
+    OST: "OST",
+    CS: "Character Song",
+    VA: "Vocal Album",
+    IMGA: "Image Album",
+    IMGS: "Image Song",
+    TS: "Theme Song",
+    MV: "Music Video",
+    PV: "PV Song",
+  };
+  return map[String(kind || "").toUpperCase()] || kind || "Other";
+}
+
+function platformButton(label, url, className) {
+  if (!url) return "";
+  return `<a class="platform ${className}" href="${htmlEscape(url)}" target="_blank" rel="noopener noreferrer"><span>${htmlEscape(label)}</span><span class="arrow">↗</span></a>`;
+}
+
+function buildSongPage(item, season, key) {
+  const title = `[${item.kind || "Other"}] ${item.anime || "Unknown anime"}`;
+  const anime = item.anime || "Unknown anime";
+  const song = item.song || "Unknown song";
+  const artist = item.artist || "";
+  const thumb = firstUrl(item.thumbnail);
+  const canonical = `${SITE_BASE}/song/${key}/`;
+
+  const buttons = [
+    platformButton("Spotify", item.spotify, "spotify"),
+    platformButton("Apple Music", item.apple, "apple"),
+  ].filter(Boolean).join("\n");
+
+  const image = thumb
+    ? `<img class="cover" src="${htmlEscape(thumb)}" alt="" loading="eager">`
+    : `<div class="cover fallback">♪</div>`;
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d12">
+  <title>${htmlEscape(title)} — AniPlaylist RSS</title>
+  <meta name="description" content="${htmlEscape(`${anime} · ${song}${artist ? ` · ${artist}` : ""} · ${prettyKind(item.kind)}`)}">
+  <link rel="canonical" href="${htmlEscape(canonical)}">
+
+  <meta property="og:type" content="music.song">
+  <meta property="og:title" content="${htmlEscape(title)}">
+  <meta property="og:description" content="${htmlEscape(`${song}${artist ? ` · ${artist}` : ""} · ${prettyKind(item.kind)} · ${season}`)}">
+  <meta property="og:url" content="${htmlEscape(canonical)}">
+  ${thumb ? `<meta property="og:image" content="${htmlEscape(thumb)}">` : ""}
+  <meta property="og:site_name" content="AniPlaylist RSS">
+
+  <meta name="twitter:card" content="${thumb ? "summary_large_image" : "summary"}">
+  <meta name="twitter:title" content="${htmlEscape(title)}">
+  <meta name="twitter:description" content="${htmlEscape(`${song}${artist ? ` · ${artist}` : ""} · ${prettyKind(item.kind)} · ${season}`)}">
+  ${thumb ? `<meta name="twitter:image" content="${htmlEscape(thumb)}">` : ""}
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0d12;
+      --panel: #131821;
+      --border: #272f3b;
+      --text: #f2f5f9;
+      --muted: #9ca6b5;
+      --purple: #8e72ff;
+      --green: #5fd39b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(700px 420px at 0% 0%, rgba(142,114,255,.14), transparent 60%),
+        radial-gradient(600px 400px at 100% 100%, rgba(95,211,155,.06), transparent 60%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .card {
+      width: min(520px, 100%);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: rgba(19,24,33,.96);
+      box-shadow: 0 26px 80px rgba(0,0,0,.35);
+    }
+
+    .hero {
+      aspect-ratio: 16 / 9;
+      background: #171d27;
+      overflow: hidden;
+    }
+
+    .cover {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .cover.fallback {
+      display: grid;
+      place-items: center;
+      font-size: 72px;
+      color: #7563d2;
+    }
+
+    .content {
+      padding: 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(142,114,255,.12);
+      color: #c2b5ff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      margin: 15px 0 0;
+      font-size: clamp(24px, 5vw, 32px);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+
+    .song {
+      margin: 10px 0 0;
+      font-size: 17px;
+      color: #d7dde6;
+    }
+
+    .artist {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .platforms {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .platform {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 50px;
+      padding: 0 15px;
+      border-radius: 13px;
+      text-decoration: none;
+      font-weight: 700;
+      color: white;
+      transition: transform .15s ease, filter .15s ease;
+    }
+
+    .platform:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .platform.spotify {
+      background: linear-gradient(135deg, #1f9d61, #1db954);
+    }
+
+    .platform.apple {
+      background: linear-gradient(135deg, #eb5b78, #ff2f58);
+    }
+
+    .arrow {
+      font-size: 18px;
+      opacity: .85;
+    }
+
+    .source {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: #788394;
+      font-size: 12px;
+    }
+
+    .source a {
+      color: #a9b2bf;
+      text-decoration: none;
+    }
+
+    .source a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="hero">${image}</div>
+    <div class="content">
+      <div class="badge">${htmlEscape(prettyKind(item.kind))}</div>
+      <h1>${htmlEscape(anime)}</h1>
+      <div class="song">${htmlEscape(song)}</div>
+      ${artist ? `<div class="artist">${htmlEscape(artist)}</div>` : ""}
+      <div class="meta">${htmlEscape(season)}</div>
+
+      <div class="platforms">
+        ${buttons}
+      </div>
+
+      <div class="source">
+        <span>AniPlaylist RSS</span>
+        <a href="https://aniplaylist.com/" target="_blank" rel="noopener noreferrer">Source ↗</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>`;
+}
+
 function htmlEscape(s) {
   return rssEscape(s);
 }
@@ -457,19 +726,312 @@ function makePlatformHtml(label, url) {
   return `<p><strong>${htmlEscape(label)}</strong> — <a href="${htmlEscape(url)}">Open ${htmlEscape(label)}</a></p>`;
 }
 
-function makeRssItem(item, season) {
+function browsePlatformButton(label, url, className) {
+  if (!url) return "";
+  return `<a class="platform ${className}" href="${htmlEscape(url)}" target="_blank" rel="noopener noreferrer">${htmlEscape(label)} ↗</a>`;
+}
+
+function buildBrowsePage(season, items) {
+  const slugSeason = slug(season);
+  const feedUrl = `${SITE_BASE}/rss/${slugSeason}.xml`;
+
+  const cards = items
+    .slice()
+    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
+    .map((item, index) => {
+      const image = item.thumbnail
+        ? `<img src="${htmlEscape(item.thumbnail)}" alt="" loading="${index < 4 ? "eager" : "lazy"}">`
+        : `<div class="cover-fallback">♪</div>`;
+
+      const platforms = [
+        browsePlatformButton("Spotify", item.spotify, "spotify"),
+        browsePlatformButton("Apple Music", item.apple, "apple"),
+      ].filter(Boolean).join("\n");
+
+      const dateText = Number.isFinite(new Date(item.pubDate).getTime())
+        ? new Date(item.pubDate).toLocaleDateString("en", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })
+        : "";
+
+      return `
+        <article class="song-card">
+          <div class="rank">${index + 1}</div>
+          <div class="art">${image}</div>
+          <div class="song-main">
+            <div class="song-head">
+              <span class="kind">${htmlEscape(item.kind || "Other")}</span>
+              <span class="date">${htmlEscape(dateText)}</span>
+            </div>
+            <h2>${htmlEscape(item.anime || "Unknown anime")}</h2>
+            <div class="song-title">${htmlEscape(item.song || "Unknown song")}</div>
+            ${item.artist ? `<div class="artist">${htmlEscape(item.artist)}</div>` : ""}
+            <div class="platforms">${platforms}</div>
+            <a class="details" href="${SITE_BASE}/song/${htmlEscape(item.key)}/">Song page ↗</a>
+          </div>
+        </article>
+      `;
+    }).join("\n");
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d12">
+  <title>${htmlEscape(`AniPlaylist RSS — ${season}`)}</title>
+  <meta name="description" content="${htmlEscape(`AniPlaylist ${season} releases with Spotify and Apple Music links.`)}">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0d12;
+      --panel: #121720;
+      --panel-2: #171d28;
+      --border: #262e3b;
+      --text: #eef2f7;
+      --muted: #9da7b5;
+      --accent: #9d7bff;
+      --green: #5fd39b;
+      --apple: #ff4f73;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(850px 450px at 0% -5%, rgba(157,123,255,.13), transparent 60%),
+        radial-gradient(650px 430px at 100% 20%, rgba(95,211,155,.05), transparent 62%),
+        var(--bg);
+    }
+    .wrap { width: min(980px, calc(100% - 28px)); margin: 0 auto; }
+    header { padding: 48px 0 24px; }
+    .back {
+      display: inline-flex;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .back:hover { color: var(--text); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(157,123,255,.10);
+      color: #c5b8ff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+    h1 {
+      margin: 14px 0 0;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .sub {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+    .top-actions a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 13px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: #dbe1e9;
+      background: #131821;
+      font-size: 13px;
+    }
+    .top-actions a.primary {
+      background: linear-gradient(135deg, #735edf, #9d7bff);
+      color: white;
+      border-color: transparent;
+      font-weight: 600;
+    }
+    main { padding: 6px 0 56px; }
+    .song-list {
+      display: grid;
+      gap: 13px;
+    }
+    .song-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 34px 118px minmax(0, 1fr);
+      gap: 14px;
+      align-items: stretch;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(23,29,40,.96), rgba(18,23,32,.96));
+      box-shadow: 0 14px 45px rgba(0,0,0,.18);
+      overflow: hidden;
+    }
+    .rank {
+      align-self: start;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: #1a202b;
+      color: #8994a4;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .art {
+      width: 118px;
+      height: 118px;
+      border-radius: 13px;
+      overflow: hidden;
+      background: #1a202b;
+    }
+    .art img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .cover-fallback {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: #7565d0;
+      font-size: 44px;
+      background: linear-gradient(145deg, #171d28, #20263a);
+    }
+    .song-main { min-width: 0; }
+    .song-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+    .kind {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(95,211,155,.09);
+      color: #8be0b3;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .date {
+      color: #737e8d;
+      font-size: 11px;
+    }
+    h2 {
+      margin: 8px 0 0;
+      font-size: clamp(17px, 2.3vw, 22px);
+      line-height: 1.15;
+      letter-spacing: -.025em;
+    }
+    .song-title {
+      margin-top: 6px;
+      color: #d9dee6;
+      font-size: 15px;
+      line-height: 1.35;
+    }
+    .artist {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 13px;
+    }
+    .platform {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 11px;
+      border-radius: 9px;
+      text-decoration: none;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .platform.spotify { background: #1db954; }
+    .platform.apple { background: linear-gradient(135deg, #ff496b, #d9438a); }
+    .details {
+      display: inline-block;
+      margin-top: 9px;
+      color: #7e8999;
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .details:hover { color: var(--text); }
+    footer {
+      padding-bottom: 34px;
+      color: #687383;
+      font-size: 12px;
+    }
+    @media (max-width: 680px) {
+      .song-card { grid-template-columns: 28px 92px minmax(0,1fr); gap: 11px; }
+      .art { width: 92px; height: 92px; }
+      .rank { width: 25px; height: 25px; }
+    }
+    @media (max-width: 500px) {
+      .song-card { grid-template-columns: 26px 78px minmax(0,1fr); }
+      .art { width: 78px; height: 78px; }
+      h2 { font-size: 16px; }
+      .song-title { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="back" href="${SITE_BASE}/">← All seasons</a>
+      <div class="eyebrow">AniPlaylist RSS</div>
+      <h1>${htmlEscape(season)}</h1>
+      <div class="sub">${items.length} ${items.length === 1 ? "release" : "releases"} · newest first</div>
+      <div class="top-actions">
+        <a class="primary" href="${feedUrl}">RSS feed ↗</a>
+        <a href="https://aniplaylist.com/?seasons=${encodeURIComponent(season)}" target="_blank" rel="noopener noreferrer">AniPlaylist ↗</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="song-list">
+        ${cards || `<div style="padding:24px;color:#9da7b5;border:1px solid #262e3b;border-radius:16px;background:#121720;">No Spotify or Apple Music entries yet.</div>`}
+      </div>
+    </main>
+
+    <footer>AniPlaylist RSS · ${htmlEscape(season)}</footer>
+  </div>
+</body>
+</html>`;
+}
+
+function buildBrowseRedirectPage(season, items) {
+  // Kept as a separate helper so future layouts can be swapped without
+  // changing RSS generation.
+  return buildBrowsePage(season, items);
+}
+
+async function makeRssItem(item, season) {
   const kind = item.kind || "Other";
   const title = `[${kind}] ${item.anime || "Unknown anime"}`;
 
-  const platformParts = [];
-  if (item.spotify) platformParts.push(makePlatformHtml("Spotify", item.spotify));
-  if (item.apple) platformParts.push(makePlatformHtml("Apple Music", item.apple));
-
-  const description = platformParts.join("\n")
-    || `<p>${htmlEscape(item.song || "Music entry")}</p>`;
-
-  // Keep the GUID independent of platform URLs. A later Apple/Spotify link
-  // being added must update the existing item, not create a duplicate item.
   const key = sha1([
     season,
     item.id || "",
@@ -486,14 +1048,39 @@ function makeRssItem(item, season) {
     ...item,
   };
 
+  const relativePage = `song/${key}/`;
+  const pageDir = path.join(SITE_DIR, relativePage);
+  await fs.mkdir(pageDir, { recursive: true });
+  await fs.writeFile(
+    path.join(pageDir, "index.html"),
+    buildSongPage(item, season, key)
+  );
+
+  const pageUrl = `${SITE_BASE}/${relativePage}`;
+
+  const descriptionLines = [
+    item.song ? `Song: ${item.song}` : "",
+    item.artist ? `Artist: ${item.artist}` : "",
+    `Open the item page for Spotify and Apple Music.`,
+  ].filter(Boolean);
+
   return {
     title,
-    description,
-    link: item.spotify || item.apple,
+    description: descriptionLines.join("\n"),
+    link: pageUrl,
     guid: `aniplaylist:${key}`,
     pubDate: firstSeen,
+    key,
+    anime: item.anime,
+    song: item.song,
+    artist: item.artist,
+    kind: item.kind,
+    thumbnail: item.thumbnail,
+    spotify: item.spotify,
+    apple: item.apple,
   };
 }
+
 
 function buildRss(season, items) {
   items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
@@ -511,7 +1098,7 @@ function buildRss(season, items) {
   <channel>
     <title>${rssEscape(`AniPlaylist — ${season}`)}</title>
     <link>https://aniplaylist.com/?seasons=${encodeURIComponent(season)}</link>
-    <description>New AniPlaylist entries for ${rssEscape(season)} with Spotify and Apple Music links.</description>
+    <description>New AniPlaylist entries for ${rssEscape(season)}. Each item links to a page with Spotify and Apple Music options.</description>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${body}
   </channel>
@@ -735,7 +1322,15 @@ for (const season of CFG.seasons) {
   diag.unavailableDetailPages = 0;
   diag.mismatchedDetailPages = 0;
 
-  const rssItems = usable.map(x => makeRssItem(x, season));
+  const rssItems = await Promise.all(usable.map(x => makeRssItem(x, season)));
+
+  const browsePath = path.join(BROWSE_DIR, slug(season), "index.html");
+  await fs.mkdir(path.dirname(browsePath), { recursive: true });
+  await fs.writeFile(
+    browsePath,
+    buildBrowsePage(season, rssItems)
+  );
+
   await fs.writeFile(
     path.join(RSS_DIR, `${slug(season)}.xml`),
     buildRss(season, rssItems)
