@@ -1,0 +1,93 @@
+name: Build RSS
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: aniplaylist-rss
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Generate RSS feeds
+        run: node scrape.mjs
+
+      - name: Persist feed state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rss/ rss-state.json
+          if git diff --cached --quiet; then
+            echo "No feed/state changes to commit."
+            exit 0
+          fi
+          git commit -m "Update AniPlaylist RSS"
+          git push
+
+      - name: Prepare GitHub Pages site
+        run: |
+          rm -rf site
+          mkdir -p site/rss
+          cp rss/*.xml site/rss/
+          cat > site/index.html <<'HTML'
+          <!doctype html>
+          <html lang="en">
+          <head><meta charset="utf-8"><title>AniPlaylist RSS</title></head>
+          <body>
+            <h1>AniPlaylist RSS</h1>
+            <p>RSS feeds generated from AniPlaylist seasonal music data.</p>
+            <ul>
+          HTML
+          for feed in rss/*.xml; do
+            name="$(basename "$feed")"
+            echo "<li><a href=\"rss/$name\">$name</a></li>" >> site/index.html
+          done
+          cat >> site/index.html <<'HTML'
+            </ul>
+          </body>
+          </html>
+          HTML
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
