@@ -734,23 +734,33 @@ function buildSongPage(item, season, key) {
     }
 
     .hero {
-      aspect-ratio: 16 / 9;
-      background: #171d27;
+      width: 100%;
+      min-height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f141c;
       overflow: hidden;
     }
 
     .cover {
-      width: 100%;
-      height: 100%;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 360px;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
+      margin: 0 auto;
     }
 
     .cover.fallback {
+      width: 100%;
+      height: 300px;
       display: grid;
       place-items: center;
       font-size: 72px;
       color: #7563d2;
+      background: #171d27;
     }
 
     .content {
@@ -847,6 +857,32 @@ function buildSongPage(item, season, key) {
     }
 
     .source a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      .card {
+        border-radius: 18px;
+      }
+
+      .hero {
+        min-height: 100px;
+      }
+
+      .cover {
+        max-height: 300px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+    }
   </style>
 </head>
 <body>
