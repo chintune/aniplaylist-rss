@@ -483,7 +483,17 @@ function findAniPlaylistThumbnail(value, baseUrl = "https://aniplaylist.com", de
       return `https://cdn.aniplaylist.com/thumbnails/${v}@2xl.jpg`;
     }
 
-    // Relative image URL/path.
+    // Current AniPlaylist Algolia records expose the image as a
+    // relative path such as:
+    //   thumbnails/5b4a1c4f93e24d5357ed3c39b671d41549beae04.jpg
+    // The site's CDN uses the same hash with an @2xl suffix.
+    const relativeThumb = v.match(/^thumbnails\/([^/?#]+)\.(jpe?g|png|webp)$/i);
+    if (relativeThumb) {
+      const hash = relativeThumb[1];
+      const ext = relativeThumb[2].toLowerCase();
+      return `https://cdn.aniplaylist.com/thumbnails/${hash}@2xl.${ext}`;
+    }
+
     if (v.startsWith("/")) {
       try {
         return new URL(v, baseUrl).href;
@@ -523,6 +533,12 @@ function findAniPlaylistThumbnail(value, baseUrl = "https://aniplaylist.com", de
   }
 
   return "";
+}
+
+function thumbnailResolverSelfTest() {
+  return findAniPlaylistThumbnail(
+    "thumbnails/5b4a1c4f93e24d5357ed3c39b671d41549beae04.jpg"
+  );
 }
 
 function firstUrl(value, depth = 0) {
@@ -1189,6 +1205,7 @@ const context = await browser.newContext({
 
 const page = await context.newPage();
 const summary = [];
+console.log(`Thumbnail resolver self-test: ${thumbnailResolverSelfTest()}`);
 
 for (const season of CFG.seasons) {
   const url = `https://aniplaylist.com/?seasons=${encodeURIComponent(season)}`;
@@ -1206,6 +1223,7 @@ for (const season of CFG.seasons) {
     withApple: 0,
     withDetailUrl: 0,
     resolvedSpotify: 0,
+    recordThumbnails: 0,
     unavailableDetailPages: 0,
     mismatchedDetailPages: 0,
     sample: [],
