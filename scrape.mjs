@@ -15,149 +15,305 @@ await fs.mkdir(DEBUG_DIR, { recursive: true });
 
 let state = {};
 let resolveCache = {};
-for (const [file, fallback] of [[STATE_PATH, {}], [CACHE_PATH, {}]]) {
-  try {
-    const parsed = JSON.parse(await fs.readFile(file, "utf8"));
-    if (file === STATE_PATH) state = parsed;
-    else resolveCache = parsed;
-  } catch {
-    if (file === STATE_PATH) state = fallback;
-    else resolveCache = fallback;
-  }
-}
 
-const TYPES = [
-  "Opening", "Ending", "Insert", "OST", "Vocal Album", "Character Song",
-  "Music Video", "Image Album", "Image Song", "Theme Song", "Other", "PV Song",
-];
-const TYPE_RE = /^(?:OP|ED|IN|OST|VA|CS|MV|IMGA|IMGS|TS|PV|Other)(?:\d+)?(?:\s*\([^)]*\))?$/i;
+try { state = JSON.parse(await fs.readFile(STATE_PATH, "utf8")); } catch {}
+try { resolveCache = JSON.parse(await fs.readFile(CACHE_PATH, "utf8")); } catch {}
+
 const SPOTIFY_RE = /https?:\/\/open\.spotify\.com\/(?:track|album|playlist|artist)\/[A-Za-z0-9]+/i;
 
 function slug(s) {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 function clean(s) {
   return String(s ?? "").replace(/\s+/g, " ").trim();
 }
-function hash(s) {
-  return crypto.createHash("sha1").update(s).digest("hex").slice(0, 16);
+function sha1(s) {
+  return crypto.createHash("sha1").update(String(s)).digest("hex").slice(0, 16);
 }
-function deepFind(obj, predicate, limit = 200, out = []) {
-  if (out.length >= limit || obj == null) return out;
-  if (Array.isArray(obj)) {
-    for (const x of obj) deepFind(x, predicate, limit, out);
+function unique(arr) {
+  return [...new Set(arr.map(clean).filter(Boolean))];
+}
+
+/*
+ * AniPlaylist's current Algolia records contain nested fields such as:
+ *
+ * titles:       [...]
+ * anime_titles: [...]
+ * artists:      [...]
+ * links:        [...]
+ * platforms:    [...]
+ * song_type:    "Opening"
+ * song_type_short: "OP"
+ *
+ * Older scraper versions assumed these were plain strings. They are not.
+ */
+function collectStrings(value, out = [], depth = 0) {
+  if (value == null || depth > 8) return out;
+  if (typeof value === "string") {
+    if (value.trim()) out.push(value);
     return out;
   }
-  if (typeof obj !== "object") return out;
-  try {
-    if (predicate(obj)) out.push(obj);
-  } catch {}
-  for (const v of Object.values(obj)) deepFind(v, predicate, limit, out);
+  if (typeof value === "number" || typeof value === "boolean") return out;
+
+  if (Array.isArray(value)) {
+    for (const v of value) collectStrings(v, out, depth + 1);
+    return out;
+  }
+
+  if (typeof value === "object") {
+    for (const [k, v] of Object.entries(value)) {
+      // Keys themselves are not values we want to present as titles.
+      collectStrings(v, out, depth + 1);
+    }
+  }
   return out;
 }
-function firstString(obj, keys) {
-  for (const k of keys) {
-    const v = obj?.[k];
-    if (typeof v === "string" && v.trim()) return clean(v);
+
+function textFrom(value, preferredKeys = []) {
+  if (value == null) return "";
+
+  if (typeof value === "string" || typeof value === "number") return clean(value);
+
+  if (Array.isArray(value)) {
+    const parts = [];
+    for (const v of value) {
+      const t = textFrom(v, preferredKeys);
+      if (t) parts.push(t);
+      if (parts.length >= 8) break;
+    }
+    return unique(parts).join(", ");
   }
-  return "";
-}
-function firstUrl(obj, keys) {
-  for (const k of keys) {
-    const v = obj?.[k];
-    if (typeof v === "string" && /^https?:\/\//i.test(v)) return v;
-  }
-  return "";
-}
-function scanSpotify(obj) {
-  const hits = deepFind(
-    obj,
-    x => Object.entries(x).some(([k, v]) =>
-      /spotify/i.test(k) && typeof v === "string" && SPOTIFY_RE.test(v)
-    ),
-    20
-  );
-  for (const x of hits) {
-    for (const [k, v] of Object.entries(x)) {
-      if (/spotify/i.test(k) && typeof v === "string" && SPOTIFY_RE.test(v)) {
-        return v.match(SPOTIFY_RE)?.[0] || v;
-      }
+
+  if (typeof value === "object") {
+    const lower = new Map(Object.entries(value).map(([k, v]) => [k.toLowerCase(), v]));
+
+    for (const key of preferredKeys) {
+      const v = lower.get(key.toLowerCase());
+      const t = textFrom(v, preferredKeys);
+      if (t) return t;
+    }
+
+    for (const key of ["en", "english", "romaji", "japanese", "ja", "name", "title", "label", "text", "value"]) {
+      const v = lower.get(key);
+      const t = textFrom(v, preferredKeys);
+      if (t) return t;
+    }
+
+    for (const v of Object.values(value)) {
+      const t = textFrom(v, preferredKeys);
+      if (t) return t;
     }
   }
   return "";
 }
 
-function normaliseHit(h, season) {
-  const anime = firstString(h, ["anime", "animeTitle", "anime_name", "series", "show"]);
-  const kind = firstString(h, ["kind", "type", "category", "songType", "song_type"]);
-  const name = firstString(h, ["name", "song", "track", "trackName", "title"]);
-  const artist = firstString(h, ["artist", "artistName", "artist_name", "performer", "singer"]);
-  const url = firstUrl(h, ["url", "link", "permalink", "href"]);
-  const spotify = scanSpotify(h) || firstUrl(h, ["spotifyUrl", "spotify_url", "spotify"]);
-  const seasonValue = firstString(h, ["season", "seasons"]);
-  const id = firstString(h, ["objectID", "id", "_id"]);
+function textListFrom(value, preferredKeys = []) {
+  if (value == null) return [];
+  if (typeof value === "string" || typeof value === "number") return [clean(value)];
+
+  if (Array.isArray(value)) {
+    return unique(value.flatMap(v => textListFrom(v, preferredKeys))).slice(0, 16);
+  }
+
+  if (typeof value === "object") {
+    // An object containing an English title should yield that title only.
+    for (const key of preferredKeys) {
+      if (Object.prototype.hasOwnProperty.call(value, key)) {
+        const t = textFrom(value[key], preferredKeys);
+        if (t) return [t];
+      }
+    }
+    for (const key of ["en", "english", "romaji", "name", "title", "label", "text"]) {
+      if (Object.prototype.hasOwnProperty.call(value, key)) {
+        const t = textFrom(value[key], preferredKeys);
+        if (t) return [t];
+      }
+    }
+    return unique(Object.values(value).flatMap(v => textListFrom(v, preferredKeys))).slice(0, 16);
+  }
+
+  return [];
+}
+
+function findSpotify(value, depth = 0) {
+  if (value == null || depth > 12) return "";
+
+  if (typeof value === "string") {
+    const m = value.match(SPOTIFY_RE);
+    return m ? m[0] : "";
+  }
+
+  if (Array.isArray(value)) {
+    for (const v of value) {
+      const s = findSpotify(v, depth + 1);
+      if (s) return s;
+    }
+    return "";
+  }
+
+  if (typeof value === "object") {
+    // Prefer explicit spotify keys first.
+    for (const [k, v] of Object.entries(value)) {
+      if (/spotify/i.test(k)) {
+        const s = findSpotify(v, depth + 1);
+        if (s) return s;
+      }
+    }
+    for (const v of Object.values(value)) {
+      const s = findSpotify(v, depth + 1);
+      if (s) return s;
+    }
+  }
+
+  return "";
+}
+
+function firstHttpUrl(value, depth = 0) {
+  if (value == null || depth > 10) return "";
+
+  if (typeof value === "string") {
+    return /^https?:\/\//i.test(value) ? value : "";
+  }
+
+  if (Array.isArray(value)) {
+    for (const v of value) {
+      const u = firstHttpUrl(v, depth + 1);
+      if (u) return u;
+    }
+    return "";
+  }
+
+  if (typeof value === "object") {
+    for (const v of Object.values(value)) {
+      const u = firstHttpUrl(v, depth + 1);
+      if (u) return u;
+    }
+  }
+
+  return "";
+}
+
+function normaliseHit(hit) {
+  const titles = textListFrom(hit.titles, ["title", "name", "text"]);
+  const animeTitles = textListFrom(hit.anime_titles, ["title", "name", "text"]);
+  const artists = textListFrom(hit.artists, ["name", "artist", "title"]);
+  const displayArtists = textListFrom(hit.display_artists, ["name", "artist", "title"]);
+
+  const song = textFrom(hit.titles, ["title", "name", "text"])
+    || textFrom(hit.song_key, ["name", "title"])
+    || textFrom(hit.name, ["name", "title"])
+    || textFrom(hit.title, ["title", "name"]);
+
+  const anime = textFrom(hit.anime_titles, ["title", "name", "text"])
+    || textFrom(hit.anime, ["title", "name", "text"])
+    || textFrom(hit.series, ["title", "name"]);
+
+  const artist = displayArtists.join(", ") || artists.join(", ")
+    || textFrom(hit.artist, ["name", "artist"]);
+
+  const kind = clean(
+    hit.song_type_short
+    || hit.song_type
+    || hit.type
+    || ""
+  );
+
+  const spotify = findSpotify(hit.links) || findSpotify(hit.platforms) || findSpotify(hit);
+  const detailUrl = firstHttpUrl(hit.web) || firstHttpUrl(hit.short_link) || firstHttpUrl(hit.url);
+
   return {
-    anime, kind, name, artist, url, spotify, seasonValue, id,
-    rawKeys: Object.keys(h)
+    id: clean(hit.objectID || hit.id || hit.song_key || ""),
+    anime,
+    song,
+    artist,
+    kind,
+    spotify,
+    detailUrl,
+    season: textFrom(hit.season, ["name", "title"]),
+    rawKeys: Object.keys(hit),
+    titleCandidates: titles,
+    animeCandidates: animeTitles,
+    artistCandidates: artists,
   };
 }
 
-function likelySong(h) {
-  const keys = Object.keys(h).join(" ").toLowerCase();
-  return /anime|song|track|artist|kind|spotify|type/.test(keys);
-}
-
-async function resolveSpotify(page, item) {
-  if (!item.url || !item.url.startsWith("http")) return "";
-  const key = item.url;
-  if (resolveCache[key]?.spotify) return resolveCache[key].spotify;
+async function resolveSpotifyFromDetail(page, item) {
+  if (!item.detailUrl || !/^https?:\/\//i.test(item.detailUrl)) return "";
+  if (resolveCache[item.detailUrl]?.spotify) return resolveCache[item.detailUrl].spotify;
 
   try {
-    const response = await page.request.get(item.url, {
+    const res = await page.request.get(item.detailUrl, {
       timeout: 30000,
       failOnStatusCode: false,
-      headers: { "user-agent": "Mozilla/5.0" }
+      headers: { "user-agent": "Mozilla/5.0" },
     });
-    const html = await response.text();
-    const matches = [...html.matchAll(/https?:\/\/open\.spotify\.com\/(?:track|album|playlist|artist)\/[A-Za-z0-9]+/gi)];
+    const html = await res.text();
+    const matches = [...html.matchAll(SPOTIFY_RE)];
     const spotify = matches[0]?.[0] || "";
-    resolveCache[key] = { spotify, checkedAt: new Date().toISOString() };
+    resolveCache[item.detailUrl] = {
+      spotify,
+      checkedAt: new Date().toISOString(),
+    };
     return spotify;
   } catch {
-    resolveCache[key] = { spotify: "", checkedAt: new Date().toISOString() };
+    resolveCache[item.detailUrl] = {
+      spotify: "",
+      checkedAt: new Date().toISOString(),
+    };
     return "";
   }
 }
 
 function rssEscape(s) {
-  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
 
-function makeItem(item, season) {
+function makeRssItem(item, season) {
   const kind = item.kind || "Other";
-  const title = `[${kind}] ${item.anime || "Unknown anime"} — ${item.name || "Unknown song"}`;
+  const title = `[${kind}] ${item.anime || "Unknown anime"} — ${item.song || "Unknown song"}`;
   const description = [
-    item.anime && `Anime: ${item.anime}`,
-    `Type: ${kind}`,
-    item.name && `Song: ${item.name}`,
-    item.artist && `Artist: ${item.artist}`,
+    item.anime ? `Anime: ${item.anime}` : "",
+    item.kind ? `Type: ${item.kind}` : "",
+    item.song ? `Song: ${item.song}` : "",
+    item.artist ? `Artist: ${item.artist}` : "",
     `Season: ${season}`,
   ].filter(Boolean).join("\n");
-  const key = hash([season, item.anime, kind, item.name, item.artist, item.spotify].join("|"));
+
+  const key = sha1([
+    season,
+    item.id || "",
+    item.anime,
+    item.kind,
+    item.song,
+    item.artist,
+    item.spotify,
+  ].join("|"));
+
   const firstSeen = state[key]?.firstSeen || new Date().toISOString();
-  state[key] = { firstSeen, ...item };
+  state[key] = {
+    firstSeen,
+    season,
+    ...item,
+  };
+
   return {
-    key, title, description, link: item.spotify, guid: `aniplaylist:${key}`, pubDate: firstSeen
+    title,
+    description,
+    link: item.spotify,
+    guid: `aniplaylist:${key}`,
+    pubDate: firstSeen,
   };
 }
 
 function buildRss(season, items) {
-  const channelTitle = `AniPlaylist — ${season}`;
-  const now = new Date().toISOString();
-  const entries = items
-    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
-    .map(i => `    <item>
+  items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+  const body = items.map(i => `    <item>
       <title>${rssEscape(i.title)}</title>
       <description>${rssEscape(i.description)}</description>
       <link>${rssEscape(i.link)}</link>
@@ -168,11 +324,11 @@ function buildRss(season, items) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>${rssEscape(channelTitle)}</title>
+    <title>${rssEscape(`AniPlaylist — ${season}`)}</title>
     <link>https://aniplaylist.com/?seasons=${encodeURIComponent(season)}</link>
     <description>New AniPlaylist entries for ${rssEscape(season)} with Spotify links.</description>
-    <lastBuildDate>${new Date(now).toUTCString()}</lastBuildDate>
-${entries}
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${body}
   </channel>
 </rss>
 `;
@@ -186,166 +342,222 @@ const browser = await chromium.launch({
     "--disable-blink-features=AutomationControlled",
   ],
 });
+
 const context = await browser.newContext({
   userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154 Safari/537.36",
   viewport: { width: 1440, height: 1800 },
 });
-const page = await context.newPage();
 
+const page = await context.newPage();
 const summary = [];
 
 for (const season of CFG.seasons) {
-  const diagnostics = {
+  const url = `https://aniplaylist.com/?seasons=${encodeURIComponent(season)}`;
+  const diag = {
     season,
-    url: `https://aniplaylist.com/?seasons=${encodeURIComponent(season)}`,
+    url,
     resultCount: null,
     jsonResponses: 0,
     algoliaResponses: 0,
     hitArrays: 0,
-    hits: 0,
+    rawHits: 0,
+    uniqueHits: 0,
     normalized: 0,
-    directSpotify: 0,
+    withSpotify: 0,
     resolvedSpotify: 0,
-    bodyTextLength: 0,
-    anchorsViaPlaywright: 0,
-    linksViaPlaywright: [],
-    responseUrls: [],
-    sampleHitKeys: [],
+    sample: [],
     errors: [],
   };
 
   console.log(`\n=== ${season} ===`);
-  console.log(`Loading ${diagnostics.url}`);
+  console.log(`Loading ${url}`);
 
-  const responseData = [];
-  const handler = async (resp) => {
+  const captured = [];
+  const responseHandler = async (resp) => {
     const ct = (resp.headers()["content-type"] || "").toLowerCase();
     const u = resp.url();
-    if (ct.includes("json") || /algolia|\/search(?:\/|\\?|$)|api/i.test(u)) {
-      diagnostics.jsonResponses++;
-      diagnostics.responseUrls.push(u.slice(0, 500));
-      try {
-        const text = await resp.text();
-        if (text.length > 0 && text.length < 8_000_000) {
-          const json = JSON.parse(text);
-          if (/algolia/i.test(u)) diagnostics.algoliaResponses++;
-          responseData.push({ url: u, json });
-        }
-      } catch {}
-    }
+    if (!(ct.includes("json") || /algolia|\/search(?:\/|\\?|$)|api/i.test(u))) return;
+
+    diag.jsonResponses++;
+    try {
+      const body = await resp.text();
+      if (!body || body.length > 10_000_000) return;
+      const json = JSON.parse(body);
+      if (/algolia/i.test(u)) diag.algoliaResponses++;
+      captured.push({ url: u, json });
+    } catch {}
   };
-  page.on("response", handler);
+
+  page.on("response", responseHandler);
 
   try {
-    await page.goto(diagnostics.url, { waitUntil: "domcontentloaded", timeout: 120000 });
-    await page.waitForTimeout(8000);
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 120000 });
+    await page.waitForTimeout(7000);
 
-    // Scroll to encourage any virtualized/infinite content to materialize.
-    for (let i = 0; i < 15; i++) {
-      await page.mouse.wheel(0, 1500);
-      await page.waitForTimeout(300);
+    // Keep scrolling until the page stops changing or 60 passes have occurred.
+    let oldHeight = 0;
+    let stable = 0;
+    for (let i = 0; i < 60; i++) {
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await page.waitForTimeout(450);
+      const height = await page.evaluate(() => document.body.scrollHeight).catch(() => 0);
+      if (height === oldHeight) stable++;
+      else stable = 0;
+      oldHeight = height;
+      if (stable >= 5) break;
     }
+    await page.waitForTimeout(2000);
 
     const bodyText = await page.locator("body").innerText().catch(() => "");
-    diagnostics.bodyTextLength = bodyText.length;
-    const m = bodyText.match(/([\d,]+)\s+results found/i);
-    if (m) diagnostics.resultCount = Number(m[1].replace(/,/g, ""));
-    console.log(`Result count from body: ${diagnostics.resultCount ?? "unknown"}`);
+    const countMatches = [
+      /([\d,]+)\s+results found/i,
+      /([\d,]+)\s+results/i,
+    ];
+    for (const re of countMatches) {
+      const m = bodyText.match(re);
+      if (m) {
+        diag.resultCount = Number(m[1].replace(/,/g, ""));
+        break;
+      }
+    }
+    console.log(`Result count from body: ${diag.resultCount ?? "unknown"}`);
+    console.log(`Playwright anchor count: ${await page.locator("a").count().catch(() => 0)}`);
 
-    diagnostics.anchorsViaPlaywright = await page.locator("a").count().catch(() => 0);
-    diagnostics.linksViaPlaywright = await page.locator("a").evaluateAll(
-      as => as.map(a => ({ href: a.href || "", text: (a.innerText || "").trim() }))
-        .filter(x => x.href).slice(0, 100)
-    ).catch(() => []);
-
-    const cardCount = await page.locator(".song-card").count().catch(() => 0);
-    console.log(`Playwright .song-card count: ${cardCount}`);
-    console.log(`Playwright anchor count: ${diagnostics.anchorsViaPlaywright}`);
-
-    await page.screenshot({ path: path.join(DEBUG_DIR, `${slug(season)}.png`), fullPage: true }).catch(() => {});
-
+    await page.screenshot({
+      path: path.join(DEBUG_DIR, `${slug(season)}.png`),
+      fullPage: true,
+    }).catch(() => {});
   } catch (e) {
-    diagnostics.errors.push(`page: ${e.message}`);
+    diag.errors.push(`page: ${e.message}`);
   } finally {
-    page.removeListener("response", handler);
+    page.removeListener("response", responseHandler);
   }
 
   const hitArrays = [];
-  for (const r of responseData) {
-    const arrays = deepFind(r.json, x => Array.isArray(x.hits) && x.hits.length > 0, 50);
-    for (const x of arrays) hitArrays.push(x);
+  for (const r of captured) {
+    const stack = [];
+    const walk = (v, depth = 0) => {
+      if (v == null || depth > 10) return;
+      if (Array.isArray(v)) {
+        for (const x of v) walk(x, depth + 1);
+        return;
+      }
+      if (typeof v !== "object") return;
+      if (Array.isArray(v.hits)) {
+        hitArrays.push({
+          url: r.url,
+          hits: v.hits,
+          page: v.page ?? null,
+          nbHits: v.nbHits ?? null,
+          hitsPerPage: v.hitsPerPage ?? null,
+          nbPages: v.nbPages ?? null,
+        });
+      }
+      for (const x of Object.values(v)) walk(x, depth + 1);
+    };
+    walk(r.json);
   }
-  diagnostics.hitArrays = hitArrays.length;
-  const rawHits = hitArrays.flatMap(x => x.hits || []);
-  diagnostics.hits = rawHits.length;
-  diagnostics.sampleHitKeys = rawHits.slice(0, 5).map(h => Object.keys(h));
 
-  console.log(`JSON responses: ${diagnostics.jsonResponses}`);
-  console.log(`Algolia-ish responses: ${diagnostics.algoliaResponses}`);
-  console.log(`Hit arrays: ${diagnostics.hitArrays}`);
-  console.log(`Hits: ${diagnostics.hits}`);
-  console.log(`Sample hit keys: ${JSON.stringify(diagnostics.sampleHitKeys)}`);
-
-  // Deduplicate hits by stable JSON/objectID.
-  const dedupe = new Map();
-  for (const h of rawHits) {
-    if (!likelySong(h)) continue;
-    const n = normaliseHit(h, season);
-    if (!n.anime && !n.name && !n.url) continue;
-    const key = n.id || hash(JSON.stringify(h));
-    if (!dedupe.has(key)) dedupe.set(key, n);
+  // Remove duplicate response objects that the site may emit more than once.
+  const uniqueHitMap = new Map();
+  for (const a of hitArrays) {
+    for (const h of a.hits) {
+      const id = String(h.objectID ?? h.id ?? h.song_key ?? sha1(JSON.stringify(h)));
+      if (!uniqueHitMap.has(id)) uniqueHitMap.set(id, h);
+    }
   }
-  const candidates = [...dedupe.values()];
-  diagnostics.normalized = candidates.length;
-  diagnostics.directSpotify = candidates.filter(x => !!x.spotify).length;
+
+  const rawHits = [...uniqueHitMap.values()];
+  diag.hitArrays = hitArrays.length;
+  diag.rawHits = hitArrays.reduce((n, a) => n + a.hits.length, 0);
+  diag.uniqueHits = rawHits.length;
+  diag.sample = rawHits.slice(0, 5).map(normaliseHit);
+
+  console.log(`JSON responses: ${diag.jsonResponses}`);
+  console.log(`Algolia-ish responses: ${diag.algoliaResponses}`);
+  console.log(`Hit arrays: ${diag.hitArrays}`);
+  console.log(`Raw hits: ${diag.rawHits}`);
+  console.log(`Unique hits: ${diag.uniqueHits}`);
+
+  const normalized = rawHits.map(normaliseHit)
+    .filter(x => x.anime || x.song || x.artist || x.spotify);
+
+  diag.normalized = normalized.length;
+
+  const withSpotify = normalized.filter(x => !!x.spotify);
+  diag.withSpotify = withSpotify.length;
+
+  console.log(`Normalized records: ${diag.normalized}`);
+  console.log(`Spotify directly in hit: ${diag.withSpotify}`);
 
   const usable = [];
-  for (const item of candidates) {
-    const typeOk = !item.kind || TYPES.some(t => item.kind.toLowerCase().startsWith(t.toLowerCase())) || TYPE_RE.test(item.kind);
-    if (!typeOk) continue;
-
+  for (const item of normalized) {
     let spotify = item.spotify;
-    if (!spotify && item.url) {
-      spotify = await resolveSpotify(page, item);
+    if (!spotify && item.detailUrl) {
+      spotify = await resolveSpotifyFromDetail(page, item);
     }
-    if (spotify) {
-      usable.push({ ...item, spotify });
-    }
+    if (spotify) usable.push({ ...item, spotify });
   }
-  diagnostics.resolvedSpotify = usable.length;
 
-  const rssItems = usable.map(i => makeItem(i, season));
-  await fs.writeFile(path.join(RSS_DIR, `${slug(season)}.xml`), buildRss(season, rssItems));
+  diag.resolvedSpotify = usable.length;
+  console.log(`Spotify after detail resolution: ${diag.resolvedSpotify}`);
 
+  // Save a concise but rich diagnostic file.
   await fs.writeFile(
     path.join(DEBUG_DIR, `${slug(season)}.json`),
     JSON.stringify({
-      ...diagnostics,
-      responseUrls: diagnostics.responseUrls,
-      linksViaPlaywright: diagnostics.linksViaPlaywright,
-      samples: rawHits.slice(0, 10),
-      normalizedCandidates: candidates.slice(0, 20),
-      usable: usable.slice(0, 20),
+      ...diag,
+      hitMeta: hitArrays.map(x => ({
+        url: x.url,
+        page: x.page,
+        nbHits: x.nbHits,
+        hitsPerPage: x.hitsPerPage,
+        nbPages: x.nbPages,
+        count: x.hits.length,
+      })),
+      normalizedSamples: normalized.slice(0, 30),
+      usableSamples: usable.slice(0, 30),
     }, null, 2)
   );
 
-  console.log(`${season}: resultCount=${diagnostics.resultCount ?? "?"} hits=${diagnostics.hits} normalized=${diagnostics.normalized} directSpotify=${diagnostics.directSpotify} resolvedSpotify=${diagnostics.resolvedSpotify}`);
+  const rssItems = usable.map(x => makeRssItem(x, season));
+  await fs.writeFile(
+    path.join(RSS_DIR, `${slug(season)}.xml`),
+    buildRss(season, rssItems)
+  );
 
-  summary.push(diagnostics);
+  console.log(
+    `${season}: results=${diag.resultCount ?? "?"} uniqueHits=${diag.uniqueHits} normalized=${diag.normalized} directSpotify=${diag.withSpotify} resolvedSpotify=${diag.resolvedSpotify}`
+  );
+
+  summary.push(diag);
 }
 
 await fs.writeFile(STATE_PATH, JSON.stringify(state, null, 2) + "\n");
 await fs.writeFile(CACHE_PATH, JSON.stringify(resolveCache, null, 2) + "\n");
+
 await browser.close();
 
 const summaryText = summary.map(s =>
-  `${s.season}: results=${s.resultCount ?? "?"} json=${s.jsonResponses} algolia=${s.algoliaResponses} hitArrays=${s.hitArrays} hits=${s.hits} normalized=${s.normalized} directSpotify=${s.directSpotify} resolvedSpotify=${s.resolvedSpotify}`
+  `${s.season}: results=${s.resultCount ?? "?"} uniqueHits=${s.uniqueHits} normalized=${s.normalized} directSpotify=${s.withSpotify} resolvedSpotify=${s.resolvedSpotify}`
 ).join("\n");
-await fs.writeFile(path.join(ROOT, "build-summary.txt"), summaryText + "\n");
 
-const anyResults = summary.some(s => Number.isFinite(s.resultCount) && s.resultCount > 0);
-const anyExtracted = summary.some(s => s.resolvedSpotify > 0);
-if (anyResults && !anyExtracted) {
-  console.error("AniPlaylist returned results, but no Spotify entries were extracted. Inspect debug/*.json and the network diagnostics.");
+await fs.writeFile(path.join(ROOT, "build-summary.txt"), summaryText + "\n");
+console.log("\n===== FINAL SUMMARY =====\n" + summaryText);
+
+// Do not fail because an unreleased future season has no results.
+// Do fail for a populated season if the site gave us hits but not even one
+// recognizable record. That means the schema changed and needs attention.
+const bad = summary.find(s =>
+  Number.isFinite(s.resultCount) &&
+  s.resultCount > 0 &&
+  s.uniqueHits > 0 &&
+  s.normalized === 0
+);
+
+if (bad) {
+  console.error(
+    `Schema extraction failed for ${bad.season}: AniPlaylist returned ${bad.resultCount} results and ${bad.uniqueHits} unique hits, but 0 hits could be normalized. See debug/${slug(bad.season)}.json.`
+  );
   process.exit(2);
 }
