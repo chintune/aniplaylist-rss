@@ -8946,9 +8946,9 @@
     "artist": "Superfly",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
-    "apple": "https://music.apple.com/nz/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/the-ramparts-of-ice-season-2-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -8973,9 +8973,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -9122,9 +9122,9 @@
     "artist": "Ryu Matsuyama",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
-    "apple": "",
+    "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/red-river-ending-2",
     "rawKeys": [
       "id",
       "alert_id",
@@ -9150,9 +9150,8 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
-      "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -9362,6 +9361,68 @@
       "1734551937",
       "259645622",
       "UCNVIo0UJXTdEnsRkCB9Q03w"
+    ]
+  },
+  "6145301d403ba847": {
+    "firstSeen": "2026-09-30T08:14:29.234Z",
+    "season": "Fall 2026",
+    "id": "27861",
+    "anime": "Hotel Inhumans 2nd Season",
+    "song": "Rasen",
+    "artist": "GAN",
+    "kind": "OP",
+    "spotify": "https://open.spotify.com/track/0kqguS5yn14lj8pSjQHhDR",
+    "apple": "https://geo.music.apple.com/album/6811789152?i=6811789168&at=1001l384j&ct=website-hotel-inhumans-2nd-season-op&app=music",
+    "thumbnail": "https://cdn.aniplaylist.com/thumbnails/952f489716e3c3878f42407b668ceeb376d49eff@2xl.jpg",
+    "detailUrl": "https://aniplaylist.com/play/hotel-inhumans-2nd-season-opening",
+    "rawKeys": [
+      "id",
+      "alert_id",
+      "anime_id",
+      "type",
+      "score",
+      "titles",
+      "created_at",
+      "updated_at",
+      "season",
+      "artists",
+      "links",
+      "platforms",
+      "preview_url",
+      "song_key",
+      "song_type",
+      "song_type_short",
+      "anime_titles",
+      "thumbnail",
+      "thumbnail_hash",
+      "blur_image",
+      "display_artists",
+      "label",
+      "short_link",
+      "status",
+      "tags",
+      "other_link_ids",
+      "unreleased",
+      "objectID"
+    ],
+    "titleCandidates": [
+      "Rasen",
+      "螺旋"
+    ],
+    "animeCandidates": [
+      "Hotel Inhumans 2nd Season",
+      "ホテル・インヒューマンズ 第2期",
+      "Hotel Inhumans Season 2"
+    ],
+    "artistCandidates": [
+      "24198",
+      "GAN",
+      "GAN (Takanori Iwata)",
+      "GAN (岩田剛典)",
+      "2cD2ndst4zaoaoNldSXhMH",
+      "1896546048",
+      "347142",
+      "UC6vIISWr5SMH8lt5rqOR_RQ"
     ]
   }
 }

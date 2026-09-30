@@ -8,74 +8,15 @@
   "rawHits": 143,
   "uniqueHits": 143,
   "normalized": 143,
-  "withSpotify": 21,
-  "withApple": 20,
+  "withSpotify": 22,
+  "withApple": 22,
   "withDetailUrl": 143,
-  "resolvedSpotify": 21,
+  "resolvedSpotify": 22,
   "recordThumbnails": 143,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
-    {
-      "id": "27860",
-      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
-      "song": "BACKLASH",
-      "artist": "Hiromitsu Kitayama",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
-      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "BACKLASH"
-      ],
-      "animeCandidates": [
-        "Tougen Anki: Nikko Kegon Falls Arc",
-        "Tougen Anki: Nikko Kegon no Taki-hen",
-        "桃源暗鬼 日光・華厳の滝編"
-      ],
-      "artistCandidates": [
-        "24252",
-        "Hiromitsu Kitayama",
-        "北山宏光",
-        "5aj6oLCY3WS8HZ7zd5VWQ9",
-        "1715643610",
-        "240810171",
-        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
-      ]
-    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -200,6 +141,64 @@
       ]
     },
     {
+      "id": "27886",
+      "anime": "Magical Sisters Lulutto Lilly Part 2",
+      "song": "Swingin' Magic",
+      "artist": "ILLIT",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
+      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Swingin' Magic"
+      ],
+      "animeCandidates": [
+        "Magical Sisters Lulutto Lilly Part 2",
+        "魔法の姉妹ルルットリリィ 第2クール",
+        "Mahou no Shimai Lulutto Lilly Part 2"
+      ],
+      "artistCandidates": [
+        "19104",
+        "ILLIT",
+        "36cgvBn0aadzOijnjjwqMN",
+        "1734551937",
+        "259645622",
+        "UCNVIo0UJXTdEnsRkCB9Q03w"
+      ]
+    },
+    {
       "id": "27884",
       "anime": "Diamond no Ace: Act II Second Season Part 2",
       "song": "NEVER SAY NEVER AGAIN",
@@ -256,15 +255,15 @@
       ]
     },
     {
-      "id": "27859",
-      "anime": "The Iceblade Sorcerer Shall Rule the World II",
-      "song": "COMPRESSION :[",
-      "artist": "Maaya Uchida",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/6Arimk70y0ryeFVMKOXNRs",
-      "apple": "https://geo.music.apple.com/album/6809174084?i=6809174155&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5b4a1c4f93e24d5357ed3c39b671d41549beae04@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-iceblade-sorcerer-shall-rule-the-world-ii-ending",
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "artist": "Touko Kirishima",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
+      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -297,37 +296,26 @@
         "objectID"
       ],
       "titleCandidates": [
-        "COMPRESSION :["
+        "Turn The World Upside Down"
       ],
       "animeCandidates": [
-        "The Iceblade Sorcerer Shall Rule the World II",
-        "冰剣の魔術師が世界を統べるII",
-        "Hyouken no Majutsushi ga Sekai wo Suberu II",
-        "Hyouken no Majutsushi ga Sekai wo Suberu 2nd Season"
+        "Rascal Does Not Dream of a Dear Friend",
+        "Seishun Buta Yarou wa Dear Friend no Yume wo Minai",
+        "青春ブタ野郎はディアフレンドの夢を見ない"
       ],
       "artistCandidates": [
-        "245",
-        "Maaya Uchida",
-        "内田真礼",
-        "4hJl41jTq14yNuc1f3bLe6",
-        "808648654",
-        "14108225",
-        "UCG_xHIWGhBDSGDZV0PgNaXg"
+        "17885",
+        "Touko Kirishima",
+        "霧島透子",
+        "7IrMYd2djETd56sjTPt3UP",
+        "1811798060",
+        "320905841",
+        "UC2ZVM7UDClF1fvew91aajbg"
       ]
     }
   ],
   "errors": [],
   "thumbnailFieldSamples": [
-    {
-      "id": "27860",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/39455659ba07145200138b47a179c2902f681330.jpeg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LOLNk;.A0000s{Ri%Lt8^=s*xv%L",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg"
-    },
     {
       "id": "27888",
       "thumbnailType": "string",
@@ -349,6 +337,16 @@
       "resolved": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg"
     },
     {
+      "id": "27886",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "L8PP7=IB*H164bWFkPrDPowPV4r.",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg"
+    },
+    {
       "id": "27884",
       "thumbnailType": "string",
       "thumbnail": "thumbnails/f5865433f97959a920b28253f41249b828e30017.jpg",
@@ -357,6 +355,46 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/f5865433f97959a920b28253f41249b828e30017@2xl.jpg"
+    },
+    {
+      "id": "27883",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LCDv]2009E?wTe8w#%kQ5G-nxZo}",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg"
+    },
+    {
+      "id": "27860",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/39455659ba07145200138b47a179c2902f681330.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LOLNk;.A0000s{Ri%Lt8^=s*xv%L",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg"
+    },
+    {
+      "id": "27861",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/952f489716e3c3878f42407b668ceeb376d49eff.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LJJs^I?q0iw]2c~8jD4;9ZI@V[oM",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/952f489716e3c3878f42407b668ceeb376d49eff@2xl.jpg"
+    },
+    {
+      "id": "27870",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LoM7[Yo~%fMy?wNGM{oJxuWBV@of",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873@2xl.jpg"
     },
     {
       "id": "27859",
@@ -379,24 +417,14 @@
       "resolved": "https://cdn.aniplaylist.com/thumbnails/151ac5833d3d4223d2ca2c14acb17eb978d11637@2xl.jpeg"
     },
     {
-      "id": "27886",
+      "id": "27882",
       "thumbnailType": "string",
-      "thumbnail": "thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43.jpg",
+      "thumbnail": "thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f.jpg",
       "thumbnailHashType": "string",
-      "thumbnail_hash": "L8PP7=IB*H164bWFkPrDPowPV4r.",
+      "thumbnail_hash": "LACr$Yt10Ms=01IC-o$y~A?FNGIp",
       "blurImageType": "number",
       "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg"
-    },
-    {
-      "id": "27883",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LCDv]2009E?wTe8w#%kQ5G-nxZo}",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg"
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg"
     },
     {
       "id": "27850",
@@ -407,36 +435,6 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/2cb6f30bfd4c71ce77845850e1c400695166aa49@2xl.jpg"
-    },
-    {
-      "id": "27817",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LED04h?14mWmD%D$t5M^$~RiX9tQ",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg"
-    },
-    {
-      "id": "27823",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/e401524581656fa101348307b5daabc8550975f7.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LEH^eY}t8wMx+DEfK8bvMfIV0}tk",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/e401524581656fa101348307b5daabc8550975f7@2xl.jpg"
-    },
-    {
-      "id": "27816",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LPLh3*~WT0IpxZt6i_ozxZtRVskC",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800@2xl.jpg"
     }
   ],
   "hitMeta": [
@@ -587,65 +585,6 @@
   ],
   "normalizedSamples": [
     {
-      "id": "27860",
-      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
-      "song": "BACKLASH",
-      "artist": "Hiromitsu Kitayama",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
-      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "BACKLASH"
-      ],
-      "animeCandidates": [
-        "Tougen Anki: Nikko Kegon Falls Arc",
-        "Tougen Anki: Nikko Kegon no Taki-hen",
-        "桃源暗鬼 日光・華厳の滝編"
-      ],
-      "artistCandidates": [
-        "24252",
-        "Hiromitsu Kitayama",
-        "北山宏光",
-        "5aj6oLCY3WS8HZ7zd5VWQ9",
-        "1715643610",
-        "240810171",
-        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
-      ]
-    },
-    {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
       "song": "Escape",
@@ -769,6 +708,64 @@
       ]
     },
     {
+      "id": "27886",
+      "anime": "Magical Sisters Lulutto Lilly Part 2",
+      "song": "Swingin' Magic",
+      "artist": "ILLIT",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
+      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Swingin' Magic"
+      ],
+      "animeCandidates": [
+        "Magical Sisters Lulutto Lilly Part 2",
+        "魔法の姉妹ルルットリリィ 第2クール",
+        "Mahou no Shimai Lulutto Lilly Part 2"
+      ],
+      "artistCandidates": [
+        "19104",
+        "ILLIT",
+        "36cgvBn0aadzOijnjjwqMN",
+        "1734551937",
+        "259645622",
+        "UCNVIo0UJXTdEnsRkCB9Q03w"
+      ]
+    },
+    {
       "id": "27884",
       "anime": "Diamond no Ace: Act II Second Season Part 2",
       "song": "NEVER SAY NEVER AGAIN",
@@ -822,6 +819,243 @@
         "00AFbqxvdDK6T1D6MQZ9c1",
         "705683182",
         "UCXRmrNzERQzfA_2XI1OzJ9A"
+      ]
+    },
+    {
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "artist": "Touko Kirishima",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
+      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Turn The World Upside Down"
+      ],
+      "animeCandidates": [
+        "Rascal Does Not Dream of a Dear Friend",
+        "Seishun Buta Yarou wa Dear Friend no Yume wo Minai",
+        "青春ブタ野郎はディアフレンドの夢を見ない"
+      ],
+      "artistCandidates": [
+        "17885",
+        "Touko Kirishima",
+        "霧島透子",
+        "7IrMYd2djETd56sjTPt3UP",
+        "1811798060",
+        "320905841",
+        "UC2ZVM7UDClF1fvew91aajbg"
+      ]
+    },
+    {
+      "id": "27860",
+      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
+      "song": "BACKLASH",
+      "artist": "Hiromitsu Kitayama",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
+      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "BACKLASH"
+      ],
+      "animeCandidates": [
+        "Tougen Anki: Nikko Kegon Falls Arc",
+        "Tougen Anki: Nikko Kegon no Taki-hen",
+        "桃源暗鬼 日光・華厳の滝編"
+      ],
+      "artistCandidates": [
+        "24252",
+        "Hiromitsu Kitayama",
+        "北山宏光",
+        "5aj6oLCY3WS8HZ7zd5VWQ9",
+        "1715643610",
+        "240810171",
+        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
+    {
+      "id": "27861",
+      "anime": "Hotel Inhumans 2nd Season",
+      "song": "Rasen",
+      "artist": "GAN",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/0kqguS5yn14lj8pSjQHhDR",
+      "apple": "https://geo.music.apple.com/album/6811789152?i=6811789168&at=1001l384j&ct=website-hotel-inhumans-2nd-season-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/952f489716e3c3878f42407b668ceeb376d49eff@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/hotel-inhumans-2nd-season-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Rasen",
+        "螺旋"
+      ],
+      "animeCandidates": [
+        "Hotel Inhumans 2nd Season",
+        "ホテル・インヒューマンズ 第2期",
+        "Hotel Inhumans Season 2"
+      ],
+      "artistCandidates": [
+        "24198",
+        "GAN",
+        "GAN (Takanori Iwata)",
+        "GAN (岩田剛典)",
+        "2cD2ndst4zaoaoNldSXhMH",
+        "1896546048",
+        "347142",
+        "UC6vIISWr5SMH8lt5rqOR_RQ"
+      ]
+    },
+    {
+      "id": "27870",
+      "anime": "The Ramparts of Ice Season 2",
+      "song": "Hanakage",
+      "artist": "Superfly",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
+      "apple": "https://geo.music.apple.com/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-ramparts-of-ice-season-2-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hanakage",
+        "花蔭"
+      ],
+      "animeCandidates": [
+        "The Ramparts of Ice Season 2",
+        "Koori no Jouheki 2nd Season",
+        "氷の城壁 第2期"
+      ],
+      "artistCandidates": [
+        "372",
+        "Superfly",
+        "5M8AXrOifBT8elkLKbGPQZ",
+        "150974880",
+        "142878"
       ]
     },
     {
@@ -940,15 +1174,15 @@
       ]
     },
     {
-      "id": "27886",
-      "anime": "Magical Sisters Lulutto Lilly Part 2",
-      "song": "Swingin' Magic",
-      "artist": "ILLIT",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
-      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening",
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "artist": "Ryu Matsuyama",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
+      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -965,6 +1199,7 @@
         "platforms",
         "preview_url",
         "song_key",
+        "song_number",
         "song_type",
         "song_type_short",
         "anime_titles",
@@ -976,84 +1211,31 @@
         "short_link",
         "status",
         "tags",
-        "other_link_ids",
         "unreleased",
         "objectID"
       ],
       "titleCandidates": [
-        "Swingin' Magic"
+        "flow"
       ],
       "animeCandidates": [
-        "Magical Sisters Lulutto Lilly Part 2",
-        "魔法の姉妹ルルットリリィ 第2クール",
-        "Mahou no Shimai Lulutto Lilly Part 2"
+        "Red River",
+        "Sora wa Akai Kawa no Hotori",
+        "Anatolia Story",
+        "Heaven by the Red River",
+        "Orontes Renka",
+        "Orontes Love Song",
+        "Where the Sky and the Red River Meet",
+        "天は赤い河のほとり"
       ],
       "artistCandidates": [
-        "19104",
-        "ILLIT",
-        "36cgvBn0aadzOijnjjwqMN",
-        "1734551937",
-        "259645622",
-        "UCNVIo0UJXTdEnsRkCB9Q03w"
-      ]
-    },
-    {
-      "id": "27883",
-      "anime": "Rascal Does Not Dream of a Dear Friend",
-      "song": "Turn The World Upside Down",
-      "artist": "Touko Kirishima",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
-      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Turn The World Upside Down"
-      ],
-      "animeCandidates": [
-        "Rascal Does Not Dream of a Dear Friend",
-        "Seishun Buta Yarou wa Dear Friend no Yume wo Minai",
-        "青春ブタ野郎はディアフレンドの夢を見ない"
-      ],
-      "artistCandidates": [
-        "17885",
-        "Touko Kirishima",
-        "霧島透子",
-        "7IrMYd2djETd56sjTPt3UP",
-        "1811798060",
-        "320905841",
-        "UC2ZVM7UDClF1fvew91aajbg"
+        "24185",
+        "Ryu Matsuyama",
+        "59krd1xNH8IJFknx9wFiVf",
+        "796767434",
+        "5512",
+        "Yuko Ando",
+        "安藤裕子",
+        "12dhEcVUnJVnIQLt91VdA3"
       ]
     },
     {
@@ -1121,65 +1303,6 @@
       ]
     },
     {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "artist": "go!go!vanillas",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
-      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "TRICKSTER",
-        "トリックスター"
-      ],
-      "animeCandidates": [
-        "Tokyo Revengers: War of the Three Titan Arc",
-        "Tokyo Revengers: Santen Sensou-hen",
-        "東京リベンジャーズ 三天戦争編"
-      ],
-      "artistCandidates": [
-        "794",
-        "go!go!vanillas",
-        "0aqPTOZlKG6ltJHv7BNlsm",
-        "671623880",
-        "10963206",
-        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
-      ]
-    },
-    {
       "id": "27823",
       "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
       "song": "Shinu ka Ikiru ka",
@@ -1241,6 +1364,65 @@
         "1727997785",
         "1337238",
         "UCnPf2oZPzg_pxf6RzjUoCgw"
+      ]
+    },
+    {
+      "id": "27817",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
+      "artist": "go!go!vanillas",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
+      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "TRICKSTER",
+        "トリックスター"
+      ],
+      "animeCandidates": [
+        "Tokyo Revengers: War of the Three Titan Arc",
+        "Tokyo Revengers: Santen Sensou-hen",
+        "東京リベンジャーズ 三天戦争編"
+      ],
+      "artistCandidates": [
+        "794",
+        "go!go!vanillas",
+        "0aqPTOZlKG6ltJHv7BNlsm",
+        "671623880",
+        "10963206",
+        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
       ]
     },
     {
@@ -1306,127 +1488,6 @@
         "1159148258",
         "13082439",
         "UCPsZegYUPKEsylhuz4Qs1Aw"
-      ]
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "artist": "krage",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
-      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Everlasting"
-      ],
-      "animeCandidates": [
-        "A Returner's Magic Should Be Special Season 2",
-        "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
-        "Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida",
-        "귀환자의 마법은 특별해야 합니다",
-        "帰還者の魔法は特別です 2期"
-      ],
-      "artistCandidates": [
-        "13108",
-        "krage",
-        "35jRIUtWCUITFLfjhYwkFx",
-        "1542904221",
-        "163234327",
-        "UCg3fieU_nWIdFBOrqVqNUGQ"
-      ]
-    },
-    {
-      "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "SPIN",
-      "artist": "Kroi",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
-      "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/62f935a021ce799e1890dd2bacab33a446e03999@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "SPIN"
-      ],
-      "animeCandidates": [
-        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
-        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
-        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
-        "SBR"
-      ],
-      "artistCandidates": [
-        "14747",
-        "Kroi",
-        "4S8J8Nct8lHsbzAeNJXcJa",
-        "1439157589",
-        "52711252",
-        "UCssoAGLly9DaABecIZoht_g"
       ]
     },
     {
@@ -1781,6 +1842,66 @@
         "1438721351",
         "128264352",
         "UCS8QqtsLzHF8VcIJFEkl8Uw"
+      ]
+    },
+    {
+      "id": "27814",
+      "anime": "A Returner's Magic Should Be Special Season 2",
+      "song": "Everlasting",
+      "artist": "krage",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
+      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Everlasting"
+      ],
+      "animeCandidates": [
+        "A Returner's Magic Should Be Special Season 2",
+        "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
+        "Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida",
+        "귀환자의 마법은 특별해야 합니다",
+        "帰還者の魔法は特別です 2期"
+      ],
+      "artistCandidates": [
+        "13108",
+        "krage",
+        "35jRIUtWCUITFLfjhYwkFx",
+        "1542904221",
+        "163234327",
+        "UCg3fieU_nWIdFBOrqVqNUGQ"
       ]
     },
     {
@@ -2162,15 +2283,15 @@
       ]
     },
     {
-      "id": "27761",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "IGNITE",
-      "artist": "JO1",
+      "id": "27821",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "SPIN",
+      "artist": "Kroi",
       "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4AAiz8MarztbqTCTMfwXYr",
-      "apple": "https://geo.music.apple.com/album/6797375185?i=6797375186&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening",
+      "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
+      "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/62f935a021ce799e1890dd2bacab33a446e03999@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -2196,150 +2317,34 @@
         "display_artists",
         "label",
         "short_link",
+        "status",
         "tags",
         "other_link_ids",
         "unreleased",
         "objectID"
       ],
       "titleCandidates": [
-        "IGNITE"
+        "SPIN"
       ],
       "animeCandidates": [
-        "Tokyo Revengers: War of the Three Titan Arc",
-        "Tokyo Revengers: Santen Sensou-hen",
-        "東京リベンジャーズ 三天戦争編"
+        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
+        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
+        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
+        "SBR"
       ],
       "artistCandidates": [
-        "7989",
-        "JO1",
-        "2koP6FEfIEVk4l2Fe6jFhu",
-        "1500272115",
-        "10885914",
-        "UCWyo-2Efw9aSmemM3LluERg"
-      ]
-    },
-    {
-      "id": "us_3232",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Rewrite the Answer",
-      "artist": "Tokoyami Towa",
-      "kind": "OP",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Rewrite the Answer"
-      ],
-      "animeCandidates": [
-        "The Exiled Heavy Knight Knows How to Game the System",
-        "Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru",
-        "The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge",
-        "追放された転生重騎士はゲーム知識で無双する"
-      ],
-      "artistCandidates": [
-        "19083",
-        "Tokoyami Towa",
-        "常闇トワ",
-        "Towa Tokoyami",
-        "0XZGQi9wNsE1z9L0AWhC82",
-        "1554815946",
-        "124533392",
-        "UCL6zH0jSt3-2MqzAZ1ciUAw"
-      ]
-    },
-    {
-      "id": "us_3231",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
-      "artist": "PompadollS",
-      "kind": "ED",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Contemporary Dance",
-        "コンテンポラリーダンス"
-      ],
-      "animeCandidates": [
-        "The Exiled Heavy Knight Knows How to Game the System",
-        "Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru",
-        "The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge",
-        "追放された転生重騎士はゲーム知識で無双する"
-      ],
-      "artistCandidates": [
-        "19738",
-        "PompadollS",
-        "5LNw7upmiw5BIrN2UPLeL0",
-        "1725916783",
-        "250619942",
-        "UCmu5lpe6Wt-7yCHe2rA4zYQ"
+        "14747",
+        "Kroi",
+        "4S8J8Nct8lHsbzAeNJXcJa",
+        "1439157589",
+        "52711252",
+        "UCssoAGLly9DaABecIZoht_g"
       ]
     }
   ],
   "detailUrlSamples": [
-    {
-      "id": "27860",
-      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
-      "song": "BACKLASH",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening"
-    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -2355,11 +2360,46 @@
       "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending"
     },
     {
+      "id": "27886",
+      "anime": "Magical Sisters Lulutto Lilly Part 2",
+      "song": "Swingin' Magic",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening"
+    },
+    {
       "id": "27884",
       "anime": "Diamond no Ace: Act II Second Season Part 2",
       "song": "NEVER SAY NEVER AGAIN",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/diamond-no-ace-act-ii-second-season-part-2-opening"
+    },
+    {
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "kind": "IN",
+      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down"
+    },
+    {
+      "id": "27860",
+      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
+      "song": "BACKLASH",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening"
+    },
+    {
+      "id": "27861",
+      "anime": "Hotel Inhumans 2nd Season",
+      "song": "Rasen",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/hotel-inhumans-2nd-season-opening"
+    },
+    {
+      "id": "27870",
+      "anime": "The Ramparts of Ice Season 2",
+      "song": "Hanakage",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/the-ramparts-of-ice-season-2-ending"
     },
     {
       "id": "27859",
@@ -2376,18 +2416,11 @@
       "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1"
     },
     {
-      "id": "27886",
-      "anime": "Magical Sisters Lulutto Lilly Part 2",
-      "song": "Swingin' Magic",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening"
-    },
-    {
-      "id": "27883",
-      "anime": "Rascal Does Not Dream of a Dear Friend",
-      "song": "Turn The World Upside Down",
-      "kind": "IN",
-      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down"
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2"
     },
     {
       "id": "27850",
@@ -2397,13 +2430,6 @@
       "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending"
     },
     {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending"
-    },
-    {
       "id": "27823",
       "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
       "song": "Shinu ka Ikiru ka",
@@ -2411,25 +2437,18 @@
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending"
     },
     {
+      "id": "27817",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending"
+    },
+    {
       "id": "27816",
       "anime": "Chitose Is in the Ramune Bottle Part 2",
       "song": "Saku",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening"
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending"
-    },
-    {
-      "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "SPIN",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening"
     },
     {
       "id": "us_3239",
@@ -2472,6 +2491,13 @@
       "song": "Truly",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "27814",
+      "anime": "A Returner's Magic Should Be Special Season 2",
+      "song": "Everlasting",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending"
     },
     {
       "id": "us_3233",
@@ -2523,87 +2549,14 @@
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
-      "id": "27761",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "IGNITE",
+      "id": "27821",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "SPIN",
       "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening"
-    },
-    {
-      "id": "us_3232",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Rewrite the Answer",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3231",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening"
     }
   ],
   "usableSamples": [
-    {
-      "id": "27860",
-      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
-      "song": "BACKLASH",
-      "artist": "Hiromitsu Kitayama",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
-      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "BACKLASH"
-      ],
-      "animeCandidates": [
-        "Tougen Anki: Nikko Kegon Falls Arc",
-        "Tougen Anki: Nikko Kegon no Taki-hen",
-        "桃源暗鬼 日光・華厳の滝編"
-      ],
-      "artistCandidates": [
-        "24252",
-        "Hiromitsu Kitayama",
-        "北山宏光",
-        "5aj6oLCY3WS8HZ7zd5VWQ9",
-        "1715643610",
-        "240810171",
-        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
-      ]
-    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -2728,6 +2681,64 @@
       ]
     },
     {
+      "id": "27886",
+      "anime": "Magical Sisters Lulutto Lilly Part 2",
+      "song": "Swingin' Magic",
+      "artist": "ILLIT",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
+      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Swingin' Magic"
+      ],
+      "animeCandidates": [
+        "Magical Sisters Lulutto Lilly Part 2",
+        "魔法の姉妹ルルットリリィ 第2クール",
+        "Mahou no Shimai Lulutto Lilly Part 2"
+      ],
+      "artistCandidates": [
+        "19104",
+        "ILLIT",
+        "36cgvBn0aadzOijnjjwqMN",
+        "1734551937",
+        "259645622",
+        "UCNVIo0UJXTdEnsRkCB9Q03w"
+      ]
+    },
+    {
       "id": "27884",
       "anime": "Diamond no Ace: Act II Second Season Part 2",
       "song": "NEVER SAY NEVER AGAIN",
@@ -2781,6 +2792,243 @@
         "00AFbqxvdDK6T1D6MQZ9c1",
         "705683182",
         "UCXRmrNzERQzfA_2XI1OzJ9A"
+      ]
+    },
+    {
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "artist": "Touko Kirishima",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
+      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Turn The World Upside Down"
+      ],
+      "animeCandidates": [
+        "Rascal Does Not Dream of a Dear Friend",
+        "Seishun Buta Yarou wa Dear Friend no Yume wo Minai",
+        "青春ブタ野郎はディアフレンドの夢を見ない"
+      ],
+      "artistCandidates": [
+        "17885",
+        "Touko Kirishima",
+        "霧島透子",
+        "7IrMYd2djETd56sjTPt3UP",
+        "1811798060",
+        "320905841",
+        "UC2ZVM7UDClF1fvew91aajbg"
+      ]
+    },
+    {
+      "id": "27860",
+      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
+      "song": "BACKLASH",
+      "artist": "Hiromitsu Kitayama",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
+      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "BACKLASH"
+      ],
+      "animeCandidates": [
+        "Tougen Anki: Nikko Kegon Falls Arc",
+        "Tougen Anki: Nikko Kegon no Taki-hen",
+        "桃源暗鬼 日光・華厳の滝編"
+      ],
+      "artistCandidates": [
+        "24252",
+        "Hiromitsu Kitayama",
+        "北山宏光",
+        "5aj6oLCY3WS8HZ7zd5VWQ9",
+        "1715643610",
+        "240810171",
+        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
+    {
+      "id": "27861",
+      "anime": "Hotel Inhumans 2nd Season",
+      "song": "Rasen",
+      "artist": "GAN",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/0kqguS5yn14lj8pSjQHhDR",
+      "apple": "https://geo.music.apple.com/album/6811789152?i=6811789168&at=1001l384j&ct=website-hotel-inhumans-2nd-season-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/952f489716e3c3878f42407b668ceeb376d49eff@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/hotel-inhumans-2nd-season-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Rasen",
+        "螺旋"
+      ],
+      "animeCandidates": [
+        "Hotel Inhumans 2nd Season",
+        "ホテル・インヒューマンズ 第2期",
+        "Hotel Inhumans Season 2"
+      ],
+      "artistCandidates": [
+        "24198",
+        "GAN",
+        "GAN (Takanori Iwata)",
+        "GAN (岩田剛典)",
+        "2cD2ndst4zaoaoNldSXhMH",
+        "1896546048",
+        "347142",
+        "UC6vIISWr5SMH8lt5rqOR_RQ"
+      ]
+    },
+    {
+      "id": "27870",
+      "anime": "The Ramparts of Ice Season 2",
+      "song": "Hanakage",
+      "artist": "Superfly",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
+      "apple": "https://geo.music.apple.com/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-ramparts-of-ice-season-2-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hanakage",
+        "花蔭"
+      ],
+      "animeCandidates": [
+        "The Ramparts of Ice Season 2",
+        "Koori no Jouheki 2nd Season",
+        "氷の城壁 第2期"
+      ],
+      "artistCandidates": [
+        "372",
+        "Superfly",
+        "5M8AXrOifBT8elkLKbGPQZ",
+        "150974880",
+        "142878"
       ]
     },
     {
@@ -2899,15 +3147,15 @@
       ]
     },
     {
-      "id": "27886",
-      "anime": "Magical Sisters Lulutto Lilly Part 2",
-      "song": "Swingin' Magic",
-      "artist": "ILLIT",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
-      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening",
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "artist": "Ryu Matsuyama",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
+      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -2924,6 +3172,7 @@
         "platforms",
         "preview_url",
         "song_key",
+        "song_number",
         "song_type",
         "song_type_short",
         "anime_titles",
@@ -2935,84 +3184,31 @@
         "short_link",
         "status",
         "tags",
-        "other_link_ids",
         "unreleased",
         "objectID"
       ],
       "titleCandidates": [
-        "Swingin' Magic"
+        "flow"
       ],
       "animeCandidates": [
-        "Magical Sisters Lulutto Lilly Part 2",
-        "魔法の姉妹ルルットリリィ 第2クール",
-        "Mahou no Shimai Lulutto Lilly Part 2"
+        "Red River",
+        "Sora wa Akai Kawa no Hotori",
+        "Anatolia Story",
+        "Heaven by the Red River",
+        "Orontes Renka",
+        "Orontes Love Song",
+        "Where the Sky and the Red River Meet",
+        "天は赤い河のほとり"
       ],
       "artistCandidates": [
-        "19104",
-        "ILLIT",
-        "36cgvBn0aadzOijnjjwqMN",
-        "1734551937",
-        "259645622",
-        "UCNVIo0UJXTdEnsRkCB9Q03w"
-      ]
-    },
-    {
-      "id": "27883",
-      "anime": "Rascal Does Not Dream of a Dear Friend",
-      "song": "Turn The World Upside Down",
-      "artist": "Touko Kirishima",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
-      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Turn The World Upside Down"
-      ],
-      "animeCandidates": [
-        "Rascal Does Not Dream of a Dear Friend",
-        "Seishun Buta Yarou wa Dear Friend no Yume wo Minai",
-        "青春ブタ野郎はディアフレンドの夢を見ない"
-      ],
-      "artistCandidates": [
-        "17885",
-        "Touko Kirishima",
-        "霧島透子",
-        "7IrMYd2djETd56sjTPt3UP",
-        "1811798060",
-        "320905841",
-        "UC2ZVM7UDClF1fvew91aajbg"
+        "24185",
+        "Ryu Matsuyama",
+        "59krd1xNH8IJFknx9wFiVf",
+        "796767434",
+        "5512",
+        "Yuko Ando",
+        "安藤裕子",
+        "12dhEcVUnJVnIQLt91VdA3"
       ]
     },
     {
@@ -3080,65 +3276,6 @@
       ]
     },
     {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "artist": "go!go!vanillas",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
-      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "TRICKSTER",
-        "トリックスター"
-      ],
-      "animeCandidates": [
-        "Tokyo Revengers: War of the Three Titan Arc",
-        "Tokyo Revengers: Santen Sensou-hen",
-        "東京リベンジャーズ 三天戦争編"
-      ],
-      "artistCandidates": [
-        "794",
-        "go!go!vanillas",
-        "0aqPTOZlKG6ltJHv7BNlsm",
-        "671623880",
-        "10963206",
-        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
-      ]
-    },
-    {
       "id": "27823",
       "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
       "song": "Shinu ka Ikiru ka",
@@ -3200,6 +3337,65 @@
         "1727997785",
         "1337238",
         "UCnPf2oZPzg_pxf6RzjUoCgw"
+      ]
+    },
+    {
+      "id": "27817",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
+      "artist": "go!go!vanillas",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
+      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "TRICKSTER",
+        "トリックスター"
+      ],
+      "animeCandidates": [
+        "Tokyo Revengers: War of the Three Titan Arc",
+        "Tokyo Revengers: Santen Sensou-hen",
+        "東京リベンジャーズ 三天戦争編"
+      ],
+      "artistCandidates": [
+        "794",
+        "go!go!vanillas",
+        "0aqPTOZlKG6ltJHv7BNlsm",
+        "671623880",
+        "10963206",
+        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
       ]
     },
     {
@@ -3684,141 +3880,9 @@
         "73204762",
         "UCZ3k79bJuQd5w9qAiH4VPwQ"
       ]
-    },
-    {
-      "id": "27882",
-      "anime": "Red River",
-      "song": "flow",
-      "artist": "Ryu Matsuyama",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "flow"
-      ],
-      "animeCandidates": [
-        "Red River",
-        "Sora wa Akai Kawa no Hotori",
-        "Anatolia Story",
-        "Heaven by the Red River",
-        "Orontes Renka",
-        "Orontes Love Song",
-        "Where the Sky and the Red River Meet",
-        "天は赤い河のほとり"
-      ],
-      "artistCandidates": [
-        "24185",
-        "Ryu Matsuyama",
-        "59krd1xNH8IJFknx9wFiVf",
-        "796767434",
-        "5512",
-        "Yuko Ando",
-        "安藤裕子",
-        "12dhEcVUnJVnIQLt91VdA3"
-      ]
-    },
-    {
-      "id": "27870",
-      "anime": "The Ramparts of Ice Season 2",
-      "song": "Hanakage",
-      "artist": "Superfly",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
-      "apple": "https://music.apple.com/nz/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Hanakage",
-        "花蔭"
-      ],
-      "animeCandidates": [
-        "The Ramparts of Ice Season 2",
-        "Koori no Jouheki 2nd Season",
-        "氷の城壁 第2期"
-      ],
-      "artistCandidates": [
-        "372",
-        "Superfly",
-        "5M8AXrOifBT8elkLKbGPQZ",
-        "150974880",
-        "142878"
-      ]
     }
   ],
   "platformSamples": [
-    {
-      "id": "27860",
-      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
-      "song": "BACKLASH",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
-      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music"
-    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -3836,12 +3900,52 @@
       "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music"
     },
     {
+      "id": "27886",
+      "anime": "Magical Sisters Lulutto Lilly Part 2",
+      "song": "Swingin' Magic",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
+      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music"
+    },
+    {
       "id": "27884",
       "anime": "Diamond no Ace: Act II Second Season Part 2",
       "song": "NEVER SAY NEVER AGAIN",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3G0mTzZwFHYvji44Nk4qdO",
       "apple": "https://geo.music.apple.com/album/6809684037?i=6809684039&at=1001l384j&ct=website-diamond-no-ace-act-ii-second-op&app=music"
+    },
+    {
+      "id": "27883",
+      "anime": "Rascal Does Not Dream of a Dear Friend",
+      "song": "Turn The World Upside Down",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
+      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music"
+    },
+    {
+      "id": "27860",
+      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
+      "song": "BACKLASH",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
+      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music"
+    },
+    {
+      "id": "27861",
+      "anime": "Hotel Inhumans 2nd Season",
+      "song": "Rasen",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/0kqguS5yn14lj8pSjQHhDR",
+      "apple": "https://geo.music.apple.com/album/6811789152?i=6811789168&at=1001l384j&ct=website-hotel-inhumans-2nd-season-op&app=music"
+    },
+    {
+      "id": "27870",
+      "anime": "The Ramparts of Ice Season 2",
+      "song": "Hanakage",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
+      "apple": "https://geo.music.apple.com/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music"
     },
     {
       "id": "27859",
@@ -3860,20 +3964,12 @@
       "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music"
     },
     {
-      "id": "27886",
-      "anime": "Magical Sisters Lulutto Lilly Part 2",
-      "song": "Swingin' Magic",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
-      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music"
-    },
-    {
-      "id": "27883",
-      "anime": "Rascal Does Not Dream of a Dear Friend",
-      "song": "Turn The World Upside Down",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
-      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music"
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
+      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music"
     },
     {
       "id": "27850",
@@ -3884,20 +3980,20 @@
       "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music"
     },
     {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
-      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music"
-    },
-    {
       "id": "27823",
       "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
       "song": "Shinu ka Ikiru ka",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
       "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music"
+    },
+    {
+      "id": "27817",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
+      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music"
     },
     {
       "id": "27816",
@@ -3962,22 +4058,6 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
       "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music"
-    },
-    {
-      "id": "27882",
-      "anime": "Red River",
-      "song": "flow",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
-      "apple": ""
-    },
-    {
-      "id": "27870",
-      "anime": "The Ramparts of Ice Season 2",
-      "song": "Hanakage",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
-      "apple": "https://music.apple.com/nz/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music"
     }
   ]
 }
