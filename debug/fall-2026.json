@@ -1,18 +1,18 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 142,
+  "resultCount": 143,
   "jsonResponses": 20,
   "algoliaResponses": 9,
   "hitArrays": 18,
-  "rawHits": 142,
-  "uniqueHits": 142,
-  "normalized": 142,
-  "withSpotify": 18,
-  "withApple": 17,
-  "withDetailUrl": 142,
-  "resolvedSpotify": 18,
-  "recordThumbnails": 142,
+  "rawHits": 143,
+  "uniqueHits": 143,
+  "normalized": 143,
+  "withSpotify": 21,
+  "withApple": 20,
+  "withDetailUrl": 143,
+  "resolvedSpotify": 21,
+  "recordThumbnails": 143,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
@@ -74,6 +74,129 @@
         "1715643610",
         "240810171",
         "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
+    {
+      "id": "27888",
+      "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
+      "song": "Escape",
+      "artist": "Kis-My-Ft2",
+      "kind": "TS",
+      "spotify": "https://open.spotify.com/track/3BqsYnqnsdDWUmOuxHWX2U",
+      "apple": "https://geo.music.apple.com/album/6812151890?i=6812151891&at=1001l384j&ct=website-cardfight-vanguard-divinez-pa-ts&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a5a8a802943acca2ac7f65f55217a5c82929e9b9@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/cardfight-vanguard-divinez-parallactic-fate-theme-song",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Escape"
+      ],
+      "animeCandidates": [
+        "Cardfight!! Vanguard: Divinez Parallactic Fate",
+        "Cardfight!! Vanguard: Divinez Unmei Seisen-hen",
+        "カードファイト!! ヴァンガード DivineZ 運命星戦編"
+      ],
+      "artistCandidates": [
+        "16845",
+        "Kis-My-Ft2",
+        "4kxoWjOpCVYKgPv9nea95k",
+        "1803998087",
+        "UCfLptVEIrip5auo64TYRnlw"
+      ]
+    },
+    {
+      "id": "27887",
+      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "song": "Hatsukoi Reply",
+      "artist": "MARUMOCHI from HoneyWorks",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/57UeOQ9Ae6o6PdWU4nxzK3",
+      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hatsukoi Reply",
+        "初恋リプライ",
+        "First Love Reply"
+      ],
+      "animeCandidates": [
+        "Shiotaiou no Satou-san ga Ore ni dake Amai",
+        "Aren't You Too Sweet Salt-God Sato-san?",
+        "塩対応の佐藤さんが俺にだけ甘い",
+        "The Cold Sato-san is Only Sweet to Me",
+        "Aren't You Too Sweet Salt-God Sato-san"
+      ],
+      "artistCandidates": [
+        "16629",
+        "MARUMOCHI from HoneyWorks",
+        "6SE42YkzK2iVXMph1a3Hbp",
+        "1767973545",
+        "281706071",
+        "UCJxr7YkgS2mEZBFyq39Wkhg",
+        "24250",
+        "Sara Hoshikawa",
+        "星川サラ",
+        "1L3rnizraR5DcYjEhluZU9",
+        "409596672"
       ]
     },
     {
@@ -191,120 +314,6 @@
         "14108225",
         "UCG_xHIWGhBDSGDZV0PgNaXg"
       ]
-    },
-    {
-      "id": "27858",
-      "anime": "Umayuru: Full Gate!",
-      "song": "Shiba Haeru wa~",
-      "artist": "Special Week (CV: Azumi Waki)",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
-      "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/151ac5833d3d4223d2ca2c14acb17eb978d11637@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Shiba Haeru wa~",
-        "芝生えるわ～",
-        "Touchin' turf lollll"
-      ],
-      "animeCandidates": [
-        "Umayuru: Full Gate!",
-        "うまゆるふるげ〜と!"
-      ],
-      "artistCandidates": [
-        "Various artists"
-      ]
-    },
-    {
-      "id": "27883",
-      "anime": "Rascal Does Not Dream of a Dear Friend",
-      "song": "Turn The World Upside Down",
-      "artist": "Touko Kirishima",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/2rxXEhF8pvGKgq0ODWT608",
-      "apple": "https://geo.music.apple.com/album/6809422891?i=6809422894&at=1001l384j&ct=website-rascal-does-not-dream-of-a-de-in&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/rascal-does-not-dream-of-a-dear-friend-insert-song-turn-the-world-upside-down",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Turn The World Upside Down"
-      ],
-      "animeCandidates": [
-        "Rascal Does Not Dream of a Dear Friend",
-        "Seishun Buta Yarou wa Dear Friend no Yume wo Minai",
-        "青春ブタ野郎はディアフレンドの夢を見ない"
-      ],
-      "artistCandidates": [
-        "17885",
-        "Touko Kirishima",
-        "霧島透子",
-        "7IrMYd2djETd56sjTPt3UP",
-        "1811798060",
-        "320905841",
-        "UC2ZVM7UDClF1fvew91aajbg"
-      ]
     }
   ],
   "errors": [],
@@ -318,6 +327,26 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg"
+    },
+    {
+      "id": "27888",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/a5a8a802943acca2ac7f65f55217a5c82929e9b9.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "L69~~%^nJ55Omj;0krPV]#vzIU0|",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/a5a8a802943acca2ac7f65f55217a5c82929e9b9@2xl.jpg"
+    },
+    {
+      "id": "27887",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LAIWc*Mvml-n00.A%NE2^k+]SHE1",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg"
     },
     {
       "id": "27884",
@@ -348,6 +377,16 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/151ac5833d3d4223d2ca2c14acb17eb978d11637@2xl.jpeg"
+    },
+    {
+      "id": "27886",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "L8PP7=IB*H164bWFkPrDPowPV4r.",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg"
     },
     {
       "id": "27883",
@@ -398,43 +437,13 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800@2xl.jpg"
-    },
-    {
-      "id": "27814",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LRM6C.|_kWX80L^O-pg3E1E1IURj",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg"
-    },
-    {
-      "id": "27821",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/62f935a021ce799e1890dd2bacab33a446e03999.jpeg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LRPzPz+vn3$i{0K5OsNcJUNaxGs-",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/62f935a021ce799e1890dd2bacab33a446e03999@2xl.jpeg"
-    },
-    {
-      "id": "us_3239",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LaOpn_f:.5EQ_HJBEAWbs}n+sSt1",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg"
     }
   ],
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 142,
+      "nbHits": 143,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -442,7 +451,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28201,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -450,7 +459,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 142,
+      "nbHits": 143,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -458,7 +467,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28201,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -466,7 +475,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 142,
+      "nbHits": 143,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -474,7 +483,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28201,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -482,7 +491,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 142,
+      "nbHits": 143,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -490,7 +499,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28201,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -498,7 +507,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 142,
+      "nbHits": 143,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -506,7 +515,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28201,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -514,7 +523,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 142,
+      "nbHits": 143,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -522,7 +531,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28201,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -530,7 +539,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 142,
+      "nbHits": 143,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -538,7 +547,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28201,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -546,7 +555,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 142,
+      "nbHits": 143,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -554,7 +563,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28201,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -562,15 +571,15 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 142,
+      "nbHits": 143,
       "hitsPerPage": 16,
       "nbPages": 9,
-      "count": 14
+      "count": 15
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28201,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -637,6 +646,129 @@
       ]
     },
     {
+      "id": "27888",
+      "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
+      "song": "Escape",
+      "artist": "Kis-My-Ft2",
+      "kind": "TS",
+      "spotify": "https://open.spotify.com/track/3BqsYnqnsdDWUmOuxHWX2U",
+      "apple": "https://geo.music.apple.com/album/6812151890?i=6812151891&at=1001l384j&ct=website-cardfight-vanguard-divinez-pa-ts&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a5a8a802943acca2ac7f65f55217a5c82929e9b9@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/cardfight-vanguard-divinez-parallactic-fate-theme-song",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Escape"
+      ],
+      "animeCandidates": [
+        "Cardfight!! Vanguard: Divinez Parallactic Fate",
+        "Cardfight!! Vanguard: Divinez Unmei Seisen-hen",
+        "カードファイト!! ヴァンガード DivineZ 運命星戦編"
+      ],
+      "artistCandidates": [
+        "16845",
+        "Kis-My-Ft2",
+        "4kxoWjOpCVYKgPv9nea95k",
+        "1803998087",
+        "UCfLptVEIrip5auo64TYRnlw"
+      ]
+    },
+    {
+      "id": "27887",
+      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "song": "Hatsukoi Reply",
+      "artist": "MARUMOCHI from HoneyWorks",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/57UeOQ9Ae6o6PdWU4nxzK3",
+      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hatsukoi Reply",
+        "初恋リプライ",
+        "First Love Reply"
+      ],
+      "animeCandidates": [
+        "Shiotaiou no Satou-san ga Ore ni dake Amai",
+        "Aren't You Too Sweet Salt-God Sato-san?",
+        "塩対応の佐藤さんが俺にだけ甘い",
+        "The Cold Sato-san is Only Sweet to Me",
+        "Aren't You Too Sweet Salt-God Sato-san"
+      ],
+      "artistCandidates": [
+        "16629",
+        "MARUMOCHI from HoneyWorks",
+        "6SE42YkzK2iVXMph1a3Hbp",
+        "1767973545",
+        "281706071",
+        "UCJxr7YkgS2mEZBFyq39Wkhg",
+        "24250",
+        "Sara Hoshikawa",
+        "星川サラ",
+        "1L3rnizraR5DcYjEhluZU9",
+        "409596672"
+      ]
+    },
+    {
       "id": "27884",
       "anime": "Diamond no Ace: Act II Second Season Part 2",
       "song": "NEVER SAY NEVER AGAIN",
@@ -805,6 +937,64 @@
       ],
       "artistCandidates": [
         "Various artists"
+      ]
+    },
+    {
+      "id": "27886",
+      "anime": "Magical Sisters Lulutto Lilly Part 2",
+      "song": "Swingin' Magic",
+      "artist": "ILLIT",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
+      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Swingin' Magic"
+      ],
+      "animeCandidates": [
+        "Magical Sisters Lulutto Lilly Part 2",
+        "魔法の姉妹ルルットリリィ 第2クール",
+        "Mahou no Shimai Lulutto Lilly Part 2"
+      ],
+      "artistCandidates": [
+        "19104",
+        "ILLIT",
+        "36cgvBn0aadzOijnjjwqMN",
+        "1734551937",
+        "259645622",
+        "UCNVIo0UJXTdEnsRkCB9Q03w"
       ]
     },
     {
@@ -2140,188 +2330,6 @@
         "250619942",
         "UCmu5lpe6Wt-7yCHe2rA4zYQ"
       ]
-    },
-    {
-      "id": "26706",
-      "anime": "To You in the Beyond",
-      "song": "Housenka",
-      "artist": "Tota",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/4CpEbsn3QeOEmZPAjouBLO",
-      "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/69a78171736a3b8f9d2d13a14fdb7b017229f405@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Housenka",
-        "鳳仙花",
-        "Balsam"
-      ],
-      "animeCandidates": [
-        "To You in the Beyond",
-        "Doko yori mo Tooi Basho ni Iru Kimi e",
-        "どこよりも遠い場所にいる君へ"
-      ],
-      "artistCandidates": [
-        "17325",
-        "Tota",
-        "とた",
-        "5WIXXPkyVYncLscyUbDrpi",
-        "1629845141",
-        "217001035",
-        "UCc95RA4CPcWdTRBk5YunwRA"
-      ]
-    },
-    {
-      "id": "27146",
-      "anime": "Uncle's Obsession with Cute Things",
-      "song": "PAGUtto itchatte~",
-      "artist": "PAGTARO & Friends",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/4XgzvE1TYsNnyrTWy9mAa8",
-      "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/8f7641c8a13ec3d789f685dbaabbe54f93a299c0@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "PAGUtto itchatte~",
-        "パグっといっちゃって～"
-      ],
-      "animeCandidates": [
-        "Uncle's Obsession with Cute Things",
-        "Ojisan wa Kawaii Mono ga Osuki.",
-        "Pops Loves Kawaii Stuff",
-        "This Uncle Likes Cute Things",
-        "おじさんはカワイイものがお好き。",
-        "Pops Loves Kawaii Stuff, This Uncle Likes Cute Things"
-      ],
-      "artistCandidates": [
-        "23721",
-        "PAGTARO & Friends",
-        "パグ太郎 & フレンズ",
-        "2t4UrgKrz1agjcVnZPCLhr",
-        "4MvNlXzycLyQdlZHjKxkSQ",
-        "6773239606",
-        "25038",
-        "PAGTARO&Friends",
-        "UCLcyuNTJSso-4IViEZCNsbw"
-      ]
-    },
-    {
-      "id": "27783",
-      "anime": "Ghost Meets Gal!",
-      "song": "Nikoichi Mirai",
-      "artist": "Mugendai Mewtype",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/33OvdvQWlQ7Djzo6HeSfYC",
-      "apple": "https://geo.music.apple.com/album/6810087884?i=6810087885&at=1001l384j&ct=website-ghost-meets-gal-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/17300d90ac62a784dfb62c3d1ffcf123abe68f1f@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/ghost-meets-gal-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Nikoichi Mirai",
-        "にこいちミライ"
-      ],
-      "animeCandidates": [
-        "Ghost Meets Gal!",
-        "ごーすと・みーつ・ぎゃる！",
-        "Ghost Meets Gyaru!"
-      ],
-      "artistCandidates": [
-        "18637",
-        "Mugendai Mewtype",
-        "夢限大みゅーたいぷ",
-        "2EzWYxIHqUD1RWBOuSjxtK",
-        "1715788150",
-        "285478361",
-        "UCeXzCxZsDcaF5xI68fK5owA"
-      ]
     }
   ],
   "detailUrlSamples": [
@@ -2331,6 +2339,20 @@
       "song": "BACKLASH",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening"
+    },
+    {
+      "id": "27888",
+      "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
+      "song": "Escape",
+      "kind": "TS",
+      "detailUrl": "https://aniplaylist.com/play/cardfight-vanguard-divinez-parallactic-fate-theme-song"
+    },
+    {
+      "id": "27887",
+      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "song": "Hatsukoi Reply",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending"
     },
     {
       "id": "27884",
@@ -2352,6 +2374,13 @@
       "song": "Shiba Haeru wa~",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1"
+    },
+    {
+      "id": "27886",
+      "anime": "Magical Sisters Lulutto Lilly Part 2",
+      "song": "Swingin' Magic",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening"
     },
     {
       "id": "27883",
@@ -2513,27 +2542,6 @@
       "song": "Contemporary Dance",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "26706",
-      "anime": "To You in the Beyond",
-      "song": "Housenka",
-      "kind": "IN",
-      "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka"
-    },
-    {
-      "id": "27146",
-      "anime": "Uncle's Obsession with Cute Things",
-      "song": "PAGUtto itchatte~",
-      "kind": "IN",
-      "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte"
-    },
-    {
-      "id": "27783",
-      "anime": "Ghost Meets Gal!",
-      "song": "Nikoichi Mirai",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/ghost-meets-gal-opening"
     }
   ],
   "usableSamples": [
@@ -2594,6 +2602,129 @@
         "1715643610",
         "240810171",
         "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      ]
+    },
+    {
+      "id": "27888",
+      "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
+      "song": "Escape",
+      "artist": "Kis-My-Ft2",
+      "kind": "TS",
+      "spotify": "https://open.spotify.com/track/3BqsYnqnsdDWUmOuxHWX2U",
+      "apple": "https://geo.music.apple.com/album/6812151890?i=6812151891&at=1001l384j&ct=website-cardfight-vanguard-divinez-pa-ts&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a5a8a802943acca2ac7f65f55217a5c82929e9b9@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/cardfight-vanguard-divinez-parallactic-fate-theme-song",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Escape"
+      ],
+      "animeCandidates": [
+        "Cardfight!! Vanguard: Divinez Parallactic Fate",
+        "Cardfight!! Vanguard: Divinez Unmei Seisen-hen",
+        "カードファイト!! ヴァンガード DivineZ 運命星戦編"
+      ],
+      "artistCandidates": [
+        "16845",
+        "Kis-My-Ft2",
+        "4kxoWjOpCVYKgPv9nea95k",
+        "1803998087",
+        "UCfLptVEIrip5auo64TYRnlw"
+      ]
+    },
+    {
+      "id": "27887",
+      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "song": "Hatsukoi Reply",
+      "artist": "MARUMOCHI from HoneyWorks",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/57UeOQ9Ae6o6PdWU4nxzK3",
+      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hatsukoi Reply",
+        "初恋リプライ",
+        "First Love Reply"
+      ],
+      "animeCandidates": [
+        "Shiotaiou no Satou-san ga Ore ni dake Amai",
+        "Aren't You Too Sweet Salt-God Sato-san?",
+        "塩対応の佐藤さんが俺にだけ甘い",
+        "The Cold Sato-san is Only Sweet to Me",
+        "Aren't You Too Sweet Salt-God Sato-san"
+      ],
+      "artistCandidates": [
+        "16629",
+        "MARUMOCHI from HoneyWorks",
+        "6SE42YkzK2iVXMph1a3Hbp",
+        "1767973545",
+        "281706071",
+        "UCJxr7YkgS2mEZBFyq39Wkhg",
+        "24250",
+        "Sara Hoshikawa",
+        "星川サラ",
+        "1L3rnizraR5DcYjEhluZU9",
+        "409596672"
       ]
     },
     {
@@ -2765,6 +2896,64 @@
       ],
       "artistCandidates": [
         "Various artists"
+      ]
+    },
+    {
+      "id": "27886",
+      "anime": "Magical Sisters Lulutto Lilly Part 2",
+      "song": "Swingin' Magic",
+      "artist": "ILLIT",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
+      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Swingin' Magic"
+      ],
+      "animeCandidates": [
+        "Magical Sisters Lulutto Lilly Part 2",
+        "魔法の姉妹ルルットリリィ 第2クール",
+        "Mahou no Shimai Lulutto Lilly Part 2"
+      ],
+      "artistCandidates": [
+        "19104",
+        "ILLIT",
+        "36cgvBn0aadzOijnjjwqMN",
+        "1734551937",
+        "259645622",
+        "UCNVIo0UJXTdEnsRkCB9Q03w"
       ]
     },
     {
@@ -3631,6 +3820,22 @@
       "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music"
     },
     {
+      "id": "27888",
+      "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
+      "song": "Escape",
+      "kind": "TS",
+      "spotify": "https://open.spotify.com/track/3BqsYnqnsdDWUmOuxHWX2U",
+      "apple": "https://geo.music.apple.com/album/6812151890?i=6812151891&at=1001l384j&ct=website-cardfight-vanguard-divinez-pa-ts&app=music"
+    },
+    {
+      "id": "27887",
+      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "song": "Hatsukoi Reply",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/57UeOQ9Ae6o6PdWU4nxzK3",
+      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music"
+    },
+    {
       "id": "27884",
       "anime": "Diamond no Ace: Act II Second Season Part 2",
       "song": "NEVER SAY NEVER AGAIN",
@@ -3653,6 +3858,14 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/5PXpG2iRWy3wSjvPVYxKKE",
       "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music"
+    },
+    {
+      "id": "27886",
+      "anime": "Magical Sisters Lulutto Lilly Part 2",
+      "song": "Swingin' Magic",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
+      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music"
     },
     {
       "id": "27883",
