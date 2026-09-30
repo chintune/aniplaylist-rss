@@ -1,18 +1,18 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 143,
+  "resultCount": 144,
   "jsonResponses": 20,
   "algoliaResponses": 9,
   "hitArrays": 18,
-  "rawHits": 143,
-  "uniqueHits": 143,
-  "normalized": 143,
+  "rawHits": 144,
+  "uniqueHits": 144,
+  "normalized": 144,
   "withSpotify": 22,
   "withApple": 22,
-  "withDetailUrl": 143,
+  "withDetailUrl": 144,
   "resolvedSpotify": 22,
-  "recordThumbnails": 143,
+  "recordThumbnails": 144,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
@@ -441,7 +441,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 143,
+      "nbHits": 144,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -449,7 +449,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28201,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -457,7 +457,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 143,
+      "nbHits": 144,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -465,7 +465,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28201,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -473,7 +473,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 143,
+      "nbHits": 144,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -481,7 +481,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28201,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -489,7 +489,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 143,
+      "nbHits": 144,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -497,7 +497,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28201,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -505,7 +505,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 143,
+      "nbHits": 144,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -513,7 +513,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28201,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -521,7 +521,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 143,
+      "nbHits": 144,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -529,7 +529,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28201,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -537,7 +537,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 143,
+      "nbHits": 144,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -545,7 +545,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28201,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -553,7 +553,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 143,
+      "nbHits": 144,
       "hitsPerPage": 16,
       "nbPages": 9,
       "count": 16
@@ -561,7 +561,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28201,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -569,15 +569,15 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 143,
+      "nbHits": 144,
       "hitsPerPage": 16,
       "nbPages": 9,
-      "count": 15
+      "count": 16
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28201,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -1549,6 +1549,63 @@
       ]
     },
     {
+      "id": "us_3254",
+      "anime": "Mahoutsukai no Yoru",
+      "song": "Yoru to Ao",
+      "artist": "supercell",
+      "kind": "TS",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/26c7e54fe8d75f0be7adffe956da27a0759ef898@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Yoru to Ao",
+        "夜と青"
+      ],
+      "animeCandidates": [
+        "Mahoutsukai no Yoru",
+        "A Magician's Night",
+        "MahoYo",
+        "魔法使いの夜",
+        "Witch on the Holy Night"
+      ],
+      "artistCandidates": [
+        "610",
+        "supercell",
+        "4Mc3zbnQx4wRb0tYg7A8sG",
+        "631665100",
+        "184460",
+        "UCjlifcVO6r-V5RSh3eB1lLg",
+        "UCHgOXPQVUb-8xndwUe1QXVQ"
+      ]
+    },
+    {
       "id": "us_3222",
       "anime": "Nia Liston: The Merciless Maiden",
       "song": "Tokimeki Un Deux Trois♪",
@@ -2281,67 +2338,6 @@
         "73794923",
         "UCIBz9tGLGRyC2MXQdIHjxwQ"
       ]
-    },
-    {
-      "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "SPIN",
-      "artist": "Kroi",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
-      "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/62f935a021ce799e1890dd2bacab33a446e03999@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "SPIN"
-      ],
-      "animeCandidates": [
-        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
-        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
-        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
-        "SBR"
-      ],
-      "artistCandidates": [
-        "14747",
-        "Kroi",
-        "4S8J8Nct8lHsbzAeNJXcJa",
-        "1439157589",
-        "52711252",
-        "UCssoAGLly9DaABecIZoht_g"
-      ]
     }
   ],
   "detailUrlSamples": [
@@ -2458,6 +2454,13 @@
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
+      "id": "us_3254",
+      "anime": "Mahoutsukai no Yoru",
+      "song": "Yoru to Ao",
+      "kind": "TS",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
       "id": "us_3222",
       "anime": "Nia Liston: The Merciless Maiden",
       "song": "Tokimeki Un Deux Trois♪",
@@ -2547,13 +2550,6 @@
       "song": "Ai de Zenbu Dakishimete Aishite",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "SPIN",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening"
     }
   ],
   "usableSamples": [
