@@ -1,18 +1,18 @@
 {
   "season": "Winter 2027",
   "url": "https://aniplaylist.com/?seasons=Winter%202027",
-  "resultCount": 5,
+  "resultCount": 6,
   "jsonResponses": 4,
   "algoliaResponses": 1,
   "hitArrays": 2,
-  "rawHits": 5,
-  "uniqueHits": 5,
-  "normalized": 5,
-  "withSpotify": 1,
-  "withApple": 1,
-  "withDetailUrl": 5,
-  "resolvedSpotify": 1,
-  "recordThumbnails": 5,
+  "rawHits": 6,
+  "uniqueHits": 6,
+  "normalized": 6,
+  "withSpotify": 2,
+  "withApple": 2,
+  "withDetailUrl": 6,
+  "resolvedSpotify": 2,
+  "recordThumbnails": 6,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
@@ -75,69 +75,8 @@
       ]
     },
     {
-      "id": "us_3214",
-      "anime": "Kaze wo Tsugumono",
-      "song": "Kaze o Tsugumono",
-      "artist": "Quruli",
-      "kind": "OP",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Winter 2027",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Kaze o Tsugumono",
-        "風を継ぐもの"
-      ],
-      "animeCandidates": [
-        "Kaze wo Tsugumono",
-        "風を継ぐもの",
-        "Inherit the Winds"
-      ],
-      "artistCandidates": [
-        "315",
-        "Quruli",
-        "26WuprsX7JRG69T0PXkze4",
-        "105025123",
-        "8018528",
-        "UCLIFRNQRDAaD5H4REYsRdmA",
-        "7233",
-        "Hitsujibungaku",
-        "羊文学",
-        "6S8w5rLsEwjN21jQeRES0n",
-        "1281384242",
-        "13290779",
-        "UCnZK-AT0Yrx8uXcFRqUy87g"
-      ]
-    },
-    {
       "id": "us_3215",
-      "anime": "Kaze wo Tsugumono",
+      "anime": "Inherit the Winds",
       "song": "Namida no Kawa",
       "artist": "Hitsujibungaku",
       "kind": "ED",
@@ -176,9 +115,9 @@
         "涙の河"
       ],
       "animeCandidates": [
+        "Inherit the Winds",
         "Kaze wo Tsugumono",
-        "風を継ぐもの",
-        "Inherit the Winds"
+        "風を継ぐもの"
       ],
       "artistCandidates": [
         "7233",
@@ -194,6 +133,67 @@
         "105025123",
         "8018528",
         "UCLIFRNQRDAaD5H4REYsRdmA"
+      ]
+    },
+    {
+      "id": "us_3214",
+      "anime": "Inherit the Winds",
+      "song": "Kaze o Tsugumono",
+      "artist": "Quruli",
+      "kind": "OP",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Winter 2027",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Kaze o Tsugumono",
+        "風を継ぐもの"
+      ],
+      "animeCandidates": [
+        "Inherit the Winds",
+        "Kaze wo Tsugumono",
+        "風を継ぐもの"
+      ],
+      "artistCandidates": [
+        "315",
+        "Quruli",
+        "26WuprsX7JRG69T0PXkze4",
+        "105025123",
+        "8018528",
+        "UCLIFRNQRDAaD5H4REYsRdmA",
+        "7233",
+        "Hitsujibungaku",
+        "羊文学",
+        "6S8w5rLsEwjN21jQeRES0n",
+        "1281384242",
+        "13290779",
+        "UCnZK-AT0Yrx8uXcFRqUy87g"
       ]
     },
     {
@@ -317,7 +317,7 @@
       "resolved": "https://cdn.aniplaylist.com/thumbnails/829dbb34b66a8943b4f34b42d81dfe2afc164088@2xl.jpg"
     },
     {
-      "id": "us_3214",
+      "id": "us_3215",
       "thumbnailType": "string",
       "thumbnail": "thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889.jpg",
       "thumbnailHashType": "string",
@@ -327,7 +327,7 @@
       "resolved": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg"
     },
     {
-      "id": "us_3215",
+      "id": "us_3214",
       "thumbnailType": "string",
       "thumbnail": "thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889.jpg",
       "thumbnailHashType": "string",
@@ -355,21 +355,31 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/5fa6ff6ca107aa497a8eb30d78b6fa6b7079f2bb@2xl.jpg"
+    },
+    {
+      "id": "27894",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/b0f07443b406e866c8135ad5a60694a7fedd62cf.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "L6P%O%~qIT%M_3afRjRje.ofayWB",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/b0f07443b406e866c8135ad5a60694a7fedd62cf@2xl.jpeg"
     }
   ],
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 5,
+      "nbHits": 6,
       "hitsPerPage": 16,
       "nbPages": 1,
-      "count": 5
+      "count": 6
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28200,
+      "nbHits": 28204,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -434,69 +444,8 @@
       ]
     },
     {
-      "id": "us_3214",
-      "anime": "Kaze wo Tsugumono",
-      "song": "Kaze o Tsugumono",
-      "artist": "Quruli",
-      "kind": "OP",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Winter 2027",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Kaze o Tsugumono",
-        "風を継ぐもの"
-      ],
-      "animeCandidates": [
-        "Kaze wo Tsugumono",
-        "風を継ぐもの",
-        "Inherit the Winds"
-      ],
-      "artistCandidates": [
-        "315",
-        "Quruli",
-        "26WuprsX7JRG69T0PXkze4",
-        "105025123",
-        "8018528",
-        "UCLIFRNQRDAaD5H4REYsRdmA",
-        "7233",
-        "Hitsujibungaku",
-        "羊文学",
-        "6S8w5rLsEwjN21jQeRES0n",
-        "1281384242",
-        "13290779",
-        "UCnZK-AT0Yrx8uXcFRqUy87g"
-      ]
-    },
-    {
       "id": "us_3215",
-      "anime": "Kaze wo Tsugumono",
+      "anime": "Inherit the Winds",
       "song": "Namida no Kawa",
       "artist": "Hitsujibungaku",
       "kind": "ED",
@@ -535,9 +484,9 @@
         "涙の河"
       ],
       "animeCandidates": [
+        "Inherit the Winds",
         "Kaze wo Tsugumono",
-        "風を継ぐもの",
-        "Inherit the Winds"
+        "風を継ぐもの"
       ],
       "artistCandidates": [
         "7233",
@@ -553,6 +502,67 @@
         "105025123",
         "8018528",
         "UCLIFRNQRDAaD5H4REYsRdmA"
+      ]
+    },
+    {
+      "id": "us_3214",
+      "anime": "Inherit the Winds",
+      "song": "Kaze o Tsugumono",
+      "artist": "Quruli",
+      "kind": "OP",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Winter 2027",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Kaze o Tsugumono",
+        "風を継ぐもの"
+      ],
+      "animeCandidates": [
+        "Inherit the Winds",
+        "Kaze wo Tsugumono",
+        "風を継ぐもの"
+      ],
+      "artistCandidates": [
+        "315",
+        "Quruli",
+        "26WuprsX7JRG69T0PXkze4",
+        "105025123",
+        "8018528",
+        "UCLIFRNQRDAaD5H4REYsRdmA",
+        "7233",
+        "Hitsujibungaku",
+        "羊文学",
+        "6S8w5rLsEwjN21jQeRES0n",
+        "1281384242",
+        "13290779",
+        "UCnZK-AT0Yrx8uXcFRqUy87g"
       ]
     },
     {
@@ -661,6 +671,67 @@
         "13290779",
         "UCnZK-AT0Yrx8uXcFRqUy87g"
       ]
+    },
+    {
+      "id": "27894",
+      "anime": "Inherit the Winds",
+      "song": "Jinsuke no Theme",
+      "artist": "Shigeru Kishida",
+      "kind": "OST",
+      "spotify": "https://open.spotify.com/album/2ITxTFvNQ5LkODTM1kmnXF",
+      "apple": "https://geo.music.apple.com/album/6807781215?at=1001l384j&ct=website-inherit-the-winds-ost&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b0f07443b406e866c8135ad5a60694a7fedd62cf@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/inherit-the-winds-original-soundtrack",
+      "season": "Winter 2027",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "substitute",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Jinsuke no Theme",
+        "迅助のテーマ"
+      ],
+      "animeCandidates": [
+        "Inherit the Winds",
+        "Kaze wo Tsugumono",
+        "風を継ぐもの"
+      ],
+      "artistCandidates": [
+        "1277",
+        "Shigeru Kishida",
+        "岸田繁",
+        "62TpalmxXUjLKyxJUgZt6W",
+        "219771500",
+        "4897530",
+        "UCE7UTii69j5WCDZSWgkIjiw"
+      ]
     }
   ],
   "detailUrlSamples": [
@@ -672,17 +743,17 @@
       "detailUrl": "https://aniplaylist.com/play/the-guy-she-was-interested-in-wasnt-a-guy-at-all-opening"
     },
     {
-      "id": "us_3214",
-      "anime": "Kaze wo Tsugumono",
-      "song": "Kaze o Tsugumono",
-      "kind": "OP",
+      "id": "us_3215",
+      "anime": "Inherit the Winds",
+      "song": "Namida no Kawa",
+      "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
-      "id": "us_3215",
-      "anime": "Kaze wo Tsugumono",
-      "song": "Namida no Kawa",
-      "kind": "ED",
+      "id": "us_3214",
+      "anime": "Inherit the Winds",
+      "song": "Kaze o Tsugumono",
+      "kind": "OP",
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
@@ -698,6 +769,13 @@
       "song": "Sugar",
       "kind": "IN",
       "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "27894",
+      "anime": "Inherit the Winds",
+      "song": "Jinsuke no Theme",
+      "kind": "OST",
+      "detailUrl": "https://aniplaylist.com/play/inherit-the-winds-original-soundtrack"
     }
   ],
   "usableSamples": [
@@ -757,6 +835,67 @@
         "112018",
         "415"
       ]
+    },
+    {
+      "id": "27894",
+      "anime": "Inherit the Winds",
+      "song": "Jinsuke no Theme",
+      "artist": "Shigeru Kishida",
+      "kind": "OST",
+      "spotify": "https://open.spotify.com/album/2ITxTFvNQ5LkODTM1kmnXF",
+      "apple": "https://geo.music.apple.com/album/6807781215?at=1001l384j&ct=website-inherit-the-winds-ost&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b0f07443b406e866c8135ad5a60694a7fedd62cf@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/inherit-the-winds-original-soundtrack",
+      "season": "Winter 2027",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "substitute",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Jinsuke no Theme",
+        "迅助のテーマ"
+      ],
+      "animeCandidates": [
+        "Inherit the Winds",
+        "Kaze wo Tsugumono",
+        "風を継ぐもの"
+      ],
+      "artistCandidates": [
+        "1277",
+        "Shigeru Kishida",
+        "岸田繁",
+        "62TpalmxXUjLKyxJUgZt6W",
+        "219771500",
+        "4897530",
+        "UCE7UTii69j5WCDZSWgkIjiw"
+      ]
     }
   ],
   "platformSamples": [
@@ -767,6 +906,14 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/5mJGLBNJM0GULqAoL5mb9C",
       "apple": "https://music.apple.com/us/album/1586410660?i=1586410664&at=1001l384j&ct=website-the-guy-she-was-interested-in-op&app=music"
+    },
+    {
+      "id": "27894",
+      "anime": "Inherit the Winds",
+      "song": "Jinsuke no Theme",
+      "kind": "OST",
+      "spotify": "https://open.spotify.com/album/2ITxTFvNQ5LkODTM1kmnXF",
+      "apple": "https://geo.music.apple.com/album/6807781215?at=1001l384j&ct=website-inherit-the-winds-ost&app=music"
     }
   ]
 }
