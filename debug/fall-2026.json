@@ -8,10 +8,10 @@
   "rawHits": 147,
   "uniqueHits": 147,
   "normalized": 147,
-  "withSpotify": 33,
-  "withApple": 31,
+  "withSpotify": 36,
+  "withApple": 34,
   "withDetailUrl": 147,
-  "resolvedSpotify": 33,
+  "resolvedSpotify": 36,
   "recordThumbnails": 147,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
@@ -448,7 +448,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -464,7 +464,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -480,7 +480,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -496,7 +496,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -512,7 +512,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -528,7 +528,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -544,7 +544,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -560,7 +560,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -576,7 +576,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -592,7 +592,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28202,
+      "nbHits": 28203,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
