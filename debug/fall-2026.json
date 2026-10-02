@@ -1,81 +1,22 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 146,
+  "resultCount": 145,
   "jsonResponses": 22,
   "algoliaResponses": 10,
   "hitArrays": 20,
-  "rawHits": 146,
-  "uniqueHits": 146,
-  "normalized": 146,
-  "withSpotify": 28,
-  "withApple": 26,
-  "withDetailUrl": 146,
-  "resolvedSpotify": 28,
-  "recordThumbnails": 146,
+  "rawHits": 145,
+  "uniqueHits": 145,
+  "normalized": 145,
+  "withSpotify": 27,
+  "withApple": 25,
+  "withDetailUrl": 145,
+  "resolvedSpotify": 27,
+  "recordThumbnails": 145,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
-    {
-      "id": "27899",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
-      "artist": "PompadollS",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
-      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Contemporary Dance",
-        "コンテンポラリーダンス"
-      ],
-      "animeCandidates": [
-        "The Exiled Heavy Knight Knows How to Game the System",
-        "Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru",
-        "The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge",
-        "追放された転生重騎士はゲーム知識で無双する"
-      ],
-      "artistCandidates": [
-        "19738",
-        "PompadollS",
-        "5LNw7upmiw5BIrN2UPLeL0",
-        "1725916783",
-        "UCmu5lpe6Wt-7yCHe2rA4zYQ"
-      ]
-    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -315,20 +256,68 @@
         "240810171",
         "UCI0DVe-jVw8AW5nZ_cAbBLQ"
       ]
+    },
+    {
+      "id": "27870",
+      "anime": "The Ramparts of Ice Season 2",
+      "song": "Hanakage",
+      "artist": "Superfly",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
+      "apple": "https://geo.music.apple.com/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-ramparts-of-ice-season-2-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hanakage",
+        "花蔭"
+      ],
+      "animeCandidates": [
+        "The Ramparts of Ice Season 2",
+        "Koori no Jouheki 2nd Season",
+        "氷の城壁 第2期"
+      ],
+      "artistCandidates": [
+        "372",
+        "Superfly",
+        "5M8AXrOifBT8elkLKbGPQZ",
+        "150974880",
+        "142878"
+      ]
     }
   ],
   "errors": [],
   "thumbnailFieldSamples": [
-    {
-      "id": "27899",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LWIF3%_No~M|KQyDx]ocNHxuahM{",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg"
-    },
     {
       "id": "27888",
       "thumbnailType": "string",
@@ -438,13 +427,23 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/f5865433f97959a920b28253f41249b828e30017@2xl.jpg"
+    },
+    {
+      "id": "27850",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/2cb6f30bfd4c71ce77845850e1c400695166aa49.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LhIY;3?^bYf6caf5s8enW[Vtogoc",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/2cb6f30bfd4c71ce77845850e1c400695166aa49@2xl.jpg"
     }
   ],
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -452,7 +451,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -460,7 +459,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -468,7 +467,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -476,7 +475,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -484,7 +483,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -492,7 +491,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -500,7 +499,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -508,7 +507,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -516,7 +515,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -524,7 +523,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -532,7 +531,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -540,7 +539,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -548,7 +547,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -556,7 +555,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -564,7 +563,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -572,7 +571,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -580,7 +579,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -588,80 +587,21 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 9,
-      "nbHits": 146,
+      "nbHits": 145,
       "hitsPerPage": 16,
       "nbPages": 10,
-      "count": 2
+      "count": 1
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28188,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
     }
   ],
   "normalizedSamples": [
-    {
-      "id": "27899",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
-      "artist": "PompadollS",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
-      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Contemporary Dance",
-        "コンテンポラリーダンス"
-      ],
-      "animeCandidates": [
-        "The Exiled Heavy Knight Knows How to Game the System",
-        "Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru",
-        "The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge",
-        "追放された転生重騎士はゲーム知識で無双する"
-      ],
-      "artistCandidates": [
-        "19738",
-        "PompadollS",
-        "5LNw7upmiw5BIrN2UPLeL0",
-        "1725916783",
-        "UCmu5lpe6Wt-7yCHe2rA4zYQ"
-      ]
-    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -2366,16 +2306,67 @@
         "128264352",
         "UCS8QqtsLzHF8VcIJFEkl8Uw"
       ]
+    },
+    {
+      "id": "us_3239",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "Mabataki",
+      "artist": "MEminor",
+      "kind": "ED",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Mabataki",
+        "まばたき"
+      ],
+      "animeCandidates": [
+        "Please Excuse My Younger Brothers",
+        "Uchi no Otouto-domo ga Sumimasen",
+        "うちの弟どもがすみません",
+        "Sorry About My Little Brothers",
+        "Uchioto"
+      ],
+      "artistCandidates": [
+        "19704",
+        "MEminor",
+        "ミーマイナー",
+        "7G8KRjagUdAsleZIfe2juo",
+        "1765479416",
+        "279727681",
+        "UCmSCQ3l78WtSEvy2wc-myFQ"
+      ]
     }
   ],
   "detailUrlSamples": [
-    {
-      "id": "27899",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2"
-    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -2578,68 +2569,16 @@
       "song": "Truly",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3239",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "Mabataki",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
     }
   ],
   "usableSamples": [
-    {
-      "id": "27899",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
-      "artist": "PompadollS",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
-      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Contemporary Dance",
-        "コンテンポラリーダンス"
-      ],
-      "animeCandidates": [
-        "The Exiled Heavy Knight Knows How to Game the System",
-        "Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru",
-        "The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge",
-        "追放された転生重騎士はゲーム知識で無双する"
-      ],
-      "artistCandidates": [
-        "19738",
-        "PompadollS",
-        "5LNw7upmiw5BIrN2UPLeL0",
-        "1725916783",
-        "UCmu5lpe6Wt-7yCHe2rA4zYQ"
-      ]
-    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -4260,14 +4199,6 @@
     }
   ],
   "platformSamples": [
-    {
-      "id": "27899",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
-      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music"
-    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
