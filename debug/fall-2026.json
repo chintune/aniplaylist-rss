@@ -1,155 +1,32 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 145,
+  "resultCount": 146,
   "jsonResponses": 22,
   "algoliaResponses": 10,
   "hitArrays": 20,
-  "rawHits": 145,
-  "uniqueHits": 145,
-  "normalized": 145,
-  "withSpotify": 27,
-  "withApple": 25,
-  "withDetailUrl": 145,
-  "resolvedSpotify": 27,
-  "recordThumbnails": 145,
+  "rawHits": 146,
+  "uniqueHits": 146,
+  "normalized": 146,
+  "withSpotify": 28,
+  "withApple": 26,
+  "withDetailUrl": 146,
+  "resolvedSpotify": 28,
+  "recordThumbnails": 146,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
     {
-      "id": "27888",
-      "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
-      "song": "Escape",
-      "artist": "Kis-My-Ft2",
-      "kind": "TS",
-      "spotify": "https://open.spotify.com/track/3BqsYnqnsdDWUmOuxHWX2U",
-      "apple": "https://geo.music.apple.com/album/6812151890?i=6812151891&at=1001l384j&ct=website-cardfight-vanguard-divinez-pa-ts&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a5a8a802943acca2ac7f65f55217a5c82929e9b9@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/cardfight-vanguard-divinez-parallactic-fate-theme-song",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Escape"
-      ],
-      "animeCandidates": [
-        "Cardfight!! Vanguard: Divinez Parallactic Fate",
-        "Cardfight!! Vanguard: Divinez Unmei Seisen-hen",
-        "カードファイト!! ヴァンガード DivineZ 運命星戦編"
-      ],
-      "artistCandidates": [
-        "16845",
-        "Kis-My-Ft2",
-        "4kxoWjOpCVYKgPv9nea95k",
-        "1803998087",
-        "UCfLptVEIrip5auo64TYRnlw"
-      ]
-    },
-    {
-      "id": "27887",
-      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
-      "song": "Hatsukoi Reply",
-      "artist": "MARUMOCHI from HoneyWorks",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/57UeOQ9Ae6o6PdWU4nxzK3",
-      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Hatsukoi Reply",
-        "初恋リプライ",
-        "First Love Reply"
-      ],
-      "animeCandidates": [
-        "Shiotaiou no Satou-san ga Ore ni dake Amai",
-        "Aren't You Too Sweet Salt-God Sato-san?",
-        "塩対応の佐藤さんが俺にだけ甘い",
-        "The Cold Sato-san is Only Sweet to Me",
-        "Aren't You Too Sweet Salt-God Sato-san"
-      ],
-      "artistCandidates": [
-        "16629",
-        "MARUMOCHI from HoneyWorks",
-        "6SE42YkzK2iVXMph1a3Hbp",
-        "1767973545",
-        "281706071",
-        "UCJxr7YkgS2mEZBFyq39Wkhg",
-        "24250",
-        "Sara Hoshikawa",
-        "星川サラ",
-        "1L3rnizraR5DcYjEhluZU9",
-        "409596672"
-      ]
-    },
-    {
-      "id": "27886",
-      "anime": "Magical Sisters Lulutto Lilly Part 2",
-      "song": "Swingin' Magic",
-      "artist": "ILLIT",
+      "id": "27900",
+      "anime": "Black Clover 2nd Season",
+      "song": "Kienai Riyuu",
+      "artist": "WANIMA",
       "kind": "OP",
-      "spotify": "https://open.spotify.com/track/1hRZJgqpTb8VzSALbDSUrk",
-      "apple": "https://geo.music.apple.com/album/6810131864?i=6810131868&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-opening",
+      "spotify": "https://open.spotify.com/track/1kAjMWyq8IBfh5JMhUX4Zx",
+      "apple": "https://geo.music.apple.com/album/6812683549?i=6812683552&at=1001l384j&ct=website-black-clover-2nd-season-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-opening",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -177,96 +54,36 @@
         "short_link",
         "status",
         "tags",
-        "other_link_ids",
         "unreleased",
         "objectID"
       ],
       "titleCandidates": [
-        "Swingin' Magic"
+        "Kienai Riyuu",
+        "消えない理由"
       ],
       "animeCandidates": [
-        "Magical Sisters Lulutto Lilly Part 2",
-        "魔法の姉妹ルルットリリィ 第2クール",
-        "Mahou no Shimai Lulutto Lilly Part 2"
+        "Black Clover 2nd Season",
+        "ブラッククローバー 2nd season",
+        "Black Clover Season 2"
       ],
       "artistCandidates": [
-        "19104",
-        "ILLIT",
-        "36cgvBn0aadzOijnjjwqMN",
-        "1734551937",
-        "259645622",
-        "UCNVIo0UJXTdEnsRkCB9Q03w"
+        "1774",
+        "WANIMA",
+        "6YqdtpUutxodni6lUD4stM",
+        "936535085",
+        "UC_SxYlf03VsYYBJTXTZj7kw"
       ]
     },
     {
-      "id": "27860",
-      "anime": "Tougen Anki: Nikko Kegon Falls Arc",
-      "song": "BACKLASH",
-      "artist": "Hiromitsu Kitayama",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3QEeNdYJDkAQn2XkD6tLEX",
-      "apple": "https://geo.music.apple.com/album/6813317375?i=6813317376&at=1001l384j&ct=website-tougen-anki-nikko-kegon-falls-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/tougen-anki-nikko-kegon-falls-arc-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "BACKLASH"
-      ],
-      "animeCandidates": [
-        "Tougen Anki: Nikko Kegon Falls Arc",
-        "Tougen Anki: Nikko Kegon no Taki-hen",
-        "桃源暗鬼 日光・華厳の滝編"
-      ],
-      "artistCandidates": [
-        "24252",
-        "Hiromitsu Kitayama",
-        "北山宏光",
-        "5aj6oLCY3WS8HZ7zd5VWQ9",
-        "1715643610",
-        "240810171",
-        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
-      ]
-    },
-    {
-      "id": "27870",
-      "anime": "The Ramparts of Ice Season 2",
-      "song": "Hanakage",
-      "artist": "Superfly",
+      "id": "27898",
+      "anime": "FX Fighter Kurumi-chan",
+      "song": "$・¥・€",
+      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
       "kind": "ED",
-      "spotify": "https://open.spotify.com/track/3ggbBGIGIjY8B5mJATYFpF",
-      "apple": "https://geo.music.apple.com/album/6813041853?i=6813042539&at=1001l384j&ct=website-the-ramparts-of-ice-season-2-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-ramparts-of-ice-season-2-ending",
+      "spotify": "https://open.spotify.com/track/7yPMs0w5khrmg4ap8QWfg4",
+      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593943&at=1001l384j&ct=website-fx-fighter-kurumi-chan-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-ending",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -299,25 +116,274 @@
         "objectID"
       ],
       "titleCandidates": [
-        "Hanakage",
-        "花蔭"
+        "$・¥・€",
+        "Dollar Yen Euro"
       ],
       "animeCandidates": [
-        "The Ramparts of Ice Season 2",
-        "Koori no Jouheki 2nd Season",
-        "氷の城壁 第2期"
+        "FX Fighter Kurumi-chan",
+        "FX Senshi Kurumi-chan",
+        "FX戦士くるみちゃん"
       ],
       "artistCandidates": [
-        "372",
-        "Superfly",
-        "5M8AXrOifBT8elkLKbGPQZ",
-        "150974880",
-        "142878"
+        "24021",
+        "Kurumi Fukuga (CV: Aina Suzuki)",
+        "福賀くるみ (CV: 鈴木愛奈)",
+        "10imAtJXms1Dx3MKJpXsrp",
+        "6812579036",
+        "416287132",
+        "25488",
+        "福賀くるみ（CV：鈴木愛奈）",
+        "UClhEcDvAfTHa4mo-Jvo5How"
+      ]
+    },
+    {
+      "id": "27897",
+      "anime": "FX Fighter Kurumi-chan",
+      "song": "FX Senshi Kurumi-chan",
+      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3vfMxmoxVKPXo2gKIdHe2n",
+      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "FX Senshi Kurumi-chan",
+        "FX戦士くるみちゃん",
+        "FX Fighter Kurumi-chan"
+      ],
+      "animeCandidates": [
+        "FX Fighter Kurumi-chan",
+        "FX Senshi Kurumi-chan",
+        "FX戦士くるみちゃん"
+      ],
+      "artistCandidates": [
+        "24021",
+        "Kurumi Fukuga (CV: Aina Suzuki)",
+        "福賀くるみ (CV: 鈴木愛奈)",
+        "10imAtJXms1Dx3MKJpXsrp",
+        "6812579036",
+        "416287132",
+        "25488",
+        "福賀くるみ（CV：鈴木愛奈）",
+        "UClhEcDvAfTHa4mo-Jvo5How"
+      ]
+    },
+    {
+      "id": "27899",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Contemporary Dance",
+      "artist": "PompadollS",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
+      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Contemporary Dance",
+        "コンテンポラリーダンス"
+      ],
+      "animeCandidates": [
+        "The Exiled Heavy Knight Knows How to Game the System",
+        "Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru",
+        "The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge",
+        "追放された転生重騎士はゲーム知識で無双する"
+      ],
+      "artistCandidates": [
+        "19738",
+        "PompadollS",
+        "5LNw7upmiw5BIrN2UPLeL0",
+        "1725916783",
+        "UCmu5lpe6Wt-7yCHe2rA4zYQ"
+      ]
+    },
+    {
+      "id": "27895",
+      "anime": "The Apothecary Diaries Season 3",
+      "song": "AIYOU",
+      "artist": "Eve",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
+      "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "AIYOU"
+      ],
+      "animeCandidates": [
+        "The Apothecary Diaries Season 3",
+        "Kusuriya no Hitorigoto 3rd Season",
+        "The Pharmacist's Monologue",
+        "Drugstore Soliloquy",
+        "薬屋のひとりごと 第3期"
+      ],
+      "artistCandidates": [
+        "1376",
+        "Eve",
+        "58oPVy7oihAEXE0Ott6JOf",
+        "1080967231",
+        "UCcjpUrxD6_eT09KnzIg3U3A",
+        "15851",
+        "Eve / Hiyori Tomoe (CV: Natsuki Hanae), Jun Sazanami (CV: Yuma Uchida)",
+        "Eve / 巴日和 (CV: 花江夏樹)、漣ジュン (CV: 内田雄馬)",
+        "69127692"
       ]
     }
   ],
   "errors": [],
   "thumbnailFieldSamples": [
+    {
+      "id": "27900",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LLDcdT~DwJ-i_Ms=M|t3R+R*SwRS",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b@2xl.jpeg"
+    },
+    {
+      "id": "27898",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "L8PO[AqJ0yl-145kQAd@^+GS{gVF",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg"
+    },
+    {
+      "id": "27897",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LhSX+3ywt%VH$vX8RRohgae@i%bC",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg"
+    },
+    {
+      "id": "27899",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LWIF3%_No~M|KQyDx]ocNHxuahM{",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg"
+    },
+    {
+      "id": "27895",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LDI|abh#02}?01JU^jIn0z-lxtxs",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg"
+    },
+    {
+      "id": "27896",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LCDcj]4.00~W8_ROt2Ws0K?a-nE2",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg"
+    },
     {
       "id": "27888",
       "thumbnailType": "string",
@@ -377,73 +443,13 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/952f489716e3c3878f42407b668ceeb376d49eff@2xl.jpg"
-    },
-    {
-      "id": "27859",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/5b4a1c4f93e24d5357ed3c39b671d41549beae04.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LIHVb@Ub1NKL00#l#S%0rXD+t1cu",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/5b4a1c4f93e24d5357ed3c39b671d41549beae04@2xl.jpg"
-    },
-    {
-      "id": "27858",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/151ac5833d3d4223d2ca2c14acb17eb978d11637.jpeg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LMHe%ft+%3cqP{I?M*tQB|wfr;RP",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/151ac5833d3d4223d2ca2c14acb17eb978d11637@2xl.jpeg"
-    },
-    {
-      "id": "27882",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LACr$Yt10Ms=01IC-o$y~A?FNGIp",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg"
-    },
-    {
-      "id": "27883",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LCDv]2009E?wTe8w#%kQ5G-nxZo}",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/b1deebdd9c3e22732cd7d78ad46ca4187aff03ac@2xl.jpg"
-    },
-    {
-      "id": "27884",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/f5865433f97959a920b28253f41249b828e30017.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LbG9?$9a~2ozA2RkJEbHIx-:t7Rj",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/f5865433f97959a920b28253f41249b828e30017@2xl.jpg"
-    },
-    {
-      "id": "27850",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/2cb6f30bfd4c71ce77845850e1c400695166aa49.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LhIY;3?^bYf6caf5s8enW[Vtogoc",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/2cb6f30bfd4c71ce77845850e1c400695166aa49@2xl.jpg"
     }
   ],
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -451,7 +457,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -459,7 +465,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -467,7 +473,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -475,7 +481,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -483,7 +489,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -491,7 +497,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -499,7 +505,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -507,7 +513,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -515,7 +521,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -523,7 +529,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -531,7 +537,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -539,7 +545,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -547,7 +553,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -555,7 +561,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -563,7 +569,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -571,7 +577,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -579,7 +585,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -587,21 +593,384 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 9,
-      "nbHits": 145,
+      "nbHits": 146,
       "hitsPerPage": 16,
       "nbPages": 10,
-      "count": 1
+      "count": 2
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
     }
   ],
   "normalizedSamples": [
+    {
+      "id": "27900",
+      "anime": "Black Clover 2nd Season",
+      "song": "Kienai Riyuu",
+      "artist": "WANIMA",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1kAjMWyq8IBfh5JMhUX4Zx",
+      "apple": "https://geo.music.apple.com/album/6812683549?i=6812683552&at=1001l384j&ct=website-black-clover-2nd-season-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Kienai Riyuu",
+        "消えない理由"
+      ],
+      "animeCandidates": [
+        "Black Clover 2nd Season",
+        "ブラッククローバー 2nd season",
+        "Black Clover Season 2"
+      ],
+      "artistCandidates": [
+        "1774",
+        "WANIMA",
+        "6YqdtpUutxodni6lUD4stM",
+        "936535085",
+        "UC_SxYlf03VsYYBJTXTZj7kw"
+      ]
+    },
+    {
+      "id": "27898",
+      "anime": "FX Fighter Kurumi-chan",
+      "song": "$・¥・€",
+      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7yPMs0w5khrmg4ap8QWfg4",
+      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593943&at=1001l384j&ct=website-fx-fighter-kurumi-chan-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "$・¥・€",
+        "Dollar Yen Euro"
+      ],
+      "animeCandidates": [
+        "FX Fighter Kurumi-chan",
+        "FX Senshi Kurumi-chan",
+        "FX戦士くるみちゃん"
+      ],
+      "artistCandidates": [
+        "24021",
+        "Kurumi Fukuga (CV: Aina Suzuki)",
+        "福賀くるみ (CV: 鈴木愛奈)",
+        "10imAtJXms1Dx3MKJpXsrp",
+        "6812579036",
+        "416287132",
+        "25488",
+        "福賀くるみ（CV：鈴木愛奈）",
+        "UClhEcDvAfTHa4mo-Jvo5How"
+      ]
+    },
+    {
+      "id": "27897",
+      "anime": "FX Fighter Kurumi-chan",
+      "song": "FX Senshi Kurumi-chan",
+      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3vfMxmoxVKPXo2gKIdHe2n",
+      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "FX Senshi Kurumi-chan",
+        "FX戦士くるみちゃん",
+        "FX Fighter Kurumi-chan"
+      ],
+      "animeCandidates": [
+        "FX Fighter Kurumi-chan",
+        "FX Senshi Kurumi-chan",
+        "FX戦士くるみちゃん"
+      ],
+      "artistCandidates": [
+        "24021",
+        "Kurumi Fukuga (CV: Aina Suzuki)",
+        "福賀くるみ (CV: 鈴木愛奈)",
+        "10imAtJXms1Dx3MKJpXsrp",
+        "6812579036",
+        "416287132",
+        "25488",
+        "福賀くるみ（CV：鈴木愛奈）",
+        "UClhEcDvAfTHa4mo-Jvo5How"
+      ]
+    },
+    {
+      "id": "27899",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Contemporary Dance",
+      "artist": "PompadollS",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
+      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Contemporary Dance",
+        "コンテンポラリーダンス"
+      ],
+      "animeCandidates": [
+        "The Exiled Heavy Knight Knows How to Game the System",
+        "Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru",
+        "The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge",
+        "追放された転生重騎士はゲーム知識で無双する"
+      ],
+      "artistCandidates": [
+        "19738",
+        "PompadollS",
+        "5LNw7upmiw5BIrN2UPLeL0",
+        "1725916783",
+        "UCmu5lpe6Wt-7yCHe2rA4zYQ"
+      ]
+    },
+    {
+      "id": "27895",
+      "anime": "The Apothecary Diaries Season 3",
+      "song": "AIYOU",
+      "artist": "Eve",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
+      "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "AIYOU"
+      ],
+      "animeCandidates": [
+        "The Apothecary Diaries Season 3",
+        "Kusuriya no Hitorigoto 3rd Season",
+        "The Pharmacist's Monologue",
+        "Drugstore Soliloquy",
+        "薬屋のひとりごと 第3期"
+      ],
+      "artistCandidates": [
+        "1376",
+        "Eve",
+        "58oPVy7oihAEXE0Ott6JOf",
+        "1080967231",
+        "UCcjpUrxD6_eT09KnzIg3U3A",
+        "15851",
+        "Eve / Hiyori Tomoe (CV: Natsuki Hanae), Jun Sazanami (CV: Yuma Uchida)",
+        "Eve / 巴日和 (CV: 花江夏樹)、漣ジュン (CV: 内田雄馬)",
+        "69127692"
+      ]
+    },
+    {
+      "id": "27896",
+      "anime": "Vertex Force",
+      "song": "Emerald",
+      "artist": "Hashimero",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
+      "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Emerald",
+        "エメラルド"
+      ],
+      "animeCandidates": [
+        "Vertex Force",
+        "バーテックスフォース"
+      ],
+      "artistCandidates": [
+        "15156",
+        "Hashimero",
+        "はしメロ",
+        "7Bokk7F8hq4P8wWwEO5mZy",
+        "1512940685",
+        "130520632",
+        "UC6QCQ8UClMBP3mkA28JvruQ"
+      ]
+    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -1319,70 +1688,6 @@
         "1477703833",
         "72569072",
         "UCC92qqV6EyESLuLrssqkUrA"
-      ]
-    },
-    {
-      "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "Shinu ka Ikiru ka",
-      "artist": "Yuki Chiba",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
-      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e401524581656fa101348307b5daabc8550975f7@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Shinu ka Ikiru ka",
-        "死ぬか生きるか",
-        "Shinukaikiruka"
-      ],
-      "animeCandidates": [
-        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
-        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
-        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
-        "SBR"
-      ],
-      "artistCandidates": [
-        "24741",
-        "Yuki Chiba",
-        "千葉雄喜",
-        "6Qhgat07PNOdnJSnCXJigu",
-        "1727997785",
-        "1337238",
-        "UCnPf2oZPzg_pxf6RzjUoCgw"
       ]
     },
     {
@@ -1495,190 +1800,6 @@
       ]
     },
     {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "artist": "go!go!vanillas",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
-      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "TRICKSTER",
-        "トリックスター"
-      ],
-      "animeCandidates": [
-        "Tokyo Revengers: War of the Three Titan Arc",
-        "Tokyo Revengers: Santen Sensou-hen",
-        "東京リベンジャーズ 三天戦争編"
-      ],
-      "artistCandidates": [
-        "794",
-        "go!go!vanillas",
-        "0aqPTOZlKG6ltJHv7BNlsm",
-        "671623880",
-        "10963206",
-        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
-      ]
-    },
-    {
-      "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2",
-      "song": "Saku",
-      "artist": "Cidergirl",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
-      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Saku",
-        "咲く"
-      ],
-      "animeCandidates": [
-        "Chitose Is in the Ramune Bottle Part 2",
-        "Chitose-kun wa Ramune Bin no Naka Part 2",
-        "Chiramune",
-        "Chitose-kun is Inside a Ramune Bottle",
-        "Ramune no Bin ni Shizunda Biidama no Tsuki",
-        "千歳くんはラムネ瓶のなか 第2クール"
-      ],
-      "artistCandidates": [
-        "2731",
-        "Cidergirl",
-        "CIDER GIRL",
-        "サイダーガール",
-        "CIDERGIRL",
-        "3hprFQEXS7glX1Jxxwv9Dn",
-        "1159148258",
-        "13082439",
-        "UCPsZegYUPKEsylhuz4Qs1Aw"
-      ]
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "artist": "krage",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
-      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Everlasting"
-      ],
-      "animeCandidates": [
-        "A Returner's Magic Should Be Special Season 2",
-        "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
-        "Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida",
-        "귀환자의 마법은 특별해야 합니다",
-        "帰還者の魔法は特別です 2期"
-      ],
-      "artistCandidates": [
-        "13108",
-        "krage",
-        "35jRIUtWCUITFLfjhYwkFx",
-        "1542904221",
-        "163234327",
-        "UCg3fieU_nWIdFBOrqVqNUGQ"
-      ]
-    },
-    {
       "id": "27761",
       "anime": "Tokyo Revengers: War of the Three Titan Arc",
       "song": "IGNITE",
@@ -1795,6 +1916,70 @@
       ]
     },
     {
+      "id": "27823",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "Shinu ka Ikiru ka",
+      "artist": "Yuki Chiba",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e401524581656fa101348307b5daabc8550975f7@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shinu ka Ikiru ka",
+        "死ぬか生きるか",
+        "Shinukaikiruka"
+      ],
+      "animeCandidates": [
+        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
+        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
+        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
+        "SBR"
+      ],
+      "artistCandidates": [
+        "24741",
+        "Yuki Chiba",
+        "千葉雄喜",
+        "6Qhgat07PNOdnJSnCXJigu",
+        "1727997785",
+        "1337238",
+        "UCnPf2oZPzg_pxf6RzjUoCgw"
+      ]
+    },
+    {
       "id": "27146",
       "anime": "Uncle's Obsession with Cute Things",
       "song": "PAGUtto itchatte~",
@@ -1855,6 +2040,128 @@
         "25038",
         "PAGTARO&Friends",
         "UCLcyuNTJSso-4IViEZCNsbw"
+      ]
+    },
+    {
+      "id": "27817",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
+      "artist": "go!go!vanillas",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
+      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "TRICKSTER",
+        "トリックスター"
+      ],
+      "animeCandidates": [
+        "Tokyo Revengers: War of the Three Titan Arc",
+        "Tokyo Revengers: Santen Sensou-hen",
+        "東京リベンジャーズ 三天戦争編"
+      ],
+      "artistCandidates": [
+        "794",
+        "go!go!vanillas",
+        "0aqPTOZlKG6ltJHv7BNlsm",
+        "671623880",
+        "10963206",
+        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
+      ]
+    },
+    {
+      "id": "27816",
+      "anime": "Chitose Is in the Ramune Bottle Part 2",
+      "song": "Saku",
+      "artist": "Cidergirl",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
+      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Saku",
+        "咲く"
+      ],
+      "animeCandidates": [
+        "Chitose Is in the Ramune Bottle Part 2",
+        "Chitose-kun wa Ramune Bin no Naka Part 2",
+        "Chiramune",
+        "Chitose-kun is Inside a Ramune Bottle",
+        "Ramune no Bin ni Shizunda Biidama no Tsuki",
+        "千歳くんはラムネ瓶のなか 第2クール"
+      ],
+      "artistCandidates": [
+        "2731",
+        "Cidergirl",
+        "CIDER GIRL",
+        "サイダーガール",
+        "CIDERGIRL",
+        "3hprFQEXS7glX1Jxxwv9Dn",
+        "1159148258",
+        "13082439",
+        "UCPsZegYUPKEsylhuz4Qs1Aw"
       ]
     },
     {
@@ -1977,6 +2284,65 @@
       ]
     },
     {
+      "id": "27814",
+      "anime": "A Returner's Magic Should Be Special Season 2",
+      "song": "Everlasting",
+      "artist": "krage",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
+      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Everlasting"
+      ],
+      "animeCandidates": [
+        "A Returner's Magic Should Be Special Season 2",
+        "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
+        "Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida",
+        "귀환자의 마법은 특별해야 합니다",
+        "帰還者の魔法は特別です 2期"
+      ],
+      "artistCandidates": [
+        "13108",
+        "krage",
+        "35jRIUtWCUITFLfjhYwkFx",
+        "1542904221",
+        "163234327",
+        "UCg3fieU_nWIdFBOrqVqNUGQ"
+      ]
+    },
+    {
       "id": "us_3248",
       "anime": "Psyren",
       "song": "ICARUS",
@@ -2028,345 +2394,51 @@
         "78441442",
         "UCKTVugF8cPCt8UeGY9zUDMw"
       ]
-    },
-    {
-      "id": "27738",
-      "anime": "Tank Chair",
-      "song": "DALALA",
-      "artist": "SiM",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
-      "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/893b16711e5bf15eb0e897201bb222aa30a76aa7@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tank-chair-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "DALALA"
-      ],
-      "animeCandidates": [
-        "Tank Chair",
-        "Sensha Isu",
-        "TANK CHAIR-戦車椅子-"
-      ],
-      "artistCandidates": [
-        "253",
-        "SiM",
-        "2BM933ADIluGGrPBOhPgIt",
-        "1124210967",
-        "73204762",
-        "UCZ3k79bJuQd5w9qAiH4VPwQ"
-      ]
-    },
-    {
-      "id": "us_3243",
-      "anime": "Detective Conan",
-      "song": "Ai de Zenbu Dakishimete Aishite",
-      "artist": "Mai Kuraki",
-      "kind": "ED",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/41ee9bf2fcdf136b6149ec76273bc113e5779721@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Ai de Zenbu Dakishimete Aishite",
-        "愛で全部抱きしめて愛して"
-      ],
-      "animeCandidates": [
-        "Detective Conan",
-        "Case Closed",
-        "名探偵コナン",
-        "Meitantei Conan"
-      ],
-      "artistCandidates": [
-        "6366",
-        "Mai Kuraki",
-        "倉木麻衣",
-        "4x3GOic9xXFOoOBrEMuvN9",
-        "73794923",
-        "UCIBz9tGLGRyC2MXQdIHjxwQ"
-      ]
-    },
-    {
-      "id": "us_3247",
-      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan",
-      "song": "Wo Zi Dang Shan",
-      "artist": "Air",
-      "kind": "ED",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c4d7427d74bf386d4ff154cf3e5ef8b4e126a079@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Wo Zi Dang Shan",
-        "我自当山"
-      ],
-      "animeCandidates": [
-        "Xian Ni Movie: Shi Xian Zhi Zhan",
-        "仙逆剧场版 弑仙之战",
-        "Xian Ni Juchang Ban: Shi Xian Zhi Zhan",
-        "Renegade Immortal Movie: Slaying the Blood Progenitor"
-      ],
-      "artistCandidates": [
-        "25163",
-        "Air",
-        "艾热"
-      ]
-    },
-    {
-      "id": "us_3246",
-      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan",
-      "song": "Shi Xian",
-      "artist": "Tang Hanxiao",
-      "kind": "OP",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c4d7427d74bf386d4ff154cf3e5ef8b4e126a079@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Shi Xian",
-        "弑仙"
-      ],
-      "animeCandidates": [
-        "Xian Ni Movie: Shi Xian Zhi Zhan",
-        "仙逆剧场版 弑仙之战",
-        "Xian Ni Juchang Ban: Shi Xian Zhi Zhan",
-        "Renegade Immortal Movie: Slaying the Blood Progenitor"
-      ],
-      "artistCandidates": [
-        "25162",
-        "Tang Hanxiao",
-        "唐汉霄"
-      ]
-    },
-    {
-      "id": "us_3244",
-      "anime": "Paws & Palaces",
-      "song": "Truly",
-      "artist": "Riko Azuna",
-      "kind": "OP",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/64e7df8d7ba8d8a1f405f467568bcc93352a5bcd@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Truly"
-      ],
-      "animeCandidates": [
-        "Paws & Palaces",
-        "Zi Jin: Yu Miao Fang",
-        "紫禁·御喵房",
-        "Forbidden City: Cat Imperial Study",
-        "Paw & Palaces",
-        "On Myao Bo",
-        "紫禁・御猫房〜紫禁城猫警備室〜"
-      ],
-      "artistCandidates": [
-        "1835",
-        "Riko Azuna",
-        "安月名莉子",
-        "2gtB9S5XxMduYGFTp4Mt2C",
-        "7ChJuYuw9pM8MqaZOAmvHX",
-        "1438721351",
-        "128264352",
-        "UCS8QqtsLzHF8VcIJFEkl8Uw"
-      ]
-    },
-    {
-      "id": "us_3239",
-      "anime": "Please Excuse My Younger Brothers",
-      "song": "Mabataki",
-      "artist": "MEminor",
-      "kind": "ED",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Mabataki",
-        "まばたき"
-      ],
-      "animeCandidates": [
-        "Please Excuse My Younger Brothers",
-        "Uchi no Otouto-domo ga Sumimasen",
-        "うちの弟どもがすみません",
-        "Sorry About My Little Brothers",
-        "Uchioto"
-      ],
-      "artistCandidates": [
-        "19704",
-        "MEminor",
-        "ミーマイナー",
-        "7G8KRjagUdAsleZIfe2juo",
-        "1765479416",
-        "279727681",
-        "UCmSCQ3l78WtSEvy2wc-myFQ"
-      ]
     }
   ],
   "detailUrlSamples": [
+    {
+      "id": "27900",
+      "anime": "Black Clover 2nd Season",
+      "song": "Kienai Riyuu",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-opening"
+    },
+    {
+      "id": "27898",
+      "anime": "FX Fighter Kurumi-chan",
+      "song": "$・¥・€",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-ending"
+    },
+    {
+      "id": "27897",
+      "anime": "FX Fighter Kurumi-chan",
+      "song": "FX Senshi Kurumi-chan",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-opening"
+    },
+    {
+      "id": "27899",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Contemporary Dance",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2"
+    },
+    {
+      "id": "27895",
+      "anime": "The Apothecary Diaries Season 3",
+      "song": "AIYOU",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending"
+    },
+    {
+      "id": "27896",
+      "anime": "Vertex Force",
+      "song": "Emerald",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-ending"
+    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -2452,13 +2524,6 @@
       "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending"
     },
     {
-      "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "Shinu ka Ikiru ka",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending"
-    },
-    {
       "id": "us_3255",
       "anime": "Da Wang Rao Ming 3",
       "song": "Nixing",
@@ -2471,27 +2536,6 @@
       "song": "Yoru to Ao",
       "kind": "TS",
       "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending"
-    },
-    {
-      "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2",
-      "song": "Saku",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening"
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending"
     },
     {
       "id": "27761",
@@ -2508,11 +2552,32 @@
       "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka"
     },
     {
+      "id": "27823",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "Shinu ka Ikiru ka",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending"
+    },
+    {
       "id": "27146",
       "anime": "Uncle's Obsession with Cute Things",
       "song": "PAGUtto itchatte~",
       "kind": "IN",
       "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte"
+    },
+    {
+      "id": "27817",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending"
+    },
+    {
+      "id": "27816",
+      "anime": "Chitose Is in the Ramune Bottle Part 2",
+      "song": "Saku",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening"
     },
     {
       "id": "27783",
@@ -2529,56 +2594,384 @@
       "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening"
     },
     {
+      "id": "27814",
+      "anime": "A Returner's Magic Should Be Special Season 2",
+      "song": "Everlasting",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending"
+    },
+    {
       "id": "us_3248",
       "anime": "Psyren",
       "song": "ICARUS",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "27738",
-      "anime": "Tank Chair",
-      "song": "DALALA",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/tank-chair-opening"
-    },
-    {
-      "id": "us_3243",
-      "anime": "Detective Conan",
-      "song": "Ai de Zenbu Dakishimete Aishite",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3247",
-      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan",
-      "song": "Wo Zi Dang Shan",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3246",
-      "anime": "Xian Ni Movie: Shi Xian Zhi Zhan",
-      "song": "Shi Xian",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3244",
-      "anime": "Paws & Palaces",
-      "song": "Truly",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3239",
-      "anime": "Please Excuse My Younger Brothers",
-      "song": "Mabataki",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
     }
   ],
   "usableSamples": [
+    {
+      "id": "27900",
+      "anime": "Black Clover 2nd Season",
+      "song": "Kienai Riyuu",
+      "artist": "WANIMA",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1kAjMWyq8IBfh5JMhUX4Zx",
+      "apple": "https://geo.music.apple.com/album/6812683549?i=6812683552&at=1001l384j&ct=website-black-clover-2nd-season-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Kienai Riyuu",
+        "消えない理由"
+      ],
+      "animeCandidates": [
+        "Black Clover 2nd Season",
+        "ブラッククローバー 2nd season",
+        "Black Clover Season 2"
+      ],
+      "artistCandidates": [
+        "1774",
+        "WANIMA",
+        "6YqdtpUutxodni6lUD4stM",
+        "936535085",
+        "UC_SxYlf03VsYYBJTXTZj7kw"
+      ]
+    },
+    {
+      "id": "27898",
+      "anime": "FX Fighter Kurumi-chan",
+      "song": "$・¥・€",
+      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7yPMs0w5khrmg4ap8QWfg4",
+      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593943&at=1001l384j&ct=website-fx-fighter-kurumi-chan-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "$・¥・€",
+        "Dollar Yen Euro"
+      ],
+      "animeCandidates": [
+        "FX Fighter Kurumi-chan",
+        "FX Senshi Kurumi-chan",
+        "FX戦士くるみちゃん"
+      ],
+      "artistCandidates": [
+        "24021",
+        "Kurumi Fukuga (CV: Aina Suzuki)",
+        "福賀くるみ (CV: 鈴木愛奈)",
+        "10imAtJXms1Dx3MKJpXsrp",
+        "6812579036",
+        "416287132",
+        "25488",
+        "福賀くるみ（CV：鈴木愛奈）",
+        "UClhEcDvAfTHa4mo-Jvo5How"
+      ]
+    },
+    {
+      "id": "27897",
+      "anime": "FX Fighter Kurumi-chan",
+      "song": "FX Senshi Kurumi-chan",
+      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/3vfMxmoxVKPXo2gKIdHe2n",
+      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "FX Senshi Kurumi-chan",
+        "FX戦士くるみちゃん",
+        "FX Fighter Kurumi-chan"
+      ],
+      "animeCandidates": [
+        "FX Fighter Kurumi-chan",
+        "FX Senshi Kurumi-chan",
+        "FX戦士くるみちゃん"
+      ],
+      "artistCandidates": [
+        "24021",
+        "Kurumi Fukuga (CV: Aina Suzuki)",
+        "福賀くるみ (CV: 鈴木愛奈)",
+        "10imAtJXms1Dx3MKJpXsrp",
+        "6812579036",
+        "416287132",
+        "25488",
+        "福賀くるみ（CV：鈴木愛奈）",
+        "UClhEcDvAfTHa4mo-Jvo5How"
+      ]
+    },
+    {
+      "id": "27899",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Contemporary Dance",
+      "artist": "PompadollS",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
+      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Contemporary Dance",
+        "コンテンポラリーダンス"
+      ],
+      "animeCandidates": [
+        "The Exiled Heavy Knight Knows How to Game the System",
+        "Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru",
+        "The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge",
+        "追放された転生重騎士はゲーム知識で無双する"
+      ],
+      "artistCandidates": [
+        "19738",
+        "PompadollS",
+        "5LNw7upmiw5BIrN2UPLeL0",
+        "1725916783",
+        "UCmu5lpe6Wt-7yCHe2rA4zYQ"
+      ]
+    },
+    {
+      "id": "27895",
+      "anime": "The Apothecary Diaries Season 3",
+      "song": "AIYOU",
+      "artist": "Eve",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
+      "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "AIYOU"
+      ],
+      "animeCandidates": [
+        "The Apothecary Diaries Season 3",
+        "Kusuriya no Hitorigoto 3rd Season",
+        "The Pharmacist's Monologue",
+        "Drugstore Soliloquy",
+        "薬屋のひとりごと 第3期"
+      ],
+      "artistCandidates": [
+        "1376",
+        "Eve",
+        "58oPVy7oihAEXE0Ott6JOf",
+        "1080967231",
+        "UCcjpUrxD6_eT09KnzIg3U3A",
+        "15851",
+        "Eve / Hiyori Tomoe (CV: Natsuki Hanae), Jun Sazanami (CV: Yuma Uchida)",
+        "Eve / 巴日和 (CV: 花江夏樹)、漣ジュン (CV: 内田雄馬)",
+        "69127692"
+      ]
+    },
+    {
+      "id": "27896",
+      "anime": "Vertex Force",
+      "song": "Emerald",
+      "artist": "Hashimero",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
+      "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Emerald",
+        "エメラルド"
+      ],
+      "animeCandidates": [
+        "Vertex Force",
+        "バーテックスフォース"
+      ],
+      "artistCandidates": [
+        "15156",
+        "Hashimero",
+        "はしメロ",
+        "7Bokk7F8hq4P8wWwEO5mZy",
+        "1512940685",
+        "130520632",
+        "UC6QCQ8UClMBP3mkA28JvruQ"
+      ]
+    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -3299,254 +3692,6 @@
       ]
     },
     {
-      "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "Shinu ka Ikiru ka",
-      "artist": "Yuki Chiba",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
-      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e401524581656fa101348307b5daabc8550975f7@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Shinu ka Ikiru ka",
-        "死ぬか生きるか",
-        "Shinukaikiruka"
-      ],
-      "animeCandidates": [
-        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
-        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
-        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
-        "SBR"
-      ],
-      "artistCandidates": [
-        "24741",
-        "Yuki Chiba",
-        "千葉雄喜",
-        "6Qhgat07PNOdnJSnCXJigu",
-        "1727997785",
-        "1337238",
-        "UCnPf2oZPzg_pxf6RzjUoCgw"
-      ]
-    },
-    {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "artist": "go!go!vanillas",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
-      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "TRICKSTER",
-        "トリックスター"
-      ],
-      "animeCandidates": [
-        "Tokyo Revengers: War of the Three Titan Arc",
-        "Tokyo Revengers: Santen Sensou-hen",
-        "東京リベンジャーズ 三天戦争編"
-      ],
-      "artistCandidates": [
-        "794",
-        "go!go!vanillas",
-        "0aqPTOZlKG6ltJHv7BNlsm",
-        "671623880",
-        "10963206",
-        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
-      ]
-    },
-    {
-      "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2",
-      "song": "Saku",
-      "artist": "Cidergirl",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
-      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Saku",
-        "咲く"
-      ],
-      "animeCandidates": [
-        "Chitose Is in the Ramune Bottle Part 2",
-        "Chitose-kun wa Ramune Bin no Naka Part 2",
-        "Chiramune",
-        "Chitose-kun is Inside a Ramune Bottle",
-        "Ramune no Bin ni Shizunda Biidama no Tsuki",
-        "千歳くんはラムネ瓶のなか 第2クール"
-      ],
-      "artistCandidates": [
-        "2731",
-        "Cidergirl",
-        "CIDER GIRL",
-        "サイダーガール",
-        "CIDERGIRL",
-        "3hprFQEXS7glX1Jxxwv9Dn",
-        "1159148258",
-        "13082439",
-        "UCPsZegYUPKEsylhuz4Qs1Aw"
-      ]
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "artist": "krage",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
-      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Everlasting"
-      ],
-      "animeCandidates": [
-        "A Returner's Magic Should Be Special Season 2",
-        "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
-        "Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida",
-        "귀환자의 마법은 특별해야 합니다",
-        "帰還者の魔法は特別です 2期"
-      ],
-      "artistCandidates": [
-        "13108",
-        "krage",
-        "35jRIUtWCUITFLfjhYwkFx",
-        "1542904221",
-        "163234327",
-        "UCg3fieU_nWIdFBOrqVqNUGQ"
-      ]
-    },
-    {
       "id": "27761",
       "anime": "Tokyo Revengers: War of the Three Titan Arc",
       "song": "IGNITE",
@@ -3663,6 +3808,70 @@
       ]
     },
     {
+      "id": "27823",
+      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "song": "Shinu ka Ikiru ka",
+      "artist": "Yuki Chiba",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
+      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e401524581656fa101348307b5daabc8550975f7@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shinu ka Ikiru ka",
+        "死ぬか生きるか",
+        "Shinukaikiruka"
+      ],
+      "animeCandidates": [
+        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
+        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
+        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
+        "SBR"
+      ],
+      "artistCandidates": [
+        "24741",
+        "Yuki Chiba",
+        "千葉雄喜",
+        "6Qhgat07PNOdnJSnCXJigu",
+        "1727997785",
+        "1337238",
+        "UCnPf2oZPzg_pxf6RzjUoCgw"
+      ]
+    },
+    {
       "id": "27146",
       "anime": "Uncle's Obsession with Cute Things",
       "song": "PAGUtto itchatte~",
@@ -3723,6 +3932,128 @@
         "25038",
         "PAGTARO&Friends",
         "UCLcyuNTJSso-4IViEZCNsbw"
+      ]
+    },
+    {
+      "id": "27817",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "TRICKSTER",
+      "artist": "go!go!vanillas",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
+      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "TRICKSTER",
+        "トリックスター"
+      ],
+      "animeCandidates": [
+        "Tokyo Revengers: War of the Three Titan Arc",
+        "Tokyo Revengers: Santen Sensou-hen",
+        "東京リベンジャーズ 三天戦争編"
+      ],
+      "artistCandidates": [
+        "794",
+        "go!go!vanillas",
+        "0aqPTOZlKG6ltJHv7BNlsm",
+        "671623880",
+        "10963206",
+        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
+      ]
+    },
+    {
+      "id": "27816",
+      "anime": "Chitose Is in the Ramune Bottle Part 2",
+      "song": "Saku",
+      "artist": "Cidergirl",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
+      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Saku",
+        "咲く"
+      ],
+      "animeCandidates": [
+        "Chitose Is in the Ramune Bottle Part 2",
+        "Chitose-kun wa Ramune Bin no Naka Part 2",
+        "Chiramune",
+        "Chitose-kun is Inside a Ramune Bottle",
+        "Ramune no Bin ni Shizunda Biidama no Tsuki",
+        "千歳くんはラムネ瓶のなか 第2クール"
+      ],
+      "artistCandidates": [
+        "2731",
+        "Cidergirl",
+        "CIDER GIRL",
+        "サイダーガール",
+        "CIDERGIRL",
+        "3hprFQEXS7glX1Jxxwv9Dn",
+        "1159148258",
+        "13082439",
+        "UCPsZegYUPKEsylhuz4Qs1Aw"
       ]
     },
     {
@@ -3845,6 +4176,65 @@
       ]
     },
     {
+      "id": "27814",
+      "anime": "A Returner's Magic Should Be Special Season 2",
+      "song": "Everlasting",
+      "artist": "krage",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
+      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Everlasting"
+      ],
+      "animeCandidates": [
+        "A Returner's Magic Should Be Special Season 2",
+        "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
+        "Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida",
+        "귀환자의 마법은 특별해야 합니다",
+        "帰還者の魔法は特別です 2期"
+      ],
+      "artistCandidates": [
+        "13108",
+        "krage",
+        "35jRIUtWCUITFLfjhYwkFx",
+        "1542904221",
+        "163234327",
+        "UCg3fieU_nWIdFBOrqVqNUGQ"
+      ]
+    },
+    {
       "id": "27738",
       "anime": "Tank Chair",
       "song": "DALALA",
@@ -3879,7 +4269,6 @@
         "display_artists",
         "label",
         "short_link",
-        "status",
         "tags",
         "other_link_ids",
         "unreleased",
@@ -3901,304 +4290,57 @@
         "73204762",
         "UCZ3k79bJuQd5w9qAiH4VPwQ"
       ]
-    },
+    }
+  ],
+  "platformSamples": [
     {
       "id": "27900",
       "anime": "Black Clover 2nd Season",
       "song": "Kienai Riyuu",
-      "artist": "WANIMA",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/1kAjMWyq8IBfh5JMhUX4Zx",
-      "apple": "https://music.apple.com/nz/album/6812683549?i=6812683552&at=1001l384j&ct=website-black-clover-2nd-season-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Kienai Riyuu",
-        "消えない理由"
-      ],
-      "animeCandidates": [
-        "Black Clover 2nd Season",
-        "ブラッククローバー 2nd season",
-        "Black Clover Season 2"
-      ],
-      "artistCandidates": [
-        "1774",
-        "WANIMA",
-        "6YqdtpUutxodni6lUD4stM",
-        "936535085"
-      ]
+      "apple": "https://geo.music.apple.com/album/6812683549?i=6812683552&at=1001l384j&ct=website-black-clover-2nd-season-op&app=music"
     },
     {
       "id": "27898",
       "anime": "FX Fighter Kurumi-chan",
       "song": "$・¥・€",
-      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7yPMs0w5khrmg4ap8QWfg4",
-      "apple": "https://music.apple.com/nz/album/6812593936?i=6812593943&at=1001l384j&ct=website-fx-fighter-kurumi-chan-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "$・¥・€",
-        "Dollar Yen Euro"
-      ],
-      "animeCandidates": [
-        "FX Fighter Kurumi-chan",
-        "FX Senshi Kurumi-chan",
-        "FX戦士くるみちゃん"
-      ],
-      "artistCandidates": [
-        "24021",
-        "Kurumi Fukuga (CV: Aina Suzuki)",
-        "福賀くるみ (CV: 鈴木愛奈)",
-        "10imAtJXms1Dx3MKJpXsrp",
-        "6812579036",
-        "416287132"
-      ]
+      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593943&at=1001l384j&ct=website-fx-fighter-kurumi-chan-ed&app=music"
     },
     {
       "id": "27897",
       "anime": "FX Fighter Kurumi-chan",
       "song": "FX Senshi Kurumi-chan",
-      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3vfMxmoxVKPXo2gKIdHe2n",
-      "apple": "https://music.apple.com/nz/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "FX Senshi Kurumi-chan",
-        "FX戦士くるみちゃん",
-        "FX Fighter Kurumi-chan"
-      ],
-      "animeCandidates": [
-        "FX Fighter Kurumi-chan",
-        "FX Senshi Kurumi-chan",
-        "FX戦士くるみちゃん"
-      ],
-      "artistCandidates": [
-        "24021",
-        "Kurumi Fukuga (CV: Aina Suzuki)",
-        "福賀くるみ (CV: 鈴木愛奈)",
-        "10imAtJXms1Dx3MKJpXsrp",
-        "6812579036",
-        "416287132"
-      ]
+      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music"
     },
     {
-      "id": "27896",
-      "anime": "Vertex Force",
-      "song": "Emerald",
-      "artist": "Hashimero",
+      "id": "27899",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Contemporary Dance",
       "kind": "ED",
-      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
-      "apple": "https://music.apple.com/nz/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Emerald",
-        "エメラルド"
-      ],
-      "animeCandidates": [
-        "Vertex Force",
-        "バーテックスフォース"
-      ],
-      "artistCandidates": [
-        "15156",
-        "Hashimero",
-        "はしメロ",
-        "7Bokk7F8hq4P8wWwEO5mZy",
-        "1512940685",
-        "130520632"
-      ]
+      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
+      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music"
     },
     {
       "id": "27895",
       "anime": "The Apothecary Diaries Season 3",
       "song": "AIYOU",
-      "artist": "Eve",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
-      "apple": "https://music.apple.com/nz/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "AIYOU"
-      ],
-      "animeCandidates": [
-        "The Apothecary Diaries Season 3",
-        "Kusuriya no Hitorigoto 3rd Season",
-        "The Pharmacist's Monologue",
-        "Drugstore Soliloquy",
-        "薬屋のひとりごと 第3期"
-      ],
-      "artistCandidates": [
-        "1376",
-        "Eve",
-        "58oPVy7oihAEXE0Ott6JOf",
-        "1080967231",
-        "15851",
-        "Eve / Hiyori Tomoe (CV: Natsuki Hanae), Jun Sazanami (CV: Yuma Uchida)",
-        "Eve / 巴日和 (CV: 花江夏樹)、漣ジュン (CV: 内田雄馬)",
-        "69127692"
-      ]
-    }
-  ],
-  "platformSamples": [
+      "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music"
+    },
+    {
+      "id": "27896",
+      "anime": "Vertex Force",
+      "song": "Emerald",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
+      "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music"
+    },
     {
       "id": "27888",
       "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -4296,12 +4438,36 @@
       "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music"
     },
     {
+      "id": "27761",
+      "anime": "Tokyo Revengers: War of the Three Titan Arc",
+      "song": "IGNITE",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/4AAiz8MarztbqTCTMfwXYr",
+      "apple": "https://geo.music.apple.com/album/6797375185?i=6797375186&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-op&app=music"
+    },
+    {
+      "id": "26706",
+      "anime": "To You in the Beyond",
+      "song": "Housenka",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/4CpEbsn3QeOEmZPAjouBLO",
+      "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music"
+    },
+    {
       "id": "27823",
       "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
       "song": "Shinu ka Ikiru ka",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
       "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music"
+    },
+    {
+      "id": "27146",
+      "anime": "Uncle's Obsession with Cute Things",
+      "song": "PAGUtto itchatte~",
+      "kind": "IN",
+      "spotify": "https://open.spotify.com/track/4XgzvE1TYsNnyrTWy9mAa8",
+      "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music"
     },
     {
       "id": "27817",
@@ -4320,38 +4486,6 @@
       "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music"
     },
     {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
-      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music"
-    },
-    {
-      "id": "27761",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "IGNITE",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4AAiz8MarztbqTCTMfwXYr",
-      "apple": "https://geo.music.apple.com/album/6797375185?i=6797375186&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-op&app=music"
-    },
-    {
-      "id": "26706",
-      "anime": "To You in the Beyond",
-      "song": "Housenka",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/4CpEbsn3QeOEmZPAjouBLO",
-      "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music"
-    },
-    {
-      "id": "27146",
-      "anime": "Uncle's Obsession with Cute Things",
-      "song": "PAGUtto itchatte~",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/4XgzvE1TYsNnyrTWy9mAa8",
-      "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music"
-    },
-    {
       "id": "27783",
       "anime": "Ghost Meets Gal!",
       "song": "Nikoichi Mirai",
@@ -4368,52 +4502,20 @@
       "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music"
     },
     {
+      "id": "27814",
+      "anime": "A Returner's Magic Should Be Special Season 2",
+      "song": "Everlasting",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
+      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music"
+    },
+    {
       "id": "27738",
       "anime": "Tank Chair",
       "song": "DALALA",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
       "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music"
-    },
-    {
-      "id": "27900",
-      "anime": "Black Clover 2nd Season",
-      "song": "Kienai Riyuu",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/1kAjMWyq8IBfh5JMhUX4Zx",
-      "apple": "https://music.apple.com/nz/album/6812683549?i=6812683552&at=1001l384j&ct=website-black-clover-2nd-season-op&app=music"
-    },
-    {
-      "id": "27898",
-      "anime": "FX Fighter Kurumi-chan",
-      "song": "$・¥・€",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7yPMs0w5khrmg4ap8QWfg4",
-      "apple": "https://music.apple.com/nz/album/6812593936?i=6812593943&at=1001l384j&ct=website-fx-fighter-kurumi-chan-ed&app=music"
-    },
-    {
-      "id": "27897",
-      "anime": "FX Fighter Kurumi-chan",
-      "song": "FX Senshi Kurumi-chan",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3vfMxmoxVKPXo2gKIdHe2n",
-      "apple": "https://music.apple.com/nz/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music"
-    },
-    {
-      "id": "27896",
-      "anime": "Vertex Force",
-      "song": "Emerald",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
-      "apple": "https://music.apple.com/nz/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music"
-    },
-    {
-      "id": "27895",
-      "anime": "The Apothecary Diaries Season 3",
-      "song": "AIYOU",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
-      "apple": "https://music.apple.com/nz/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music"
     }
   ]
 }

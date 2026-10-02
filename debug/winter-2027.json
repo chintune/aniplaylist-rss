@@ -1,22 +1,83 @@
 {
   "season": "Winter 2027",
   "url": "https://aniplaylist.com/?seasons=Winter%202027",
-  "resultCount": 5,
+  "resultCount": 6,
   "jsonResponses": 4,
   "algoliaResponses": 1,
   "hitArrays": 2,
-  "rawHits": 5,
-  "uniqueHits": 5,
-  "normalized": 5,
-  "withSpotify": 1,
-  "withApple": 1,
-  "withDetailUrl": 5,
-  "resolvedSpotify": 1,
-  "recordThumbnails": 5,
+  "rawHits": 6,
+  "uniqueHits": 6,
+  "normalized": 6,
+  "withSpotify": 2,
+  "withApple": 2,
+  "withDetailUrl": 6,
+  "resolvedSpotify": 2,
+  "recordThumbnails": 6,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
+    {
+      "id": "27894",
+      "anime": "Inherit the Winds",
+      "song": "Jinsuke no Theme",
+      "artist": "Shigeru Kishida",
+      "kind": "OST",
+      "spotify": "https://open.spotify.com/album/2ITxTFvNQ5LkODTM1kmnXF",
+      "apple": "https://geo.music.apple.com/album/6807781215?at=1001l384j&ct=website-inherit-the-winds-ost&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b0f07443b406e866c8135ad5a60694a7fedd62cf@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/inherit-the-winds-original-soundtrack",
+      "season": "Winter 2027",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "substitute",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Jinsuke no Theme",
+        "迅助のテーマ"
+      ],
+      "animeCandidates": [
+        "Inherit the Winds",
+        "Kaze wo Tsugumono",
+        "風を継ぐもの"
+      ],
+      "artistCandidates": [
+        "1277",
+        "Shigeru Kishida",
+        "岸田繁",
+        "62TpalmxXUjLKyxJUgZt6W",
+        "219771500",
+        "4897530",
+        "UCE7UTii69j5WCDZSWgkIjiw"
+      ]
+    },
     {
       "id": "27297",
       "anime": "The Guy She Was Interested in Wasn't a Guy at All",
@@ -248,64 +309,20 @@
         "633973271",
         "4726033"
       ]
-    },
-    {
-      "id": "us_2832",
-      "anime": "ghost / Yoru no Hate",
-      "song": "Sugar",
-      "artist": "Hitsujibungaku",
-      "kind": "IN",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5fa6ff6ca107aa497a8eb30d78b6fa6b7079f2bb@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Winter 2027",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Sugar"
-      ],
-      "animeCandidates": [
-        "ghost / Yoru no Hate",
-        "ghost／夜の果て",
-        "Ghost: Yoru no Hate"
-      ],
-      "artistCandidates": [
-        "7233",
-        "Hitsujibungaku",
-        "羊文学",
-        "6S8w5rLsEwjN21jQeRES0n",
-        "1281384242",
-        "13290779",
-        "UCnZK-AT0Yrx8uXcFRqUy87g"
-      ]
     }
   ],
   "errors": [],
   "thumbnailFieldSamples": [
+    {
+      "id": "27894",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/b0f07443b406e866c8135ad5a60694a7fedd62cf.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "L6P%O%~qIT%M_3afRjRje.ofayWB",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/b0f07443b406e866c8135ad5a60694a7fedd62cf@2xl.jpeg"
+    },
     {
       "id": "27297",
       "thumbnailType": "string",
@@ -361,21 +378,82 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 5,
+      "nbHits": 6,
       "hitsPerPage": 16,
       "nbPages": 1,
-      "count": 5
+      "count": 6
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28188,
+      "nbHits": 28192,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
     }
   ],
   "normalizedSamples": [
+    {
+      "id": "27894",
+      "anime": "Inherit the Winds",
+      "song": "Jinsuke no Theme",
+      "artist": "Shigeru Kishida",
+      "kind": "OST",
+      "spotify": "https://open.spotify.com/album/2ITxTFvNQ5LkODTM1kmnXF",
+      "apple": "https://geo.music.apple.com/album/6807781215?at=1001l384j&ct=website-inherit-the-winds-ost&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b0f07443b406e866c8135ad5a60694a7fedd62cf@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/inherit-the-winds-original-soundtrack",
+      "season": "Winter 2027",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "substitute",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Jinsuke no Theme",
+        "迅助のテーマ"
+      ],
+      "animeCandidates": [
+        "Inherit the Winds",
+        "Kaze wo Tsugumono",
+        "風を継ぐもの"
+      ],
+      "artistCandidates": [
+        "1277",
+        "Shigeru Kishida",
+        "岸田繁",
+        "62TpalmxXUjLKyxJUgZt6W",
+        "219771500",
+        "4897530",
+        "UCE7UTii69j5WCDZSWgkIjiw"
+      ]
+    },
     {
       "id": "27297",
       "anime": "The Guy She Was Interested in Wasn't a Guy at All",
@@ -665,6 +743,13 @@
   ],
   "detailUrlSamples": [
     {
+      "id": "27894",
+      "anime": "Inherit the Winds",
+      "song": "Jinsuke no Theme",
+      "kind": "OST",
+      "detailUrl": "https://aniplaylist.com/play/inherit-the-winds-original-soundtrack"
+    },
+    {
       "id": "27297",
       "anime": "The Guy She Was Interested in Wasn't a Guy at All",
       "song": "Breed",
@@ -701,6 +786,67 @@
     }
   ],
   "usableSamples": [
+    {
+      "id": "27894",
+      "anime": "Inherit the Winds",
+      "song": "Jinsuke no Theme",
+      "artist": "Shigeru Kishida",
+      "kind": "OST",
+      "spotify": "https://open.spotify.com/album/2ITxTFvNQ5LkODTM1kmnXF",
+      "apple": "https://geo.music.apple.com/album/6807781215?at=1001l384j&ct=website-inherit-the-winds-ost&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b0f07443b406e866c8135ad5a60694a7fedd62cf@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/inherit-the-winds-original-soundtrack",
+      "season": "Winter 2027",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "substitute",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Jinsuke no Theme",
+        "迅助のテーマ"
+      ],
+      "animeCandidates": [
+        "Inherit the Winds",
+        "Kaze wo Tsugumono",
+        "風を継ぐもの"
+      ],
+      "artistCandidates": [
+        "1277",
+        "Shigeru Kishida",
+        "岸田繁",
+        "62TpalmxXUjLKyxJUgZt6W",
+        "219771500",
+        "4897530",
+        "UCE7UTii69j5WCDZSWgkIjiw"
+      ]
+    },
     {
       "id": "27297",
       "anime": "The Guy She Was Interested in Wasn't a Guy at All",
@@ -760,6 +906,14 @@
     }
   ],
   "platformSamples": [
+    {
+      "id": "27894",
+      "anime": "Inherit the Winds",
+      "song": "Jinsuke no Theme",
+      "kind": "OST",
+      "spotify": "https://open.spotify.com/album/2ITxTFvNQ5LkODTM1kmnXF",
+      "apple": "https://geo.music.apple.com/album/6807781215?at=1001l384j&ct=website-inherit-the-winds-ost&app=music"
+    },
     {
       "id": "27297",
       "anime": "The Guy She Was Interested in Wasn't a Guy at All",

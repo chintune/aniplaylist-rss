@@ -8183,7 +8183,6 @@
       "display_artists",
       "label",
       "short_link",
-      "status",
       "tags",
       "other_link_ids",
       "unreleased",
@@ -8308,7 +8307,6 @@
       "display_artists",
       "label",
       "short_link",
-      "status",
       "tags",
       "other_link_ids",
       "unreleased",
@@ -8374,7 +8372,6 @@
       "display_artists",
       "label",
       "short_link",
-      "status",
       "tags",
       "other_link_ids",
       "unreleased",
@@ -8678,7 +8675,6 @@
       "display_artists",
       "label",
       "short_link",
-      "status",
       "tags",
       "other_link_ids",
       "unreleased",
@@ -9555,9 +9551,9 @@
     "artist": "WANIMA",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/1kAjMWyq8IBfh5JMhUX4Zx",
-    "apple": "https://music.apple.com/nz/album/6812683549?i=6812683552&at=1001l384j&ct=website-black-clover-2nd-season-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6812683549?i=6812683552&at=1001l384j&ct=website-black-clover-2nd-season-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -9582,8 +9578,8 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -9600,7 +9596,8 @@
       "1774",
       "WANIMA",
       "6YqdtpUutxodni6lUD4stM",
-      "936535085"
+      "936535085",
+      "UC_SxYlf03VsYYBJTXTZj7kw"
     ]
   },
   "a544c07fcfac66fb": {
@@ -9612,9 +9609,9 @@
     "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/7yPMs0w5khrmg4ap8QWfg4",
-    "apple": "https://music.apple.com/nz/album/6812593936?i=6812593943&at=1001l384j&ct=website-fx-fighter-kurumi-chan-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6812593936?i=6812593943&at=1001l384j&ct=website-fx-fighter-kurumi-chan-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -9639,9 +9636,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -9660,7 +9657,10 @@
       "福賀くるみ (CV: 鈴木愛奈)",
       "10imAtJXms1Dx3MKJpXsrp",
       "6812579036",
-      "416287132"
+      "416287132",
+      "25488",
+      "福賀くるみ（CV：鈴木愛奈）",
+      "UClhEcDvAfTHa4mo-Jvo5How"
     ]
   },
   "b418ba7c2a49f020": {
@@ -9672,9 +9672,9 @@
     "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/3vfMxmoxVKPXo2gKIdHe2n",
-    "apple": "https://music.apple.com/nz/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -9699,9 +9699,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -9721,7 +9721,10 @@
       "福賀くるみ (CV: 鈴木愛奈)",
       "10imAtJXms1Dx3MKJpXsrp",
       "6812579036",
-      "416287132"
+      "416287132",
+      "25488",
+      "福賀くるみ（CV：鈴木愛奈）",
+      "UClhEcDvAfTHa4mo-Jvo5How"
     ]
   },
   "7fd107dc92888b9d": {
@@ -9733,9 +9736,9 @@
     "artist": "Hashimero",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
-    "apple": "https://music.apple.com/nz/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/vertex-force-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -9760,9 +9763,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -9780,7 +9783,8 @@
       "はしメロ",
       "7Bokk7F8hq4P8wWwEO5mZy",
       "1512940685",
-      "130520632"
+      "130520632",
+      "UC6QCQ8UClMBP3mkA28JvruQ"
     ]
   },
   "24f72c1c7b6f02f2": {
@@ -9792,9 +9796,9 @@
     "artist": "Eve",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
-    "apple": "https://music.apple.com/nz/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -9819,9 +9823,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -9840,6 +9844,7 @@
       "Eve",
       "58oPVy7oihAEXE0Ott6JOf",
       "1080967231",
+      "UCcjpUrxD6_eT09KnzIg3U3A",
       "15851",
       "Eve / Hiyori Tomoe (CV: Natsuki Hanae), Jun Sazanami (CV: Yuma Uchida)",
       "Eve / 巴日和 (CV: 花江夏樹)、漣ジュン (CV: 内田雄馬)",
