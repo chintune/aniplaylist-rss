@@ -1,22 +1,197 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 146,
+  "resultCount": 147,
   "jsonResponses": 22,
   "algoliaResponses": 10,
   "hitArrays": 20,
-  "rawHits": 146,
-  "uniqueHits": 146,
-  "normalized": 146,
-  "withSpotify": 28,
-  "withApple": 26,
-  "withDetailUrl": 146,
-  "resolvedSpotify": 28,
-  "recordThumbnails": 146,
+  "rawHits": 147,
+  "uniqueHits": 147,
+  "normalized": 147,
+  "withSpotify": 33,
+  "withApple": 31,
+  "withDetailUrl": 147,
+  "resolvedSpotify": 33,
+  "recordThumbnails": 147,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
+    {
+      "id": "27905",
+      "anime": "Blue Box Season 2",
+      "song": "Anata no Hana no Iro",
+      "artist": "aiko",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/5olE0a1gwfOdU8umbRgPSo",
+      "apple": "https://geo.music.apple.com/album/6813318544?i=6813320397&at=1001l384j&ct=website-blue-box-season-2-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/93e99655a56103c00fc84ab4972eb7dd09d4c291@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/blue-box-season-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Anata no Hana no Iro",
+        "あなたの花の色",
+        "the color of your flower"
+      ],
+      "animeCandidates": [
+        "Blue Box Season 2",
+        "アオのハコ Season2",
+        "Ao no Hako Season 2"
+      ],
+      "artistCandidates": [
+        "3105",
+        "aiko",
+        "6TDMbiQCWeMClsMr9ORLRK",
+        "635154255",
+        "2643581"
+      ]
+    },
+    {
+      "id": "27909",
+      "anime": "Vertex Force",
+      "song": "Synchro Blue",
+      "artist": "ClariS",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7MoPFmVvf5JNrZlMNvkI14",
+      "apple": "https://geo.music.apple.com/album/6812241383?i=6812241384&at=1001l384j&ct=website-vertex-force-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Synchro Blue",
+        "シンクロブルー"
+      ],
+      "animeCandidates": [
+        "Vertex Force",
+        "バーテックスフォース"
+      ],
+      "artistCandidates": [
+        "26",
+        "ClariS",
+        "5htVtReJ3NAwcAdxdHpim3",
+        "548139430",
+        "4485144",
+        "UCYeXsPnZ6luN20hTyFxZMIA"
+      ]
+    },
+    {
+      "id": "27901",
+      "anime": "Pan Dorobou",
+      "song": "Pang Pang Pang",
+      "artist": "Kyary Pamyu Pamyu",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/17upXStU80To2HOMpCdn8t",
+      "apple": "https://geo.music.apple.com/album/6810559822?i=6810559834&at=1001l384j&ct=website-pan-dorobou-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/ded47bb37cce0ec1cd5b581dd62e354943133528@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/pan-dorobou-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Pang Pang Pang"
+      ],
+      "animeCandidates": [
+        "Pan Dorobou",
+        "パンどろぼう"
+      ],
+      "artistCandidates": [
+        "14",
+        "Kyary Pamyu Pamyu",
+        "きゃりーぱみゅぱみゅ",
+        "7Gh6fW49xfXLP8DTWaLVJP",
+        "448331160",
+        "4693184",
+        "UCvQ5EoQi0GaFclt0UfMax5Q"
+      ]
+    },
     {
       "id": "27900",
       "anime": "Black Clover 2nd Season",
@@ -54,6 +229,7 @@
         "short_link",
         "status",
         "tags",
+        "other_link_ids",
         "unreleased",
         "objectID"
       ],
@@ -71,6 +247,7 @@
         "WANIMA",
         "6YqdtpUutxodni6lUD4stM",
         "936535085",
+        "8554024",
         "UC_SxYlf03VsYYBJTXTZj7kw"
       ]
     },
@@ -128,208 +305,52 @@
         "24021",
         "Kurumi Fukuga (CV: Aina Suzuki)",
         "福賀くるみ (CV: 鈴木愛奈)",
+        "福賀くるみ（CV：鈴木愛奈）",
         "10imAtJXms1Dx3MKJpXsrp",
         "6812579036",
         "416287132",
-        "25488",
-        "福賀くるみ（CV：鈴木愛奈）",
         "UClhEcDvAfTHa4mo-Jvo5How"
-      ]
-    },
-    {
-      "id": "27897",
-      "anime": "FX Fighter Kurumi-chan",
-      "song": "FX Senshi Kurumi-chan",
-      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3vfMxmoxVKPXo2gKIdHe2n",
-      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "FX Senshi Kurumi-chan",
-        "FX戦士くるみちゃん",
-        "FX Fighter Kurumi-chan"
-      ],
-      "animeCandidates": [
-        "FX Fighter Kurumi-chan",
-        "FX Senshi Kurumi-chan",
-        "FX戦士くるみちゃん"
-      ],
-      "artistCandidates": [
-        "24021",
-        "Kurumi Fukuga (CV: Aina Suzuki)",
-        "福賀くるみ (CV: 鈴木愛奈)",
-        "10imAtJXms1Dx3MKJpXsrp",
-        "6812579036",
-        "416287132",
-        "25488",
-        "福賀くるみ（CV：鈴木愛奈）",
-        "UClhEcDvAfTHa4mo-Jvo5How"
-      ]
-    },
-    {
-      "id": "27899",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
-      "artist": "PompadollS",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
-      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Contemporary Dance",
-        "コンテンポラリーダンス"
-      ],
-      "animeCandidates": [
-        "The Exiled Heavy Knight Knows How to Game the System",
-        "Tsuihou sareta Tensei Juukishi wa Game Chishiki de Musou suru",
-        "The Exiled Reincarnated Heavy Knight is Unrivaled in Game Knowledge",
-        "追放された転生重騎士はゲーム知識で無双する"
-      ],
-      "artistCandidates": [
-        "19738",
-        "PompadollS",
-        "5LNw7upmiw5BIrN2UPLeL0",
-        "1725916783",
-        "UCmu5lpe6Wt-7yCHe2rA4zYQ"
-      ]
-    },
-    {
-      "id": "27895",
-      "anime": "The Apothecary Diaries Season 3",
-      "song": "AIYOU",
-      "artist": "Eve",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
-      "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "AIYOU"
-      ],
-      "animeCandidates": [
-        "The Apothecary Diaries Season 3",
-        "Kusuriya no Hitorigoto 3rd Season",
-        "The Pharmacist's Monologue",
-        "Drugstore Soliloquy",
-        "薬屋のひとりごと 第3期"
-      ],
-      "artistCandidates": [
-        "1376",
-        "Eve",
-        "58oPVy7oihAEXE0Ott6JOf",
-        "1080967231",
-        "UCcjpUrxD6_eT09KnzIg3U3A",
-        "15851",
-        "Eve / Hiyori Tomoe (CV: Natsuki Hanae), Jun Sazanami (CV: Yuma Uchida)",
-        "Eve / 巴日和 (CV: 花江夏樹)、漣ジュン (CV: 内田雄馬)",
-        "69127692"
       ]
     }
   ],
   "errors": [],
   "thumbnailFieldSamples": [
     {
+      "id": "27905",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/93e99655a56103c00fc84ab4972eb7dd09d4c291.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LJLDlnu45?4:o_9Fo~4n?^4:NK$f",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/93e99655a56103c00fc84ab4972eb7dd09d4c291@2xl.jpg"
+    },
+    {
+      "id": "27909",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LCDcj]4.00~W8_ROt2Ws0K?a-nE2",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg"
+    },
+    {
+      "id": "27901",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/ded47bb37cce0ec1cd5b581dd62e354943133528.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "L7R-W@pH.DNF%;.QDJH?CAs=%Bx-",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/ded47bb37cce0ec1cd5b581dd62e354943133528@2xl.jpg"
+    },
+    {
       "id": "27900",
       "thumbnailType": "string",
       "thumbnail": "thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b.jpeg",
       "thumbnailHashType": "string",
-      "thumbnail_hash": "LLDcdT~DwJ-i_Ms=M|t3R+R*SwRS",
+      "thumbnail_hash": "L79$IS3CO@}a1c,DniJ73A{},tKO",
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b@2xl.jpeg"
@@ -339,7 +360,7 @@
       "thumbnailType": "string",
       "thumbnail": "thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238.jpeg",
       "thumbnailHashType": "string",
-      "thumbnail_hash": "L8PO[AqJ0yl-145kQAd@^+GS{gVF",
+      "thumbnail_hash": "LhSX+3ywt%VH$vX8RRohgae@i%bC",
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg"
@@ -413,43 +434,13 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg"
-    },
-    {
-      "id": "27860",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/39455659ba07145200138b47a179c2902f681330.jpeg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LOLNk;.A0000s{Ri%Lt8^=s*xv%L",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/39455659ba07145200138b47a179c2902f681330@2xl.jpeg"
-    },
-    {
-      "id": "27870",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LoM7[Yo~%fMy?wNGM{oJxuWBV@of",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/4986198d09ffd9e1b8718e7273c89f0fbfce8873@2xl.jpg"
-    },
-    {
-      "id": "27861",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/952f489716e3c3878f42407b668ceeb376d49eff.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LJJs^I?q0iw]2c~8jD4;9ZI@V[oM",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/952f489716e3c3878f42407b668ceeb376d49eff@2xl.jpg"
     }
   ],
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -457,7 +448,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -465,7 +456,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -473,7 +464,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -481,7 +472,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -489,7 +480,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -497,7 +488,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -505,7 +496,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -513,7 +504,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -521,7 +512,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -529,7 +520,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -537,7 +528,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -545,7 +536,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -553,7 +544,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -561,7 +552,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -569,7 +560,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -577,7 +568,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -585,7 +576,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -593,21 +584,196 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 9,
-      "nbHits": 146,
+      "nbHits": 147,
       "hitsPerPage": 16,
       "nbPages": 10,
-      "count": 2
+      "count": 3
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28192,
+      "nbHits": 28202,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
     }
   ],
   "normalizedSamples": [
+    {
+      "id": "27905",
+      "anime": "Blue Box Season 2",
+      "song": "Anata no Hana no Iro",
+      "artist": "aiko",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/5olE0a1gwfOdU8umbRgPSo",
+      "apple": "https://geo.music.apple.com/album/6813318544?i=6813320397&at=1001l384j&ct=website-blue-box-season-2-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/93e99655a56103c00fc84ab4972eb7dd09d4c291@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/blue-box-season-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Anata no Hana no Iro",
+        "あなたの花の色",
+        "the color of your flower"
+      ],
+      "animeCandidates": [
+        "Blue Box Season 2",
+        "アオのハコ Season2",
+        "Ao no Hako Season 2"
+      ],
+      "artistCandidates": [
+        "3105",
+        "aiko",
+        "6TDMbiQCWeMClsMr9ORLRK",
+        "635154255",
+        "2643581"
+      ]
+    },
+    {
+      "id": "27909",
+      "anime": "Vertex Force",
+      "song": "Synchro Blue",
+      "artist": "ClariS",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7MoPFmVvf5JNrZlMNvkI14",
+      "apple": "https://geo.music.apple.com/album/6812241383?i=6812241384&at=1001l384j&ct=website-vertex-force-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Synchro Blue",
+        "シンクロブルー"
+      ],
+      "animeCandidates": [
+        "Vertex Force",
+        "バーテックスフォース"
+      ],
+      "artistCandidates": [
+        "26",
+        "ClariS",
+        "5htVtReJ3NAwcAdxdHpim3",
+        "548139430",
+        "4485144",
+        "UCYeXsPnZ6luN20hTyFxZMIA"
+      ]
+    },
+    {
+      "id": "27901",
+      "anime": "Pan Dorobou",
+      "song": "Pang Pang Pang",
+      "artist": "Kyary Pamyu Pamyu",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/17upXStU80To2HOMpCdn8t",
+      "apple": "https://geo.music.apple.com/album/6810559822?i=6810559834&at=1001l384j&ct=website-pan-dorobou-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/ded47bb37cce0ec1cd5b581dd62e354943133528@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/pan-dorobou-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Pang Pang Pang"
+      ],
+      "animeCandidates": [
+        "Pan Dorobou",
+        "パンどろぼう"
+      ],
+      "artistCandidates": [
+        "14",
+        "Kyary Pamyu Pamyu",
+        "きゃりーぱみゅぱみゅ",
+        "7Gh6fW49xfXLP8DTWaLVJP",
+        "448331160",
+        "4693184",
+        "UCvQ5EoQi0GaFclt0UfMax5Q"
+      ]
+    },
     {
       "id": "27900",
       "anime": "Black Clover 2nd Season",
@@ -645,6 +811,7 @@
         "short_link",
         "status",
         "tags",
+        "other_link_ids",
         "unreleased",
         "objectID"
       ],
@@ -662,6 +829,7 @@
         "WANIMA",
         "6YqdtpUutxodni6lUD4stM",
         "936535085",
+        "8554024",
         "UC_SxYlf03VsYYBJTXTZj7kw"
       ]
     },
@@ -719,11 +887,10 @@
         "24021",
         "Kurumi Fukuga (CV: Aina Suzuki)",
         "福賀くるみ (CV: 鈴木愛奈)",
+        "福賀くるみ（CV：鈴木愛奈）",
         "10imAtJXms1Dx3MKJpXsrp",
         "6812579036",
         "416287132",
-        "25488",
-        "福賀くるみ（CV：鈴木愛奈）",
         "UClhEcDvAfTHa4mo-Jvo5How"
       ]
     },
@@ -782,11 +949,10 @@
         "24021",
         "Kurumi Fukuga (CV: Aina Suzuki)",
         "福賀くるみ (CV: 鈴木愛奈)",
+        "福賀くるみ（CV：鈴木愛奈）",
         "10imAtJXms1Dx3MKJpXsrp",
         "6812579036",
         "416287132",
-        "25488",
-        "福賀くるみ（CV：鈴木愛奈）",
         "UClhEcDvAfTHa4mo-Jvo5How"
       ]
     },
@@ -828,6 +994,7 @@
         "short_link",
         "status",
         "tags",
+        "other_link_ids",
         "unreleased",
         "objectID"
       ],
@@ -846,6 +1013,7 @@
         "PompadollS",
         "5LNw7upmiw5BIrN2UPLeL0",
         "1725916783",
+        "250619942",
         "UCmu5lpe6Wt-7yCHe2rA4zYQ"
       ]
     },
@@ -905,11 +1073,8 @@
         "Eve",
         "58oPVy7oihAEXE0Ott6JOf",
         "1080967231",
-        "UCcjpUrxD6_eT09KnzIg3U3A",
-        "15851",
-        "Eve / Hiyori Tomoe (CV: Natsuki Hanae), Jun Sazanami (CV: Yuma Uchida)",
-        "Eve / 巴日和 (CV: 花江夏樹)、漣ジュン (CV: 内田雄馬)",
-        "69127692"
+        "69128312",
+        "UCcjpUrxD6_eT09KnzIg3U3A"
       ]
     },
     {
@@ -1029,14 +1194,14 @@
     },
     {
       "id": "27887",
-      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "anime": "The Cold Sato-san is Only Sweet to Me",
       "song": "Hatsukoi Reply",
       "artist": "MARUMOCHI from HoneyWorks",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/57UeOQ9Ae6o6PdWU4nxzK3",
-      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music",
+      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-the-cold-sato-san-is-only-swe-ed&app=music",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending",
+      "detailUrl": "https://aniplaylist.com/play/the-cold-sato-san-is-only-sweet-to-me-ending",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -1074,10 +1239,10 @@
         "First Love Reply"
       ],
       "animeCandidates": [
+        "The Cold Sato-san is Only Sweet to Me",
         "Shiotaiou no Satou-san ga Ore ni dake Amai",
         "Aren't You Too Sweet Salt-God Sato-san?",
         "塩対応の佐藤さんが俺にだけ甘い",
-        "The Cold Sato-san is Only Sweet to Me",
         "Aren't You Too Sweet Salt-God Sato-san"
       ],
       "artistCandidates": [
@@ -1266,7 +1431,8 @@
         "Superfly",
         "5M8AXrOifBT8elkLKbGPQZ",
         "150974880",
-        "142878"
+        "142878",
+        "UCarJ-jLDuyHOlRXzIcqL4oQ"
       ]
     },
     {
@@ -1483,6 +1649,7 @@
         "short_link",
         "status",
         "tags",
+        "other_link_ids",
         "unreleased",
         "objectID"
       ],
@@ -1504,10 +1671,16 @@
         "Ryu Matsuyama",
         "59krd1xNH8IJFknx9wFiVf",
         "796767434",
+        "57330472",
+        "UCopuKHWwdQKSecCf-rSVNvA",
         "5512",
         "Yuko Ando",
         "安藤裕子",
-        "12dhEcVUnJVnIQLt91VdA3"
+        "12dhEcVUnJVnIQLt91VdA3",
+        "4896145",
+        "25489",
+        "VAP Official",
+        "UCazjJ6udlwl6cP_om1zqTQQ"
       ]
     },
     {
@@ -1688,6 +1861,116 @@
         "1477703833",
         "72569072",
         "UCC92qqV6EyESLuLrssqkUrA"
+      ]
+    },
+    {
+      "id": "us_3262",
+      "anime": "My Happy Marriage Special",
+      "song": "Shiawase de Namida ga Deru no wa.",
+      "artist": "Riria.",
+      "kind": "OP",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/6ce5e7a260488767a0adc7eed15b59070f33ee39@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Shiawase de Namida ga Deru no wa.",
+        "幸せで涙が出るのは。"
+      ],
+      "animeCandidates": [
+        "My Happy Marriage Special",
+        "Watashi no Shiawase na Kekkon Special",
+        "わたしの幸せな結婚 特別篇",
+        "My Happy Marriage",
+        "My Blissful Marriage"
+      ],
+      "artistCandidates": [
+        "6821",
+        "Riria.",
+        "りりあ。",
+        "7A3sigteKpC2ZYE7EuuSk7",
+        "1J6OD7vLbjEuFVgVRlusmS",
+        "1513481760",
+        "94792702",
+        "UC19b2wLgiw-R2LTd1waSGXQ"
+      ]
+    },
+    {
+      "id": "us_3261",
+      "anime": "Da Wang Rao Ming 3",
+      "song": "Wo Yao Shengcun Xiaqu",
+      "artist": "Zhang Shencheng",
+      "kind": "OP",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/01c841b5d79fcb40fa365d31bde6eacec923a0ee@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Wo Yao Shengcun Xiaqu",
+        "我要生存下去"
+      ],
+      "animeCandidates": [
+        "Da Wang Rao Ming 3",
+        "大王饶命 第三季",
+        "Spare Me, Great Lord! Season 3",
+        "Spare Me, Great Lord! 3rd Season"
+      ],
+      "artistCandidates": [
+        "25487",
+        "Zhang Shencheng",
+        "张申骋"
       ]
     },
     {
@@ -2099,304 +2382,30 @@
         "10963206",
         "UCPs1IqAe9_1RU9Dq7_yy8Eg"
       ]
-    },
-    {
-      "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2",
-      "song": "Saku",
-      "artist": "Cidergirl",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
-      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Saku",
-        "咲く"
-      ],
-      "animeCandidates": [
-        "Chitose Is in the Ramune Bottle Part 2",
-        "Chitose-kun wa Ramune Bin no Naka Part 2",
-        "Chiramune",
-        "Chitose-kun is Inside a Ramune Bottle",
-        "Ramune no Bin ni Shizunda Biidama no Tsuki",
-        "千歳くんはラムネ瓶のなか 第2クール"
-      ],
-      "artistCandidates": [
-        "2731",
-        "Cidergirl",
-        "CIDER GIRL",
-        "サイダーガール",
-        "CIDERGIRL",
-        "3hprFQEXS7glX1Jxxwv9Dn",
-        "1159148258",
-        "13082439",
-        "UCPsZegYUPKEsylhuz4Qs1Aw"
-      ]
-    },
-    {
-      "id": "27783",
-      "anime": "Ghost Meets Gal!",
-      "song": "Nikoichi Mirai",
-      "artist": "Mugendai Mewtype",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/33OvdvQWlQ7Djzo6HeSfYC",
-      "apple": "https://geo.music.apple.com/album/6810087884?i=6810087885&at=1001l384j&ct=website-ghost-meets-gal-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/17300d90ac62a784dfb62c3d1ffcf123abe68f1f@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/ghost-meets-gal-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Nikoichi Mirai",
-        "にこいちミライ"
-      ],
-      "animeCandidates": [
-        "Ghost Meets Gal!",
-        "ごーすと・みーつ・ぎゃる！",
-        "Ghost Meets Gyaru!"
-      ],
-      "artistCandidates": [
-        "18637",
-        "Mugendai Mewtype",
-        "夢限大みゅーたいぷ",
-        "2EzWYxIHqUD1RWBOuSjxtK",
-        "1715788150",
-        "285478361",
-        "UCeXzCxZsDcaF5xI68fK5owA"
-      ]
-    },
-    {
-      "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "SPIN",
-      "artist": "Kroi",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
-      "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/62f935a021ce799e1890dd2bacab33a446e03999@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "SPIN"
-      ],
-      "animeCandidates": [
-        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
-        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
-        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
-        "SBR"
-      ],
-      "artistCandidates": [
-        "14747",
-        "Kroi",
-        "4S8J8Nct8lHsbzAeNJXcJa",
-        "1439157589",
-        "52711252",
-        "UCssoAGLly9DaABecIZoht_g"
-      ]
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "artist": "krage",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
-      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Everlasting"
-      ],
-      "animeCandidates": [
-        "A Returner's Magic Should Be Special Season 2",
-        "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
-        "Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida",
-        "귀환자의 마법은 특별해야 합니다",
-        "帰還者の魔法は特別です 2期"
-      ],
-      "artistCandidates": [
-        "13108",
-        "krage",
-        "35jRIUtWCUITFLfjhYwkFx",
-        "1542904221",
-        "163234327",
-        "UCg3fieU_nWIdFBOrqVqNUGQ"
-      ]
-    },
-    {
-      "id": "us_3248",
-      "anime": "Psyren",
-      "song": "ICARUS",
-      "artist": "Who-ya Extended",
-      "kind": "ED",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/bfe2ddaba65ade698ba6908a1cca838a1a5dae56@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "ICARUS"
-      ],
-      "animeCandidates": [
-        "Psyren",
-        "Siren",
-        "PSYЯEN -サイレン-"
-      ],
-      "artistCandidates": [
-        "2360",
-        "Who-ya Extended",
-        "3sE3971KYAw7t9ENx8Eqwk",
-        "1483002533",
-        "78441442",
-        "UCKTVugF8cPCt8UeGY9zUDMw"
-      ]
     }
   ],
   "detailUrlSamples": [
+    {
+      "id": "27905",
+      "anime": "Blue Box Season 2",
+      "song": "Anata no Hana no Iro",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/blue-box-season-2-opening"
+    },
+    {
+      "id": "27909",
+      "anime": "Vertex Force",
+      "song": "Synchro Blue",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-opening"
+    },
+    {
+      "id": "27901",
+      "anime": "Pan Dorobou",
+      "song": "Pang Pang Pang",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/pan-dorobou-ending"
+    },
     {
       "id": "27900",
       "anime": "Black Clover 2nd Season",
@@ -2448,10 +2457,10 @@
     },
     {
       "id": "27887",
-      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "anime": "The Cold Sato-san is Only Sweet to Me",
       "song": "Hatsukoi Reply",
       "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending"
+      "detailUrl": "https://aniplaylist.com/play/the-cold-sato-san-is-only-sweet-to-me-ending"
     },
     {
       "id": "27886",
@@ -2524,6 +2533,20 @@
       "detailUrl": "https://aniplaylist.com/play/as-a-reincarnated-aristocrat-ill-use-my-appraisal-skill-to-rise-in-the-world-season-3-ending"
     },
     {
+      "id": "us_3262",
+      "anime": "My Happy Marriage Special",
+      "song": "Shiawase de Namida ga Deru no wa.",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
+      "id": "us_3261",
+      "anime": "Da Wang Rao Ming 3",
+      "song": "Wo Yao Shengcun Xiaqu",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
       "id": "us_3255",
       "anime": "Da Wang Rao Ming 3",
       "song": "Nixing",
@@ -2571,44 +2594,184 @@
       "song": "TRICKSTER",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending"
-    },
-    {
-      "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2",
-      "song": "Saku",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening"
-    },
-    {
-      "id": "27783",
-      "anime": "Ghost Meets Gal!",
-      "song": "Nikoichi Mirai",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/ghost-meets-gal-opening"
-    },
-    {
-      "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "SPIN",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening"
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending"
-    },
-    {
-      "id": "us_3248",
-      "anime": "Psyren",
-      "song": "ICARUS",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
     }
   ],
   "usableSamples": [
+    {
+      "id": "27905",
+      "anime": "Blue Box Season 2",
+      "song": "Anata no Hana no Iro",
+      "artist": "aiko",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/5olE0a1gwfOdU8umbRgPSo",
+      "apple": "https://geo.music.apple.com/album/6813318544?i=6813320397&at=1001l384j&ct=website-blue-box-season-2-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/93e99655a56103c00fc84ab4972eb7dd09d4c291@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/blue-box-season-2-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Anata no Hana no Iro",
+        "あなたの花の色",
+        "the color of your flower"
+      ],
+      "animeCandidates": [
+        "Blue Box Season 2",
+        "アオのハコ Season2",
+        "Ao no Hako Season 2"
+      ],
+      "artistCandidates": [
+        "3105",
+        "aiko",
+        "6TDMbiQCWeMClsMr9ORLRK",
+        "635154255",
+        "2643581"
+      ]
+    },
+    {
+      "id": "27909",
+      "anime": "Vertex Force",
+      "song": "Synchro Blue",
+      "artist": "ClariS",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7MoPFmVvf5JNrZlMNvkI14",
+      "apple": "https://geo.music.apple.com/album/6812241383?i=6812241384&at=1001l384j&ct=website-vertex-force-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Synchro Blue",
+        "シンクロブルー"
+      ],
+      "animeCandidates": [
+        "Vertex Force",
+        "バーテックスフォース"
+      ],
+      "artistCandidates": [
+        "26",
+        "ClariS",
+        "5htVtReJ3NAwcAdxdHpim3",
+        "548139430",
+        "4485144",
+        "UCYeXsPnZ6luN20hTyFxZMIA"
+      ]
+    },
+    {
+      "id": "27901",
+      "anime": "Pan Dorobou",
+      "song": "Pang Pang Pang",
+      "artist": "Kyary Pamyu Pamyu",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/17upXStU80To2HOMpCdn8t",
+      "apple": "https://geo.music.apple.com/album/6810559822?i=6810559834&at=1001l384j&ct=website-pan-dorobou-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/ded47bb37cce0ec1cd5b581dd62e354943133528@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/pan-dorobou-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Pang Pang Pang"
+      ],
+      "animeCandidates": [
+        "Pan Dorobou",
+        "パンどろぼう"
+      ],
+      "artistCandidates": [
+        "14",
+        "Kyary Pamyu Pamyu",
+        "きゃりーぱみゅぱみゅ",
+        "7Gh6fW49xfXLP8DTWaLVJP",
+        "448331160",
+        "4693184",
+        "UCvQ5EoQi0GaFclt0UfMax5Q"
+      ]
+    },
     {
       "id": "27900",
       "anime": "Black Clover 2nd Season",
@@ -2646,6 +2809,7 @@
         "short_link",
         "status",
         "tags",
+        "other_link_ids",
         "unreleased",
         "objectID"
       ],
@@ -2663,6 +2827,7 @@
         "WANIMA",
         "6YqdtpUutxodni6lUD4stM",
         "936535085",
+        "8554024",
         "UC_SxYlf03VsYYBJTXTZj7kw"
       ]
     },
@@ -2720,11 +2885,10 @@
         "24021",
         "Kurumi Fukuga (CV: Aina Suzuki)",
         "福賀くるみ (CV: 鈴木愛奈)",
+        "福賀くるみ（CV：鈴木愛奈）",
         "10imAtJXms1Dx3MKJpXsrp",
         "6812579036",
         "416287132",
-        "25488",
-        "福賀くるみ（CV：鈴木愛奈）",
         "UClhEcDvAfTHa4mo-Jvo5How"
       ]
     },
@@ -2783,11 +2947,10 @@
         "24021",
         "Kurumi Fukuga (CV: Aina Suzuki)",
         "福賀くるみ (CV: 鈴木愛奈)",
+        "福賀くるみ（CV：鈴木愛奈）",
         "10imAtJXms1Dx3MKJpXsrp",
         "6812579036",
         "416287132",
-        "25488",
-        "福賀くるみ（CV：鈴木愛奈）",
         "UClhEcDvAfTHa4mo-Jvo5How"
       ]
     },
@@ -2829,6 +2992,7 @@
         "short_link",
         "status",
         "tags",
+        "other_link_ids",
         "unreleased",
         "objectID"
       ],
@@ -2847,6 +3011,7 @@
         "PompadollS",
         "5LNw7upmiw5BIrN2UPLeL0",
         "1725916783",
+        "250619942",
         "UCmu5lpe6Wt-7yCHe2rA4zYQ"
       ]
     },
@@ -2906,11 +3071,8 @@
         "Eve",
         "58oPVy7oihAEXE0Ott6JOf",
         "1080967231",
-        "UCcjpUrxD6_eT09KnzIg3U3A",
-        "15851",
-        "Eve / Hiyori Tomoe (CV: Natsuki Hanae), Jun Sazanami (CV: Yuma Uchida)",
-        "Eve / 巴日和 (CV: 花江夏樹)、漣ジュン (CV: 内田雄馬)",
-        "69127692"
+        "69128312",
+        "UCcjpUrxD6_eT09KnzIg3U3A"
       ]
     },
     {
@@ -3030,14 +3192,14 @@
     },
     {
       "id": "27887",
-      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "anime": "The Cold Sato-san is Only Sweet to Me",
       "song": "Hatsukoi Reply",
       "artist": "MARUMOCHI from HoneyWorks",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/57UeOQ9Ae6o6PdWU4nxzK3",
-      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music",
+      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-the-cold-sato-san-is-only-swe-ed&app=music",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending",
+      "detailUrl": "https://aniplaylist.com/play/the-cold-sato-san-is-only-sweet-to-me-ending",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -3075,10 +3237,10 @@
         "First Love Reply"
       ],
       "animeCandidates": [
+        "The Cold Sato-san is Only Sweet to Me",
         "Shiotaiou no Satou-san ga Ore ni dake Amai",
         "Aren't You Too Sweet Salt-God Sato-san?",
         "塩対応の佐藤さんが俺にだけ甘い",
-        "The Cold Sato-san is Only Sweet to Me",
         "Aren't You Too Sweet Salt-God Sato-san"
       ],
       "artistCandidates": [
@@ -3267,7 +3429,8 @@
         "Superfly",
         "5M8AXrOifBT8elkLKbGPQZ",
         "150974880",
-        "142878"
+        "142878",
+        "UCarJ-jLDuyHOlRXzIcqL4oQ"
       ]
     },
     {
@@ -3484,6 +3647,7 @@
         "short_link",
         "status",
         "tags",
+        "other_link_ids",
         "unreleased",
         "objectID"
       ],
@@ -3505,10 +3669,16 @@
         "Ryu Matsuyama",
         "59krd1xNH8IJFknx9wFiVf",
         "796767434",
+        "57330472",
+        "UCopuKHWwdQKSecCf-rSVNvA",
         "5512",
         "Yuko Ando",
         "安藤裕子",
-        "12dhEcVUnJVnIQLt91VdA3"
+        "12dhEcVUnJVnIQLt91VdA3",
+        "4896145",
+        "25489",
+        "VAP Official",
+        "UCazjJ6udlwl6cP_om1zqTQQ"
       ]
     },
     {
@@ -4233,66 +4403,33 @@
         "163234327",
         "UCg3fieU_nWIdFBOrqVqNUGQ"
       ]
-    },
-    {
-      "id": "27738",
-      "anime": "Tank Chair",
-      "song": "DALALA",
-      "artist": "SiM",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
-      "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/893b16711e5bf15eb0e897201bb222aa30a76aa7@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tank-chair-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "DALALA"
-      ],
-      "animeCandidates": [
-        "Tank Chair",
-        "Sensha Isu",
-        "TANK CHAIR-戦車椅子-"
-      ],
-      "artistCandidates": [
-        "253",
-        "SiM",
-        "2BM933ADIluGGrPBOhPgIt",
-        "1124210967",
-        "73204762",
-        "UCZ3k79bJuQd5w9qAiH4VPwQ"
-      ]
     }
   ],
   "platformSamples": [
+    {
+      "id": "27905",
+      "anime": "Blue Box Season 2",
+      "song": "Anata no Hana no Iro",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/5olE0a1gwfOdU8umbRgPSo",
+      "apple": "https://geo.music.apple.com/album/6813318544?i=6813320397&at=1001l384j&ct=website-blue-box-season-2-op&app=music"
+    },
+    {
+      "id": "27909",
+      "anime": "Vertex Force",
+      "song": "Synchro Blue",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7MoPFmVvf5JNrZlMNvkI14",
+      "apple": "https://geo.music.apple.com/album/6812241383?i=6812241384&at=1001l384j&ct=website-vertex-force-op&app=music"
+    },
+    {
+      "id": "27901",
+      "anime": "Pan Dorobou",
+      "song": "Pang Pang Pang",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/17upXStU80To2HOMpCdn8t",
+      "apple": "https://geo.music.apple.com/album/6810559822?i=6810559834&at=1001l384j&ct=website-pan-dorobou-ed&app=music"
+    },
     {
       "id": "27900",
       "anime": "Black Clover 2nd Season",
@@ -4351,11 +4488,11 @@
     },
     {
       "id": "27887",
-      "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "anime": "The Cold Sato-san is Only Sweet to Me",
       "song": "Hatsukoi Reply",
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/57UeOQ9Ae6o6PdWU4nxzK3",
-      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music"
+      "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-the-cold-sato-san-is-only-swe-ed&app=music"
     },
     {
       "id": "27886",
@@ -4508,14 +4645,6 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
       "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music"
-    },
-    {
-      "id": "27738",
-      "anime": "Tank Chair",
-      "song": "DALALA",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/3fOz3ecK1RMlPAZ3PYVqoM",
-      "apple": "https://music.apple.com/jp/album/6769356082?i=6769356361&at=1001l384j&ct=website-tank-chair-op&app=music"
     }
   ]
 }
