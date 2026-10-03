@@ -1,149 +1,104 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 147,
+  "resultCount": 149,
   "jsonResponses": 22,
   "algoliaResponses": 10,
   "hitArrays": 20,
-  "rawHits": 147,
-  "uniqueHits": 147,
-  "normalized": 147,
+  "rawHits": 149,
+  "uniqueHits": 149,
+  "normalized": 149,
   "withSpotify": 36,
   "withApple": 34,
-  "withDetailUrl": 147,
+  "withDetailUrl": 149,
   "resolvedSpotify": 36,
-  "recordThumbnails": 147,
+  "recordThumbnails": 149,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
     {
-      "id": "27905",
-      "anime": "Blue Box Season 2",
-      "song": "Anata no Hana no Iro",
-      "artist": "aiko",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/5olE0a1gwfOdU8umbRgPSo",
-      "apple": "https://geo.music.apple.com/album/6813318544?i=6813320397&at=1001l384j&ct=website-blue-box-season-2-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/93e99655a56103c00fc84ab4972eb7dd09d4c291@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/blue-box-season-2-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Anata no Hana no Iro",
-        "あなたの花の色",
-        "the color of your flower"
-      ],
-      "animeCandidates": [
-        "Blue Box Season 2",
-        "アオのハコ Season2",
-        "Ao no Hako Season 2"
-      ],
-      "artistCandidates": [
-        "3105",
-        "aiko",
-        "6TDMbiQCWeMClsMr9ORLRK",
-        "635154255",
-        "2643581"
-      ]
-    },
-    {
-      "id": "27909",
-      "anime": "Vertex Force",
-      "song": "Synchro Blue",
-      "artist": "ClariS",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/7MoPFmVvf5JNrZlMNvkI14",
-      "apple": "https://geo.music.apple.com/album/6812241383?i=6812241384&at=1001l384j&ct=website-vertex-force-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/vertex-force-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Synchro Blue",
-        "シンクロブルー"
-      ],
-      "animeCandidates": [
-        "Vertex Force",
-        "バーテックスフォース"
-      ],
-      "artistCandidates": [
-        "26",
-        "ClariS",
-        "5htVtReJ3NAwcAdxdHpim3",
-        "548139430",
-        "4485144",
-        "UCYeXsPnZ6luN20hTyFxZMIA"
-      ]
-    },
-    {
-      "id": "27901",
-      "anime": "Pan Dorobou",
-      "song": "Pang Pang Pang",
-      "artist": "Kyary Pamyu Pamyu",
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "artist": "Ryu Matsuyama",
       "kind": "ED",
-      "spotify": "https://open.spotify.com/track/17upXStU80To2HOMpCdn8t",
-      "apple": "https://geo.music.apple.com/album/6810559822?i=6810559834&at=1001l384j&ct=website-pan-dorobou-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/ded47bb37cce0ec1cd5b581dd62e354943133528@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/pan-dorobou-ending",
+      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
+      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "flow"
+      ],
+      "animeCandidates": [
+        "Red River",
+        "Sora wa Akai Kawa no Hotori",
+        "Anatolia Story",
+        "Heaven by the Red River",
+        "Orontes Renka",
+        "Orontes Love Song",
+        "Where the Sky and the Red River Meet",
+        "天は赤い河のほとり"
+      ],
+      "artistCandidates": [
+        "24185",
+        "Ryu Matsuyama",
+        "59krd1xNH8IJFknx9wFiVf",
+        "796767434",
+        "57330472",
+        "UCopuKHWwdQKSecCf-rSVNvA",
+        "5512",
+        "Yuko Ando",
+        "安藤裕子",
+        "12dhEcVUnJVnIQLt91VdA3",
+        "4896145",
+        "25489",
+        "VAP Official",
+        "UCazjJ6udlwl6cP_om1zqTQQ"
+      ]
+    },
+    {
+      "id": "27916",
+      "anime": "Pan Dorobou",
+      "song": "Pan Dorobou no Uta",
+      "artist": "Pan Dorobou to Panya no Ojisan (CV: Ayaka Asai, Junichi Suwabe)",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/54K89a4ZI6D7zaYWXna6Jk",
+      "apple": "https://geo.music.apple.com/album/6812164641?i=6812164934&at=1001l384j&ct=website-pan-dorobou-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5290b4c10ffeb16037064e5cc7a4807d52aba5e5@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/pan-dorobou-opening",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -176,91 +131,169 @@
         "objectID"
       ],
       "titleCandidates": [
-        "Pang Pang Pang"
+        "Pan Dorobou no Uta",
+        "パンどろぼうのうた",
+        "Pandorobou Song"
       ],
       "animeCandidates": [
         "Pan Dorobou",
         "パンどろぼう"
       ],
       "artistCandidates": [
-        "14",
-        "Kyary Pamyu Pamyu",
-        "きゃりーぱみゅぱみゅ",
-        "7Gh6fW49xfXLP8DTWaLVJP",
-        "448331160",
-        "4693184",
-        "UCvQ5EoQi0GaFclt0UfMax5Q"
+        "25492",
+        "Pan Dorobou to Panya no Ojisan (CV: Ayaka Asai, Junichi Suwabe)",
+        "パンどろぼうとパンやのおじさん (CV: 朝井彩加, 諏訪部順一)",
+        "1UPuMcZicCLXu1WkmUdfDr",
+        "6812164933",
+        "416287152",
+        "25495",
+        "パンどろぼうとパンやのおじさん（CV：朝井彩加とCV：諏訪部順一）",
+        "UC_CcsYjMCSfNpbWB5f4obRw",
+        "25498",
+        "パンどろぼう / PANDOROBO【公式】",
+        "UC_8oRpdwdS8yE_AOXA9FeZQ"
       ]
     },
     {
-      "id": "27900",
-      "anime": "Black Clover 2nd Season",
-      "song": "Kienai Riyuu",
-      "artist": "WANIMA",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/1kAjMWyq8IBfh5JMhUX4Zx",
-      "apple": "https://geo.music.apple.com/album/6812683549?i=6812683552&at=1001l384j&ct=website-black-clover-2nd-season-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/319bb5372941206224d54435dd7c5bfcc04ef60b@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Kienai Riyuu",
-        "消えない理由"
-      ],
-      "animeCandidates": [
-        "Black Clover 2nd Season",
-        "ブラッククローバー 2nd season",
-        "Black Clover Season 2"
-      ],
-      "artistCandidates": [
-        "1774",
-        "WANIMA",
-        "6YqdtpUutxodni6lUD4stM",
-        "936535085",
-        "8554024",
-        "UC_SxYlf03VsYYBJTXTZj7kw"
-      ]
-    },
-    {
-      "id": "27898",
-      "anime": "FX Fighter Kurumi-chan",
-      "song": "$・¥・€",
-      "artist": "Kurumi Fukuga (CV: Aina Suzuki)",
+      "id": "27917",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "Mabataki",
+      "artist": "MEminor",
       "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7yPMs0w5khrmg4ap8QWfg4",
-      "apple": "https://geo.music.apple.com/album/6812593936?i=6812593943&at=1001l384j&ct=website-fx-fighter-kurumi-chan-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-ending",
+      "spotify": "https://open.spotify.com/track/7C8ZmYeJN1UfmgrOiXD31c",
+      "apple": "https://geo.music.apple.com/album/6809366761?i=6809366768&at=1001l384j&ct=website-please-excuse-my-younger-bro-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-ending-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Mabataki",
+        "まばたき"
+      ],
+      "animeCandidates": [
+        "Please Excuse My Younger Brothers",
+        "Uchi no Otouto-domo ga Sumimasen",
+        "うちの弟どもがすみません",
+        "Sorry About My Little Brothers",
+        "Uchioto"
+      ],
+      "artistCandidates": [
+        "19704",
+        "MEminor",
+        "ミーマイナー",
+        "7G8KRjagUdAsleZIfe2juo",
+        "1765479416",
+        "279727681",
+        "UCmSCQ3l78WtSEvy2wc-myFQ"
+      ]
+    },
+    {
+      "id": "27914",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "LOVE & LIKE",
+      "artist": "Neguse.",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1nkfCEYkL2DQ02V3ffrwgL",
+      "apple": "https://geo.music.apple.com/album/6812190209?i=6812190440&at=1001l384j&ct=website-please-excuse-my-younger-bro-op2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-opening-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "LOVE & LIKE"
+      ],
+      "animeCandidates": [
+        "Please Excuse My Younger Brothers",
+        "Uchi no Otouto-domo ga Sumimasen",
+        "うちの弟どもがすみません",
+        "Sorry About My Little Brothers",
+        "Uchioto"
+      ],
+      "artistCandidates": [
+        "16852",
+        "Neguse.",
+        "ねぐせ.",
+        "neguse.",
+        "ねぐせ。",
+        "7jiFTNRWSw8zYgUj9wNJld",
+        "1564692985",
+        "138303672",
+        "UC4yQSddIVINUHNRT_4rOHcg",
+        "25496",
+        "アニプレックス チャンネル",
+        "UC14QT5j2nQI8lKBCGtrrBQA"
+      ]
+    },
+    {
+      "id": "27911",
+      "anime": "A Tale of the Secret Saint",
+      "song": "Flare of Soul",
+      "artist": "Kaya",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7KRg2Gw4oWB1gumJBZQnh8",
+      "apple": "https://geo.music.apple.com/album/6816815051?i=6816815053&at=1001l384j&ct=website-a-tale-of-the-secret-saint-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/a-tale-of-the-secret-saint-opening",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -293,28 +326,78 @@
         "objectID"
       ],
       "titleCandidates": [
-        "$・¥・€",
-        "Dollar Yen Euro"
+        "Flare of Soul"
       ],
       "animeCandidates": [
-        "FX Fighter Kurumi-chan",
-        "FX Senshi Kurumi-chan",
-        "FX戦士くるみちゃん"
+        "A Tale of the Secret Saint",
+        "Tensei shita Daiseijo wa, Seijo de Aru Koto wo Hitakakusu",
+        "A Tale of the Great Saint",
+        "The Reincarnated Great Saint Hides That She's a Saint",
+        "転生した大聖女は、聖女であることをひた隠す"
       ],
       "artistCandidates": [
-        "24021",
-        "Kurumi Fukuga (CV: Aina Suzuki)",
-        "福賀くるみ (CV: 鈴木愛奈)",
-        "福賀くるみ（CV：鈴木愛奈）",
-        "10imAtJXms1Dx3MKJpXsrp",
-        "6812579036",
-        "416287132",
-        "UClhEcDvAfTHa4mo-Jvo5How"
+        "18892",
+        "Kaya",
+        "花耶",
+        "2G4wPei743AzBOILB49bgK",
+        "1603783766",
+        "392248501",
+        "UCd3kwxPbvd98H5JdV4Hoygw"
       ]
     }
   ],
   "errors": [],
   "thumbnailFieldSamples": [
+    {
+      "id": "27882",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LACr$Yt10Ms=01IC-o$y~A?FNGIp",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg"
+    },
+    {
+      "id": "27916",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/5290b4c10ffeb16037064e5cc7a4807d52aba5e5.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "L7R-W@pH.DNF%;.QDJH?CAs=%Bx-",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/5290b4c10ffeb16037064e5cc7a4807d52aba5e5@2xl.jpeg"
+    },
+    {
+      "id": "27917",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LaOpn_f:.5EQ_HJBEAWbs}n+sSt1",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg"
+    },
+    {
+      "id": "27914",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LaOpn_f:.5EQ_HJBEAWbs}n+sSt1",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg"
+    },
+    {
+      "id": "27911",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LoJSU%vNNeS$LNjbofR*I:NeWCnP",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301@2xl.jpg"
+    },
     {
       "id": "27905",
       "thumbnailType": "string",
@@ -334,6 +417,16 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg"
+    },
+    {
+      "id": "27910",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/7a3765f6047d70bf6ca0f5e151df6fe048ea351f.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LcHM1UbsVqoyOx%Kxtodx|bGxWV@",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/7a3765f6047d70bf6ca0f5e151df6fe048ea351f@2xl.jpg"
     },
     {
       "id": "27901",
@@ -374,73 +467,13 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/c1e15599ffceafbaccaf9625503d9a000d767238@2xl.jpeg"
-    },
-    {
-      "id": "27899",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LWIF3%_No~M|KQyDx]ocNHxuahM{",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg"
-    },
-    {
-      "id": "27895",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LDI|abh#02}?01JU^jIn0z-lxtxs",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg"
-    },
-    {
-      "id": "27896",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LCDcj]4.00~W8_ROt2Ws0K?a-nE2",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg"
-    },
-    {
-      "id": "27888",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/a5a8a802943acca2ac7f65f55217a5c82929e9b9.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "L69~~%^nJ55Omj;0krPV]#vzIU0|",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/a5a8a802943acca2ac7f65f55217a5c82929e9b9@2xl.jpg"
-    },
-    {
-      "id": "27887",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LAIWc*Mvml-n00.A%NE2^k+]SHE1",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg"
-    },
-    {
-      "id": "27886",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "L8PP7=IB*H164bWFkPrDPowPV4r.",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/d3413a006c48a3d55193701cc0b5231e78321a43@2xl.jpg"
     }
   ],
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -448,7 +481,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -456,7 +489,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -464,7 +497,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -472,7 +505,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -480,7 +513,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -488,7 +521,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -496,7 +529,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -504,7 +537,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -512,7 +545,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -520,7 +553,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -528,7 +561,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -536,7 +569,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -544,7 +577,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -552,7 +585,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -560,7 +593,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -568,7 +601,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
       "count": 16
@@ -576,7 +609,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -584,21 +617,349 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 9,
-      "nbHits": 147,
+      "nbHits": 149,
       "hitsPerPage": 16,
       "nbPages": 10,
-      "count": 3
+      "count": 5
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28203,
+      "nbHits": 28207,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
     }
   ],
   "normalizedSamples": [
+    {
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "artist": "Ryu Matsuyama",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
+      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "flow"
+      ],
+      "animeCandidates": [
+        "Red River",
+        "Sora wa Akai Kawa no Hotori",
+        "Anatolia Story",
+        "Heaven by the Red River",
+        "Orontes Renka",
+        "Orontes Love Song",
+        "Where the Sky and the Red River Meet",
+        "天は赤い河のほとり"
+      ],
+      "artistCandidates": [
+        "24185",
+        "Ryu Matsuyama",
+        "59krd1xNH8IJFknx9wFiVf",
+        "796767434",
+        "57330472",
+        "UCopuKHWwdQKSecCf-rSVNvA",
+        "5512",
+        "Yuko Ando",
+        "安藤裕子",
+        "12dhEcVUnJVnIQLt91VdA3",
+        "4896145",
+        "25489",
+        "VAP Official",
+        "UCazjJ6udlwl6cP_om1zqTQQ"
+      ]
+    },
+    {
+      "id": "27916",
+      "anime": "Pan Dorobou",
+      "song": "Pan Dorobou no Uta",
+      "artist": "Pan Dorobou to Panya no Ojisan (CV: Ayaka Asai, Junichi Suwabe)",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/54K89a4ZI6D7zaYWXna6Jk",
+      "apple": "https://geo.music.apple.com/album/6812164641?i=6812164934&at=1001l384j&ct=website-pan-dorobou-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5290b4c10ffeb16037064e5cc7a4807d52aba5e5@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/pan-dorobou-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Pan Dorobou no Uta",
+        "パンどろぼうのうた",
+        "Pandorobou Song"
+      ],
+      "animeCandidates": [
+        "Pan Dorobou",
+        "パンどろぼう"
+      ],
+      "artistCandidates": [
+        "25492",
+        "Pan Dorobou to Panya no Ojisan (CV: Ayaka Asai, Junichi Suwabe)",
+        "パンどろぼうとパンやのおじさん (CV: 朝井彩加, 諏訪部順一)",
+        "1UPuMcZicCLXu1WkmUdfDr",
+        "6812164933",
+        "416287152",
+        "25495",
+        "パンどろぼうとパンやのおじさん（CV：朝井彩加とCV：諏訪部順一）",
+        "UC_CcsYjMCSfNpbWB5f4obRw",
+        "25498",
+        "パンどろぼう / PANDOROBO【公式】",
+        "UC_8oRpdwdS8yE_AOXA9FeZQ"
+      ]
+    },
+    {
+      "id": "27917",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "Mabataki",
+      "artist": "MEminor",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7C8ZmYeJN1UfmgrOiXD31c",
+      "apple": "https://geo.music.apple.com/album/6809366761?i=6809366768&at=1001l384j&ct=website-please-excuse-my-younger-bro-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-ending-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Mabataki",
+        "まばたき"
+      ],
+      "animeCandidates": [
+        "Please Excuse My Younger Brothers",
+        "Uchi no Otouto-domo ga Sumimasen",
+        "うちの弟どもがすみません",
+        "Sorry About My Little Brothers",
+        "Uchioto"
+      ],
+      "artistCandidates": [
+        "19704",
+        "MEminor",
+        "ミーマイナー",
+        "7G8KRjagUdAsleZIfe2juo",
+        "1765479416",
+        "279727681",
+        "UCmSCQ3l78WtSEvy2wc-myFQ"
+      ]
+    },
+    {
+      "id": "27914",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "LOVE & LIKE",
+      "artist": "Neguse.",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1nkfCEYkL2DQ02V3ffrwgL",
+      "apple": "https://geo.music.apple.com/album/6812190209?i=6812190440&at=1001l384j&ct=website-please-excuse-my-younger-bro-op2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-opening-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "LOVE & LIKE"
+      ],
+      "animeCandidates": [
+        "Please Excuse My Younger Brothers",
+        "Uchi no Otouto-domo ga Sumimasen",
+        "うちの弟どもがすみません",
+        "Sorry About My Little Brothers",
+        "Uchioto"
+      ],
+      "artistCandidates": [
+        "16852",
+        "Neguse.",
+        "ねぐせ.",
+        "neguse.",
+        "ねぐせ。",
+        "7jiFTNRWSw8zYgUj9wNJld",
+        "1564692985",
+        "138303672",
+        "UC4yQSddIVINUHNRT_4rOHcg",
+        "25496",
+        "アニプレックス チャンネル",
+        "UC14QT5j2nQI8lKBCGtrrBQA"
+      ]
+    },
+    {
+      "id": "27911",
+      "anime": "A Tale of the Secret Saint",
+      "song": "Flare of Soul",
+      "artist": "Kaya",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7KRg2Gw4oWB1gumJBZQnh8",
+      "apple": "https://geo.music.apple.com/album/6816815051?i=6816815053&at=1001l384j&ct=website-a-tale-of-the-secret-saint-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/a-tale-of-the-secret-saint-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Flare of Soul"
+      ],
+      "animeCandidates": [
+        "A Tale of the Secret Saint",
+        "Tensei shita Daiseijo wa, Seijo de Aru Koto wo Hitakakusu",
+        "A Tale of the Great Saint",
+        "The Reincarnated Great Saint Hides That She's a Saint",
+        "転生した大聖女は、聖女であることをひた隠す"
+      ],
+      "artistCandidates": [
+        "18892",
+        "Kaya",
+        "花耶",
+        "2G4wPei743AzBOILB49bgK",
+        "1603783766",
+        "392248501",
+        "UCd3kwxPbvd98H5JdV4Hoygw"
+      ]
+    },
     {
       "id": "27905",
       "anime": "Blue Box Season 2",
@@ -714,6 +1075,70 @@
         "548139430",
         "4485144",
         "UCYeXsPnZ6luN20hTyFxZMIA"
+      ]
+    },
+    {
+      "id": "27910",
+      "anime": "#Zombie Sagashitemasu",
+      "song": "Rakiraki",
+      "artist": "Threee",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7Kw2k1TRfQkjcYRNMQ3mo9",
+      "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-zombie-sagashitemasu-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/7a3765f6047d70bf6ca0f5e151df6fe048ea351f@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/zombie-sagashitemasu-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Rakiraki",
+        "ラキラキ"
+      ],
+      "animeCandidates": [
+        "#Zombie Sagashitemasu",
+        "#ゾンビさがしてます",
+        "#I'm Looking for Zombie",
+        "#I'm Looking For a Zombie"
+      ],
+      "artistCandidates": [
+        "19234",
+        "Threee",
+        "すりぃ",
+        "Surii",
+        "Three",
+        "3",
+        "29XdcKZcwr9ikcmxud5UEa",
+        "1401778817",
+        "102465092",
+        "UCekuD5lZYEm4XUto7ggbVSg"
       ]
     },
     {
@@ -887,7 +1312,6 @@
         "24021",
         "Kurumi Fukuga (CV: Aina Suzuki)",
         "福賀くるみ (CV: 鈴木愛奈)",
-        "福賀くるみ（CV：鈴木愛奈）",
         "10imAtJXms1Dx3MKJpXsrp",
         "6812579036",
         "416287132",
@@ -949,11 +1373,132 @@
         "24021",
         "Kurumi Fukuga (CV: Aina Suzuki)",
         "福賀くるみ (CV: 鈴木愛奈)",
-        "福賀くるみ（CV：鈴木愛奈）",
         "10imAtJXms1Dx3MKJpXsrp",
         "6812579036",
         "416287132",
         "UClhEcDvAfTHa4mo-Jvo5How"
+      ]
+    },
+    {
+      "id": "27896",
+      "anime": "Vertex Force",
+      "song": "Emerald",
+      "artist": "Hashimero",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
+      "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Emerald",
+        "エメラルド"
+      ],
+      "animeCandidates": [
+        "Vertex Force",
+        "バーテックスフォース"
+      ],
+      "artistCandidates": [
+        "15156",
+        "Hashimero",
+        "はしメロ",
+        "7Bokk7F8hq4P8wWwEO5mZy",
+        "1512940685",
+        "130520632",
+        "UC6QCQ8UClMBP3mkA28JvruQ"
+      ]
+    },
+    {
+      "id": "27895",
+      "anime": "The Apothecary Diaries Season 3",
+      "song": "AIYOU",
+      "artist": "Eve",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
+      "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "AIYOU"
+      ],
+      "animeCandidates": [
+        "The Apothecary Diaries Season 3",
+        "Kusuriya no Hitorigoto 3rd Season",
+        "The Pharmacist's Monologue",
+        "Drugstore Soliloquy",
+        "薬屋のひとりごと 第3期"
+      ],
+      "artistCandidates": [
+        "1376",
+        "Eve",
+        "58oPVy7oihAEXE0Ott6JOf",
+        "1080967231",
+        "69128312",
+        "UCcjpUrxD6_eT09KnzIg3U3A",
+        "24642",
+        "TOHO animation",
+        "UC14Yc2Qv92DMuyNRlHvpo2Q"
       ]
     },
     {
@@ -1015,125 +1560,6 @@
         "1725916783",
         "250619942",
         "UCmu5lpe6Wt-7yCHe2rA4zYQ"
-      ]
-    },
-    {
-      "id": "27895",
-      "anime": "The Apothecary Diaries Season 3",
-      "song": "AIYOU",
-      "artist": "Eve",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
-      "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "AIYOU"
-      ],
-      "animeCandidates": [
-        "The Apothecary Diaries Season 3",
-        "Kusuriya no Hitorigoto 3rd Season",
-        "The Pharmacist's Monologue",
-        "Drugstore Soliloquy",
-        "薬屋のひとりごと 第3期"
-      ],
-      "artistCandidates": [
-        "1376",
-        "Eve",
-        "58oPVy7oihAEXE0Ott6JOf",
-        "1080967231",
-        "69128312",
-        "UCcjpUrxD6_eT09KnzIg3U3A"
-      ]
-    },
-    {
-      "id": "27896",
-      "anime": "Vertex Force",
-      "song": "Emerald",
-      "artist": "Hashimero",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
-      "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/vertex-force-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Emerald",
-        "エメラルド"
-      ],
-      "animeCandidates": [
-        "Vertex Force",
-        "バーテックスフォース"
-      ],
-      "artistCandidates": [
-        "15156",
-        "Hashimero",
-        "はしメロ",
-        "7Bokk7F8hq4P8wWwEO5mZy",
-        "1512940685",
-        "130520632",
-        "UC6QCQ8UClMBP3mkA28JvruQ"
       ]
     },
     {
@@ -1373,7 +1799,10 @@
         "5aj6oLCY3WS8HZ7zd5VWQ9",
         "1715643610",
         "240810171",
-        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+        "UCI0DVe-jVw8AW5nZ_cAbBLQ",
+        "25497",
+        "『桃源暗鬼』プロジェクト公式チャンネル",
+        "UC0_nVlKNoqL66enXvauW_kA"
       ]
     },
     {
@@ -1609,78 +2038,6 @@
       ],
       "artistCandidates": [
         "Various artists"
-      ]
-    },
-    {
-      "id": "27882",
-      "anime": "Red River",
-      "song": "flow",
-      "artist": "Ryu Matsuyama",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
-      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "flow"
-      ],
-      "animeCandidates": [
-        "Red River",
-        "Sora wa Akai Kawa no Hotori",
-        "Anatolia Story",
-        "Heaven by the Red River",
-        "Orontes Renka",
-        "Orontes Love Song",
-        "Where the Sky and the Red River Meet",
-        "天は赤い河のほとり"
-      ],
-      "artistCandidates": [
-        "24185",
-        "Ryu Matsuyama",
-        "59krd1xNH8IJFknx9wFiVf",
-        "796767434",
-        "57330472",
-        "UCopuKHWwdQKSecCf-rSVNvA",
-        "5512",
-        "Yuko Ando",
-        "安藤裕子",
-        "12dhEcVUnJVnIQLt91VdA3",
-        "4896145",
-        "25489",
-        "VAP Official",
-        "UCazjJ6udlwl6cP_om1zqTQQ"
       ]
     },
     {
@@ -1922,6 +2279,59 @@
       ]
     },
     {
+      "id": "us_3265",
+      "anime": "Devil's Crest",
+      "song": "ReaL",
+      "artist": "Soala",
+      "kind": "ED",
+      "spotify": "",
+      "apple": "",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/f41272a50e16c95b48136ddee542bd5b88e5ec38@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/hidden",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "short_link",
+        "tags",
+        "web",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "ReaL"
+      ],
+      "animeCandidates": [
+        "Devil's Crest",
+        "Demons' Crest",
+        "デモンズ・クレスト"
+      ],
+      "artistCandidates": [
+        "17586",
+        "Soala",
+        "5MBWJMHvKch5TJxUPNOVer",
+        "1577002574",
+        "139541192",
+        "UC3PFoXZPFJGy9F4PG84nNQQ"
+      ]
+    },
+    {
       "id": "us_3261",
       "anime": "Da Wang Rao Ming 3",
       "song": "Wo Yao Shengcun Xiaqu",
@@ -2024,367 +2434,44 @@
         "AVA Liu Xinyu",
         "AVA刘欣宇"
       ]
-    },
-    {
-      "id": "us_3254",
-      "anime": "Mahoutsukai no Yoru",
-      "song": "Yoru to Ao",
-      "artist": "supercell",
-      "kind": "TS",
-      "spotify": "",
-      "apple": "",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/26c7e54fe8d75f0be7adffe956da27a0759ef898@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "short_link",
-        "tags",
-        "web",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Yoru to Ao",
-        "夜と青"
-      ],
-      "animeCandidates": [
-        "Mahoutsukai no Yoru",
-        "A Magician's Night",
-        "MahoYo",
-        "魔法使いの夜",
-        "Witch on the Holy Night"
-      ],
-      "artistCandidates": [
-        "610",
-        "supercell",
-        "4Mc3zbnQx4wRb0tYg7A8sG",
-        "631665100",
-        "184460",
-        "UCjlifcVO6r-V5RSh3eB1lLg",
-        "UCHgOXPQVUb-8xndwUe1QXVQ"
-      ]
-    },
-    {
-      "id": "27761",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "IGNITE",
-      "artist": "JO1",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4AAiz8MarztbqTCTMfwXYr",
-      "apple": "https://geo.music.apple.com/album/6797375185?i=6797375186&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "IGNITE"
-      ],
-      "animeCandidates": [
-        "Tokyo Revengers: War of the Three Titan Arc",
-        "Tokyo Revengers: Santen Sensou-hen",
-        "東京リベンジャーズ 三天戦争編"
-      ],
-      "artistCandidates": [
-        "7989",
-        "JO1",
-        "2koP6FEfIEVk4l2Fe6jFhu",
-        "1500272115",
-        "10885914",
-        "UCWyo-2Efw9aSmemM3LluERg"
-      ]
-    },
-    {
-      "id": "26706",
-      "anime": "To You in the Beyond",
-      "song": "Housenka",
-      "artist": "Tota",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/4CpEbsn3QeOEmZPAjouBLO",
-      "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/69a78171736a3b8f9d2d13a14fdb7b017229f405@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Housenka",
-        "鳳仙花",
-        "Balsam"
-      ],
-      "animeCandidates": [
-        "To You in the Beyond",
-        "Doko yori mo Tooi Basho ni Iru Kimi e",
-        "どこよりも遠い場所にいる君へ"
-      ],
-      "artistCandidates": [
-        "17325",
-        "Tota",
-        "とた",
-        "5WIXXPkyVYncLscyUbDrpi",
-        "1629845141",
-        "217001035",
-        "UCc95RA4CPcWdTRBk5YunwRA"
-      ]
-    },
-    {
-      "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "Shinu ka Ikiru ka",
-      "artist": "Yuki Chiba",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
-      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e401524581656fa101348307b5daabc8550975f7@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Shinu ka Ikiru ka",
-        "死ぬか生きるか",
-        "Shinukaikiruka"
-      ],
-      "animeCandidates": [
-        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
-        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
-        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
-        "SBR"
-      ],
-      "artistCandidates": [
-        "24741",
-        "Yuki Chiba",
-        "千葉雄喜",
-        "6Qhgat07PNOdnJSnCXJigu",
-        "1727997785",
-        "1337238",
-        "UCnPf2oZPzg_pxf6RzjUoCgw"
-      ]
-    },
-    {
-      "id": "27146",
-      "anime": "Uncle's Obsession with Cute Things",
-      "song": "PAGUtto itchatte~",
-      "artist": "PAGTARO & Friends",
-      "kind": "IN",
-      "spotify": "https://open.spotify.com/track/4XgzvE1TYsNnyrTWy9mAa8",
-      "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/8f7641c8a13ec3d789f685dbaabbe54f93a299c0@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "PAGUtto itchatte~",
-        "パグっといっちゃって～"
-      ],
-      "animeCandidates": [
-        "Uncle's Obsession with Cute Things",
-        "Ojisan wa Kawaii Mono ga Osuki.",
-        "Pops Loves Kawaii Stuff",
-        "This Uncle Likes Cute Things",
-        "おじさんはカワイイものがお好き。",
-        "Pops Loves Kawaii Stuff, This Uncle Likes Cute Things"
-      ],
-      "artistCandidates": [
-        "23721",
-        "PAGTARO & Friends",
-        "パグ太郎 & フレンズ",
-        "2t4UrgKrz1agjcVnZPCLhr",
-        "4MvNlXzycLyQdlZHjKxkSQ",
-        "6773239606",
-        "25038",
-        "PAGTARO&Friends",
-        "UCLcyuNTJSso-4IViEZCNsbw"
-      ]
-    },
-    {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "artist": "go!go!vanillas",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
-      "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d795b5a8db9a72d3d58f310e3ab237c62d161aac@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "TRICKSTER",
-        "トリックスター"
-      ],
-      "animeCandidates": [
-        "Tokyo Revengers: War of the Three Titan Arc",
-        "Tokyo Revengers: Santen Sensou-hen",
-        "東京リベンジャーズ 三天戦争編"
-      ],
-      "artistCandidates": [
-        "794",
-        "go!go!vanillas",
-        "0aqPTOZlKG6ltJHv7BNlsm",
-        "671623880",
-        "10963206",
-        "UCPs1IqAe9_1RU9Dq7_yy8Eg"
-      ]
     }
   ],
   "detailUrlSamples": [
+    {
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2"
+    },
+    {
+      "id": "27916",
+      "anime": "Pan Dorobou",
+      "song": "Pan Dorobou no Uta",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/pan-dorobou-opening"
+    },
+    {
+      "id": "27917",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "Mabataki",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-ending-2"
+    },
+    {
+      "id": "27914",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "LOVE & LIKE",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-opening-2"
+    },
+    {
+      "id": "27911",
+      "anime": "A Tale of the Secret Saint",
+      "song": "Flare of Soul",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/a-tale-of-the-secret-saint-opening"
+    },
     {
       "id": "27905",
       "anime": "Blue Box Season 2",
@@ -2398,6 +2485,13 @@
       "song": "Synchro Blue",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/vertex-force-opening"
+    },
+    {
+      "id": "27910",
+      "anime": "#Zombie Sagashitemasu",
+      "song": "Rakiraki",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/zombie-sagashitemasu-opening"
     },
     {
       "id": "27901",
@@ -2428,11 +2522,11 @@
       "detailUrl": "https://aniplaylist.com/play/fx-fighter-kurumi-chan-opening"
     },
     {
-      "id": "27899",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
+      "id": "27896",
+      "anime": "Vertex Force",
+      "song": "Emerald",
       "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2"
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-ending"
     },
     {
       "id": "27895",
@@ -2442,11 +2536,11 @@
       "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending"
     },
     {
-      "id": "27896",
-      "anime": "Vertex Force",
-      "song": "Emerald",
+      "id": "27899",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Contemporary Dance",
       "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/vertex-force-ending"
+      "detailUrl": "https://aniplaylist.com/play/the-exiled-heavy-knight-knows-how-to-game-the-system-ending-2"
     },
     {
       "id": "27888",
@@ -2505,13 +2599,6 @@
       "detailUrl": "https://aniplaylist.com/play/umayuru-full-gate-ending-1"
     },
     {
-      "id": "27882",
-      "anime": "Red River",
-      "song": "flow",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2"
-    },
-    {
       "id": "27883",
       "anime": "Rascal Does Not Dream of a Dear Friend",
       "song": "Turn The World Upside Down",
@@ -2540,6 +2627,13 @@
       "detailUrl": "https://aniplaylist.com/hidden"
     },
     {
+      "id": "us_3265",
+      "anime": "Devil's Crest",
+      "song": "ReaL",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/hidden"
+    },
+    {
       "id": "us_3261",
       "anime": "Da Wang Rao Ming 3",
       "song": "Wo Yao Shengcun Xiaqu",
@@ -2552,51 +2646,337 @@
       "song": "Nixing",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3254",
-      "anime": "Mahoutsukai no Yoru",
-      "song": "Yoru to Ao",
-      "kind": "TS",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "27761",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "IGNITE",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-opening"
-    },
-    {
-      "id": "26706",
-      "anime": "To You in the Beyond",
-      "song": "Housenka",
-      "kind": "IN",
-      "detailUrl": "https://aniplaylist.com/play/to-you-in-the-beyond-insert-song-housenka"
-    },
-    {
-      "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "Shinu ka Ikiru ka",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending"
-    },
-    {
-      "id": "27146",
-      "anime": "Uncle's Obsession with Cute Things",
-      "song": "PAGUtto itchatte~",
-      "kind": "IN",
-      "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-insert-song-pagutto-itchatte"
-    },
-    {
-      "id": "27817",
-      "anime": "Tokyo Revengers: War of the Three Titan Arc",
-      "song": "TRICKSTER",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/tokyo-revengers-war-of-the-three-titan-arc-ending"
     }
   ],
   "usableSamples": [
+    {
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "artist": "Ryu Matsuyama",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
+      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "flow"
+      ],
+      "animeCandidates": [
+        "Red River",
+        "Sora wa Akai Kawa no Hotori",
+        "Anatolia Story",
+        "Heaven by the Red River",
+        "Orontes Renka",
+        "Orontes Love Song",
+        "Where the Sky and the Red River Meet",
+        "天は赤い河のほとり"
+      ],
+      "artistCandidates": [
+        "24185",
+        "Ryu Matsuyama",
+        "59krd1xNH8IJFknx9wFiVf",
+        "796767434",
+        "57330472",
+        "UCopuKHWwdQKSecCf-rSVNvA",
+        "5512",
+        "Yuko Ando",
+        "安藤裕子",
+        "12dhEcVUnJVnIQLt91VdA3",
+        "4896145",
+        "25489",
+        "VAP Official",
+        "UCazjJ6udlwl6cP_om1zqTQQ"
+      ]
+    },
+    {
+      "id": "27916",
+      "anime": "Pan Dorobou",
+      "song": "Pan Dorobou no Uta",
+      "artist": "Pan Dorobou to Panya no Ojisan (CV: Ayaka Asai, Junichi Suwabe)",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/54K89a4ZI6D7zaYWXna6Jk",
+      "apple": "https://geo.music.apple.com/album/6812164641?i=6812164934&at=1001l384j&ct=website-pan-dorobou-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5290b4c10ffeb16037064e5cc7a4807d52aba5e5@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/pan-dorobou-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Pan Dorobou no Uta",
+        "パンどろぼうのうた",
+        "Pandorobou Song"
+      ],
+      "animeCandidates": [
+        "Pan Dorobou",
+        "パンどろぼう"
+      ],
+      "artistCandidates": [
+        "25492",
+        "Pan Dorobou to Panya no Ojisan (CV: Ayaka Asai, Junichi Suwabe)",
+        "パンどろぼうとパンやのおじさん (CV: 朝井彩加, 諏訪部順一)",
+        "1UPuMcZicCLXu1WkmUdfDr",
+        "6812164933",
+        "416287152",
+        "25495",
+        "パンどろぼうとパンやのおじさん（CV：朝井彩加とCV：諏訪部順一）",
+        "UC_CcsYjMCSfNpbWB5f4obRw",
+        "25498",
+        "パンどろぼう / PANDOROBO【公式】",
+        "UC_8oRpdwdS8yE_AOXA9FeZQ"
+      ]
+    },
+    {
+      "id": "27917",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "Mabataki",
+      "artist": "MEminor",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7C8ZmYeJN1UfmgrOiXD31c",
+      "apple": "https://geo.music.apple.com/album/6809366761?i=6809366768&at=1001l384j&ct=website-please-excuse-my-younger-bro-ed2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-ending-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Mabataki",
+        "まばたき"
+      ],
+      "animeCandidates": [
+        "Please Excuse My Younger Brothers",
+        "Uchi no Otouto-domo ga Sumimasen",
+        "うちの弟どもがすみません",
+        "Sorry About My Little Brothers",
+        "Uchioto"
+      ],
+      "artistCandidates": [
+        "19704",
+        "MEminor",
+        "ミーマイナー",
+        "7G8KRjagUdAsleZIfe2juo",
+        "1765479416",
+        "279727681",
+        "UCmSCQ3l78WtSEvy2wc-myFQ"
+      ]
+    },
+    {
+      "id": "27914",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "LOVE & LIKE",
+      "artist": "Neguse.",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1nkfCEYkL2DQ02V3ffrwgL",
+      "apple": "https://geo.music.apple.com/album/6812190209?i=6812190440&at=1001l384j&ct=website-please-excuse-my-younger-bro-op2&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-opening-2",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "LOVE & LIKE"
+      ],
+      "animeCandidates": [
+        "Please Excuse My Younger Brothers",
+        "Uchi no Otouto-domo ga Sumimasen",
+        "うちの弟どもがすみません",
+        "Sorry About My Little Brothers",
+        "Uchioto"
+      ],
+      "artistCandidates": [
+        "16852",
+        "Neguse.",
+        "ねぐせ.",
+        "neguse.",
+        "ねぐせ。",
+        "7jiFTNRWSw8zYgUj9wNJld",
+        "1564692985",
+        "138303672",
+        "UC4yQSddIVINUHNRT_4rOHcg",
+        "25496",
+        "アニプレックス チャンネル",
+        "UC14QT5j2nQI8lKBCGtrrBQA"
+      ]
+    },
+    {
+      "id": "27911",
+      "anime": "A Tale of the Secret Saint",
+      "song": "Flare of Soul",
+      "artist": "Kaya",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7KRg2Gw4oWB1gumJBZQnh8",
+      "apple": "https://geo.music.apple.com/album/6816815051?i=6816815053&at=1001l384j&ct=website-a-tale-of-the-secret-saint-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/a-tale-of-the-secret-saint-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Flare of Soul"
+      ],
+      "animeCandidates": [
+        "A Tale of the Secret Saint",
+        "Tensei shita Daiseijo wa, Seijo de Aru Koto wo Hitakakusu",
+        "A Tale of the Great Saint",
+        "The Reincarnated Great Saint Hides That She's a Saint",
+        "転生した大聖女は、聖女であることをひた隠す"
+      ],
+      "artistCandidates": [
+        "18892",
+        "Kaya",
+        "花耶",
+        "2G4wPei743AzBOILB49bgK",
+        "1603783766",
+        "392248501",
+        "UCd3kwxPbvd98H5JdV4Hoygw"
+      ]
+    },
     {
       "id": "27905",
       "anime": "Blue Box Season 2",
@@ -2712,6 +3092,70 @@
         "548139430",
         "4485144",
         "UCYeXsPnZ6luN20hTyFxZMIA"
+      ]
+    },
+    {
+      "id": "27910",
+      "anime": "#Zombie Sagashitemasu",
+      "song": "Rakiraki",
+      "artist": "Threee",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7Kw2k1TRfQkjcYRNMQ3mo9",
+      "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-zombie-sagashitemasu-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/7a3765f6047d70bf6ca0f5e151df6fe048ea351f@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/zombie-sagashitemasu-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Rakiraki",
+        "ラキラキ"
+      ],
+      "animeCandidates": [
+        "#Zombie Sagashitemasu",
+        "#ゾンビさがしてます",
+        "#I'm Looking for Zombie",
+        "#I'm Looking For a Zombie"
+      ],
+      "artistCandidates": [
+        "19234",
+        "Threee",
+        "すりぃ",
+        "Surii",
+        "Three",
+        "3",
+        "29XdcKZcwr9ikcmxud5UEa",
+        "1401778817",
+        "102465092",
+        "UCekuD5lZYEm4XUto7ggbVSg"
       ]
     },
     {
@@ -2885,7 +3329,6 @@
         "24021",
         "Kurumi Fukuga (CV: Aina Suzuki)",
         "福賀くるみ (CV: 鈴木愛奈)",
-        "福賀くるみ（CV：鈴木愛奈）",
         "10imAtJXms1Dx3MKJpXsrp",
         "6812579036",
         "416287132",
@@ -2947,11 +3390,132 @@
         "24021",
         "Kurumi Fukuga (CV: Aina Suzuki)",
         "福賀くるみ (CV: 鈴木愛奈)",
-        "福賀くるみ（CV：鈴木愛奈）",
         "10imAtJXms1Dx3MKJpXsrp",
         "6812579036",
         "416287132",
         "UClhEcDvAfTHa4mo-Jvo5How"
+      ]
+    },
+    {
+      "id": "27896",
+      "anime": "Vertex Force",
+      "song": "Emerald",
+      "artist": "Hashimero",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
+      "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/vertex-force-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Emerald",
+        "エメラルド"
+      ],
+      "animeCandidates": [
+        "Vertex Force",
+        "バーテックスフォース"
+      ],
+      "artistCandidates": [
+        "15156",
+        "Hashimero",
+        "はしメロ",
+        "7Bokk7F8hq4P8wWwEO5mZy",
+        "1512940685",
+        "130520632",
+        "UC6QCQ8UClMBP3mkA28JvruQ"
+      ]
+    },
+    {
+      "id": "27895",
+      "anime": "The Apothecary Diaries Season 3",
+      "song": "AIYOU",
+      "artist": "Eve",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
+      "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "AIYOU"
+      ],
+      "animeCandidates": [
+        "The Apothecary Diaries Season 3",
+        "Kusuriya no Hitorigoto 3rd Season",
+        "The Pharmacist's Monologue",
+        "Drugstore Soliloquy",
+        "薬屋のひとりごと 第3期"
+      ],
+      "artistCandidates": [
+        "1376",
+        "Eve",
+        "58oPVy7oihAEXE0Ott6JOf",
+        "1080967231",
+        "69128312",
+        "UCcjpUrxD6_eT09KnzIg3U3A",
+        "24642",
+        "TOHO animation",
+        "UC14Yc2Qv92DMuyNRlHvpo2Q"
       ]
     },
     {
@@ -3013,125 +3577,6 @@
         "1725916783",
         "250619942",
         "UCmu5lpe6Wt-7yCHe2rA4zYQ"
-      ]
-    },
-    {
-      "id": "27895",
-      "anime": "The Apothecary Diaries Season 3",
-      "song": "AIYOU",
-      "artist": "Eve",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0jjygW2mhgfVT8OOgEyp7U",
-      "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/527a3ea827988814d3f983f071b0549386dd3e9b@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-apothecary-diaries-season-3-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "AIYOU"
-      ],
-      "animeCandidates": [
-        "The Apothecary Diaries Season 3",
-        "Kusuriya no Hitorigoto 3rd Season",
-        "The Pharmacist's Monologue",
-        "Drugstore Soliloquy",
-        "薬屋のひとりごと 第3期"
-      ],
-      "artistCandidates": [
-        "1376",
-        "Eve",
-        "58oPVy7oihAEXE0Ott6JOf",
-        "1080967231",
-        "69128312",
-        "UCcjpUrxD6_eT09KnzIg3U3A"
-      ]
-    },
-    {
-      "id": "27896",
-      "anime": "Vertex Force",
-      "song": "Emerald",
-      "artist": "Hashimero",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
-      "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/894282ae3b8c6844c7663ee2b860736ff0fbdc73@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/vertex-force-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Emerald",
-        "エメラルド"
-      ],
-      "animeCandidates": [
-        "Vertex Force",
-        "バーテックスフォース"
-      ],
-      "artistCandidates": [
-        "15156",
-        "Hashimero",
-        "はしメロ",
-        "7Bokk7F8hq4P8wWwEO5mZy",
-        "1512940685",
-        "130520632",
-        "UC6QCQ8UClMBP3mkA28JvruQ"
       ]
     },
     {
@@ -3371,7 +3816,10 @@
         "5aj6oLCY3WS8HZ7zd5VWQ9",
         "1715643610",
         "240810171",
-        "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+        "UCI0DVe-jVw8AW5nZ_cAbBLQ",
+        "25497",
+        "『桃源暗鬼』プロジェクト公式チャンネル",
+        "UC0_nVlKNoqL66enXvauW_kA"
       ]
     },
     {
@@ -3607,78 +4055,6 @@
       ],
       "artistCandidates": [
         "Various artists"
-      ]
-    },
-    {
-      "id": "27882",
-      "anime": "Red River",
-      "song": "flow",
-      "artist": "Ryu Matsuyama",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
-      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a2d53c41a6f8f10384170b4b4e0e4347a6cb740f@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/red-river-ending-2",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_number",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "flow"
-      ],
-      "animeCandidates": [
-        "Red River",
-        "Sora wa Akai Kawa no Hotori",
-        "Anatolia Story",
-        "Heaven by the Red River",
-        "Orontes Renka",
-        "Orontes Love Song",
-        "Where the Sky and the Red River Meet",
-        "天は赤い河のほとり"
-      ],
-      "artistCandidates": [
-        "24185",
-        "Ryu Matsuyama",
-        "59krd1xNH8IJFknx9wFiVf",
-        "796767434",
-        "57330472",
-        "UCopuKHWwdQKSecCf-rSVNvA",
-        "5512",
-        "Yuko Ando",
-        "安藤裕子",
-        "12dhEcVUnJVnIQLt91VdA3",
-        "4896145",
-        "25489",
-        "VAP Official",
-        "UCazjJ6udlwl6cP_om1zqTQQ"
       ]
     },
     {
@@ -3978,70 +4354,6 @@
       ]
     },
     {
-      "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "Shinu ka Ikiru ka",
-      "artist": "Yuki Chiba",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
-      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e401524581656fa101348307b5daabc8550975f7@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Shinu ka Ikiru ka",
-        "死ぬか生きるか",
-        "Shinukaikiruka"
-      ],
-      "animeCandidates": [
-        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
-        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
-        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
-        "SBR"
-      ],
-      "artistCandidates": [
-        "24741",
-        "Yuki Chiba",
-        "千葉雄喜",
-        "6Qhgat07PNOdnJSnCXJigu",
-        "1727997785",
-        "1337238",
-        "UCnPf2oZPzg_pxf6RzjUoCgw"
-      ]
-    },
-    {
       "id": "27146",
       "anime": "Uncle's Obsession with Cute Things",
       "song": "PAGUtto itchatte~",
@@ -4161,251 +4473,49 @@
         "10963206",
         "UCPs1IqAe9_1RU9Dq7_yy8Eg"
       ]
-    },
-    {
-      "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2",
-      "song": "Saku",
-      "artist": "Cidergirl",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
-      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/chitose-is-in-the-ramune-bottle-part-2-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Saku",
-        "咲く"
-      ],
-      "animeCandidates": [
-        "Chitose Is in the Ramune Bottle Part 2",
-        "Chitose-kun wa Ramune Bin no Naka Part 2",
-        "Chiramune",
-        "Chitose-kun is Inside a Ramune Bottle",
-        "Ramune no Bin ni Shizunda Biidama no Tsuki",
-        "千歳くんはラムネ瓶のなか 第2クール"
-      ],
-      "artistCandidates": [
-        "2731",
-        "Cidergirl",
-        "CIDER GIRL",
-        "サイダーガール",
-        "CIDERGIRL",
-        "3hprFQEXS7glX1Jxxwv9Dn",
-        "1159148258",
-        "13082439",
-        "UCPsZegYUPKEsylhuz4Qs1Aw"
-      ]
-    },
-    {
-      "id": "27783",
-      "anime": "Ghost Meets Gal!",
-      "song": "Nikoichi Mirai",
-      "artist": "Mugendai Mewtype",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/33OvdvQWlQ7Djzo6HeSfYC",
-      "apple": "https://geo.music.apple.com/album/6810087884?i=6810087885&at=1001l384j&ct=website-ghost-meets-gal-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/17300d90ac62a784dfb62c3d1ffcf123abe68f1f@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/ghost-meets-gal-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Nikoichi Mirai",
-        "にこいちミライ"
-      ],
-      "animeCandidates": [
-        "Ghost Meets Gal!",
-        "ごーすと・みーつ・ぎゃる！",
-        "Ghost Meets Gyaru!"
-      ],
-      "artistCandidates": [
-        "18637",
-        "Mugendai Mewtype",
-        "夢限大みゅーたいぷ",
-        "2EzWYxIHqUD1RWBOuSjxtK",
-        "1715788150",
-        "285478361",
-        "UCeXzCxZsDcaF5xI68fK5owA"
-      ]
-    },
-    {
-      "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "SPIN",
-      "artist": "Kroi",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
-      "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/62f935a021ce799e1890dd2bacab33a446e03999@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/steel-ball-run-jojos-bizarre-adventure-2nd-3rd-stage-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "SPIN"
-      ],
-      "animeCandidates": [
-        "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-        "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd - 3rd STAGE",
-        "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd - 3rd STAGE",
-        "JoJo's Bizarre Adventure: Part 7–Steel Ball Run",
-        "SBR"
-      ],
-      "artistCandidates": [
-        "14747",
-        "Kroi",
-        "4S8J8Nct8lHsbzAeNJXcJa",
-        "1439157589",
-        "52711252",
-        "UCssoAGLly9DaABecIZoht_g"
-      ]
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "artist": "krage",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
-      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/a-returners-magic-should-be-special-season-2-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Everlasting"
-      ],
-      "animeCandidates": [
-        "A Returner's Magic Should Be Special Season 2",
-        "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
-        "Gwihwanja-ui Mabeop-eun Teukbyeol-haeya Hamnida",
-        "귀환자의 마법은 특별해야 합니다",
-        "帰還者の魔法は特別です 2期"
-      ],
-      "artistCandidates": [
-        "13108",
-        "krage",
-        "35jRIUtWCUITFLfjhYwkFx",
-        "1542904221",
-        "163234327",
-        "UCg3fieU_nWIdFBOrqVqNUGQ"
-      ]
     }
   ],
   "platformSamples": [
+    {
+      "id": "27882",
+      "anime": "Red River",
+      "song": "flow",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
+      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music"
+    },
+    {
+      "id": "27916",
+      "anime": "Pan Dorobou",
+      "song": "Pan Dorobou no Uta",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/54K89a4ZI6D7zaYWXna6Jk",
+      "apple": "https://geo.music.apple.com/album/6812164641?i=6812164934&at=1001l384j&ct=website-pan-dorobou-op&app=music"
+    },
+    {
+      "id": "27917",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "Mabataki",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/7C8ZmYeJN1UfmgrOiXD31c",
+      "apple": "https://geo.music.apple.com/album/6809366761?i=6809366768&at=1001l384j&ct=website-please-excuse-my-younger-bro-ed2&app=music"
+    },
+    {
+      "id": "27914",
+      "anime": "Please Excuse My Younger Brothers",
+      "song": "LOVE & LIKE",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1nkfCEYkL2DQ02V3ffrwgL",
+      "apple": "https://geo.music.apple.com/album/6812190209?i=6812190440&at=1001l384j&ct=website-please-excuse-my-younger-bro-op2&app=music"
+    },
+    {
+      "id": "27911",
+      "anime": "A Tale of the Secret Saint",
+      "song": "Flare of Soul",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7KRg2Gw4oWB1gumJBZQnh8",
+      "apple": "https://geo.music.apple.com/album/6816815051?i=6816815053&at=1001l384j&ct=website-a-tale-of-the-secret-saint-op&app=music"
+    },
     {
       "id": "27905",
       "anime": "Blue Box Season 2",
@@ -4421,6 +4531,14 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/7MoPFmVvf5JNrZlMNvkI14",
       "apple": "https://geo.music.apple.com/album/6812241383?i=6812241384&at=1001l384j&ct=website-vertex-force-op&app=music"
+    },
+    {
+      "id": "27910",
+      "anime": "#Zombie Sagashitemasu",
+      "song": "Rakiraki",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/7Kw2k1TRfQkjcYRNMQ3mo9",
+      "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-zombie-sagashitemasu-op&app=music"
     },
     {
       "id": "27901",
@@ -4455,12 +4573,12 @@
       "apple": "https://geo.music.apple.com/album/6812593936?i=6812593940&at=1001l384j&ct=website-fx-fighter-kurumi-chan-op&app=music"
     },
     {
-      "id": "27899",
-      "anime": "The Exiled Heavy Knight Knows How to Game the System",
-      "song": "Contemporary Dance",
+      "id": "27896",
+      "anime": "Vertex Force",
+      "song": "Emerald",
       "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
-      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music"
+      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
+      "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music"
     },
     {
       "id": "27895",
@@ -4471,12 +4589,12 @@
       "apple": "https://geo.music.apple.com/album/6811917350?i=6811917449&at=1001l384j&ct=website-the-apothecary-diaries-season-ed&app=music"
     },
     {
-      "id": "27896",
-      "anime": "Vertex Force",
-      "song": "Emerald",
+      "id": "27899",
+      "anime": "The Exiled Heavy Knight Knows How to Game the System",
+      "song": "Contemporary Dance",
       "kind": "ED",
-      "spotify": "https://open.spotify.com/track/61Cu6BEflj8wRomNNVNBDU",
-      "apple": "https://geo.music.apple.com/album/6812189940?i=6812189942&at=1001l384j&ct=website-vertex-force-ed&app=music"
+      "spotify": "https://open.spotify.com/track/0abmIa1nBnueKntVaUbGbk",
+      "apple": "https://geo.music.apple.com/album/6811918340?i=6811918500&at=1001l384j&ct=website-the-exiled-heavy-knight-know-ed2&app=music"
     },
     {
       "id": "27888",
@@ -4543,14 +4661,6 @@
       "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music"
     },
     {
-      "id": "27882",
-      "anime": "Red River",
-      "song": "flow",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/2BTXRFCEktOsIgVvfz6c01",
-      "apple": "https://geo.music.apple.com/album/6808599320?i=6808599321&at=1001l384j&ct=website-red-river-ed2&app=music"
-    },
-    {
       "id": "27883",
       "anime": "Rascal Does Not Dream of a Dear Friend",
       "song": "Turn The World Upside Down",
@@ -4591,14 +4701,6 @@
       "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music"
     },
     {
-      "id": "27823",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "Shinu ka Ikiru ka",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7vdZztyuzNX1joqkbhWBxX",
-      "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music"
-    },
-    {
       "id": "27146",
       "anime": "Uncle's Obsession with Cute Things",
       "song": "PAGUtto itchatte~",
@@ -4613,38 +4715,6 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/4Pt00G3XrrhXOxXCUvhBKX",
       "apple": "https://geo.music.apple.com/album/6810161017?i=6810161018&at=1001l384j&ct=website-tokyo-revengers-war-of-the-th-ed&app=music"
-    },
-    {
-      "id": "27816",
-      "anime": "Chitose Is in the Ramune Bottle Part 2",
-      "song": "Saku",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/0BEdZNUmMEG21Wt0dGgUfc",
-      "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music"
-    },
-    {
-      "id": "27783",
-      "anime": "Ghost Meets Gal!",
-      "song": "Nikoichi Mirai",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/33OvdvQWlQ7Djzo6HeSfYC",
-      "apple": "https://geo.music.apple.com/album/6810087884?i=6810087885&at=1001l384j&ct=website-ghost-meets-gal-op&app=music"
-    },
-    {
-      "id": "27821",
-      "anime": "Steel Ball Run: JoJo's Bizarre Adventure 2nd - 3rd STAGE",
-      "song": "SPIN",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4ZXGrwziSkZg7vu9MojiYn",
-      "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music"
-    },
-    {
-      "id": "27814",
-      "anime": "A Returner's Magic Should Be Special Season 2",
-      "song": "Everlasting",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/0W5uQSYkrblhLljDOcmdGV",
-      "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music"
     }
   ]
 }

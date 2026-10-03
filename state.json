@@ -8242,7 +8242,6 @@
       "display_artists",
       "label",
       "short_link",
-      "status",
       "tags",
       "other_link_ids",
       "unreleased",
@@ -8868,7 +8867,10 @@
       "5aj6oLCY3WS8HZ7zd5VWQ9",
       "1715643610",
       "240810171",
-      "UCI0DVe-jVw8AW5nZ_cAbBLQ"
+      "UCI0DVe-jVw8AW5nZ_cAbBLQ",
+      "25497",
+      "『桃源暗鬼』プロジェクト公式チャンネル",
+      "UC0_nVlKNoqL66enXvauW_kA"
     ]
   },
   "441c51f77372e4db": {
@@ -9667,7 +9669,6 @@
       "24021",
       "Kurumi Fukuga (CV: Aina Suzuki)",
       "福賀くるみ (CV: 鈴木愛奈)",
-      "福賀くるみ（CV：鈴木愛奈）",
       "10imAtJXms1Dx3MKJpXsrp",
       "6812579036",
       "416287132",
@@ -9730,7 +9731,6 @@
       "24021",
       "Kurumi Fukuga (CV: Aina Suzuki)",
       "福賀くるみ (CV: 鈴木愛奈)",
-      "福賀くるみ（CV：鈴木愛奈）",
       "10imAtJXms1Dx3MKJpXsrp",
       "6812579036",
       "416287132",
@@ -9855,7 +9855,10 @@
       "58oPVy7oihAEXE0Ott6JOf",
       "1080967231",
       "69128312",
-      "UCcjpUrxD6_eT09KnzIg3U3A"
+      "UCcjpUrxD6_eT09KnzIg3U3A",
+      "24642",
+      "TOHO animation",
+      "UC14Yc2Qv92DMuyNRlHvpo2Q"
     ]
   },
   "fc91b71cdb9bb887": {
@@ -10113,9 +10116,9 @@
     "artist": "Kaya",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/7KRg2Gw4oWB1gumJBZQnh8",
-    "apple": "https://music.apple.com/nz/album/6816815051?i=6816815053&at=1001l384j&ct=website-a-tale-of-the-secret-saint-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6816815051?i=6816815053&at=1001l384j&ct=website-a-tale-of-the-secret-saint-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/a-tale-of-the-secret-saint-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10140,9 +10143,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10162,7 +10165,8 @@
       "花耶",
       "2G4wPei743AzBOILB49bgK",
       "1603783766",
-      "392248501"
+      "392248501",
+      "UCd3kwxPbvd98H5JdV4Hoygw"
     ]
   },
   "67d9500ba42e4bed": {
@@ -10174,9 +10178,9 @@
     "artist": "Threee",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/7Kw2k1TRfQkjcYRNMQ3mo9",
-    "apple": "https://music.apple.com/nz/album/6815596270?i=6815596273&at=1001l384j&ct=website-zombie-sagashitemasu-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-zombie-sagashitemasu-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/7a3765f6047d70bf6ca0f5e151df6fe048ea351f@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/zombie-sagashitemasu-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10201,9 +10205,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10226,7 +10230,8 @@
       "3",
       "29XdcKZcwr9ikcmxud5UEa",
       "1401778817",
-      "102465092"
+      "102465092",
+      "UCekuD5lZYEm4XUto7ggbVSg"
     ]
   },
   "b5be84c9161cf07a": {
@@ -10238,9 +10243,9 @@
     "artist": "MEminor",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/7C8ZmYeJN1UfmgrOiXD31c",
-    "apple": "https://music.apple.com/nz/album/6809366761?i=6809366768&at=1001l384j&ct=website-please-excuse-my-younger-bro-ed2&app=music",
+    "apple": "https://geo.music.apple.com/album/6809366761?i=6809366768&at=1001l384j&ct=website-please-excuse-my-younger-bro-ed2&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-ending-2",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10266,9 +10271,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10289,7 +10294,8 @@
       "ミーマイナー",
       "7G8KRjagUdAsleZIfe2juo",
       "1765479416",
-      "279727681"
+      "279727681",
+      "UCmSCQ3l78WtSEvy2wc-myFQ"
     ]
   },
   "5fbbcc292ea0d66b": {
@@ -10301,9 +10307,9 @@
     "artist": "Pan Dorobou to Panya no Ojisan (CV: Ayaka Asai, Junichi Suwabe)",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/54K89a4ZI6D7zaYWXna6Jk",
-    "apple": "https://music.apple.com/nz/album/6812164641?i=6812164934&at=1001l384j&ct=website-pan-dorobou-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6812164641?i=6812164934&at=1001l384j&ct=website-pan-dorobou-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5290b4c10ffeb16037064e5cc7a4807d52aba5e5@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/pan-dorobou-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10328,9 +10334,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10349,7 +10355,13 @@
       "パンどろぼうとパンやのおじさん (CV: 朝井彩加, 諏訪部順一)",
       "1UPuMcZicCLXu1WkmUdfDr",
       "6812164933",
-      "416287152"
+      "416287152",
+      "25495",
+      "パンどろぼうとパンやのおじさん（CV：朝井彩加とCV：諏訪部順一）",
+      "UC_CcsYjMCSfNpbWB5f4obRw",
+      "25498",
+      "パンどろぼう / PANDOROBO【公式】",
+      "UC_8oRpdwdS8yE_AOXA9FeZQ"
     ]
   },
   "735ccb78912140ea": {
@@ -10361,9 +10373,9 @@
     "artist": "Neguse.",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/1nkfCEYkL2DQ02V3ffrwgL",
-    "apple": "https://music.apple.com/nz/album/6812190209?i=6812190440&at=1001l384j&ct=website-please-excuse-my-younger-bro-op2&app=music",
+    "apple": "https://geo.music.apple.com/album/6812190209?i=6812190440&at=1001l384j&ct=website-please-excuse-my-younger-bro-op2&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/20bb3812456db58d9be8cd842970e3c39272ff57@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/please-excuse-my-younger-brothers-opening-2",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10389,9 +10401,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10413,7 +10425,11 @@
       "ねぐせ。",
       "7jiFTNRWSw8zYgUj9wNJld",
       "1564692985",
-      "138303672"
+      "138303672",
+      "UC4yQSddIVINUHNRT_4rOHcg",
+      "25496",
+      "アニプレックス チャンネル",
+      "UC14QT5j2nQI8lKBCGtrrBQA"
     ]
   }
 }
