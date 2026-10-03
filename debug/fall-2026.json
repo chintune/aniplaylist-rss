@@ -8,10 +8,10 @@
   "rawHits": 149,
   "uniqueHits": 149,
   "normalized": 149,
-  "withSpotify": 36,
-  "withApple": 34,
+  "withSpotify": 46,
+  "withApple": 44,
   "withDetailUrl": 149,
-  "resolvedSpotify": 36,
+  "resolvedSpotify": 46,
   "recordThumbnails": 149,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
@@ -481,7 +481,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -497,7 +497,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -513,7 +513,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -529,7 +529,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -545,7 +545,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -561,7 +561,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -577,7 +577,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -593,7 +593,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -609,7 +609,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -625,7 +625,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28207,
+      "nbHits": 28208,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -1079,14 +1079,14 @@
     },
     {
       "id": "27910",
-      "anime": "#Zombie Sagashitemasu",
+      "anime": "#I'm Looking For a Zombie",
       "song": "Rakiraki",
       "artist": "Threee",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/7Kw2k1TRfQkjcYRNMQ3mo9",
-      "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-zombie-sagashitemasu-op&app=music",
+      "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-im-looking-for-a-zombie-op&app=music",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/7a3765f6047d70bf6ca0f5e151df6fe048ea351f@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/zombie-sagashitemasu-opening",
+      "detailUrl": "https://aniplaylist.com/play/im-looking-for-a-zombie-opening",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -1123,10 +1123,10 @@
         "ラキラキ"
       ],
       "animeCandidates": [
+        "#I'm Looking For a Zombie",
         "#Zombie Sagashitemasu",
         "#ゾンビさがしてます",
-        "#I'm Looking for Zombie",
-        "#I'm Looking For a Zombie"
+        "#I'm Looking for Zombie"
       ],
       "artistCandidates": [
         "19234",
@@ -2488,10 +2488,10 @@
     },
     {
       "id": "27910",
-      "anime": "#Zombie Sagashitemasu",
+      "anime": "#I'm Looking For a Zombie",
       "song": "Rakiraki",
       "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/zombie-sagashitemasu-opening"
+      "detailUrl": "https://aniplaylist.com/play/im-looking-for-a-zombie-opening"
     },
     {
       "id": "27901",
@@ -3096,14 +3096,14 @@
     },
     {
       "id": "27910",
-      "anime": "#Zombie Sagashitemasu",
+      "anime": "#I'm Looking For a Zombie",
       "song": "Rakiraki",
       "artist": "Threee",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/7Kw2k1TRfQkjcYRNMQ3mo9",
-      "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-zombie-sagashitemasu-op&app=music",
+      "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-im-looking-for-a-zombie-op&app=music",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/7a3765f6047d70bf6ca0f5e151df6fe048ea351f@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/zombie-sagashitemasu-opening",
+      "detailUrl": "https://aniplaylist.com/play/im-looking-for-a-zombie-opening",
       "season": "Fall 2026",
       "rawKeys": [
         "id",
@@ -3140,10 +3140,10 @@
         "ラキラキ"
       ],
       "animeCandidates": [
+        "#I'm Looking For a Zombie",
         "#Zombie Sagashitemasu",
         "#ゾンビさがしてます",
-        "#I'm Looking for Zombie",
-        "#I'm Looking For a Zombie"
+        "#I'm Looking for Zombie"
       ],
       "artistCandidates": [
         "19234",
@@ -4534,11 +4534,11 @@
     },
     {
       "id": "27910",
-      "anime": "#Zombie Sagashitemasu",
+      "anime": "#I'm Looking For a Zombie",
       "song": "Rakiraki",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/7Kw2k1TRfQkjcYRNMQ3mo9",
-      "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-zombie-sagashitemasu-op&app=music"
+      "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-im-looking-for-a-zombie-op&app=music"
     },
     {
       "id": "27901",
