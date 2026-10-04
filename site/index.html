@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Seasonal anime music RSS feeds from AniPlaylist.">
   <title>AniPlaylist RSS</title>
+
   <style>
     :root {
       color-scheme: dark;
@@ -17,23 +18,41 @@
       --accent: #9d7bff;
       --accent-2: #6f5ce7;
       --green: #65d39a;
+      --spotify: #1ed760;
       --shadow: 0 18px 50px rgba(0,0,0,.28);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(900px 500px at 10% -10%, rgba(157,123,255,.12), transparent 60%),
-        radial-gradient(700px 420px at 100% 0%, rgba(81,144,255,.08), transparent 58%),
+        radial-gradient(
+          900px 500px at 10% -10%,
+          rgba(157,123,255,.12),
+          transparent 60%
+        ),
+        radial-gradient(
+          700px 420px at 100% 0%,
+          rgba(81,144,255,.08),
+          transparent 58%
+        ),
         var(--bg);
       color: var(--text);
     }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+    }
 
     .wrap {
       width: min(1040px, calc(100% - 32px));
@@ -129,7 +148,9 @@
       font-size: 14px;
     }
 
-    .section-head a:hover { color: var(--text); }
+    .section-head a:hover {
+      color: var(--text);
+    }
 
     .feeds {
       display: grid;
@@ -138,12 +159,22 @@
     }
 
     @media (max-width: 760px) {
-      .feeds { grid-template-columns: 1fr; }
-      header { padding-top: 42px; }
+      .feeds {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 42px;
+      }
     }
 
     .card {
-      background: linear-gradient(180deg, rgba(23,28,38,.94), rgba(17,21,29,.94));
+      background:
+        linear-gradient(
+          180deg,
+          rgba(23,28,38,.94),
+          rgba(17,21,29,.94)
+        );
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 20px;
@@ -199,6 +230,7 @@
 
     .actions {
       display: flex;
+      flex-wrap: wrap;
       gap: 9px;
       margin-top: 16px;
     }
@@ -214,7 +246,10 @@
       text-decoration: none;
       font-size: 13px;
       cursor: pointer;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      transition:
+        transform .15s ease,
+        border-color .15s ease,
+        background .15s ease;
     }
 
     .btn:hover {
@@ -232,6 +267,29 @@
     .btn.secondary {
       background: #131821;
       color: #d5dbe4;
+    }
+
+    /*
+     * Spotify button
+     */
+
+    .btn.spotify {
+      background: var(--spotify);
+      border-color: var(--spotify);
+      color: #061108;
+      font-weight: 700;
+    }
+
+    .btn.spotify:hover {
+      background: #24e36b;
+      border-color: #24e36b;
+    }
+
+    .spotify-icon {
+      width: 15px;
+      height: 15px;
+      margin-right: 7px;
+      flex-shrink: 0;
     }
 
     .notice {
@@ -262,141 +320,511 @@
     }
   </style>
 </head>
+
 <body>
+
   <div class="wrap">
+
     <header>
       <div class="brand">
         <div class="mark">AP</div>
+
         <div>
           <h1>AniPlaylist RSS</h1>
         </div>
       </div>
+
       <p class="lead">
         Seasonal anime music feeds from AniPlaylist, with Spotify and Apple Music links when available. Each season also has a browsable release list.
       </p>
+
       <div class="meta">
-        <span class="pill"><span class="dot"></span> Updates every 30 minutes</span>
-        <span class="pill">Spotify · Apple Music</span>
-        <span class="pill">OP · ED · IN · OST · and more</span>
+        <span class="pill">
+          <span class="dot"></span>
+          Updates every 30 minutes
+        </span>
+
+        <span class="pill">
+          Spotify · Apple Music
+        </span>
+
+        <span class="pill">
+          OP · ED · IN · OST · and more
+        </span>
       </div>
     </header>
 
+
     <main>
+
       <div class="section-head">
         <h2>Season feeds</h2>
-        <a href="https://aniplaylist.com/" target="_blank" rel="noreferrer">AniPlaylist ↗</a>
+
+        <a
+          href="https://aniplaylist.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          AniPlaylist ↗
+        </a>
       </div>
 
+
       <div id="feeds" class="feeds">
-        <div class="loading">Loading feeds…</div>
+        <div class="loading">
+          Loading feeds…
+        </div>
       </div>
+
 
       <div class="notice">
         Add or remove seasons in <code>seasons.json</code>. The workflow will generate the matching RSS feed automatically.
       </div>
+
     </main>
+
 
     <footer>
       AniPlaylist RSS · Generated by GitHub Actions · Hosted on GitHub Pages
     </footer>
+
   </div>
 
+
   <script>
+
     const feeds = document.getElementById("feeds");
 
+
     function slug(season) {
-      return season.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      return season
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
     }
 
+
     function escapeHtml(value) {
-      return String(value).replace(/[&<>"']/g, ch => ({
-        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+      return String(value).replace(/[&<>\"']/g, ch => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
       }[ch]));
     }
 
+
+    /*
+     * Load a single RSS feed and get basic information.
+     */
+
     async function readFeed(url) {
+
       try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) return { count: null, updated: null };
+
+        const res = await fetch(url, {
+          cache: "no-store"
+        });
+
+        if (!res.ok) {
+          return {
+            count: null,
+            updated: null
+          };
+        }
+
         const xml = await res.text();
-        const doc = new DOMParser().parseFromString(xml, "application/xml");
-        const items = [...doc.querySelectorAll("item")];
-        const lastBuild = doc.querySelector("lastBuildDate")?.textContent || "";
+
+        const doc = new DOMParser().parseFromString(
+          xml,
+          "application/xml"
+        );
+
+        const items = [
+          ...doc.querySelectorAll("item")
+        ];
+
+        const lastBuild =
+          doc.querySelector("lastBuildDate")?.textContent || "";
+
         return {
           count: items.length,
-          updated: lastBuild ? new Date(lastBuild) : null
+          updated: lastBuild
+            ? new Date(lastBuild)
+            : null
         };
+
       } catch {
-        return { count: null, updated: null };
+
+        return {
+          count: null,
+          updated: null
+        };
+
       }
+
     }
+
+
+    /*
+     * Spotify logo.
+     */
+
+    function spotifyIcon() {
+
+      return `
+        <svg
+          class="spotify-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          fill="currentColor"
+        >
+          <path d="M12 1.8a10.2 10.2 0 1 0 0 20.4 10.2 10.2 0 0 0 0-20.4Zm4.68 14.7a.63.63 0 0 1-.87.21c-2.39-1.46-5.4-1.79-8.95-.98a.63.63 0 1 1-.28-1.23c3.88-.89 7.2-.52 9.89 1.12.3.18.39.57.21.88Zm1.24-2.76a.79.79 0 0 1-1.08.26c-2.73-1.68-6.9-2.17-10.13-1.18a.79.79 0 1 1-.46-1.51c3.69-1.12 8.28-.58 11.41 1.34.37.23.49.72.26 1.09Zm.11-2.88c-3.27-1.94-8.67-2.12-11.79-1.17a.95.95 0 1 1-.55-1.82c3.59-1.09 9.56-.88 13.35 1.37a.95.95 0 0 1-1.01 1.62Z"/>
+        </svg>
+      `;
+
+    }
+
+
+    /*
+     * Load Spotify playlist configuration.
+     *
+     * This file is generated/updated by the GitHub Action.
+     */
+
+    async function loadSpotifyPlaylists() {
+
+      try {
+
+        const res = await fetch(
+          "spotify-playlists.json",
+          {
+            cache: "no-store"
+          }
+        );
+
+        if (!res.ok) {
+          return {};
+        }
+
+        const data = await res.json();
+
+        return data || {};
+
+      } catch {
+
+        return {};
+
+      }
+
+    }
+
+
+    /*
+     * Render the season cards.
+     */
 
     async function render() {
+
       let seasons;
+
+      let spotifyPlaylists = {};
+
+
+      /*
+       * Load seasons.
+       */
+
       try {
-        const res = await fetch("seasons.json", { cache: "no-store" });
+
+        const res = await fetch(
+          "seasons.json",
+          {
+            cache: "no-store"
+          }
+        );
+
         seasons = (await res.json()).seasons || [];
+
       } catch {
-        feeds.innerHTML = '<div class="error">Could not load seasons.json.</div>';
+
+        feeds.innerHTML =
+          '<div class="error">Could not load seasons.json.</div>';
+
         return;
+
       }
+
+
+      /*
+       * Load Spotify playlists.
+       *
+       * If the file is unavailable, the site still works normally.
+       */
+
+      spotifyPlaylists =
+        await loadSpotifyPlaylists();
+
 
       if (!seasons.length) {
-        feeds.innerHTML = '<div class="loading">No seasons configured.</div>';
+
+        feeds.innerHTML =
+          '<div class="loading">No seasons configured.</div>';
+
         return;
+
       }
 
-      const cards = await Promise.all(seasons.map(async season => {
-        const feedUrl = `rss/${slug(season)}.xml`;
-        const data = await readFeed(feedUrl);
-        const countText = data.count == null ? "Feed unavailable" :
-          `${data.count} ${data.count === 1 ? "entry" : "entries"}`;
-        const status = data.count == null ? "Unavailable" : data.count ? "Active" : "No entries";
-        const statusClass = data.count ? "" : "empty";
-        const updated = data.updated && !Number.isNaN(data.updated.getTime())
-          ? `Updated ${data.updated.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" })}`
-          : "Waiting for data";
 
-        return `
-          <article class="card">
-            <div class="card-top">
-              <h3 class="season">${escapeHtml(season)}</h3>
-              <span class="status ${statusClass}">${status}</span>
-            </div>
-            <div class="details">
-              <span>${escapeHtml(countText)}</span>
-              <span>·</span>
-              <span>${escapeHtml(updated)}</span>
-            </div>
-            <div class="url">${escapeHtml(location.origin + location.pathname.replace(/\/?$/, "/") + feedUrl)}</div>
-            <div class="actions">
-              <a class="btn primary" href="${feedUrl}">Open RSS</a>
-              <a class="btn secondary" href="browse/${slug(season)}/">Browse</a>
-              <button class="btn secondary" type="button" data-copy="${feedUrl}">Copy URL</button>
-            </div>
-          </article>
-        `;
-      }));
+      /*
+       * Build all cards.
+       */
 
-      feeds.innerHTML = cards.join("");
+      const cards = await Promise.all(
 
-      feeds.querySelectorAll("[data-copy]").forEach(button => {
-        button.addEventListener("click", async () => {
-          const value = new URL(button.dataset.copy, location.href).href;
-          try {
-            await navigator.clipboard.writeText(value);
-            const old = button.textContent;
-            button.textContent = "Copied";
-            setTimeout(() => button.textContent = old, 1200);
-          } catch {
-            button.textContent = "Copy failed";
-            setTimeout(() => button.textContent = "Copy URL", 1200);
-          }
+        seasons.map(async season => {
+
+          const feedUrl =
+            `rss/${slug(season)}.xml`;
+
+          const data =
+            await readFeed(feedUrl);
+
+
+          const countText =
+            data.count == null
+              ? "Feed unavailable"
+              : `${data.count} ${
+                  data.count === 1
+                    ? "entry"
+                    : "entries"
+                }`;
+
+
+          const status =
+            data.count == null
+              ? "Unavailable"
+              : data.count
+                ? "Active"
+                : "No entries";
+
+
+          const statusClass =
+            data.count
+              ? ""
+              : "empty";
+
+
+          const updated =
+            data.updated &&
+            !Number.isNaN(data.updated.getTime())
+
+              ? `Updated ${
+                  data.updated.toLocaleString(
+                    undefined,
+                    {
+                      dateStyle: "medium",
+                      timeStyle: "short"
+                    }
+                  )
+                }`
+
+              : "Waiting for data";
+
+
+          /*
+           * Find Spotify playlist for this season.
+           */
+
+          const playlist =
+            spotifyPlaylists[season];
+
+          const spotifyUrl =
+            playlist &&
+            playlist.url
+              ? playlist.url
+              : "";
+
+
+          /*
+           * Only show Spotify button when
+           * the playlist actually exists.
+           */
+
+          const spotifyButton =
+            spotifyUrl
+
+              ? `
+                <a
+                  class="btn spotify"
+                  href="${escapeHtml(spotifyUrl)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open ${escapeHtml(season)} Spotify playlist"
+                >
+                  ${spotifyIcon()}
+                  Spotify Playlist
+                </a>
+              `
+
+              : "";
+
+
+          return `
+
+            <article class="card">
+
+              <div class="card-top">
+
+                <h3 class="season">
+                  ${escapeHtml(season)}
+                </h3>
+
+                <span class="status ${statusClass}">
+                  ${status}
+                </span>
+
+              </div>
+
+
+              <div class="details">
+
+                <span>
+                  ${escapeHtml(countText)}
+                </span>
+
+                <span>·</span>
+
+                <span>
+                  ${escapeHtml(updated)}
+                </span>
+
+              </div>
+
+
+              <div class="url">
+                ${escapeHtml(
+                  location.origin +
+                  location.pathname.replace(/\/?$/, "/") +
+                  feedUrl
+                )}
+              </div>
+
+
+              <div class="actions">
+
+                <a
+                  class="btn primary"
+                  href="${feedUrl}"
+                >
+                  Open RSS
+                </a>
+
+
+                <a
+                  class="btn secondary"
+                  href="browse/${slug(season)}/"
+                >
+                  Browse
+                </a>
+
+
+                <button
+                  class="btn secondary"
+                  type="button"
+                  data-copy="${escapeHtml(feedUrl)}"
+                >
+                  Copy URL
+                </button>
+
+
+                ${spotifyButton}
+
+              </div>
+
+            </article>
+
+          `;
+
+        })
+
+      );
+
+
+      feeds.innerHTML =
+        cards.join("");
+
+
+      /*
+       * Copy URL buttons.
+       */
+
+      feeds
+        .querySelectorAll("[data-copy]")
+        .forEach(button => {
+
+          button.addEventListener(
+            "click",
+            async () => {
+
+              const value =
+                new URL(
+                  button.dataset.copy,
+                  location.href
+                ).href;
+
+
+              try {
+
+                await navigator.clipboard.writeText(
+                  value
+                );
+
+                const old =
+                  button.textContent;
+
+                button.textContent =
+                  "Copied";
+
+                setTimeout(
+                  () => {
+                    button.textContent =
+                      old;
+                  },
+                  1200
+                );
+
+              } catch {
+
+                button.textContent =
+                  "Copy failed";
+
+                setTimeout(
+                  () => {
+                    button.textContent =
+                      "Copy URL";
+                  },
+                  1200
+                );
+
+              }
+
+            }
+          );
+
         });
-      });
+
     }
 
+
+    /*
+     * Start.
+     */
+
     render();
+
   </script>
+
 </body>
 </html>
