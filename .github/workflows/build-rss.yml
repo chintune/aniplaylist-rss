@@ -2,6 +2,7 @@ name: Build RSS
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "7,37 * * * *"
 
@@ -17,15 +18,26 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     env:
       PLAYWRIGHT_BROWSERS_PATH: 0
       SITE_BASE: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
 
     steps:
+
+      # --------------------------------------------------
+      # Checkout repository
+      # --------------------------------------------------
+
       - name: Checkout
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+
+
+      # --------------------------------------------------
+      # Node.js
+      # --------------------------------------------------
 
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -33,51 +45,121 @@ jobs:
           node-version: 22
           package-manager-cache: false
 
+
+      # --------------------------------------------------
+      # Install dependencies
+      # --------------------------------------------------
+
       - name: Install dependencies
         run: npm install
+
+
+      # --------------------------------------------------
+      # Install Playwright Chromium
+      # --------------------------------------------------
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
+
+      # --------------------------------------------------
+      # Build AniPlaylist RSS
+      # --------------------------------------------------
+
       - name: Build RSS
         run: node scrape.mjs
+
+
+      # --------------------------------------------------
+      # Sync Spotify playlists
+      # --------------------------------------------------
+
+      - name: Sync Spotify playlists
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+        run: node spotify.mjs
+
+
+      # --------------------------------------------------
+      # Show build information
+      # --------------------------------------------------
 
       - name: Show build summary
         if: always()
         run: |
           echo "===== RSS BUILD SUMMARY ====="
           cat build-summary.txt 2>/dev/null || true
+
+          echo ""
+          echo "===== SPOTIFY PLAYLIST CONFIG ====="
+          cat spotify-playlists.json 2>/dev/null || true
+
+          echo ""
           echo "===== DEBUG FILES ====="
           find debug -maxdepth 1 -type f -print 2>/dev/null || true
+
+
+      # --------------------------------------------------
+      # Commit RSS state + Spotify playlist state
+      # --------------------------------------------------
 
       - name: Commit state and diagnostics
         if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state.json resolve-cache.json build-summary.txt
+
+          git add state.json
+          git add resolve-cache.json
+          git add build-summary.txt
+          git add spotify-playlists.json
+
           git add -f debug/*.json debug/*.png 2>/dev/null || true
+
           echo "===== STAGED FILES ====="
           git status --short
+
           if git diff --cached --quiet; then
-            echo "No state/debug changes to commit."
+            echo "No state/debug/Spotify changes to commit."
           else
-            git commit -m "Update AniPlaylist RSS state"
+            git commit -m "Update AniPlaylist RSS and Spotify playlists"
             git push
           fi
+
+
+      # --------------------------------------------------
+      # Build GitHub Pages site
+      # --------------------------------------------------
 
       - name: Build Pages site
         run: |
           rm -rf site_build
+
           mkdir -p site_build/rss
+
           cp -r site/. site_build/
+
           cp seasons.json site_build/seasons.json
+
+          cp spotify-playlists.json site_build/spotify-playlists.json
+
           cp -r rss/. site_build/rss/
+
+
+      # --------------------------------------------------
+      # Upload Pages artifact
+      # --------------------------------------------------
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: site_build
+
+
+      # --------------------------------------------------
+      # Deploy GitHub Pages
+      # --------------------------------------------------
 
       - name: Deploy Pages
         uses: actions/deploy-pages@v5
