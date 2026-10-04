@@ -419,8 +419,22 @@ function artistsMatch(
  *
  * "This AniPlaylist song is represented by an album link."
  *
- * We inspect the album, find the matching song, and add
- * ONLY THAT ONE TRACK.
+ * We inspect the album and add ONLY ONE TRACK.
+ *
+ * Resolution order:
+ *
+ * 1. Exact title + artist
+ * 2. Exact title
+ * 3. Partial / normalized title
+ * 4. FIRST TRACK OF ALBUM
+ *
+ * The first-track fallback is intentional.
+ *
+ * Some AniPlaylist OST entries use the album title as
+ * the song title, so there may be no matching track name.
+ *
+ * We should not fail the entire Spotify sync because of
+ * that metadata mismatch.
  */
 
 async function getAlbumTracks(
@@ -490,8 +504,11 @@ async function resolveAlbumTrack(
       songTitle
     );
 
+
   /*
-   * First: exact title.
+   * ---------------------------------------------------------
+   * 1. EXACT TITLE
+   * ---------------------------------------------------------
    */
 
   const exactTitle =
@@ -504,8 +521,9 @@ async function resolveAlbumTrack(
 
 
   /*
-   * Best match:
-   * exact title + artist.
+   * ---------------------------------------------------------
+   * 1A. EXACT TITLE + ARTIST
+   * ---------------------------------------------------------
    */
 
   const exactTitleArtist =
@@ -532,8 +550,12 @@ async function resolveAlbumTrack(
 
 
   /*
-   * If only one track has the exact title,
-   * use that one even when artist formatting differs.
+   * ---------------------------------------------------------
+   * 2. EXACT TITLE ONLY
+   * ---------------------------------------------------------
+   *
+   * If only one track has the exact title, use it even
+   * if the artist metadata is formatted differently.
    */
 
   if (
@@ -545,7 +567,9 @@ async function resolveAlbumTrack(
 
 
   /*
-   * Last-resort title containment.
+   * ---------------------------------------------------------
+   * 3. PARTIAL / NORMALIZED TITLE
+   * ---------------------------------------------------------
    */
 
   const fallback =
@@ -573,8 +597,68 @@ async function resolveAlbumTrack(
     return fallback;
   }
 
+
+  /*
+   * ---------------------------------------------------------
+   * 4. FIRST TRACK OF ALBUM
+   * ---------------------------------------------------------
+   *
+   * NEW FIX
+   *
+   * If AniPlaylist's title does not correspond to an
+   * actual Spotify track, DO NOT FAIL THE WORKFLOW.
+   *
+   * Simply use the first usable track from the album.
+   *
+   * This handles cases such as:
+   *
+   * AniPlaylist:
+   *   Original Soundtrack Vol.1
+   *
+   * Spotify album:
+   *   Original Soundtrack Vol.1
+   *
+   * where the album title is being supplied as the
+   * "song" title but no track has that exact name.
+   */
+
+  const firstTrack =
+    tracks.find(
+      track =>
+        track?.id
+    );
+
+  if (
+    firstTrack?.id
+  ) {
+    const firstTrackArtists =
+      Array.isArray(
+        firstTrack.artists
+      )
+        ? firstTrack.artists
+            .map(
+              a =>
+                a?.name || ""
+            )
+            .filter(Boolean)
+            .join(", ")
+        : "";
+
+    console.warn(
+      `Spotify album ${albumId}: no matching track found for "${songTitle}" by "${artist}". Using FIRST album track: "${firstTrack.name}"${firstTrackArtists ? ` by ${firstTrackArtists}` : ""} (${firstTrack.id}).`
+    );
+
+    return firstTrack;
+  }
+
+
+  /*
+   * This should only happen if Spotify returned album
+   * entries without usable track IDs.
+   */
+
   throw new Error(
-    `Could not find "${songTitle}" by "${artist}" in Spotify album ${albumId}.`
+    `Spotify album ${albumId} returned no usable tracks for "${songTitle}" by "${artist}".`
   );
 }
 
@@ -810,7 +894,9 @@ async function resolveSeasonTracks(
 
 
     /*
+     * -------------------------------------------------------
      * DIRECT TRACK
+     * -------------------------------------------------------
      */
 
     if (
@@ -822,9 +908,14 @@ async function resolveSeasonTracks(
 
 
     /*
+     * -------------------------------------------------------
      * ALBUM / OST
+     * -------------------------------------------------------
      *
      * Resolve ONE song only.
+     *
+     * If exact matching fails, resolveAlbumTrack()
+     * automatically uses the first album track.
      */
 
     else if (
@@ -1056,10 +1147,11 @@ const accessToken =
  *
  * We resolve ALL seasons first.
  *
- * If an OST/album song cannot be resolved,
- * the workflow stops before changing any playlist.
+ * If there is a genuine Spotify/API problem, the workflow
+ * stops before changing any playlist.
  *
- * This prevents partial updates.
+ * Album title mismatches are NOT fatal anymore because
+ * resolveAlbumTrack() falls back to the first album track.
  */
 
 const desiredBySeason =
@@ -1120,307 +1212,4 @@ for (
 
   const entry =
     originalEntry &&
-    typeof originalEntry === "object"
-      ? originalEntry
-      : {};
-
-  const desiredTracks =
-    desiredBySeason[
-      season
-    ];
-
-  console.log("");
-
-  console.log(
-    `=== ${season} ===`
-  );
-
-
-  /* =======================================================
-     EMPTY SEASON
-     ======================================================= */
-
-  if (
-    desiredTracks.length ===
-    0
-  ) {
-    /*
-     * There are currently no Spotify tracks for this season.
-     *
-     * Do NOT create a playlist.
-     *
-     * If a playlist existed previously, remove it from
-     * the user's Spotify Library.
-     */
-
-    if (entry.id) {
-      console.log(
-        "Current RSS has 0 Spotify tracks."
-      );
-
-      console.log(
-        "Removing existing playlist from Spotify Library..."
-      );
-
-      await removePlaylistFromLibrary(
-        accessToken,
-        entry.id
-      );
-
-      console.log(
-        "Empty Spotify playlist removed from Your Library."
-      );
-
-      totalRemoved++;
-    } else {
-      console.log(
-        "No current Spotify tracks. No playlist exists."
-      );
-    }
-
-
-    /*
-     * IMPORTANT:
-     *
-     * Clear the local playlist ID too.
-     *
-     * When songs appear again later,
-     * a brand-new playlist will be created.
-     */
-
-    if (
-      entry.id ||
-      entry.url ||
-      (
-        Array.isArray(
-          entry.trackIds
-        ) &&
-        entry.trackIds.length
-      )
-    ) {
-      configChanged =
-        true;
-    }
-
-    entry.id =
-      "";
-
-    entry.url =
-      "";
-
-    entry.trackIds =
-      [];
-
-    config[season] =
-      entry;
-
-    continue;
-  }
-
-
-  /* =======================================================
-     NON-EMPTY SEASON
-     ======================================================= */
-
-  /*
-   * If the season has at least one Spotify song,
-   * create a playlist if one doesn't exist.
-   */
-
-  if (!entry.id) {
-    console.log(
-      `Creating Spotify playlist: ${season}`
-    );
-
-    const playlist =
-      await spotifyRequest(
-        accessToken,
-        "/me/playlists",
-        {
-          method: "POST",
-
-          body:
-            JSON.stringify({
-              name:
-                `AniPlaylist — ${season}`,
-
-              description:
-                "Automatically updated from AniPlaylist RSS. " +
-                "Source: https://aniplaylist.com/?seasons=" +
-                encodeURIComponent(
-                  season
-                ),
-
-              public:
-                true,
-
-              collaborative:
-                false
-            })
-        }
-      );
-
-    entry.id =
-      playlist.id;
-
-    totalCreated++;
-
-    configChanged =
-      true;
-
-    console.log(
-      `Created Spotify playlist: ${entry.id}`
-    );
-  }
-
-
-  /*
-   * Restore playlist URL.
-   *
-   * This matters when a season becomes active again after
-   * previously being empty.
-   */
-
-  const expectedUrl =
-    `https://open.spotify.com/playlist/${entry.id}`;
-
-  if (
-    entry.url !==
-    expectedUrl
-  ) {
-    entry.url =
-      expectedUrl;
-
-    configChanged =
-      true;
-  }
-
-
-  console.log(
-    `Current RSS Spotify tracks: ${desiredTracks.length}`
-  );
-
-  console.log(
-    "Replacing Spotify playlist contents with current RSS order..."
-  );
-
-
-  /*
-   * Exact mirror of current RSS.
-   *
-   * Old/stale tracks are removed.
-   */
-
-  await replacePlaylistItems(
-    accessToken,
-    entry.id,
-    desiredTracks
-  );
-
-
-  /*
-   * Bookkeeping only.
-   *
-   * RSS is still the source of truth.
-   */
-
-  const oldTrackIds =
-    Array.isArray(
-      entry.trackIds
-    )
-      ? entry.trackIds
-      : [];
-
-  if (
-    JSON.stringify(
-      oldTrackIds
-    ) !==
-    JSON.stringify(
-      desiredTracks
-    )
-  ) {
-    configChanged =
-      true;
-  }
-
-  entry.trackIds =
-    desiredTracks;
-
-  config[season] =
-    entry;
-
-  totalSynced++;
-
-  totalTracks +=
-    desiredTracks.length;
-
-  console.log(
-    `Playlist synchronized exactly: ${desiredTracks.length} track(s).`
-  );
-
-  console.log(
-    "Newest RSS track is now playlist position #1."
-  );
-}
-
-
-/* =========================================================
-   SAVE CONFIG
-   ========================================================= */
-
-if (
-  configChanged
-) {
-  await fs.writeFile(
-    CONFIG_PATH,
-
-    JSON.stringify(
-      config,
-      null,
-      2
-    ) + "\n"
-  );
-}
-
-
-/* =========================================================
-   SUMMARY
-   ========================================================= */
-
-console.log("");
-
-console.log(
-  "===== SPOTIFY SYNC ====="
-);
-
-console.log(
-  `Playlists created: ${totalCreated}`
-);
-
-console.log(
-  `Playlists synchronized: ${totalSynced}`
-);
-
-console.log(
-  `Playlists removed from Library: ${totalRemoved}`
-);
-
-console.log(
-  `Current RSS Spotify tracks: ${totalTracks}`
-);
-
-console.log(
-  "Album/OST links contribute ONE matching track only."
-);
-
-console.log(
-  "New tracks follow RSS order, with newest at the top."
-);
-
-console.log(
-  "Empty seasons have no Spotify playlist in Your Library."
-);
-
-console.log(
-  "========================"
-);
+    typeo
