@@ -13,6 +13,16 @@ const BROWSE_DIR = path.join(SITE_DIR, "browse");
 const STATE_PATH = path.join(ROOT, "state.json");
 const CACHE_PATH = path.join(ROOT, "resolve-cache.json");
 
+/*
+ * Spotify source of truth for the CURRENT scrape only.
+ *
+ * This is intentionally separate from state.json.
+ * state.json is historical and must never be used to determine
+ * what belongs in the current Spotify playlists.
+ */
+const SPOTIFY_CURRENT_PATH = path.join(ROOT, "spotify-current.json");
+const currentSpotifyTracks = {};
+
 await fs.mkdir(RSS_DIR, { recursive: true });
 await fs.mkdir(DEBUG_DIR, { recursive: true });
 await fs.mkdir(SONGS_DIR, { recursive: true });
@@ -1489,6 +1499,36 @@ for (const season of CFG.seasons) {
   // from detail pages, because unrelated/recommended links can leak in.
   const usable = normalized.filter(item => !!item.spotify || !!item.apple);
 
+  /*
+   * ==========================================================
+   * CURRENT SPOTIFY SOURCE OF TRUTH
+   * ==========================================================
+   *
+   * `usable` is the EXACT set of records that is going into the
+   * current RSS for this season.
+   *
+   * Therefore spotify-current.json represents the Spotify tracks
+   * belonging to the current RSS, rather than anything historical
+   * in state.json.
+   */
+  currentSpotifyTracks[season] = [
+    ...new Set(
+      usable
+        .map(item => {
+          const match = String(item.spotify || "").match(
+            /https?:\/\/open\.spotify\.com\/track\/([A-Za-z0-9]+)/i
+          );
+
+          return match?.[1] || "";
+        })
+        .filter(Boolean)
+    ),
+  ];
+
+  console.log(
+    `${season}: current Spotify tracks=${currentSpotifyTracks[season].length}`
+  );
+
   // For the small set that actually enters the RSS feed, resolve the image
   // from the exact AniPlaylist detail page when the record did not give us a
   // usable absolute image URL. This avoids title/card matching and guarantees
@@ -1566,6 +1606,17 @@ for (const season of CFG.seasons) {
   summary.push(diag);
 }
 
+/*
+ * Persist ONLY the Spotify IDs discovered during this run.
+ *
+ * This file is intentionally separate from state.json.
+ * spotify.mjs must read this file instead of state.json.
+ */
+await fs.writeFile(
+  SPOTIFY_CURRENT_PATH,
+  JSON.stringify(currentSpotifyTracks, null, 2) + "\n"
+);
+
 await fs.writeFile(STATE_PATH, JSON.stringify(state, null, 2) + "\n");
 resolveCache.__cacheVersion = 2;
 await fs.writeFile(CACHE_PATH, JSON.stringify(resolveCache, null, 2) + "\n");
@@ -1578,6 +1629,14 @@ const summaryText = summary.map(s =>
 
 await fs.writeFile(path.join(ROOT, "build-summary.txt"), summaryText + "\n");
 console.log("\n===== FINAL SUMMARY =====\n" + summaryText);
+
+console.log("\n===== CURRENT SPOTIFY SOURCE OF TRUTH =====");
+for (const season of CFG.seasons) {
+  console.log(
+    `${season}: ${currentSpotifyTracks[season]?.length || 0} tracks`
+  );
+}
+console.log(`Written: ${SPOTIFY_CURRENT_PATH}`);
 
 // Do not fail because an unreleased future season has no results.
 // Do fail for a populated season if the site gave us hits but not even one
