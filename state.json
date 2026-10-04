@@ -10506,9 +10506,9 @@
     "artist": "Suspended 4th",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/5xILnAURvhSAc6ie2SHR4D",
-    "apple": "https://music.apple.com/nz/album/6817986624?i=6817986647&at=1001l384j&ct=website-a-wild-last-boss-appeared-sea-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6817986624?i=6817986647&at=1001l384j&ct=website-a-wild-last-boss-appeared-sea-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/852e00864aa9991520403b7515f366c1a9db3be2@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/a-wild-last-boss-appeared-season-2-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10533,8 +10533,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
-      "web",
+      "other_link_ids",
       "unreleased",
       "objectID"
     ],
@@ -10551,7 +10552,9 @@
       "Suspended 4th",
       "ep 1",
       "6q0QNKHpDI9j3lOCRxoPyp",
-      "1397014144"
+      "1397014144",
+      "15004625",
+      "UCbPIfH7b5X4ix-gEaUaMXQg"
     ]
   },
   "6f0f991ec4dccfb3": {
@@ -10563,9 +10566,9 @@
     "artist": "Kotani",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/4LxioLlC4EC5wbTAPY7ipC",
-    "apple": "https://music.apple.com/nz/album/6811484389?i=6811484579&at=1001l384j&ct=website-magic-repo-man-dumped-by-my-p-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6811484389?i=6811484579&at=1001l384j&ct=website-magic-repo-man-dumped-by-my-p-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/1156a8c81454055c8be120e8f3d6bfe942e90373@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/magic-repo-man-dumped-by-my-party-ill-cash-in-with-a-cute-support-fairy-to-become-the-strongest-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10590,9 +10593,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10613,7 +10616,8 @@
       "こたに",
       "4F7KxmlJgFS4wjf8ulIJAq",
       "1082544405",
-      "9811094"
+      "9811094",
+      "UCTqGpHppP3HIRATol26AOkw"
     ]
   },
   "2f6b96471bd21ecd": {
@@ -10625,9 +10629,9 @@
     "artist": "Kaori Maeda",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/1uvtIdRJWtrculGDT3Wgk2",
-    "apple": "https://music.apple.com/nz/album/6813003331?i=6813003347&at=1001l384j&ct=website-uncles-obsession-with-cute-th-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6813003331?i=6813003347&at=1001l384j&ct=website-uncles-obsession-with-cute-th-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/901576d4da357822847a178e7d87b10131265910@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/uncles-obsession-with-cute-things-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10652,9 +10656,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10677,7 +10681,8 @@
       "前田佳織里",
       "5ooX6UO1AbsI7EdnrRhUjh",
       "1659773773",
-      "218204535"
+      "218204535",
+      "UC4VN7zZaBMePTewBFkNKJSw"
     ]
   },
   "6d5ce38b479a106f": {
@@ -10689,9 +10694,9 @@
     "artist": "ASTERISM",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/7ij9fk7RxVKLI4XdjsgPeT",
-    "apple": "https://music.apple.com/nz/album/6811917089?i=6811917094&at=1001l384j&ct=website-reborn-as-a-space-mercenary-i-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6811917089?i=6811917094&at=1001l384j&ct=website-reborn-as-a-space-mercenary-i-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/9102be2a0603cea217427d0d9b46fba4f1ef0c8c@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/reborn-as-a-space-mercenary-i-woke-up-piloting-the-strongest-starship-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10716,8 +10721,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
-      "web",
+      "other_link_ids",
       "unreleased",
       "objectID"
     ],
@@ -10734,7 +10740,9 @@
       "16848",
       "ASTERISM",
       "65T5OWkp6XPHZzurwEaBl6",
-      "1308141595"
+      "1308141595",
+      "13734255",
+      "UCqmlafOBss33lWb8icmifUw"
     ]
   },
   "f39fdbf78f354a28": {
@@ -10746,9 +10754,9 @@
     "artist": "Koji Nakamura",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/55t3riG2FbcLkUg5vuhpEz",
-    "apple": "https://music.apple.com/nz/album/6812189675?i=6812189679&at=1001l384j&ct=website-suikoden-the-anime-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6812189675?i=6812189679&at=1001l384j&ct=website-suikoden-the-anime-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/92517bb1429c2315f88f381c7e70291336d5d9b3@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/suikoden-the-anime-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10773,9 +10781,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10794,6 +10802,7 @@
       "1gXCdzLEaK18Qis2j0eQ0N",
       "844208422",
       "6433554",
+      "UCxvJrj2FqcUv8nN683SUkYg",
       "11947",
       "Honoka Takahashi",
       "たかはしほのか",
@@ -10810,9 +10819,9 @@
     "artist": "cadode",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/7vsLzJxteKP3ITesBnTD2W",
-    "apple": "https://music.apple.com/nz/album/6815581648?i=6815581651&at=1001l384j&ct=website-im-looking-for-a-zombie-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6815581648?i=6815581651&at=1001l384j&ct=website-im-looking-for-a-zombie-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/891562e1effbe9acb166cdf690eb2e109b4d926e@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/im-looking-for-a-zombie-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10837,9 +10846,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10858,7 +10867,8 @@
       "cadode",
       "67zlAHPEzkbMQrkdC8QwPr",
       "1372628773",
-      "53215492"
+      "53215492",
+      "UCfnxGv-oWobx_ON_5KUsy4g"
     ]
   },
   "c55333c97f895493": {
@@ -10870,9 +10880,9 @@
     "artist": "ASCA",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/4m3T7THKp6dm7MvDnFhfv4",
-    "apple": "https://music.apple.com/nz/album/6812190559?i=6812190560&at=1001l384j&ct=website-magicalexplorer-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6812190559?i=6812190560&at=1001l384j&ct=website-magicalexplorer-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/97e7acdd5485b6877f191c2555c23504540c7118@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/magicalexplorer-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10897,9 +10907,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10919,7 +10929,8 @@
       "ASCA",
       "5pjjlQXYjoMFWdjdKOre9s",
       "1300493324",
-      "6021454"
+      "6021454",
+      "UCXkItX65rhwqvr8VAenH7xA"
     ]
   },
   "22c1da4351c4f81b": {
@@ -10931,9 +10942,9 @@
     "artist": "ASCA",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/6pp1E7PyHkwVmK88PYprfT",
-    "apple": "https://music.apple.com/nz/album/6812190358?i=6812190359&at=1001l384j&ct=website-magicalexplorer-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6812190358?i=6812190359&at=1001l384j&ct=website-magicalexplorer-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/97e7acdd5485b6877f191c2555c23504540c7118@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/magicalexplorer-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10958,9 +10969,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -10980,7 +10991,8 @@
       "ASCA",
       "5pjjlQXYjoMFWdjdKOre9s",
       "1300493324",
-      "6021454"
+      "6021454",
+      "UCXkItX65rhwqvr8VAenH7xA"
     ]
   },
   "276332d22b5eb7e2": {
@@ -10992,9 +11004,9 @@
     "artist": "Takanori Nishikawa",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/5uROzgLiU1vETvIH7tuhhS",
-    "apple": "https://music.apple.com/nz/album/6812849059?i=6812849060&at=1001l384j&ct=website-dandivine-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6812849059?i=6812849060&at=1001l384j&ct=website-dandivine-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/8a7482f2c67c43185622ae82af7e4f60d5265754@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/dandivine-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -11019,9 +11031,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -11043,7 +11055,12 @@
       "西川貴教",
       "2ayMogRmamCnzMAk4YiFAz",
       "338161170",
-      "7951442"
+      "7951442",
+      "9",
+      "T.M.Revolution",
+      "TMR",
+      "貴教が革命を起こす",
+      "UCbR36UZ3-7hrv861veexZng"
     ]
   },
   "86477a706b5fc2b1": {
@@ -11055,9 +11072,9 @@
     "artist": "Sangatsu no Phantasia",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/4fK5Y2ExgkIIurCMwt688I",
-    "apple": "https://music.apple.com/nz/album/6812190429?i=6812190650&at=1001l384j&ct=website-even-the-student-council-has-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6812190429?i=6812190650&at=1001l384j&ct=website-even-the-student-council-has-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/64b9e587aa9870116c025763b9aebfdba1cae204@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/even-the-student-council-has-its-holes-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -11082,9 +11099,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -11104,7 +11121,8 @@
       "三月のパンタシア",
       "5WmX340gDNLIAyUcg4MzWN",
       "1097659633",
-      "10665133"
+      "10665133",
+      "UChmAdYjOdnnrSA2kBMKdoYw"
     ]
   }
 }
