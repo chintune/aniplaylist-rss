@@ -1,22 +1,82 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 163,
+  "resultCount": 164,
   "jsonResponses": 24,
   "algoliaResponses": 11,
   "hitArrays": 22,
-  "rawHits": 163,
-  "uniqueHits": 163,
-  "normalized": 163,
-  "withSpotify": 71,
-  "withApple": 69,
-  "withDetailUrl": 163,
-  "resolvedSpotify": 71,
-  "recordThumbnails": 163,
+  "rawHits": 164,
+  "uniqueHits": 164,
+  "normalized": 164,
+  "withSpotify": 82,
+  "withApple": 76,
+  "withDetailUrl": 164,
+  "resolvedSpotify": 82,
+  "recordThumbnails": 164,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
+    {
+      "id": "27986",
+      "anime": "Magical Girl Raising Project: Restart",
+      "song": "ReMind",
+      "artist": "Daisy×Daisy",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PCRuecwNHzMVH57Oj5z5f",
+      "apple": "https://geo.music.apple.com/album/6818981167?i=6818981171&at=1001l384j&ct=website-magical-girl-raising-project-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/18189b74746f9accf0750616617b646e16f8bd45@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/magical-girl-raising-project-restart-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "ReMind"
+      ],
+      "animeCandidates": [
+        "Magical Girl Raising Project: Restart",
+        "Mahou Shoujo Ikusei Keikaku: Restart",
+        "魔法少女育成計画 restart"
+      ],
+      "artistCandidates": [
+        "125",
+        "Daisy×Daisy",
+        "Daisy x Daisy",
+        "Daisy Daisy",
+        "7aRuyfAPmG5sOTaKTv2mJf",
+        "1460659133",
+        "8184768",
+        "UC_L4SD61HE8KajhkywBy12g"
+      ]
+    },
     {
       "id": "27959",
       "anime": "Romelia War Chronicle",
@@ -273,68 +333,20 @@
         "377320371",
         "UC-0lpvzhBM10zWUo5FKxmYg"
       ]
-    },
-    {
-      "id": "27954",
-      "anime": "Tank Chair",
-      "song": "SYNC",
-      "artist": "DAOKO",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/5BCgyZMQyzIFmr5OPRTtit",
-      "apple": "https://geo.music.apple.com/album/6809367571?i=6809367581&at=1001l384j&ct=website-tank-chair-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/893b16711e5bf15eb0e897201bb222aa30a76aa7@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/tank-chair-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "SYNC"
-      ],
-      "animeCandidates": [
-        "Tank Chair",
-        "Sensha Isu",
-        "TANK CHAIR-戦車椅子-"
-      ],
-      "artistCandidates": [
-        "273",
-        "DAOKO",
-        "5Qeyh2XKoITt1mlEVtzazC",
-        "547853144",
-        "333628081",
-        "UCN6CRLFQD6VmYzSE2zsIjyw"
-      ]
     }
   ],
   "errors": [],
   "thumbnailFieldSamples": [
+    {
+      "id": "27986",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/18189b74746f9accf0750616617b646e16f8bd45.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LKQcMAtR?^V@o}V@8_WB4noft7af",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/18189b74746f9accf0750616617b646e16f8bd45@2xl.jpg"
+    },
     {
       "id": "27959",
       "thumbnailType": "string",
@@ -378,12 +390,12 @@
     {
       "id": "27954",
       "thumbnailType": "string",
-      "thumbnail": "thumbnails/893b16711e5bf15eb0e897201bb222aa30a76aa7.jpg",
+      "thumbnail": "thumbnails/2a817eedc5795c86209953a351376fade76ad2fb.jpeg",
       "thumbnailHashType": "string",
-      "thumbnail_hash": "LOH_*,^}~JTj~XMyi[ImyAo|oIM*",
+      "thumbnail_hash": "LPPpBL?_Rj+Z_OKkTeNxMycErqni",
       "blurImageType": "number",
       "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/893b16711e5bf15eb0e897201bb222aa30a76aa7@2xl.jpg"
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/2a817eedc5795c86209953a351376fade76ad2fb@2xl.jpeg"
     },
     {
       "id": "27953",
@@ -444,23 +456,13 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/bfe2ddaba65ade698ba6908a1cca838a1a5dae56@2xl.jpg"
-    },
-    {
-      "id": "27951",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/18189b74746f9accf0750616617b646e16f8bd45.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LKQcMAtR?^V@o}V@8_WB4noft7af",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/18189b74746f9accf0750616617b646e16f8bd45@2xl.jpg"
     }
   ],
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -468,7 +470,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -476,7 +478,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -484,7 +486,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -492,7 +494,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -500,7 +502,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -508,7 +510,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -516,7 +518,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -524,7 +526,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -532,7 +534,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -540,7 +542,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -548,7 +550,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -556,7 +558,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -564,7 +566,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -572,7 +574,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -580,7 +582,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -588,7 +590,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -596,7 +598,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -604,7 +606,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 9,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -612,7 +614,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -620,21 +622,81 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 10,
-      "nbHits": 163,
+      "nbHits": 164,
       "hitsPerPage": 16,
       "nbPages": 11,
-      "count": 3
+      "count": 4
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28228,
+      "nbHits": 28245,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
     }
   ],
   "normalizedSamples": [
+    {
+      "id": "27986",
+      "anime": "Magical Girl Raising Project: Restart",
+      "song": "ReMind",
+      "artist": "Daisy×Daisy",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PCRuecwNHzMVH57Oj5z5f",
+      "apple": "https://geo.music.apple.com/album/6818981167?i=6818981171&at=1001l384j&ct=website-magical-girl-raising-project-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/18189b74746f9accf0750616617b646e16f8bd45@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/magical-girl-raising-project-restart-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "ReMind"
+      ],
+      "animeCandidates": [
+        "Magical Girl Raising Project: Restart",
+        "Mahou Shoujo Ikusei Keikaku: Restart",
+        "魔法少女育成計画 restart"
+      ],
+      "artistCandidates": [
+        "125",
+        "Daisy×Daisy",
+        "Daisy x Daisy",
+        "Daisy Daisy",
+        "7aRuyfAPmG5sOTaKTv2mJf",
+        "1460659133",
+        "8184768",
+        "UC_L4SD61HE8KajhkywBy12g"
+      ]
+    },
     {
       "id": "27959",
       "anime": "Romelia War Chronicle",
@@ -900,7 +962,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/5BCgyZMQyzIFmr5OPRTtit",
       "apple": "https://geo.music.apple.com/album/6809367571?i=6809367581&at=1001l384j&ct=website-tank-chair-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/893b16711e5bf15eb0e897201bb222aa30a76aa7@2xl.jpg",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2a817eedc5795c86209953a351376fade76ad2fb@2xl.jpeg",
       "detailUrl": "https://aniplaylist.com/play/tank-chair-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -2399,70 +2461,16 @@
         "13734255",
         "UCqmlafOBss33lWb8icmifUw"
       ]
-    },
-    {
-      "id": "27921",
-      "anime": "Magical★Explorer",
-      "song": "Double Wings",
-      "artist": "ASCA",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4m3T7THKp6dm7MvDnFhfv4",
-      "apple": "https://geo.music.apple.com/album/6812190559?i=6812190560&at=1001l384j&ct=website-magicalexplorer-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/97e7acdd5485b6877f191c2555c23504540c7118@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/magicalexplorer-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Double Wings"
-      ],
-      "animeCandidates": [
-        "Magical★Explorer",
-        "Magical Explorer: Reborn as a Side Character in a Fantasy Dating Sim",
-        "Magical Explorer: Reincarnated as an Eroge Hero's Friend",
-        "I'll Live Freely With My Eroge Knowledge.",
-        "マジカル★エクスプロ",
-        "マジカル★エクスプローラー"
-      ],
-      "artistCandidates": [
-        "459",
-        "ASCA",
-        "5pjjlQXYjoMFWdjdKOre9s",
-        "1300493324",
-        "6021454",
-        "UCXkItX65rhwqvr8VAenH7xA"
-      ]
     }
   ],
   "detailUrlSamples": [
+    {
+      "id": "27986",
+      "anime": "Magical Girl Raising Project: Restart",
+      "song": "ReMind",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/magical-girl-raising-project-restart-ending"
+    },
     {
       "id": "27959",
       "anime": "Romelia War Chronicle",
@@ -2665,16 +2673,69 @@
       "song": "MY WAY",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/play/reborn-as-a-space-mercenary-i-woke-up-piloting-the-strongest-starship-ending"
-    },
-    {
-      "id": "27921",
-      "anime": "Magical★Explorer",
-      "song": "Double Wings",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/magicalexplorer-ending"
     }
   ],
   "usableSamples": [
+    {
+      "id": "27986",
+      "anime": "Magical Girl Raising Project: Restart",
+      "song": "ReMind",
+      "artist": "Daisy×Daisy",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PCRuecwNHzMVH57Oj5z5f",
+      "apple": "https://geo.music.apple.com/album/6818981167?i=6818981171&at=1001l384j&ct=website-magical-girl-raising-project-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/18189b74746f9accf0750616617b646e16f8bd45@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/magical-girl-raising-project-restart-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "ReMind"
+      ],
+      "animeCandidates": [
+        "Magical Girl Raising Project: Restart",
+        "Mahou Shoujo Ikusei Keikaku: Restart",
+        "魔法少女育成計画 restart"
+      ],
+      "artistCandidates": [
+        "125",
+        "Daisy×Daisy",
+        "Daisy x Daisy",
+        "Daisy Daisy",
+        "7aRuyfAPmG5sOTaKTv2mJf",
+        "1460659133",
+        "8184768",
+        "UC_L4SD61HE8KajhkywBy12g"
+      ]
+    },
     {
       "id": "27959",
       "anime": "Romelia War Chronicle",
@@ -2940,7 +3001,7 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/5BCgyZMQyzIFmr5OPRTtit",
       "apple": "https://geo.music.apple.com/album/6809367571?i=6809367581&at=1001l384j&ct=website-tank-chair-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/893b16711e5bf15eb0e897201bb222aa30a76aa7@2xl.jpg",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2a817eedc5795c86209953a351376fade76ad2fb@2xl.jpeg",
       "detailUrl": "https://aniplaylist.com/play/tank-chair-ending",
       "season": "Fall 2026",
       "rawKeys": [
@@ -4439,70 +4500,17 @@
         "13734255",
         "UCqmlafOBss33lWb8icmifUw"
       ]
-    },
-    {
-      "id": "27921",
-      "anime": "Magical★Explorer",
-      "song": "Double Wings",
-      "artist": "ASCA",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4m3T7THKp6dm7MvDnFhfv4",
-      "apple": "https://geo.music.apple.com/album/6812190559?i=6812190560&at=1001l384j&ct=website-magicalexplorer-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/97e7acdd5485b6877f191c2555c23504540c7118@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/magicalexplorer-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Double Wings"
-      ],
-      "animeCandidates": [
-        "Magical★Explorer",
-        "Magical Explorer: Reborn as a Side Character in a Fantasy Dating Sim",
-        "Magical Explorer: Reincarnated as an Eroge Hero's Friend",
-        "I'll Live Freely With My Eroge Knowledge.",
-        "マジカル★エクスプロ",
-        "マジカル★エクスプローラー"
-      ],
-      "artistCandidates": [
-        "459",
-        "ASCA",
-        "5pjjlQXYjoMFWdjdKOre9s",
-        "1300493324",
-        "6021454",
-        "UCXkItX65rhwqvr8VAenH7xA"
-      ]
     }
   ],
   "platformSamples": [
+    {
+      "id": "27986",
+      "anime": "Magical Girl Raising Project: Restart",
+      "song": "ReMind",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/5PCRuecwNHzMVH57Oj5z5f",
+      "apple": "https://geo.music.apple.com/album/6818981167?i=6818981171&at=1001l384j&ct=website-magical-girl-raising-project-ed&app=music"
+    },
     {
       "id": "27959",
       "anime": "Romelia War Chronicle",
@@ -4734,14 +4742,6 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/7ij9fk7RxVKLI4XdjsgPeT",
       "apple": "https://geo.music.apple.com/album/6811917089?i=6811917094&at=1001l384j&ct=website-reborn-as-a-space-mercenary-i-ed&app=music"
-    },
-    {
-      "id": "27921",
-      "anime": "Magical★Explorer",
-      "song": "Double Wings",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/4m3T7THKp6dm7MvDnFhfv4",
-      "apple": "https://geo.music.apple.com/album/6812190559?i=6812190560&at=1001l384j&ct=website-magicalexplorer-ed&app=music"
     }
   ]
 }
