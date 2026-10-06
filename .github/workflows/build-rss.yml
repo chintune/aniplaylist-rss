@@ -63,6 +63,16 @@ jobs:
 
 
       # --------------------------------------------------
+      # Validate JavaScript before any remote Spotify changes
+      # --------------------------------------------------
+
+      - name: Validate JavaScript
+        run: |
+          node --check scrape.mjs
+          node --check spotify.mjs
+
+
+      # --------------------------------------------------
       # Build AniPlaylist RSS
       # --------------------------------------------------
 
@@ -94,6 +104,10 @@ jobs:
           echo ""
           echo "===== SPOTIFY PLAYLIST CONFIG ====="
           cat spotify-playlists.json 2>/dev/null || true
+
+          echo ""
+          echo "===== SPOTIFY CURRENT SOURCE ====="
+          cat spotify-current.json 2>/dev/null || true
 
           echo ""
           echo "===== DEBUG FILES ====="
