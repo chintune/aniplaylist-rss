@@ -1,22 +1,150 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 164,
+  "resultCount": 165,
   "jsonResponses": 24,
   "algoliaResponses": 11,
   "hitArrays": 22,
-  "rawHits": 164,
-  "uniqueHits": 164,
-  "normalized": 164,
-  "withSpotify": 82,
-  "withApple": 76,
-  "withDetailUrl": 164,
-  "resolvedSpotify": 82,
-  "recordThumbnails": 164,
+  "rawHits": 165,
+  "uniqueHits": 165,
+  "normalized": 165,
+  "withSpotify": 88,
+  "withApple": 82,
+  "withDetailUrl": 165,
+  "resolvedSpotify": 88,
+  "recordThumbnails": 165,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
   "sample": [
+    {
+      "id": "27993",
+      "anime": "A Tale of the Secret Saint",
+      "song": "STELLAR",
+      "artist": "UTAHIME DREAM",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4saoafzCTr5otd6o3GWS8x",
+      "apple": "https://geo.music.apple.com/album/6806172661?i=6806172662&at=1001l384j&ct=website-a-tale-of-the-secret-saint-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/a-tale-of-the-secret-saint-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "STELLAR"
+      ],
+      "animeCandidates": [
+        "A Tale of the Secret Saint",
+        "Tensei shita Daiseijo wa, Seijo de Aru Koto wo Hitakakusu",
+        "A Tale of the Great Saint",
+        "The Reincarnated Great Saint Hides That She's a Saint",
+        "転生した大聖女は、聖女であることをひた隠す"
+      ],
+      "artistCandidates": [
+        "23815",
+        "UTAHIME DREAM",
+        "ウタヒメドリーム",
+        "6MQOCOPNbVeEZvGIt1FKuY",
+        "16173",
+        "UTAHIME DREAM ALLSTARS",
+        "ウタヒメドリーム オールスターズ",
+        "UTAHIME DREAM ALLSTARS【Ibuki Yumesaki (CV: Rena Yamasaki), Maika Sakuragi (CV: Anna Suzuki), Kiyomi Mashiro (CV: Arisa Sonohara), HiREN (CV: Kaya), Hikari Mizutsuki (CV: Karin Isobe), Rin Takagi (CV: Tomomi Jenna Sumi), Himawari Hagiwara (CV: Reo Kurachi)】",
+        "ウタヒメドリーム オールスターズ 【夢咲いぶき (CV: 山﨑玲奈), 桜木舞華 (CV: 鈴木杏奈), 真白清美 (CV: 其原有沙), HiREN (CV: 花耶), 水月ひかり (CV: 礒部花凜), 高木凛 (CV: 鷲見友美ジェナ), 萩原ひまわり (CV: 倉知玲鳳)】",
+        "UTAHIME DREAM ALLSTARS【Ibuki Yumesaki (CV: Rena Yamasaki), Maika Sakuragi (CV: Anna Suzuki), Kiyomi Mashiro (CV: Arisa Sonohara), HiREN (CV: Kaya), Hikari Mizutsuki (CV: Karin Isobe), Rin Takagi (CV: Tomomi Jenna Sumi), Himawari Hagiwara (CV: Reo Kurachi), SAKURAKO (CV: Yume Takeuchi)】",
+        "ウタヒメドリーム オールスターズ【夢咲いぶき（CV: 山﨑玲奈）, 桜木舞華（CV: 鈴木杏奈）, 真白清美（CV: 其原有沙）, HiREN（CV: 花耶）, 水月ひかり（CV: 礒部花凜）, 高木凛（CV: 鷲見友美ジェナ), 萩原ひまわり（CV: 倉知玲鳳）, SAKURAKO（CV: 竹内夢）】",
+        "30QUAly0HJwNZ0tQd5SpY8",
+        "1711511094",
+        "346769621",
+        "24808",
+        "UCx2MQBktBMjtoqFqJ39Os1g"
+      ]
+    },
+    {
+      "id": "27992",
+      "anime": "Black Clover 2nd Season",
+      "song": "Yellow Brick Road",
+      "artist": "ONE OR EIGHT",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Duhsnc052Fq0ifYaPGuY5",
+      "apple": "https://geo.music.apple.com/album/6815891682?i=6815891957&at=1001l384j&ct=website-black-clover-2nd-season-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/994373439d025530848b51f6286a082c0f298f83@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Yellow Brick Road"
+      ],
+      "animeCandidates": [
+        "Black Clover 2nd Season",
+        "ブラッククローバー 2nd season",
+        "Black Clover Season 2"
+      ],
+      "artistCandidates": [
+        "19216",
+        "ONE OR EIGHT",
+        "5bIttAFRf7URUmuuI9w7XA",
+        "1758291632",
+        "275967661",
+        "UCwwBJHxlinPZ6cHS6UzQ7Ig"
+      ]
+    },
     {
       "id": "27986",
       "anime": "Magical Girl Raising Project: Restart",
@@ -204,139 +332,30 @@
         "200498657",
         "UCNqzk1hGE1UbZRTCMYsdrHg"
       ]
-    },
-    {
-      "id": "27957",
-      "anime": "The Cold Sato-san is Only Sweet to Me",
-      "song": "Sugar Salt",
-      "artist": "Masayoshi Ooishi",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/5jw9l2FDkdTFJibYf9RVrv",
-      "apple": "https://geo.music.apple.com/album/6810886176?i=6810886177&at=1001l384j&ct=website-the-cold-sato-san-is-only-swe-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/the-cold-sato-san-is-only-sweet-to-me-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Sugar Salt",
-        "シュガーソルト"
-      ],
-      "animeCandidates": [
-        "The Cold Sato-san is Only Sweet to Me",
-        "Shiotaiou no Satou-san ga Ore ni dake Amai",
-        "Aren't You Too Sweet Salt-God Sato-san?",
-        "塩対応の佐藤さんが俺にだけ甘い",
-        "Aren't You Too Sweet Salt-God Sato-san"
-      ],
-      "artistCandidates": [
-        "242",
-        "Masayoshi Ooishi",
-        "大石昌良",
-        "オーイシマサヨシ",
-        "Masayoshi Ohishi",
-        "Masayoshi Oishi",
-        "Oishi Masayoshi",
-        "2NmgIfLAFl1DD1FZOY4YqC",
-        "908870855",
-        "6490211",
-        "UCyDjbU5RDfEWFyFEtY9Rj4w"
-      ]
-    },
-    {
-      "id": "27955",
-      "anime": "Magical Sisters Lulutto Lilly Part 2",
-      "song": "Dream à la Mode",
-      "artist": "Lulutto Lilly",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/734IdTiwSazrG9E0qoroH0",
-      "apple": "https://geo.music.apple.com/album/6807839360?i=6807839366&at=1001l384j&ct=website-magical-sisters-lulutto-lilly-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/73bb8a425866482deb24ebdde3d807a8a23ab730@2xl.jpeg",
-      "detailUrl": "https://aniplaylist.com/play/magical-sisters-lulutto-lilly-part-2-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Dream à la Mode",
-        "どりぃむアラモード"
-      ],
-      "animeCandidates": [
-        "Magical Sisters Lulutto Lilly Part 2",
-        "魔法の姉妹ルルットリリィ 第2クール",
-        "Mahou no Shimai Lulutto Lilly Part 2"
-      ],
-      "artistCandidates": [
-        "19739",
-        "Lulutto Lilly",
-        "ルルットリリィ",
-        "Lulutto Lilly [CompatoLilly (CV: May Tachibana), MashuLulu (CV: Nao Ojika)]",
-        "ルルットリリィ [こんぺとリリィ (CV: 橘めい)、ましゅールル (CV.小鹿なお)]",
-        "LuluttoLilly",
-        "6lWX6iEZImX6muub7hBTHy",
-        "1882213719",
-        "377320371",
-        "UC-0lpvzhBM10zWUo5FKxmYg"
-      ]
     }
   ],
   "errors": [],
   "thumbnailFieldSamples": [
+    {
+      "id": "27993",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LoJSU%vNNeS$LNjbofR*I:NeWCnP",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301@2xl.jpg"
+    },
+    {
+      "id": "27992",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/994373439d025530848b51f6286a082c0f298f83.jpg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LLDcdT~DwJ-i_Ms=M|t3R+R*SwRS",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/994373439d025530848b51f6286a082c0f298f83@2xl.jpg"
+    },
     {
       "id": "27986",
       "thumbnailType": "string",
@@ -436,33 +455,13 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/eeec96f49a4b773ef3364872853c07aa3aa68126@2xl.jpeg"
-    },
-    {
-      "id": "27950",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/fe87d2a5c201e20f5974ed98f7d6f7b57c757d9c.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LGL4{Q00t.S6_I4.+tsq00-is?VY",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/fe87d2a5c201e20f5974ed98f7d6f7b57c757d9c@2xl.jpg"
-    },
-    {
-      "id": "27948",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/bfe2ddaba65ade698ba6908a1cca838a1a5dae56.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LGGlk+8_P8VX%%IA.7Mw?KyEtO-o",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/bfe2ddaba65ade698ba6908a1cca838a1a5dae56@2xl.jpg"
     }
   ],
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -470,7 +469,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -478,7 +477,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -486,7 +485,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -494,7 +493,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -502,7 +501,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -510,7 +509,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -518,7 +517,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -526,7 +525,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -534,7 +533,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -542,7 +541,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -550,7 +549,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -558,7 +557,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -566,7 +565,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -574,7 +573,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -582,7 +581,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -590,7 +589,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -598,7 +597,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -606,7 +605,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 9,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
       "count": 16
@@ -614,7 +613,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
@@ -622,21 +621,149 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 10,
-      "nbHits": 164,
+      "nbHits": 165,
       "hitsPerPage": 16,
       "nbPages": 11,
-      "count": 4
+      "count": 5
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 28245,
+      "nbHits": 28246,
       "hitsPerPage": 0,
       "nbPages": 0,
       "count": 0
     }
   ],
   "normalizedSamples": [
+    {
+      "id": "27993",
+      "anime": "A Tale of the Secret Saint",
+      "song": "STELLAR",
+      "artist": "UTAHIME DREAM",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4saoafzCTr5otd6o3GWS8x",
+      "apple": "https://geo.music.apple.com/album/6806172661?i=6806172662&at=1001l384j&ct=website-a-tale-of-the-secret-saint-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/a-tale-of-the-secret-saint-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "STELLAR"
+      ],
+      "animeCandidates": [
+        "A Tale of the Secret Saint",
+        "Tensei shita Daiseijo wa, Seijo de Aru Koto wo Hitakakusu",
+        "A Tale of the Great Saint",
+        "The Reincarnated Great Saint Hides That She's a Saint",
+        "転生した大聖女は、聖女であることをひた隠す"
+      ],
+      "artistCandidates": [
+        "23815",
+        "UTAHIME DREAM",
+        "ウタヒメドリーム",
+        "6MQOCOPNbVeEZvGIt1FKuY",
+        "16173",
+        "UTAHIME DREAM ALLSTARS",
+        "ウタヒメドリーム オールスターズ",
+        "UTAHIME DREAM ALLSTARS【Ibuki Yumesaki (CV: Rena Yamasaki), Maika Sakuragi (CV: Anna Suzuki), Kiyomi Mashiro (CV: Arisa Sonohara), HiREN (CV: Kaya), Hikari Mizutsuki (CV: Karin Isobe), Rin Takagi (CV: Tomomi Jenna Sumi), Himawari Hagiwara (CV: Reo Kurachi)】",
+        "ウタヒメドリーム オールスターズ 【夢咲いぶき (CV: 山﨑玲奈), 桜木舞華 (CV: 鈴木杏奈), 真白清美 (CV: 其原有沙), HiREN (CV: 花耶), 水月ひかり (CV: 礒部花凜), 高木凛 (CV: 鷲見友美ジェナ), 萩原ひまわり (CV: 倉知玲鳳)】",
+        "UTAHIME DREAM ALLSTARS【Ibuki Yumesaki (CV: Rena Yamasaki), Maika Sakuragi (CV: Anna Suzuki), Kiyomi Mashiro (CV: Arisa Sonohara), HiREN (CV: Kaya), Hikari Mizutsuki (CV: Karin Isobe), Rin Takagi (CV: Tomomi Jenna Sumi), Himawari Hagiwara (CV: Reo Kurachi), SAKURAKO (CV: Yume Takeuchi)】",
+        "ウタヒメドリーム オールスターズ【夢咲いぶき（CV: 山﨑玲奈）, 桜木舞華（CV: 鈴木杏奈）, 真白清美（CV: 其原有沙）, HiREN（CV: 花耶）, 水月ひかり（CV: 礒部花凜）, 高木凛（CV: 鷲見友美ジェナ), 萩原ひまわり（CV: 倉知玲鳳）, SAKURAKO（CV: 竹内夢）】",
+        "30QUAly0HJwNZ0tQd5SpY8",
+        "1711511094",
+        "346769621",
+        "24808",
+        "UCx2MQBktBMjtoqFqJ39Os1g"
+      ]
+    },
+    {
+      "id": "27992",
+      "anime": "Black Clover 2nd Season",
+      "song": "Yellow Brick Road",
+      "artist": "ONE OR EIGHT",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Duhsnc052Fq0ifYaPGuY5",
+      "apple": "https://geo.music.apple.com/album/6815891682?i=6815891957&at=1001l384j&ct=website-black-clover-2nd-season-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/994373439d025530848b51f6286a082c0f298f83@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Yellow Brick Road"
+      ],
+      "animeCandidates": [
+        "Black Clover 2nd Season",
+        "ブラッククローバー 2nd season",
+        "Black Clover Season 2"
+      ],
+      "artistCandidates": [
+        "19216",
+        "ONE OR EIGHT",
+        "5bIttAFRf7URUmuuI9w7XA",
+        "1758291632",
+        "275967661",
+        "UCwwBJHxlinPZ6cHS6UzQ7Ig"
+      ]
+    },
     {
       "id": "27986",
       "anime": "Magical Girl Raising Project: Restart",
@@ -2341,129 +2468,23 @@
         "NBCUniversal Anime/Music",
         "UCeOMz8AiNhsDhEovu5_3ujQ"
       ]
-    },
-    {
-      "id": "27918",
-      "anime": "Even the Student Council Has Its Holes!",
-      "song": "Kaze no Naka wa Hashirukkyanai!",
-      "artist": "Sangatsu no Phantasia",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4fK5Y2ExgkIIurCMwt688I",
-      "apple": "https://geo.music.apple.com/album/6812190429?i=6812190650&at=1001l384j&ct=website-even-the-student-council-has-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/64b9e587aa9870116c025763b9aebfdba1cae204@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/even-the-student-council-has-its-holes-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Kaze no Naka wa Hashirukkyanai!",
-        "風の中は走るっきゃないっ！"
-      ],
-      "animeCandidates": [
-        "Even the Student Council Has Its Holes!",
-        "Seitokai ni mo Ana wa Aru!",
-        "生徒会にも穴はある！",
-        "There Is Also a Hole in the Student Organization!"
-      ],
-      "artistCandidates": [
-        "360",
-        "Sangatsu no Phantasia",
-        "三月のパンタシア",
-        "5WmX340gDNLIAyUcg4MzWN",
-        "1097659633",
-        "10665133",
-        "UChmAdYjOdnnrSA2kBMKdoYw"
-      ]
-    },
-    {
-      "id": "27924",
-      "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
-      "song": "MY WAY",
-      "artist": "ASTERISM",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7ij9fk7RxVKLI4XdjsgPeT",
-      "apple": "https://geo.music.apple.com/album/6811917089?i=6811917094&at=1001l384j&ct=website-reborn-as-a-space-mercenary-i-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/9102be2a0603cea217427d0d9b46fba4f1ef0c8c@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/reborn-as-a-space-mercenary-i-woke-up-piloting-the-strongest-starship-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "MY WAY"
-      ],
-      "animeCandidates": [
-        "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
-        "Mezametara Saikyou Soubi to Uchuusenmochi Datta node, Ikkodate Mezashite Youhei toshite Jiyuu ni Ikitai",
-        "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
-        "Mezameza"
-      ],
-      "artistCandidates": [
-        "16848",
-        "ASTERISM",
-        "65T5OWkp6XPHZzurwEaBl6",
-        "1308141595",
-        "13734255",
-        "UCqmlafOBss33lWb8icmifUw"
-      ]
     }
   ],
   "detailUrlSamples": [
+    {
+      "id": "27993",
+      "anime": "A Tale of the Secret Saint",
+      "song": "STELLAR",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/a-tale-of-the-secret-saint-ending"
+    },
+    {
+      "id": "27992",
+      "anime": "Black Clover 2nd Season",
+      "song": "Yellow Brick Road",
+      "kind": "ED",
+      "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-ending"
+    },
     {
       "id": "27986",
       "anime": "Magical Girl Raising Project: Restart",
@@ -2659,23 +2680,137 @@
       "song": "Melodic Impact",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/a-wild-last-boss-appeared-season-2-opening"
-    },
-    {
-      "id": "27918",
-      "anime": "Even the Student Council Has Its Holes!",
-      "song": "Kaze no Naka wa Hashirukkyanai!",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/even-the-student-council-has-its-holes-opening"
-    },
-    {
-      "id": "27924",
-      "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
-      "song": "MY WAY",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/play/reborn-as-a-space-mercenary-i-woke-up-piloting-the-strongest-starship-ending"
     }
   ],
   "usableSamples": [
+    {
+      "id": "27993",
+      "anime": "A Tale of the Secret Saint",
+      "song": "STELLAR",
+      "artist": "UTAHIME DREAM",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4saoafzCTr5otd6o3GWS8x",
+      "apple": "https://geo.music.apple.com/album/6806172661?i=6806172662&at=1001l384j&ct=website-a-tale-of-the-secret-saint-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2afa92f0e75be1a945178c2c6f4fd4b22fd69301@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/a-tale-of-the-secret-saint-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "STELLAR"
+      ],
+      "animeCandidates": [
+        "A Tale of the Secret Saint",
+        "Tensei shita Daiseijo wa, Seijo de Aru Koto wo Hitakakusu",
+        "A Tale of the Great Saint",
+        "The Reincarnated Great Saint Hides That She's a Saint",
+        "転生した大聖女は、聖女であることをひた隠す"
+      ],
+      "artistCandidates": [
+        "23815",
+        "UTAHIME DREAM",
+        "ウタヒメドリーム",
+        "6MQOCOPNbVeEZvGIt1FKuY",
+        "16173",
+        "UTAHIME DREAM ALLSTARS",
+        "ウタヒメドリーム オールスターズ",
+        "UTAHIME DREAM ALLSTARS【Ibuki Yumesaki (CV: Rena Yamasaki), Maika Sakuragi (CV: Anna Suzuki), Kiyomi Mashiro (CV: Arisa Sonohara), HiREN (CV: Kaya), Hikari Mizutsuki (CV: Karin Isobe), Rin Takagi (CV: Tomomi Jenna Sumi), Himawari Hagiwara (CV: Reo Kurachi)】",
+        "ウタヒメドリーム オールスターズ 【夢咲いぶき (CV: 山﨑玲奈), 桜木舞華 (CV: 鈴木杏奈), 真白清美 (CV: 其原有沙), HiREN (CV: 花耶), 水月ひかり (CV: 礒部花凜), 高木凛 (CV: 鷲見友美ジェナ), 萩原ひまわり (CV: 倉知玲鳳)】",
+        "UTAHIME DREAM ALLSTARS【Ibuki Yumesaki (CV: Rena Yamasaki), Maika Sakuragi (CV: Anna Suzuki), Kiyomi Mashiro (CV: Arisa Sonohara), HiREN (CV: Kaya), Hikari Mizutsuki (CV: Karin Isobe), Rin Takagi (CV: Tomomi Jenna Sumi), Himawari Hagiwara (CV: Reo Kurachi), SAKURAKO (CV: Yume Takeuchi)】",
+        "ウタヒメドリーム オールスターズ【夢咲いぶき（CV: 山﨑玲奈）, 桜木舞華（CV: 鈴木杏奈）, 真白清美（CV: 其原有沙）, HiREN（CV: 花耶）, 水月ひかり（CV: 礒部花凜）, 高木凛（CV: 鷲見友美ジェナ), 萩原ひまわり（CV: 倉知玲鳳）, SAKURAKO（CV: 竹内夢）】",
+        "30QUAly0HJwNZ0tQd5SpY8",
+        "1711511094",
+        "346769621",
+        "24808",
+        "UCx2MQBktBMjtoqFqJ39Os1g"
+      ]
+    },
+    {
+      "id": "27992",
+      "anime": "Black Clover 2nd Season",
+      "song": "Yellow Brick Road",
+      "artist": "ONE OR EIGHT",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Duhsnc052Fq0ifYaPGuY5",
+      "apple": "https://geo.music.apple.com/album/6815891682?i=6815891957&at=1001l384j&ct=website-black-clover-2nd-season-ed&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/994373439d025530848b51f6286a082c0f298f83@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-ending",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Yellow Brick Road"
+      ],
+      "animeCandidates": [
+        "Black Clover 2nd Season",
+        "ブラッククローバー 2nd season",
+        "Black Clover Season 2"
+      ],
+      "artistCandidates": [
+        "19216",
+        "ONE OR EIGHT",
+        "5bIttAFRf7URUmuuI9w7XA",
+        "1758291632",
+        "275967661",
+        "UCwwBJHxlinPZ6cHS6UzQ7Ig"
+      ]
+    },
     {
       "id": "27986",
       "anime": "Magical Girl Raising Project: Restart",
@@ -4380,129 +4515,25 @@
         "NBCUniversal Anime/Music",
         "UCeOMz8AiNhsDhEovu5_3ujQ"
       ]
-    },
-    {
-      "id": "27918",
-      "anime": "Even the Student Council Has Its Holes!",
-      "song": "Kaze no Naka wa Hashirukkyanai!",
-      "artist": "Sangatsu no Phantasia",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4fK5Y2ExgkIIurCMwt688I",
-      "apple": "https://geo.music.apple.com/album/6812190429?i=6812190650&at=1001l384j&ct=website-even-the-student-council-has-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/64b9e587aa9870116c025763b9aebfdba1cae204@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/even-the-student-council-has-its-holes-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Kaze no Naka wa Hashirukkyanai!",
-        "風の中は走るっきゃないっ！"
-      ],
-      "animeCandidates": [
-        "Even the Student Council Has Its Holes!",
-        "Seitokai ni mo Ana wa Aru!",
-        "生徒会にも穴はある！",
-        "There Is Also a Hole in the Student Organization!"
-      ],
-      "artistCandidates": [
-        "360",
-        "Sangatsu no Phantasia",
-        "三月のパンタシア",
-        "5WmX340gDNLIAyUcg4MzWN",
-        "1097659633",
-        "10665133",
-        "UChmAdYjOdnnrSA2kBMKdoYw"
-      ]
-    },
-    {
-      "id": "27924",
-      "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
-      "song": "MY WAY",
-      "artist": "ASTERISM",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7ij9fk7RxVKLI4XdjsgPeT",
-      "apple": "https://geo.music.apple.com/album/6811917089?i=6811917094&at=1001l384j&ct=website-reborn-as-a-space-mercenary-i-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/9102be2a0603cea217427d0d9b46fba4f1ef0c8c@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/reborn-as-a-space-mercenary-i-woke-up-piloting-the-strongest-starship-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "MY WAY"
-      ],
-      "animeCandidates": [
-        "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
-        "Mezametara Saikyou Soubi to Uchuusenmochi Datta node, Ikkodate Mezashite Youhei toshite Jiyuu ni Ikitai",
-        "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
-        "Mezameza"
-      ],
-      "artistCandidates": [
-        "16848",
-        "ASTERISM",
-        "65T5OWkp6XPHZzurwEaBl6",
-        "1308141595",
-        "13734255",
-        "UCqmlafOBss33lWb8icmifUw"
-      ]
     }
   ],
   "platformSamples": [
+    {
+      "id": "27993",
+      "anime": "A Tale of the Secret Saint",
+      "song": "STELLAR",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4saoafzCTr5otd6o3GWS8x",
+      "apple": "https://geo.music.apple.com/album/6806172661?i=6806172662&at=1001l384j&ct=website-a-tale-of-the-secret-saint-ed&app=music"
+    },
+    {
+      "id": "27992",
+      "anime": "Black Clover 2nd Season",
+      "song": "Yellow Brick Road",
+      "kind": "ED",
+      "spotify": "https://open.spotify.com/track/4Duhsnc052Fq0ifYaPGuY5",
+      "apple": "https://geo.music.apple.com/album/6815891682?i=6815891957&at=1001l384j&ct=website-black-clover-2nd-season-ed&app=music"
+    },
     {
       "id": "27986",
       "anime": "Magical Girl Raising Project: Restart",
@@ -4726,22 +4757,6 @@
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/5xILnAURvhSAc6ie2SHR4D",
       "apple": "https://geo.music.apple.com/album/6817986624?i=6817986647&at=1001l384j&ct=website-a-wild-last-boss-appeared-sea-op&app=music"
-    },
-    {
-      "id": "27918",
-      "anime": "Even the Student Council Has Its Holes!",
-      "song": "Kaze no Naka wa Hashirukkyanai!",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/4fK5Y2ExgkIIurCMwt688I",
-      "apple": "https://geo.music.apple.com/album/6812190429?i=6812190650&at=1001l384j&ct=website-even-the-student-council-has-op&app=music"
-    },
-    {
-      "id": "27924",
-      "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
-      "song": "MY WAY",
-      "kind": "ED",
-      "spotify": "https://open.spotify.com/track/7ij9fk7RxVKLI4XdjsgPeT",
-      "apple": "https://geo.music.apple.com/album/6811917089?i=6811917094&at=1001l384j&ct=website-reborn-as-a-space-mercenary-i-ed&app=music"
     }
   ]
 }
