@@ -3,483 +3,309 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 
-const CONFIG_PATH = path.join(
-  ROOT,
-  "spotify-playlists.json"
-);
+const CONFIG_PATH = path.join(ROOT, "spotify-playlists.json");
+const RSS_DIR = path.join(ROOT, "rss");
+const SITE_DIR = path.join(ROOT, "site");
 
-const RSS_DIR = path.join(
-  ROOT,
-  "rss"
-);
+const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
+const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
 
-const SITE_DIR = path.join(
-  ROOT,
-  "site"
-);
-
-const CLIENT_ID =
-  process.env.SPOTIFY_CLIENT_ID;
-
-const REFRESH_TOKEN =
-  process.env.SPOTIFY_REFRESH_TOKEN;
-
-if (
-  !CLIENT_ID ||
-  !REFRESH_TOKEN
-) {
+if (!CLIENT_ID || !REFRESH_TOKEN) {
   console.log(
     "Spotify secrets are not configured; skipping Spotify playlist sync."
   );
-
   process.exit(0);
 }
 
-const API =
-  "https://api.spotify.com/v1";
-
-const TOKEN_URL =
-  "https://accounts.spotify.com/api/token";
+const API = "https://api.spotify.com/v1";
+const TOKEN_URL = "https://accounts.spotify.com/api/token";
 
 const SITE_BASE = String(
   process.env.SITE_BASE ||
     "https://chintune.github.io/aniplaylist-rss"
 ).replace(/\/$/, "");
 
+/* -------------------------------------------------------------------------- */
+/* Helpers                                                                    */
+/* -------------------------------------------------------------------------- */
 
-/* =========================================================
-   JSON
-   ========================================================= */
-
-async function readJson(
-  file,
-  fallback = undefined
-) {
+async function readJson(file, fallback = null) {
   try {
-    return JSON.parse(
-      await fs.readFile(
-        file,
-        "utf8"
-      )
-    );
+    const text = await fs.readFile(file, "utf8");
+    return JSON.parse(text);
   } catch (error) {
-    if (
-      fallback !== undefined
-    ) {
+    if (fallback !== null) {
       return fallback;
     }
-
-    throw new Error(
-      `Could not read ${file}: ${error.message}`
-    );
+    throw error;
   }
 }
 
-
-/* =========================================================
-   SPOTIFY AUTH
-   ========================================================= */
-
 async function refreshAccessToken() {
-  const response =
-    await fetch(TOKEN_URL, {
-      method: "POST",
+  const body = new URLSearchParams({
+    grant_type: "refresh_token",
+    refresh_token: REFRESH_TOKEN,
+    client_id: CLIENT_ID
+  });
 
-      headers: {
-        "Content-Type":
-          "application/x-www-form-urlencoded"
-      },
+  const response = await fetch(TOKEN_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body
+  });
 
-      body:
-        new URLSearchParams({
-          grant_type:
-            "refresh_token",
+  const text = await response.text();
 
-          refresh_token:
-            REFRESH_TOKEN,
+  let data;
 
-          client_id:
-            CLIENT_ID
-        })
-    });
-
-  const data =
-    await response.json();
+  try {
+    data = JSON.parse(text);
+  } catch {
+    throw new Error(
+      `Spotify token endpoint returned invalid JSON: ${text.slice(0, 500)}`
+    );
+  }
 
   if (!response.ok) {
     throw new Error(
-      `Spotify token refresh failed: ${
-        data.error ||
-        response.status
-      } ${
-        data.error_description ||
-        ""
-      }`.trim()
+      `Spotify token refresh failed (${response.status}): ${JSON.stringify(
+        data
+      )}`
     );
+  }
+
+  if (!data.access_token) {
+    throw new Error("Spotify token refresh succeeded but no access_token was returned.");
   }
 
   return data.access_token;
 }
 
+async function spotifyRequest(token, endpoint, options = {}) {
+  const response = await fetch(`${API}${endpoint}`, {
+    ...options,
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+      ...(options.body
+        ? {
+            "Content-Type": "application/json"
+          }
+        : {}),
+      ...(options.headers || {})
+    }
+  });
 
-async function spotifyRequest(
-  token,
-  endpoint,
-  options = {}
-) {
-  const response =
-    await fetch(
-      `${API}${endpoint}`,
-      {
-        ...options,
+  const text = await response.text();
 
-        headers: {
-          Authorization:
-            `Bearer ${token}`,
+  let data = null;
 
-          "Content-Type":
-            "application/json",
-
-          ...(options.headers || {})
-        }
-      }
-    );
-
-  const text =
-    await response.text();
-
-  let data = {};
-
-  try {
-    data = text
-      ? JSON.parse(text)
-      : {};
-  } catch {
-    data = {};
+  if (text) {
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = text;
+    }
   }
 
   if (!response.ok) {
-    const retryAfter =
-      response.headers.get(
-        "retry-after"
-      );
+    const retryAfter = response.headers.get("retry-after");
 
-    throw new Error(
-      `Spotify API ${
-        response.status
-      }: ${
-        data.error?.message ||
-        text ||
-        "request failed"
-      }${
-        retryAfter
-          ? ` (Retry-After: ${retryAfter}s)`
-          : ""
-      }`
-    );
+    let message = `Spotify API request failed (${response.status}) ${endpoint}`;
+
+    if (retryAfter) {
+      message += `; Retry-After: ${retryAfter}`;
+    }
+
+    if (typeof data === "string") {
+      message += `: ${data.slice(0, 1000)}`;
+    } else {
+      message += `: ${JSON.stringify(data)}`;
+    }
+
+    throw new Error(message);
   }
 
   return data;
 }
 
-
 function sleep(ms) {
-  return new Promise(
-    resolve =>
-      setTimeout(resolve, ms)
-  );
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
-
-/* =========================================================
-   TEXT / HTML / XML HELPERS
-   ========================================================= */
 
 function slug(value) {
   return String(value)
+    .trim()
     .toLowerCase()
-    .replace(
-      /[^a-z0-9]+/g,
-      "-"
-    )
-    .replace(
-      /^-+|-+$/g,
-      "");
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
-
 
 function decodeXml(value) {
-  return String(
-    value ?? ""
-  )
-    .replace(
-      /&lt;/g,
-      "<"
-    )
-    .replace(
-      /&gt;/g,
-      ">"
-    )
-    .replace(
-      /&quot;/g,
-      '"'
-    )
-    .replace(
-      /&apos;/g,
-      "'"
-    )
-    .replace(
-      /&#39;/g,
-      "'"
-    )
-    .replace(
-      /&amp;/g,
-      "&"
-    )
-    .replace(
-      /&#(\d+);/g,
-      (_, n) => {
-        try {
-          return String.fromCodePoint(
-            Number(n)
-          );
-        } catch {
-          return _;
-        }
+  return String(value || "")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/&apos;/gi, "'")
+    .replace(/&#(\d+);/g, (_, n) => {
+      try {
+        return String.fromCodePoint(Number(n));
+      } catch {
+        return _;
       }
-    )
-    .replace(
-      /&#x([0-9a-f]+);/gi,
-      (_, n) => {
-        try {
-          return String.fromCodePoint(
-            parseInt(
-              n,
-              16
-            )
-          );
-        } catch {
-          return _;
-        }
+    })
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => {
+      try {
+        return String.fromCodePoint(parseInt(n, 16));
+      } catch {
+        return _;
       }
-    );
+    });
 }
 
-
 function stripHtml(value) {
-  return decodeXml(
-    String(value ?? "")
-      .replace(
-        /<br\s*\/?>/gi,
-        " "
-      )
-      .replace(
-        /<[^>]*>/g,
-        " "
-      )
-  )
-    .replace(
-      /\s+/g,
-      " "
-    )
+  return String(value || "")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
+function extractXmlTag(block, tag) {
+  const regex = new RegExp(
+    `<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tag}>`,
+    "i"
+  );
 
-function extractXmlTag(
-  block,
-  tagName
-) {
-  const regex =
-    new RegExp(
-      `<${tagName}\\b[^>]*>([\\s\\S]*?)</${tagName}>`,
-      "i"
-    );
-
-  const match =
-    block.match(regex);
-
-  return match
-    ? decodeXml(
-        match[1].trim()
-      )
-    : "";
-}
-
-
-function extractSpotifyUrl(
-  html
-) {
-  const match =
-    String(html ?? "").match(
-      /https?:\/\/open\.spotify\.com\/(track|album)\/([A-Za-z0-9]+)/i
-    );
+  const match = String(block).match(regex);
 
   if (!match) {
     return "";
   }
 
-  return `https://open.spotify.com/${match[1].toLowerCase()}/${match[2]}`;
+  return decodeXml(match[1].trim());
 }
 
+function extractSpotifyUrl(value) {
+  const text = String(value || "");
 
-function extractPageField(
-  html,
-  className
-) {
-  const regex =
-    new RegExp(
-      `<div\\s+class=["']${className}["'][^>]*>([\\s\\S]*?)<\\/div>`,
-      "i"
-    );
+  const match = text.match(
+    /https?:\/\/open\.spotify\.com\/(?:intl-[^/]+\/)?(?:track|album)\/[A-Za-z0-9]+[^\s"'<>)]*/i
+  );
 
-  const match =
-    String(html ?? "").match(
-      regex
-    );
+  if (!match) {
+    return "";
+  }
 
-  return match
-    ? stripHtml(match[1])
-    : "";
-}
-
-
-function normalizeText(
-  value
-) {
-  return String(value ?? "")
-    .normalize("NFKD")
-    .replace(
-      /[\u0300-\u036f]/g,
-      ""
-    )
-    .toLowerCase()
-    .replace(
-      /&/g,
-      " and "
-    )
-    .replace(
-      /[^a-z0-9]+/g,
-      " "
-    )
-    .replace(
-      /\s+/g,
-      " "
-    )
+  return match[0]
+    .replace(/[.,;:]+$/, "")
     .trim();
 }
 
+function extractPageField(html, field) {
+  const escaped = String(field).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-function artistsMatch(
-  trackArtists,
-  wantedArtist
-) {
-  const wanted =
-    normalizeText(
-      wantedArtist
-    );
+  const patterns = [
+    new RegExp(
+      `<meta[^>]+(?:name|property)=["']${escaped}["'][^>]+content=["']([^"']*)["'][^>]*>`,
+      "i"
+    ),
+    new RegExp(
+      `<meta[^>]+content=["']([^"']*)["'][^>]+(?:name|property)=["']${escaped}["'][^>]*>`,
+      "i"
+    ),
+    new RegExp(
+      `<[^>]+data-${escaped}=["']([^"']*)["'][^>]*>`,
+      "i"
+    )
+  ];
+
+  for (const pattern of patterns) {
+    const match = String(html).match(pattern);
+
+    if (match?.[1]) {
+      return decodeXml(stripHtml(match[1]).trim());
+    }
+  }
+
+  return "";
+}
+
+function normalizeText(value) {
+  return String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[’‘`]/g, "'")
+    .replace(/["“”]/g, '"')
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function artistsMatch(track, artist) {
+  const wanted = normalizeText(artist);
 
   if (!wanted) {
     return true;
   }
 
-  return trackArtists.some(
-    artist => {
-      const actual =
-        normalizeText(
-          artist
-        );
+  const artists = Array.isArray(track?.artists)
+    ? track.artists
+        .map((item) => normalizeText(item?.name))
+        .filter(Boolean)
+    : [];
 
-      return (
-        actual === wanted ||
-        actual.includes(wanted) ||
-        wanted.includes(actual)
-      );
-    }
+  if (!artists.length) {
+    return false;
+  }
+
+  return artists.some(
+    (name) =>
+      name === wanted ||
+      name.includes(wanted) ||
+      wanted.includes(name)
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/* Spotify album / track resolution                                            */
+/* -------------------------------------------------------------------------- */
 
-/* =========================================================
-   SPOTIFY ALBUM -> ONE TRACK
-   ========================================================= */
-
-/*
- * IMPORTANT:
- *
- * AniPlaylist may give us:
- *
- * https://open.spotify.com/album/XXXXXXXX
- *
- * That does NOT mean:
- *
- * "Add every song from this album."
- *
- * It means:
- *
- * "This AniPlaylist song is represented by an album link."
- *
- * We inspect the album and add ONLY ONE TRACK.
- *
- * Resolution order:
- *
- * 1. Exact title + artist
- * 2. Exact title
- * 3. Partial / normalized title
- * 4. FIRST TRACK OF ALBUM
- *
- * The first-track fallback is intentional.
- *
- * Some AniPlaylist OST entries use the album title as
- * the song title, so there may be no matching track name.
- *
- * We should not fail the entire Spotify sync because of
- * that metadata mismatch.
- */
-
-async function getAlbumTracks(
-  token,
-  albumId
-) {
+async function getAlbumTracks(token, albumId) {
   const tracks = [];
-
   let offset = 0;
 
   while (true) {
-    const data =
-      await spotifyRequest(
-        token,
-        `/albums/${albumId}/tracks?limit=50&offset=${offset}`,
-        {
-          method: "GET"
-        }
-      );
-
-    const items =
-      Array.isArray(
-        data.items
-      )
-        ? data.items
-        : [];
-
-    tracks.push(
-      ...items
+    const data = await spotifyRequest(
+      token,
+      `/albums/${albumId}/tracks?limit=50&offset=${offset}`,
+      {
+        method: "GET"
+      }
     );
 
-    if (
-      items.length === 0 ||
-      !data.next
-    ) {
+    const items = Array.isArray(data?.items) ? data.items : [];
+
+    tracks.push(...items);
+
+    if (items.length === 0 || !data?.next) {
       break;
     }
 
-    offset +=
-      items.length;
+    offset += items.length;
+
+    // Small delay so a large album does not hammer the API.
+    await sleep(100);
   }
 
   return tracks;
 }
-
 
 async function resolveAlbumTrack(
   token,
@@ -487,11 +313,11 @@ async function resolveAlbumTrack(
   songTitle,
   artist
 ) {
-  const tracks =
-    await getAlbumTracks(
-      token,
-      albumId
-    );
+  console.log(
+    `Resolving Spotify album ${albumId} for "${songTitle}" by "${artist}"...`
+  );
+
+  const tracks = await getAlbumTracks(token, albumId);
 
   if (!tracks.length) {
     throw new Error(
@@ -499,595 +325,408 @@ async function resolveAlbumTrack(
     );
   }
 
-  const wantedTitle =
-    normalizeText(
-      songTitle
+  const wantedTitle = normalizeText(songTitle);
+
+  const usableTracks = tracks.filter(
+    (track) => track?.id
+  );
+
+  if (!usableTracks.length) {
+    throw new Error(
+      `Spotify album ${albumId} contains no usable tracks.`
+    );
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* 1. Exact title + artist                                                 */
+  /* ---------------------------------------------------------------------- */
+
+  let match = usableTracks.find(
+    (track) =>
+      normalizeText(track.name) === wantedTitle &&
+      artistsMatch(track, artist)
+  );
+
+  if (match) {
+    console.log(
+      `Matched Spotify album track exactly: "${match.name}" (${match.id})`
     );
 
+    return match;
+  }
 
-  /*
-   * ---------------------------------------------------------
-   * 1. EXACT TITLE
-   * ---------------------------------------------------------
-   */
+  /* ---------------------------------------------------------------------- */
+  /* 2. Exact title                                                          */
+  /* ---------------------------------------------------------------------- */
 
-  const exactTitle =
-    tracks.filter(
-      track =>
-        normalizeText(
-          track.name
-        ) === wantedTitle
+  const exactTitleMatches = usableTracks.filter(
+    (track) =>
+      normalizeText(track.name) === wantedTitle
+  );
+
+  if (exactTitleMatches.length === 1) {
+    match = exactTitleMatches[0];
+
+    console.log(
+      `Matched Spotify album track by exact title: "${match.name}" (${match.id})`
     );
 
+    return match;
+  }
 
-  /*
-   * ---------------------------------------------------------
-   * 1A. EXACT TITLE + ARTIST
-   * ---------------------------------------------------------
-   */
+  if (exactTitleMatches.length > 1) {
+    const artistMatch = exactTitleMatches.find(
+      (track) => artistsMatch(track, artist)
+    );
 
-  const exactTitleArtist =
-    exactTitle.find(
-      track =>
-        artistsMatch(
-          Array.isArray(
-            track.artists
-          )
-            ? track.artists.map(
-                a =>
-                  a?.name || ""
-              )
-            : [],
-          artist
+    if (artistMatch) {
+      console.log(
+        `Matched Spotify album track by exact title + artist candidate: "${artistMatch.name}" (${artistMatch.id})`
+      );
+
+      return artistMatch;
+    }
+
+    match = exactTitleMatches[0];
+
+    console.log(
+      `Multiple exact title matches found; using first: "${match.name}" (${match.id})`
+    );
+
+    return match;
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* 3. Partial / normalized title matching                                 */
+  /* ---------------------------------------------------------------------- */
+
+  if (wantedTitle) {
+    const partialMatches = usableTracks.filter((track) => {
+      const trackTitle = normalizeText(track.name);
+
+      return (
+        trackTitle &&
+        (
+          trackTitle.includes(wantedTitle) ||
+          wantedTitle.includes(trackTitle)
         )
-    );
+      );
+    });
 
-  if (
-    exactTitleArtist?.id
-  ) {
-    return exactTitleArtist;
+    if (partialMatches.length) {
+      const artistPartialMatch = partialMatches.find(
+        (track) => artistsMatch(track, artist)
+      );
+
+      match = artistPartialMatch || partialMatches[0];
+
+      console.log(
+        `Matched Spotify album track by normalized/partial title: "${match.name}" (${match.id})`
+      );
+
+      return match;
+    }
   }
 
+  /* ---------------------------------------------------------------------- */
+  /* 4. FALLBACK: first track in album                                       */
+  /* ---------------------------------------------------------------------- */
 
-  /*
-   * ---------------------------------------------------------
-   * 2. EXACT TITLE ONLY
-   * ---------------------------------------------------------
-   *
-   * If only one track has the exact title, use it even
-   * if the artist metadata is formatted differently.
-   */
+  const firstTrack = usableTracks[0];
 
-  if (
-    exactTitle.length === 1 &&
-    exactTitle[0]?.id
-  ) {
-    return exactTitle[0];
-  }
-
-
-  /*
-   * ---------------------------------------------------------
-   * 3. PARTIAL / NORMALIZED TITLE
-   * ---------------------------------------------------------
-   */
-
-  const fallback =
-    tracks.find(
-      track => {
-        const actual =
-          normalizeText(
-            track.name
-          );
-
-        return (
-          actual ===
-            wantedTitle ||
-          actual.includes(
-            wantedTitle
-          ) ||
-          wantedTitle.includes(
-            actual
-          )
-        );
-      }
-    );
-
-  if (fallback?.id) {
-    return fallback;
-  }
-
-
-  /*
-   * ---------------------------------------------------------
-   * 4. FIRST TRACK OF ALBUM
-   * ---------------------------------------------------------
-   *
-   * NEW FIX
-   *
-   * If AniPlaylist's title does not correspond to an
-   * actual Spotify track, DO NOT FAIL THE WORKFLOW.
-   *
-   * Simply use the first usable track from the album.
-   *
-   * This handles cases such as:
-   *
-   * AniPlaylist:
-   *   Original Soundtrack Vol.1
-   *
-   * Spotify album:
-   *   Original Soundtrack Vol.1
-   *
-   * where the album title is being supplied as the
-   * "song" title but no track has that exact name.
-   */
-
-  const firstTrack =
-    tracks.find(
-      track =>
-        track?.id
-    );
-
-  if (
-    firstTrack?.id
-  ) {
-    const firstTrackArtists =
-      Array.isArray(
-        firstTrack.artists
-      )
-        ? firstTrack.artists
-            .map(
-              a =>
-                a?.name || ""
-            )
-            .filter(Boolean)
-            .join(", ")
-        : "";
-
+  if (firstTrack?.id) {
     console.warn(
-      `Spotify album ${albumId}: no matching track found for "${songTitle}" by "${artist}". Using FIRST album track: "${firstTrack.name}"${firstTrackArtists ? ` by ${firstTrackArtists}` : ""} (${firstTrack.id}).`
+      `Spotify album ${albumId}: no matching track found for "${songTitle}" by "${artist}". ` +
+        `Using FIRST album track: "${firstTrack.name}" (${firstTrack.id}).`
     );
 
     return firstTrack;
   }
 
-
-  /*
-   * This should only happen if Spotify returned album
-   * entries without usable track IDs.
-   */
+  /* ---------------------------------------------------------------------- */
+  /* 5. Nothing usable                                                       */
+  /* ---------------------------------------------------------------------- */
 
   throw new Error(
-    `Spotify album ${albumId} returned no usable tracks for "${songTitle}" by "${artist}".`
+    `Could not resolve a usable track from Spotify album ${albumId}.`
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/* Local AniPlaylist page handling                                             */
+/* -------------------------------------------------------------------------- */
 
-/* =========================================================
-   LOCAL SONG PAGE
-   ========================================================= */
-
-function localSongPageFromUrl(
-  pageUrl
-) {
-  const page =
-    new URL(pageUrl);
-
-  const base =
-    new URL(SITE_BASE);
-
-  let relative =
-    page.pathname;
-
-  const basePath =
-    base.pathname.replace(
-      /\/$/,
-      ""
-    );
-
-  if (
-    basePath &&
-    basePath !== "/" &&
-    relative.startsWith(
-      basePath + "/"
-    )
-  ) {
-    relative =
-      relative.slice(
-        basePath.length + 1
-      );
-  } else {
-    relative =
-      relative.replace(
-        /^\/+/,
-        ""
-      );
+async function localSongPageFromUrl(pageUrl) {
+  if (!pageUrl) {
+    return null;
   }
 
-  relative =
-    relative.replace(
-      /\/+$/,
-      ""
-    );
+  try {
+    const url = new URL(pageUrl);
 
-  if (!relative) {
-    throw new Error(
-      `RSS item link does not point to a song page: ${pageUrl}`
-    );
+    const base = new URL(`${SITE_BASE}/`);
+
+    let pathname = url.pathname;
+
+    const basePath = base.pathname.replace(/\/$/, "");
+
+    if (
+      basePath &&
+      basePath !== "/" &&
+      pathname.startsWith(basePath)
+    ) {
+      pathname = pathname.slice(basePath.length);
+    }
+
+    pathname = pathname.replace(/^\/+/, "");
+
+    if (!pathname) {
+      return null;
+    }
+
+    const candidates = [
+      path.join(SITE_DIR, pathname, "index.html"),
+      path.join(SITE_DIR, pathname)
+    ];
+
+    for (const candidate of candidates) {
+      try {
+        const stat = await fs.stat(candidate);
+
+        if (stat.isFile()) {
+          return candidate;
+        }
+      } catch {
+        // Continue.
+      }
+    }
+
+    return null;
+  } catch {
+    return null;
   }
-
-  return path.join(
-    SITE_DIR,
-    relative,
-    "index.html"
-  );
 }
 
-
-/* =========================================================
-   CURRENT RSS
-   ========================================================= */
-
-async function extractCurrentRssItems(
-  season
-) {
-  const rssPath =
-    path.join(
-      RSS_DIR,
-      `${slug(season)}.xml`
-    );
+async function extractCurrentRssItems(season) {
+  const rssPath = path.join(
+    RSS_DIR,
+    `${slug(season)}.xml`
+  );
 
   let xml;
 
   try {
-    xml =
-      await fs.readFile(
-        rssPath,
-        "utf8"
-      );
+    xml = await fs.readFile(rssPath, "utf8");
   } catch (error) {
     throw new Error(
-      `RSS file missing for ${season}: ${rssPath}: ${error.message}`
+      `Could not read RSS file for ${season}: ${error.message}`
     );
   }
 
   const blocks = [
-    ...xml.matchAll(
-      /<item\b[^>]*>([\s\S]*?)<\/item>/gi
+    ...String(xml).matchAll(
+      /<item(?:\s[^>]*)?>[\s\S]*?<\/item>/gi
     )
-  ].map(
-    match => match[1]
+  ].map((match) => match[0]);
+
+  return blocks.map((block) => ({
+    title: extractXmlTag(block, "title"),
+    link: extractXmlTag(block, "link"),
+    description: extractXmlTag(block, "description")
+  }));
+}
+
+/* -------------------------------------------------------------------------- */
+/* Resolve Spotify tracks from current RSS                                     */
+/* -------------------------------------------------------------------------- */
+
+async function resolveSeasonTracks(token, season) {
+  const items = await extractCurrentRssItems(season);
+
+  console.log(
+    `${season}: found ${items.length} RSS item(s)`
   );
 
-  const items = [];
+  const trackIds = [];
+  const seen = new Set();
 
-  for (
-    const block of blocks
-  ) {
-    const pageUrl =
-      extractXmlTag(
-        block,
-        "link"
-      );
-
-    if (!pageUrl) {
+  for (const item of items) {
+    if (!item.link) {
       continue;
     }
 
-    items.push({
-      pageUrl,
-      title:
-        extractXmlTag(
-          block,
-          "title"
-        )
-    });
-  }
+    const pagePath = await localSongPageFromUrl(item.link);
 
-  return items;
-}
-
-
-/* =========================================================
-   RESOLVE CURRENT RSS -> SPOTIFY TRACK IDS
-   ========================================================= */
-
-async function resolveSeasonTracks(
-  token,
-  season
-) {
-  const rssItems =
-    await extractCurrentRssItems(
-      season
-    );
-
-  const trackIds = [];
-
-  const seen =
-    new Set();
-
-  /*
-   * RSS order is the Spotify playlist order.
-   *
-   * scrape.mjs writes RSS newest-first.
-   *
-   * Therefore:
-   *
-   * RSS item #1
-   *      ↓
-   * Spotify playlist #1
-   */
-
-  for (
-    let index = 0;
-    index <
-      rssItems.length;
-    index++
-  ) {
-    const rssItem =
-      rssItems[index];
-
-    const pagePath =
-      localSongPageFromUrl(
-        rssItem.pageUrl
-      );
+    if (!pagePath) {
+      continue;
+    }
 
     let html;
 
     try {
-      html =
-        await fs.readFile(
-          pagePath,
-          "utf8"
-        );
-    } catch (error) {
-      throw new Error(
-        `Song page for ${season} item #${
-          index + 1
-        } could not be read: ${pagePath}: ${error.message}`
-      );
+      html = await fs.readFile(pagePath, "utf8");
+    } catch {
+      continue;
     }
 
-    const spotifyUrl =
-      extractSpotifyUrl(
-        html
-      );
+    const combinedText = [
+      item.title,
+      item.description,
+      html
+    ].join("\n");
 
-    /*
-     * No Spotify link:
-     * keep it in RSS, but don't add it to Spotify.
-     */
+    const spotifyUrl =
+      extractSpotifyUrl(combinedText);
 
     if (!spotifyUrl) {
       continue;
     }
 
-    const songTitle =
-      extractPageField(
-        html,
-        "song"
-      );
+    let spotifyMatch;
 
-    const artist =
-      extractPageField(
-        html,
-        "artist"
+    try {
+      spotifyMatch = new URL(spotifyUrl).pathname.match(
+        /\/(track|album)\/([A-Za-z0-9]+)/
       );
-
-    const match =
-      spotifyUrl.match(
-        /https?:\/\/open\.spotify\.com\/(track|album)\/([A-Za-z0-9]+)/i
-      );
-
-    if (!match) {
+    } catch {
       continue;
     }
 
-    const type =
-      match[1].toLowerCase();
-
-    const spotifyId =
-      match[2];
-
-    let trackId =
-      "";
-
-
-    /*
-     * -------------------------------------------------------
-     * DIRECT TRACK
-     * -------------------------------------------------------
-     */
-
-    if (
-      type === "track"
-    ) {
-      trackId =
-        spotifyId;
+    if (!spotifyMatch) {
+      continue;
     }
 
+    const spotifyType = spotifyMatch[1];
+    const spotifyId = spotifyMatch[2];
 
-    /*
-     * -------------------------------------------------------
-     * ALBUM / OST
-     * -------------------------------------------------------
-     *
-     * Resolve ONE song only.
-     *
-     * If exact matching fails, resolveAlbumTrack()
-     * automatically uses the first album track.
-     */
+    const song =
+      extractPageField(html, "song") ||
+      extractPageField(html, "music:song") ||
+      extractPageField(html, "og:title") ||
+      item.title;
 
-    else if (
-      type === "album"
-    ) {
-      const track =
-        await resolveAlbumTrack(
+    const artist =
+      extractPageField(html, "artist") ||
+      extractPageField(html, "music:musician") ||
+      "";
+
+    let trackId = "";
+
+    try {
+      if (spotifyType === "track") {
+        trackId = spotifyId;
+
+        console.log(
+          `${season}: direct Spotify track -> ${trackId}`
+        );
+      } else {
+        const resolved = await resolveAlbumTrack(
           token,
           spotifyId,
-          songTitle,
+          song,
           artist
         );
 
-      trackId =
-        track.id || "";
+        trackId = resolved?.id || "";
 
-      console.log(
-        `${season}: resolved Spotify album ${spotifyId} -> ONE track ${trackId} for "${songTitle}"`
+        if (trackId) {
+          console.log(
+            `${season}: Spotify album -> "${resolved.name}" (${trackId})`
+          );
+        }
+      }
+    } catch (error) {
+      console.warn(
+        `${season}: Spotify resolution failed for "${song}" by "${artist}": ${error.message}`
       );
-    }
 
+      continue;
+    }
 
     if (!trackId) {
-      throw new Error(
-        `Spotify track could not be resolved for ${season}: "${songTitle}" (${spotifyUrl})`
-      );
+      continue;
     }
 
-
-    /*
-     * Prevent duplicate tracks within the same season.
-     *
-     * First occurrence wins.
-     */
-
-    if (
-      !seen.has(
-        trackId
-      )
-    ) {
-      seen.add(
-        trackId
-      );
-
-      trackIds.push(
-        trackId
-      );
+    if (seen.has(trackId)) {
+      continue;
     }
+
+    seen.add(trackId);
+    trackIds.push(trackId);
   }
 
   return trackIds;
 }
 
-
-/* =========================================================
-   REPLACE PLAYLIST ITEMS
-   ========================================================= */
+/* -------------------------------------------------------------------------- */
+/* Playlist operations                                                        */
+/* -------------------------------------------------------------------------- */
 
 async function replacePlaylistItems(
   token,
   playlistId,
   trackIds
 ) {
-  const uris =
-    trackIds.map(
-      id =>
-        `spotify:track:${id}`
-    );
+  const uris = trackIds.map(
+    (id) => `spotify:track:${id}`
+  );
 
   /*
-   * PUT replaces the complete playlist.
+   * Spotify accepts up to 100 items per playlist request.
    *
-   * [] clears it.
+   * PUT first batch:
+   *   replaces playlist contents
    *
-   * Spotify allows up to 100 items in this replacement
-   * request.
+   * POST remaining batches:
+   *   appends additional tracks
    */
+
+  const firstBatch = uris.slice(0, 100);
+  const remaining = uris.slice(100);
 
   await spotifyRequest(
     token,
     `/playlists/${playlistId}/items`,
     {
       method: "PUT",
-
-      body:
-        JSON.stringify({
-          uris:
-            uris.slice(
-              0,
-              100
-            )
-        })
+      body: JSON.stringify({
+        uris: firstBatch
+      })
     }
   );
 
-
-  /*
-   * If more than 100 tracks exist,
-   * append remaining batches.
-   */
-
-  for (
-    let i = 100;
-    i < uris.length;
-    i += 100
-  ) {
-    const batch =
-      uris.slice(
-        i,
-        i + 100
-      );
+  for (let i = 0; i < remaining.length; i += 100) {
+    const batch = remaining.slice(i, i + 100);
 
     await spotifyRequest(
       token,
       `/playlists/${playlistId}/items`,
       {
         method: "POST",
-
-        body:
-          JSON.stringify({
-            uris:
-              batch
-          })
+        body: JSON.stringify({
+          uris: batch
+        })
       }
     );
 
-    if (
-      i + 100 <
-      uris.length
-    ) {
-      await sleep(
-        500
-      );
-    }
+    await sleep(150);
   }
 }
-
-
-/* =========================================================
-   REMOVE PLAYLIST FROM USER'S LIBRARY
-   ========================================================= */
-
-/*
- * IMPORTANT:
- *
- * Spotify does not have a "delete playlist" Web API operation.
- *
- * Removing your own playlist from Your Library is effectively
- * unfollowing/removing that playlist from your library.
- *
- * Spotify's current generic endpoint is:
- *
- * DELETE /me/library
- *
- * with:
- *
- * spotify:playlist:{playlistId}
- *
- * This is what we use for empty seasons.
- */
 
 async function removePlaylistFromLibrary(
   token,
   playlistId
 ) {
-  const playlistUri =
-    `spotify:playlist:${playlistId}`;
+  /*
+   * Remove the playlist from the user's Spotify Library.
+   *
+   * This does not attempt to delete the playlist globally.
+   */
 
   await spotifyRequest(
     token,
     `/me/library?uris=${encodeURIComponent(
-      playlistUri
+      `spotify:playlist:${playlistId}`
     )}`,
     {
       method: "DELETE"
@@ -1095,16 +734,14 @@ async function removePlaylistFromLibrary(
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/* Main                                                                       */
+/* -------------------------------------------------------------------------- */
 
-/* =========================================================
-   LOAD CONFIG
-   ========================================================= */
-
-const config =
-  await readJson(
-    CONFIG_PATH,
-    null
-  );
+const config = await readJson(
+  CONFIG_PATH,
+  null
+);
 
 if (
   !config ||
@@ -1112,104 +749,268 @@ if (
   Array.isArray(config)
 ) {
   throw new Error(
-    "spotify-playlists.json is invalid."
+    "spotify-playlists.json must contain a JSON object."
   );
 }
 
-const seasons =
-  Object.keys(
-    config
-  );
+const seasons = Object.keys(config);
 
-if (
-  !seasons.length
-) {
+if (!seasons.length) {
   throw new Error(
     "spotify-playlists.json contains no seasons."
   );
 }
 
-
-/* =========================================================
-   AUTHENTICATE
-   ========================================================= */
-
 const accessToken =
   await refreshAccessToken();
 
-
-/* =========================================================
-   RESOLVE EVERYTHING BEFORE MODIFYING SPOTIFY
-   ========================================================= */
-
 /*
- * This is deliberate.
+ * Resolve everything BEFORE modifying Spotify.
  *
- * We resolve ALL seasons first.
- *
- * If there is a genuine Spotify/API problem, the workflow
- * stops before changing any playlist.
- *
- * Album title mismatches are NOT fatal anymore because
- * resolveAlbumTrack() falls back to the first album track.
+ * This prevents one bad season from partially modifying another
+ * playlist before we know what the RSS currently contains.
  */
 
-const desiredBySeason =
-  {};
+const desiredBySeason = {};
 
-for (
-  const season of seasons
-) {
+for (const season of seasons) {
   console.log("");
-
   console.log(
     `=== Resolving RSS tracks: ${season} ===`
   );
 
-  desiredBySeason[
-    season
-  ] =
+  desiredBySeason[season] =
     await resolveSeasonTracks(
       accessToken,
       season
     );
 
   console.log(
-    `${season}: ${
-      desiredBySeason[
-        season
-      ].length
-    } Spotify track(s) resolved from current RSS`
+    `${season}: ${desiredBySeason[season].length} Spotify track(s) resolved from current RSS`
   );
 }
 
+let totalCreated = 0;
+let totalSynced = 0;
+let totalRemoved = 0;
+let totalTracks = 0;
+let configChanged = false;
 
-/* =========================================================
-   SYNC
-   ========================================================= */
+/* -------------------------------------------------------------------------- */
+/* Synchronize playlists                                                      */
+/* -------------------------------------------------------------------------- */
 
-let totalCreated =
-  0;
-
-let totalSynced =
-  0;
-
-let totalRemoved =
-  0;
-
-let totalTracks =
-  0;
-
-let configChanged =
-  false;
-
-
-for (
-  const season of seasons
-) {
-  const originalEntry =
-    config[season];
+for (const season of seasons) {
+  const originalEntry = config[season];
 
   const entry =
     originalEntry &&
-    typeo
+    typeof originalEntry === "object"
+      ? originalEntry
+      : {};
+
+  const desiredTracks =
+    desiredBySeason[season];
+
+  console.log("");
+  console.log(`=== ${season} ===`);
+
+  /* ---------------------------------------------------------------------- */
+  /* No tracks                                                               */
+  /* ---------------------------------------------------------------------- */
+
+  if (desiredTracks.length === 0) {
+    if (entry.id) {
+      console.log(
+        "Current RSS has 0 Spotify tracks."
+      );
+
+      console.log(
+        "Removing existing playlist from Spotify Library..."
+      );
+
+      await removePlaylistFromLibrary(
+        accessToken,
+        entry.id
+      );
+
+      console.log(
+        "Empty Spotify playlist removed from Your Library."
+      );
+
+      totalRemoved++;
+    } else {
+      console.log(
+        "No current Spotify tracks. No playlist exists."
+      );
+    }
+
+    if (
+      entry.id ||
+      entry.url ||
+      (
+        Array.isArray(entry.trackIds) &&
+        entry.trackIds.length
+      )
+    ) {
+      configChanged = true;
+    }
+
+    entry.id = "";
+    entry.url = "";
+    entry.trackIds = [];
+
+    config[season] = entry;
+
+    continue;
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* Create playlist if necessary                                            */
+  /* ---------------------------------------------------------------------- */
+
+  if (!entry.id) {
+    console.log(
+      `Creating Spotify playlist: ${season}`
+    );
+
+    const playlist =
+      await spotifyRequest(
+        accessToken,
+        "/me/playlists",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name: `AniPlaylist — ${season}`,
+            description:
+              "Automatically updated from AniPlaylist RSS. " +
+              `Source: https://aniplaylist.com/?seasons=${encodeURIComponent(
+                season
+              )}`,
+            public: true,
+            collaborative: false
+          })
+        }
+      );
+
+    if (!playlist?.id) {
+      throw new Error(
+        `Spotify created playlist for ${season} but returned no playlist ID.`
+      );
+    }
+
+    entry.id = playlist.id;
+
+    totalCreated++;
+    configChanged = true;
+
+    console.log(
+      `Created Spotify playlist: ${entry.id}`
+    );
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* Playlist URL                                                            */
+  /* ---------------------------------------------------------------------- */
+
+  const expectedUrl =
+    `https://open.spotify.com/playlist/${entry.id}`;
+
+  if (entry.url !== expectedUrl) {
+    entry.url = expectedUrl;
+    configChanged = true;
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* Replace playlist contents                                               */
+  /* ---------------------------------------------------------------------- */
+
+  console.log(
+    `Current RSS Spotify tracks: ${desiredTracks.length}`
+  );
+
+  console.log(
+    "Replacing Spotify playlist contents with current RSS order..."
+  );
+
+  await replacePlaylistItems(
+    accessToken,
+    entry.id,
+    desiredTracks
+  );
+
+  const oldTrackIds =
+    Array.isArray(entry.trackIds)
+      ? entry.trackIds
+      : [];
+
+  if (
+    JSON.stringify(oldTrackIds) !==
+    JSON.stringify(desiredTracks)
+  ) {
+    configChanged = true;
+  }
+
+  entry.trackIds = desiredTracks;
+
+  config[season] = entry;
+
+  totalSynced++;
+  totalTracks += desiredTracks.length;
+
+  console.log(
+    `Playlist synchronized exactly: ${desiredTracks.length} track(s).`
+  );
+
+  console.log(
+    "Newest RSS track is now playlist position #1."
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Save config                                                                */
+/* -------------------------------------------------------------------------- */
+
+if (configChanged) {
+  await fs.writeFile(
+    CONFIG_PATH,
+    JSON.stringify(config, null, 2) + "\n",
+    "utf8"
+  );
+
+  console.log(
+    `Updated ${path.relative(ROOT, CONFIG_PATH)}`
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Summary                                                                    */
+/* -------------------------------------------------------------------------- */
+
+console.log("");
+console.log("===== SPOTIFY SYNC =====");
+console.log(
+  `Playlists created: ${totalCreated}`
+);
+console.log(
+  `Playlists synchronized: ${totalSynced}`
+);
+console.log(
+  `Playlists removed from Library: ${totalRemoved}`
+);
+console.log(
+  `Current RSS Spotify tracks: ${totalTracks}`
+);
+console.log(
+  "Album/OST links contribute ONE track only."
+);
+console.log(
+  "If an album has no matching song title, the FIRST album track is used."
+);
+console.log(
+  "New tracks follow RSS order, with newest at the top."
+);
+console.log(
+  "Empty seasons have no Spotify playlist in Your Library."
+);
+console.log("========================");
