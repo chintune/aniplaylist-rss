@@ -267,11 +267,10 @@
         "ルルットリリィ",
         "Lulutto Lilly [CompatoLilly (CV: May Tachibana), MashuLulu (CV: Nao Ojika)]",
         "ルルットリリィ [こんぺとリリィ (CV: 橘めい)、ましゅールル (CV.小鹿なお)]",
+        "LuluttoLilly",
         "6lWX6iEZImX6muub7hBTHy",
         "1882213719",
         "377320371",
-        "24956",
-        "LuluttoLilly",
         "UC-0lpvzhBM10zWUo5FKxmYg"
       ]
     },
@@ -407,16 +406,6 @@
       "resolved": "https://cdn.aniplaylist.com/thumbnails/93e99655a56103c00fc84ab4972eb7dd09d4c291@2xl.jpg"
     },
     {
-      "id": "27952",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/eeec96f49a4b773ef3364872853c07aa3aa68126.jpeg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "L8IhdD0000s@4Vt:~p^b00-;-l?a",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/eeec96f49a4b773ef3364872853c07aa3aa68126@2xl.jpeg"
-    },
-    {
       "id": "27949",
       "thumbnailType": "string",
       "thumbnail": "thumbnails/b2d02e581a29275a496987f983a7ff73d7b6f142.jpg",
@@ -425,6 +414,16 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/b2d02e581a29275a496987f983a7ff73d7b6f142@2xl.jpg"
+    },
+    {
+      "id": "27952",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/eeec96f49a4b773ef3364872853c07aa3aa68126.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "L8IhdD0000s@4Vt:~p^b00-;-l?a",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/eeec96f49a4b773ef3364872853c07aa3aa68126@2xl.jpeg"
     },
     {
       "id": "27950",
@@ -886,11 +885,10 @@
         "ルルットリリィ",
         "Lulutto Lilly [CompatoLilly (CV: May Tachibana), MashuLulu (CV: Nao Ojika)]",
         "ルルットリリィ [こんぺとリリィ (CV: 橘めい)、ましゅールル (CV.小鹿なお)]",
+        "LuluttoLilly",
         "6lWX6iEZImX6muub7hBTHy",
         "1882213719",
         "377320371",
-        "24956",
-        "LuluttoLilly",
         "UC-0lpvzhBM10zWUo5FKxmYg"
       ]
     },
@@ -1066,12 +1064,70 @@
         "24154",
         "Elsewhere-KIKOU",
         "エルスウェア紀行",
+        "elsewhere kikou",
         "6lWxoCU3pEVd1k3QuP2HVb",
         "1529421002",
         "150232572",
-        "25511",
-        "elsewhere kikou",
         "UCgNz7-LG-cqv0_WZ-zpdbKg"
+      ]
+    },
+    {
+      "id": "27949",
+      "anime": "So What's Wrong with Getting Reborn as a Goblin?",
+      "song": "Hello",
+      "artist": "Sou",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/6pv2nnWVOXg6Vn6fJyeifT",
+      "apple": "https://geo.music.apple.com/album/6812963206?i=6812963207&at=1001l384j&ct=website-so-whats-wrong-with-getting-r-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b2d02e581a29275a496987f983a7ff73d7b6f142@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/so-whats-wrong-with-getting-reborn-as-a-goblin-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hello",
+        "ハロー"
+      ],
+      "animeCandidates": [
+        "So What's Wrong with Getting Reborn as a Goblin?",
+        "Tensei Goblin dakedo Shitsumon Aru?",
+        "転生ゴブリンだけど質問ある？"
+      ],
+      "artistCandidates": [
+        "2694",
+        "Sou",
+        "04ZUR9nJSI7nr1ZrHKLGJ8",
+        "1411296734",
+        "1313592",
+        "UCsy-WAGWKgaPSDGoPBhgSsw"
       ]
     },
     {
@@ -1132,65 +1188,6 @@
         "624956375",
         "4407",
         "UCJCEjx_2PIFi97rJjjfwrcQ"
-      ]
-    },
-    {
-      "id": "27949",
-      "anime": "So What's Wrong with Getting Reborn as a Goblin?",
-      "song": "Hello",
-      "artist": "Sou",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/6pv2nnWVOXg6Vn6fJyeifT",
-      "apple": "https://geo.music.apple.com/album/6812963206?i=6812963207&at=1001l384j&ct=website-so-whats-wrong-with-getting-r-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b2d02e581a29275a496987f983a7ff73d7b6f142@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/so-whats-wrong-with-getting-reborn-as-a-goblin-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Hello",
-        "ハロー"
-      ],
-      "animeCandidates": [
-        "So What's Wrong with Getting Reborn as a Goblin?",
-        "Tensei Goblin dakedo Shitsumon Aru?",
-        "転生ゴブリンだけど質問ある？"
-      ],
-      "artistCandidates": [
-        "2694",
-        "Sou",
-        "04ZUR9nJSI7nr1ZrHKLGJ8",
-        "1411296734",
-        "1313592",
-        "UCsy-WAGWKgaPSDGoPBhgSsw"
       ]
     },
     {
@@ -2516,18 +2513,18 @@
       "detailUrl": "https://aniplaylist.com/play/blue-box-season-2-ending"
     },
     {
-      "id": "27952",
-      "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
-      "song": "UNSTOPPABLE",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/reborn-as-a-space-mercenary-i-woke-up-piloting-the-strongest-starship-opening"
-    },
-    {
       "id": "27949",
       "anime": "So What's Wrong with Getting Reborn as a Goblin?",
       "song": "Hello",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/so-whats-wrong-with-getting-reborn-as-a-goblin-opening"
+    },
+    {
+      "id": "27952",
+      "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+      "song": "UNSTOPPABLE",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/reborn-as-a-space-mercenary-i-woke-up-piloting-the-strongest-starship-opening"
     },
     {
       "id": "27950",
@@ -2928,11 +2925,10 @@
         "ルルットリリィ",
         "Lulutto Lilly [CompatoLilly (CV: May Tachibana), MashuLulu (CV: Nao Ojika)]",
         "ルルットリリィ [こんぺとリリィ (CV: 橘めい)、ましゅールル (CV.小鹿なお)]",
+        "LuluttoLilly",
         "6lWX6iEZImX6muub7hBTHy",
         "1882213719",
         "377320371",
-        "24956",
-        "LuluttoLilly",
         "UC-0lpvzhBM10zWUo5FKxmYg"
       ]
     },
@@ -3108,12 +3104,70 @@
         "24154",
         "Elsewhere-KIKOU",
         "エルスウェア紀行",
+        "elsewhere kikou",
         "6lWxoCU3pEVd1k3QuP2HVb",
         "1529421002",
         "150232572",
-        "25511",
-        "elsewhere kikou",
         "UCgNz7-LG-cqv0_WZ-zpdbKg"
+      ]
+    },
+    {
+      "id": "27949",
+      "anime": "So What's Wrong with Getting Reborn as a Goblin?",
+      "song": "Hello",
+      "artist": "Sou",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/6pv2nnWVOXg6Vn6fJyeifT",
+      "apple": "https://geo.music.apple.com/album/6812963206?i=6812963207&at=1001l384j&ct=website-so-whats-wrong-with-getting-r-op&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b2d02e581a29275a496987f983a7ff73d7b6f142@2xl.jpg",
+      "detailUrl": "https://aniplaylist.com/play/so-whats-wrong-with-getting-reborn-as-a-goblin-opening",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Hello",
+        "ハロー"
+      ],
+      "animeCandidates": [
+        "So What's Wrong with Getting Reborn as a Goblin?",
+        "Tensei Goblin dakedo Shitsumon Aru?",
+        "転生ゴブリンだけど質問ある？"
+      ],
+      "artistCandidates": [
+        "2694",
+        "Sou",
+        "04ZUR9nJSI7nr1ZrHKLGJ8",
+        "1411296734",
+        "1313592",
+        "UCsy-WAGWKgaPSDGoPBhgSsw"
       ]
     },
     {
@@ -3174,65 +3228,6 @@
         "624956375",
         "4407",
         "UCJCEjx_2PIFi97rJjjfwrcQ"
-      ]
-    },
-    {
-      "id": "27949",
-      "anime": "So What's Wrong with Getting Reborn as a Goblin?",
-      "song": "Hello",
-      "artist": "Sou",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/6pv2nnWVOXg6Vn6fJyeifT",
-      "apple": "https://geo.music.apple.com/album/6812963206?i=6812963207&at=1001l384j&ct=website-so-whats-wrong-with-getting-r-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b2d02e581a29275a496987f983a7ff73d7b6f142@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/so-whats-wrong-with-getting-reborn-as-a-goblin-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Hello",
-        "ハロー"
-      ],
-      "animeCandidates": [
-        "So What's Wrong with Getting Reborn as a Goblin?",
-        "Tensei Goblin dakedo Shitsumon Aru?",
-        "転生ゴブリンだけど質問ある？"
-      ],
-      "artistCandidates": [
-        "2694",
-        "Sou",
-        "04ZUR9nJSI7nr1ZrHKLGJ8",
-        "1411296734",
-        "1313592",
-        "UCsy-WAGWKgaPSDGoPBhgSsw"
       ]
     },
     {
@@ -4565,20 +4560,20 @@
       "apple": "https://geo.music.apple.com/album/6810983447?i=6810983457&at=1001l384j&ct=website-blue-box-season-2-ed&app=music"
     },
     {
-      "id": "27952",
-      "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
-      "song": "UNSTOPPABLE",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/1XUGLL0aySzwVzHq4qUE7H",
-      "apple": "https://geo.music.apple.com/album/6814348803?i=6814348808&at=1001l384j&ct=website-reborn-as-a-space-mercenary-i-op&app=music"
-    },
-    {
       "id": "27949",
       "anime": "So What's Wrong with Getting Reborn as a Goblin?",
       "song": "Hello",
       "kind": "OP",
       "spotify": "https://open.spotify.com/track/6pv2nnWVOXg6Vn6fJyeifT",
       "apple": "https://geo.music.apple.com/album/6812963206?i=6812963207&at=1001l384j&ct=website-so-whats-wrong-with-getting-r-op&app=music"
+    },
+    {
+      "id": "27952",
+      "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+      "song": "UNSTOPPABLE",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/1XUGLL0aySzwVzHq4qUE7H",
+      "apple": "https://geo.music.apple.com/album/6814348803?i=6814348808&at=1001l384j&ct=website-reborn-as-a-space-mercenary-i-op&app=music"
     },
     {
       "id": "27950",
