@@ -8057,7 +8057,6 @@
       "display_artists",
       "label",
       "short_link",
-      "status",
       "tags",
       "other_link_ids",
       "unreleased",
@@ -8735,7 +8734,6 @@
       "display_artists",
       "label",
       "short_link",
-      "status",
       "tags",
       "other_link_ids",
       "unreleased",
@@ -12813,9 +12811,9 @@
     "artist": "FZMZ",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/611IQQ87evnbCgEFY9Cail",
-    "apple": "https://music.apple.com/nz/album/6816049621?i=6816049623&at=1001l384j&ct=website-reincarnated-as-a-sword-seaso-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6816049621?i=6816049623&at=1001l384j&ct=website-reincarnated-as-a-sword-seaso-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/6909d8c71217931afff17c7e2a1bf503840667f6@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/reincarnated-as-a-sword-season-2-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -12840,9 +12838,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -12864,7 +12862,8 @@
       "FZMZ",
       "0RrQBLmeSCUkYFs0vncrhb",
       "1705665721",
-      "230000265"
+      "230000265",
+      "UCHE99igrlGCZEBdE8h1MuMA"
     ]
   },
   "77b99e1fbc7f96c6": {
@@ -12876,9 +12875,9 @@
     "artist": "Miku Ito",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/4sn3yiSVaObWqMhoGPkAcy",
-    "apple": "",
+    "apple": "https://geo.music.apple.com/album/6812629060?i=6812629575&at=1001l384j&ct=website-even-though-im-a-super-timid-n-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e312ddf0e0785c632f82d78dd71d7b95e132baac@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/even-though-im-a-super-timid-noble-girl-i-accepted-the-bet-from-my-cunning-fiance-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -12903,9 +12902,8 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
-      "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -12925,7 +12923,8 @@
       "Miku Ito",
       "伊藤美来",
       "4IcWgtz5hpMVQ8ZFEXUSAD",
-      "1084662565"
+      "1084662565",
+      "UCAjHxGDyW-kTH-NvKL_Qiqg"
     ]
   },
   "ee1b5dc1195e08d0": {
@@ -12937,9 +12936,9 @@
     "artist": "AHUB",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/4NWr9o6nQKwBzYEpoCVzBB",
-    "apple": "",
+    "apple": "https://geo.music.apple.com/album/6809646816?i=6809647268&at=1001l384j&ct=website-so-whats-wrong-with-getting-r-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c9bfca2e4b0b28d04a73e1d24ee038b529fbcb05@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/so-whats-wrong-with-getting-reborn-as-a-goblin-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -12964,9 +12963,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -12986,7 +12985,8 @@
       "A-Hub",
       "3PlNRhsKLFl3TFw5IJIGTs",
       "1505703099",
-      "213411307"
+      "213411307",
+      "UCatqqcDCTq6z7NA5pLEZvQg"
     ]
   },
   "685e21faeb156946": {
@@ -12998,9 +12998,9 @@
     "artist": "yama",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/0hXoXQ4mEGhN5VMILG7SoO",
-    "apple": "",
+    "apple": "https://geo.music.apple.com/album/6815690502?i=6815690507&at=1001l384j&ct=website-the-seven-knights-of-the-marr-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/3282a1c56dea473a6cad11a73fada2e198f94fee@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/the-seven-knights-of-the-marronnier-kingdom-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13025,9 +13025,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13045,7 +13045,8 @@
       "yama",
       "7kOrrFIBIBc8uCu2zbxbLv",
       "1506180365",
-      "98064702"
+      "98064702",
+      "UCqboXUgTe1T90jrQnxTlMfw"
     ]
   },
   "fdb9fd28b3149500": {
@@ -13057,9 +13058,9 @@
     "artist": "Shifuku Poncho",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/2a074VviuqxVFXL2GMDP3D",
-    "apple": "https://music.apple.com/nz/album/6813307108?i=6813307109&at=1001l384j&ct=website-super-psychic-policeman-chojo-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6813307108?i=6813307109&at=1001l384j&ct=website-super-psychic-policeman-chojo-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/692b4d3cc49df638a87a3f3f8704286d2dada375@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/super-psychic-policeman-chojo-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13084,9 +13085,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13108,7 +13109,9 @@
       "1723471479",
       "25528",
       "shifukuponcho",
-      "248764362"
+      "248764362",
+      "25531",
+      "UCierlqKaoSU6qir2Gy0pQZQ"
     ]
   },
   "db09e6174970465f": {
@@ -13120,9 +13123,9 @@
     "artist": "amazarashi",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/3x2Gfxh6jk60ZBAr1hH6xr",
-    "apple": "https://music.apple.com/nz/album/6815524410?i=6815524411&at=1001l384j&ct=website-suikoden-the-anime-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6815524410?i=6815524411&at=1001l384j&ct=website-suikoden-the-anime-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2dd3eb18b53073caa2f343b2491b0d0a60df2f3e@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/suikoden-the-anime-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13147,9 +13150,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13167,7 +13170,8 @@
       "amazarashi",
       "6T4K8YuFc0JPDrYgABbxao",
       "342419284",
-      "8002048"
+      "8002048",
+      "UCYYblFFBpnZabWlpz9aAIPA"
     ]
   },
   "428fe1eaf0bcfedc": {
@@ -13179,9 +13183,9 @@
     "artist": "Watame Tsunomaki",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/0PNkniK6K47YBy4QpmM1nG",
-    "apple": "https://music.apple.com/nz/album/6813373403?i=6813373404&at=1001l384j&ct=website-nia-liston-the-merciless-maid-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6813373403?i=6813373404&at=1001l384j&ct=website-nia-liston-the-merciless-maid-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/de376ae890066838bfa7ac09ebf8952a7c85ddf0@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/nia-liston-the-merciless-maiden-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13206,9 +13210,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13228,7 +13232,8 @@
       "Tsunomaki Watame",
       "68609MOnEU86kVyMf26JnM",
       "1535893459",
-      "110211102"
+      "110211102",
+      "UCX2NCyh8ipCoydn1iKWyM_Q"
     ]
   },
   "6f176ef185de161e": {
@@ -13240,9 +13245,9 @@
     "artist": "PURPLE BUBBLE",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/3tCiwcbtprnj4NzMxNTgNf",
-    "apple": "",
+    "apple": "https://geo.music.apple.com/album/6810979176?i=6810979177&at=1001l384j&ct=website-keroro-gunsou-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/196f669684be9579444a7c13e8026fde62dd9e3d@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/keroro-gunsou-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13267,9 +13272,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13288,7 +13293,8 @@
       "PURPLE BUBBLE",
       "7ucP21XEjkdgwydBjpbaQI",
       "1770526190",
-      "5454871"
+      "5454871",
+      "UCHRm1SMf0RDHGTGDpWOPoEA"
     ]
   },
   "4739a4cd0a36209d": {
@@ -13300,9 +13306,9 @@
     "artist": "Centimillimental",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/4cGcaARinJWYRmt2GGzxLG",
-    "apple": "https://music.apple.com/nz/album/6815690641?i=6815690648&at=1001l384j&ct=website-hello-i-am-a-witch-and-my-cru-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6815690641?i=6815690648&at=1001l384j&ct=website-hello-i-am-a-witch-and-my-cru-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/fe87d2a5c201e20f5974ed98f7d6f7b57c757d9c@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/hello-i-am-a-witch-and-my-crush-wants-me-to-make-a-love-potion-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13327,9 +13333,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13351,7 +13357,8 @@
       "senntimirimenntaru",
       "0aRqEPPTtQd3pGuB4tJxVw",
       "790661896",
-      "70886932"
+      "70886932",
+      "UCUruaitWu07N2ErrUaBgLWw"
     ]
   },
   "2ab510ce8eaa9a09": {
@@ -13363,9 +13370,9 @@
     "artist": "NANAOAKARI",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/4MW6Ub6yhcptOm4rK8h9aH",
-    "apple": "https://music.apple.com/nz/album/6815570138?i=6815570499&at=1001l384j&ct=website-even-the-student-council-has-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6815570138?i=6815570499&at=1001l384j&ct=website-even-the-student-council-has-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/64b9e587aa9870116c025763b9aebfdba1cae204@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/even-the-student-council-has-its-holes-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13390,9 +13397,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13414,7 +13421,8 @@
       "Akari Nanawo",
       "06jSjpC81wzjoUoE61Fhdn",
       "1326067929",
-      "128010782"
+      "128010782",
+      "UC160OjZevHTl0K8vk_g1vZQ"
     ]
   },
   "11005badf78f4186": {
@@ -13556,9 +13564,9 @@
     "artist": "Himegoto",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/4exRySsBiNAZB4AeRjctMB",
-    "apple": "https://music.apple.com/nz/album/6815569892?i=6815569894&at=1001l384j&ct=website-battle-spirits-re-zekkai-no-k-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6815569892?i=6815569894&at=1001l384j&ct=website-battle-spirits-re-zekkai-no-k-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/21f4797a63ab5097df2908a7bacd259fef7ced1b@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/battle-spirits-re-zekkai-no-kuu-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13583,9 +13591,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13603,7 +13611,8 @@
       "秘めごと",
       "7gYheydY3QaksZPRLs4CzT",
       "1582587444",
-      "60731592"
+      "60731592",
+      "UC9kP6_nVG3k7nbI6q4LK73Q"
     ]
   },
   "27e58fc82689b6e0": {
@@ -13615,9 +13624,9 @@
     "artist": "ano",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/6c6tWAr4vul7O7i0MaAnlT",
-    "apple": "https://music.apple.com/nz/album/6808575329?i=6808575335&at=1001l384j&ct=website-keroro-gunsou-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6808575329?i=6808575335&at=1001l384j&ct=website-keroro-gunsou-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/66f871c66786c013e158e04bbd947df4fcaacdf1@2xl.jpeg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/keroro-gunsou-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13642,9 +13651,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13663,7 +13672,8 @@
       "ano",
       "7Il739Q5W4yJUYC3hfnX6z",
       "1529999013",
-      "120366332"
+      "120366332",
+      "UCwX3q7Vb3HfEoVKxqY6jLqA"
     ]
   },
   "aace766fcd450cc8": {
@@ -13675,9 +13685,9 @@
     "artist": "MARUMOCHI from HoneyWorks",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/1VvmVtY3brxOXTqgIOPjef",
-    "apple": "https://music.apple.com/nz/album/6815915313?i=6815915315&at=1001l384j&ct=website-the-worlds-strongest-witch-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6815915313?i=6815915315&at=1001l384j&ct=website-the-worlds-strongest-witch-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/4712f81b4fef2d9fb81ac022bae3515168c89f15@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/the-worlds-strongest-witch-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13702,9 +13712,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13743,9 +13753,9 @@
     "artist": "Rokudenashi",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/2CBvMdHbnJJRVxD0z20VxC",
-    "apple": "https://music.apple.com/nz/album/6813306596?i=6813306597&at=1001l384j&ct=website-the-worlds-strongest-witch-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6813306596?i=6813306597&at=1001l384j&ct=website-the-worlds-strongest-witch-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/4712f81b4fef2d9fb81ac022bae3515168c89f15@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/hidden",
+    "detailUrl": "https://aniplaylist.com/play/the-worlds-strongest-witch-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -13770,9 +13780,9 @@
       "display_artists",
       "label",
       "short_link",
+      "status",
       "tags",
       "other_link_ids",
-      "web",
       "unreleased",
       "objectID"
     ],
@@ -13792,7 +13802,8 @@
       "ロクデナシ",
       "4kpQdAU7yPjqtiJsFcBTBb",
       "1572215359",
-      "136808522"
+      "136808522",
+      "UCJ2lqgvSwxX4Osly7R4szNQ"
     ]
   }
 }
