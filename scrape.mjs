@@ -1623,6 +1623,13 @@ function buildBrowsePage(season, items, options = {}) {
 
     a { color: inherit; }
 
+    svg {
+      display: block;
+      width: 1em;
+      height: 1em;
+      flex: 0 0 auto;
+    }
+
     button, input { font: inherit; }
 
     .wrap {
@@ -1834,6 +1841,71 @@ function buildBrowsePage(season, items, options = {}) {
       font-size: 19px;
       font-weight: 900;
       letter-spacing: -.03em;
+    }
+
+    .hero-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .resource-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(255,255,255,.035);
+      color: #eee8f5;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+      transition: transform .15s ease, filter .15s ease, border-color .15s ease;
+    }
+
+    .resource-button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      border-color: var(--line-strong);
+    }
+
+    .resource-button.rss {
+      background: rgba(255,255,255,.04);
+    }
+
+    .resource-button.spotify {
+      background: linear-gradient(135deg, #17b85a, #1ed760);
+      border-color: transparent;
+    }
+
+    .resource-button[hidden] {
+      display: none !important;
+    }
+
+    .resource-icon {
+      display: grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+    }
+
+    .resource-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .resource-note {
+      color: var(--muted-2);
+      font-size: 10px;
+      font-weight: 800;
     }
 
     .season-strip {
@@ -2219,16 +2291,16 @@ function buildBrowsePage(season, items, options = {}) {
     }
 
     .platform.icon-only {
-      width: 38px;
-      height: 38px;
-      min-height: 38px;
+      width: 34px;
+      height: 34px;
+      min-height: 34px;
       padding: 0;
-      border-radius: 10px;
+      border-radius: 9px;
     }
 
     .platform.icon-only svg {
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
     }
 
     .play-button-glyph {
@@ -2238,6 +2310,19 @@ function buildBrowsePage(season, items, options = {}) {
       height: 100%;
       font-size: 11px;
       line-height: 1;
+    }
+
+    .platform.icon-only .sr-only,
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     .platform {
@@ -2648,9 +2733,12 @@ function buildBrowsePage(season, items, options = {}) {
       const languageButtons = [...document.querySelectorAll(".language-button")];
       const filterButtons = [...document.querySelectorAll(".filter-button")];
 
-      let selectedType = "";
-      let currentPage = Number(new URLSearchParams(location.search).get("page") || "1");
+      const urlParams = new URLSearchParams(location.search);
+      let selectedType = urlParams.get("type") || "";
+      let currentPage = Number(urlParams.get("page") || "1");
+      if (!["", "OP", "ED", "IN", "OST", "Other", "VIDEO"].includes(selectedType)) selectedType = "";
       if (!Number.isFinite(currentPage) || currentPage < 1) currentPage = 1;
+      input.value = urlParams.get("q") || "";
 
       function normalize(value) {
         return String(value || "")
@@ -2756,8 +2844,16 @@ function buildBrowsePage(season, items, options = {}) {
 
       function syncUrl() {
         const url = new URL(location.href);
+        const query = input.value.trim();
+        if (query) url.searchParams.set("q", query);
+        else url.searchParams.delete("q");
+
+        if (selectedType) url.searchParams.set("type", selectedType);
+        else url.searchParams.delete("type");
+
         if (currentPage > 1) url.searchParams.set("page", String(currentPage));
         else url.searchParams.delete("page");
+
         history.replaceState(null, "", url);
       }
 
@@ -2802,10 +2898,14 @@ function buildBrowsePage(season, items, options = {}) {
         }
       }
 
-      input.addEventListener("input", () => {
+      function applySearch() {
         currentPage = 1;
         renderPage(false);
-      });
+      }
+
+      input.addEventListener("input", applySearch);
+      input.addEventListener("change", applySearch);
+      input.addEventListener("search", applySearch);
 
       filterButtons.forEach(button => {
         button.addEventListener("click", () => {
@@ -2824,6 +2924,12 @@ function buildBrowsePage(season, items, options = {}) {
 
       languageButtons.forEach(button => {
         button.addEventListener("click", () => updateLanguage(button.dataset.language));
+      });
+
+      filterButtons.forEach(button => {
+        const active = (button.dataset.typeFilter || "") === selectedType;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
       });
 
       let savedLanguage = "en";
