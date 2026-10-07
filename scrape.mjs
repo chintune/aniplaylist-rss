@@ -932,6 +932,102 @@ function browsePlatformButton(label, url, className) {
   return `<a class="platform ${className}" href="${htmlEscape(url)}" target="_blank" rel="noopener noreferrer">${htmlEscape(label)} ↗</a>`;
 }
 
+const JAPANESE_TITLE_RE = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff66-\uff9f]/;
+
+const ENGLISH_HINTS = new Set([
+  "a", "an", "the", "and", "or", "of", "to", "in", "on", "with", "from",
+  "for", "is", "are", "be", "my", "your", "our", "world", "worlds",
+  "strongest", "witch", "secret", "saint", "tale", "great", "reincarnated",
+  "limitless", "influence", "idol", "days", "season", "story", "dream",
+  "star", "stars", "night", "moon", "sun", "love", "heart", "life",
+  "girl", "girls", "boy", "boys", "school", "hero", "heroes", "magic",
+  "king", "queen", "road", "brick", "flower", "flowers", "song", "songs",
+]);
+
+const ROMAJI_HINTS = new Set([
+  "no", "wa", "ga", "wo", "o", "ni", "de", "to", "mo", "he", "kara", "made",
+  "nara", "ne", "yo", "desu", "masu", "shita", "shite", "suru", "seka",
+  "sekai", "majo", "hajimemashita", "tensei", "reijou", "jou", "kanashii",
+  "bokura", "kimi", "boku", "watashi", "kokoro", "hoshi", "meguru",
+  "eikyouroku", "saikyou", "uta", "yoru", "kaze", "hana",
+]);
+
+function hasJapaneseScript(value) {
+  return JAPANESE_TITLE_RE.test(String(value || ""));
+}
+
+function isLikelyArtistDisplay(value) {
+  const s = clean(value);
+  if (!s) return false;
+  if (/^\d+$/.test(s)) return false;
+  if (/^[A-Za-z0-9_-]{16,}$/.test(s) && !/\s/.test(s)) return false;
+  return true;
+}
+
+function titleVariantScore(value, mode) {
+  const text = normalizeForMatch(value);
+  if (!text) return -Infinity;
+
+  const words = text.split(" ").filter(Boolean);
+  const englishHits = words.filter(w => ENGLISH_HINTS.has(w)).length;
+  const romajiHits = words.filter(w => ROMAJI_HINTS.has(w)).length;
+
+  if (mode === "english") {
+    return (englishHits * 6)
+      - (romajiHits * 4)
+      + (words.length > 1 ? 1 : 0)
+      + (/^[A-Za-z0-9 .,'’!?:+&-]+$/.test(String(value || "")) ? 1 : 0);
+  }
+
+  if (mode === "romaji") {
+    return (romajiHits * 6)
+      - (englishHits * 4)
+      + (/[aeiou]/i.test(String(value || "")) ? 1 : 0);
+  }
+
+  return 0;
+}
+
+function chooseBestCandidate(candidates, mode, exclude = "") {
+  const pool = unique(candidates).filter(v => v && v !== exclude && !hasJapaneseScript(v));
+  if (!pool.length) return "";
+
+  return pool
+    .map((value, index) => ({
+      value,
+      score: titleVariantScore(value, mode),
+      index,
+    }))
+    .sort((a, b) => b.score - a.score || a.index - b.index)[0].value;
+}
+
+function getTitleVariants(candidates, fallback = "") {
+  const all = unique([...(Array.isArray(candidates) ? candidates : []), fallback]).filter(Boolean);
+  if (!all.length) {
+    return { english: "", romaji: "", japanese: "" };
+  }
+
+  const japanese = all.find(hasJapaneseScript) || "";
+  const latin = all.filter(v => !hasJapaneseScript(v));
+
+  let english = chooseBestCandidate(latin, "english");
+  let romaji = chooseBestCandidate(latin, "romaji", english);
+
+  if (!english) english = latin[0] || fallback || japanese;
+  if (!romaji) romaji = latin.find(v => v !== english) || english || fallback || japanese;
+
+  if (latin.length === 1) {
+    english = latin[0];
+    romaji = latin[0];
+  }
+
+  return {
+    english: english || fallback || romaji || japanese,
+    romaji: romaji || fallback || english || japanese,
+    japanese: japanese || fallback || english || romaji,
+  };
+}
+
 function buildBrowsePage(season, items) {
   const slugSeason = slug(season);
   const feedUrl = `${SITE_BASE}/rss/${slugSeason}.xml`;
@@ -957,8 +1053,31 @@ function buildBrowsePage(season, items) {
           })
         : "";
 
+      const animeVariants = getTitleVariants(item.animeCandidates, item.anime);
+      const songVariants = getTitleVariants(item.titleCandidates, item.song);
+      const artistCandidates = (item.artistCandidates || []).filter(isLikelyArtistDisplay);
+      const artistVariants = getTitleVariants(artistCandidates, item.artist);
+
+      const searchText = unique([
+        item.anime,
+        item.song,
+        item.artist,
+        item.kind,
+        ...(item.animeCandidates || []),
+        ...(item.titleCandidates || []),
+        ...artistCandidates,
+      ]).join(" ");
+
+      const variantAttrs = variants => [
+        `data-en="${htmlEscape(variants.english)}"`,
+        `data-romaji="${htmlEscape(variants.romaji)}"`,
+        `data-ja="${htmlEscape(variants.japanese)}"`,
+      ].join(" ");
+
       return `
-        <article class="song-card" data-kind="${htmlEscape(item.kind || "Other")}">
+        <article class="song-card"
+          data-kind="${htmlEscape(item.kind || "Other")}"
+          data-search="${htmlEscape(searchText)}">
           <div class="rank">${index + 1}</div>
           <div class="art">${image}</div>
           <div class="song-main">
@@ -966,9 +1085,9 @@ function buildBrowsePage(season, items) {
               <span class="kind">${htmlEscape(item.kind || "Other")}</span>
               <span class="date">${htmlEscape(dateText)}</span>
             </div>
-            <h2>${htmlEscape(item.anime || "Unknown anime")}</h2>
-            <div class="song-title">${htmlEscape(item.song || "Unknown song")}</div>
-            ${item.artist ? `<div class="artist">${htmlEscape(item.artist)}</div>` : ""}
+            <h2 class="anime-title" ${variantAttrs(animeVariants)}>${htmlEscape(animeVariants.english || "Unknown anime")}</h2>
+            <div class="song-title" ${variantAttrs(songVariants)}>${htmlEscape(songVariants.english || "Unknown song")}</div>
+            ${artistVariants.english ? `<div class="artist" ${variantAttrs(artistVariants)}>${htmlEscape(artistVariants.english)}</div>` : ""}
             <div class="platforms">${platforms}</div>
             <a class="details" href="${SITE_BASE}/song/${htmlEscape(item.key)}/">Song page ↗</a>
           </div>
@@ -1067,9 +1186,51 @@ function buildBrowsePage(season, items) {
     }
     .search-filter:focus { border-color: var(--accent); }
     .search-count { align-self: center; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .browse-controls {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+    .language-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+    .language-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .language-switch {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #10151e;
+    }
+    .language-button {
+      min-height: 32px;
+      padding: 0 11px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: #8f9aaa;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .language-button:hover { color: var(--text); }
+    .language-button.active {
+      background: linear-gradient(135deg, #735edf, #9d7bff);
+      color: white;
+    }
     @media (max-width: 500px) {
       .search-box { grid-template-columns: minmax(0, 1fr); }
       .search-filter { width: 100%; }
+      .language-row { align-items: flex-start; }
     }
     .top-actions {
       display: flex;
@@ -1239,20 +1400,31 @@ function buildBrowsePage(season, items) {
       <div class="eyebrow">AniPlaylist RSS</div>
       <h1>${htmlEscape(season)}</h1>
       <div class="sub">${items.length} ${items.length === 1 ? "release" : "releases"} · newest first</div>
-      <div class="search-box">
-        <input id="browse-search" class="search-input" type="search"
-          placeholder="Search anime, song, artist, OP / ED..."
-          aria-label="Search ${htmlEscape(season)} releases"
-          autocomplete="off" spellcheck="false">
-        <select id="search-filter" class="search-filter" aria-label="Filter by release type">
-          <option value="">All types</option>
-          <option value="OP">OP</option>
-          <option value="ED">ED</option>
-          <option value="IN">IN</option>
-          <option value="OST">OST</option>
-          <option value="Other">Other</option>
-        </select>
-        <span id="search-count" class="search-count">${items.length}</span>
+      <div class="browse-controls">
+        <div class="search-box">
+          <input id="browse-search" class="search-input" type="search"
+            placeholder="Search anime, song, artist, Japanese, romaji..."
+            aria-label="Search ${htmlEscape(season)} releases in English, romaji, Japanese, and artist names"
+            autocomplete="off" spellcheck="false">
+          <select id="search-filter" class="search-filter" aria-label="Filter by release type">
+            <option value="">All types</option>
+            <option value="OP">OP</option>
+            <option value="ED">ED</option>
+            <option value="IN">IN</option>
+            <option value="OST">OST</option>
+            <option value="Other">Other</option>
+          </select>
+          <span id="search-count" class="search-count">${items.length}</span>
+        </div>
+
+        <div class="language-row">
+          <span class="language-label">Display:</span>
+          <div class="language-switch" role="group" aria-label="Title language">
+            <button type="button" class="language-button active" data-language="en">English</button>
+            <button type="button" class="language-button" data-language="romaji">Romaji</button>
+            <button type="button" class="language-button" data-language="ja">日本語</button>
+          </div>
+        </div>
       </div>
 
       <div class="top-actions">
@@ -1276,13 +1448,34 @@ function buildBrowsePage(season, items) {
         const list = document.getElementById("song-list");
         const count = document.getElementById("search-count");
         const cards = [...list.querySelectorAll(".song-card")];
+        const languageButtons = [...document.querySelectorAll(".language-button")];
         const total = cards.length;
+        const storageKey = "aniplaylist-title-language";
 
         function normalize(value) {
           return String(value || "")
             .toLocaleLowerCase()
-            .normalize("NFD")
+            .normalize("NFKC")
+            .replace(/[\u200B-\u200D\uFEFF]/g, "")
             .replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function updateLanguage(language) {
+          for (const card of cards) {
+            for (const el of card.querySelectorAll("[data-en]")) {
+              el.textContent = el.dataset[language] || el.dataset.en || "";
+            }
+          }
+
+          for (const button of languageButtons) {
+            const active = button.dataset.language === language;
+            button.classList.toggle("active", active);
+            button.setAttribute("aria-pressed", active ? "true" : "false");
+          }
+
+          try {
+            localStorage.setItem(storageKey, language);
+          } catch {}
         }
 
         function filter() {
@@ -1291,7 +1484,7 @@ function buildBrowsePage(season, items) {
           let visible = 0;
 
           cards.forEach(card => {
-            const searchableText = normalize(card.querySelector(".song-main")?.textContent || "");
+            const searchableText = normalize(card.dataset.search || "");
             const typeMatches = !selectedType || card.dataset.kind === selectedType;
             const textMatches = !query || searchableText.includes(query);
             const match = typeMatches && textMatches;
@@ -1310,6 +1503,18 @@ function buildBrowsePage(season, items) {
 
         input.addEventListener("input", filter);
         typeFilter.addEventListener("change", filter);
+
+        for (const button of languageButtons) {
+          button.addEventListener("click", () => updateLanguage(button.dataset.language));
+        }
+
+        let initialLanguage = "en";
+        try {
+          const saved = localStorage.getItem(storageKey);
+          if (["en", "romaji", "ja"].includes(saved)) initialLanguage = saved;
+        } catch {}
+
+        updateLanguage(initialLanguage);
       })();
     </script>
   </div>
@@ -1370,6 +1575,9 @@ async function makeRssItem(item, season) {
     song: item.song,
     artist: item.artist,
     kind: item.kind,
+    animeCandidates: Array.isArray(item.animeCandidates) ? item.animeCandidates : [],
+    titleCandidates: Array.isArray(item.titleCandidates) ? item.titleCandidates : [],
+    artistCandidates: Array.isArray(item.artistCandidates) ? item.artistCandidates : [],
     thumbnail: item.thumbnail,
     spotify: item.spotify,
     apple: item.apple,
