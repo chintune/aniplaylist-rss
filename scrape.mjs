@@ -1338,6 +1338,39 @@ async function attachAnimeThemesVideo(item, detailedAnimes) {
   const kind = String(item.kind || "").toUpperCase();
   if (!["OP", "ED"].includes(kind)) return null;
 
+  if (/gensou|suikoden/i.test(item.anime || "")) {
+    console.log(
+      "AnimeThemes DEBUG GENSOU:",
+      JSON.stringify({
+        item: {
+          anime: item.anime,
+          song: item.song,
+          artist: item.artist,
+          kind,
+          animeCandidates: item.animeCandidates,
+          titleCandidates: item.titleCandidates,
+        },
+        themes: (picked.bestAnime.themes || []).map(theme => ({
+          type: theme?.type,
+          sequence: theme?.sequence,
+          song: theme?.song?.title,
+          performances: theme?.song?.performances,
+          entries: (theme?.entries || []).map(entry => ({
+            version: entry?.version,
+            spoiler: entry?.spoiler,
+            nsfw: entry?.nsfw,
+            videos: (entry?.videos || []).map(video => ({
+              basename: video?.basename,
+              tags: video?.tags,
+              nc: video?.nc,
+              resolution: video?.resolution,
+            })),
+          })),
+        })),
+      })
+    );
+  }
+
   const songCandidates = unique([
     ...(item.titleCandidates || []),
     item.song,
