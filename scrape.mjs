@@ -1138,11 +1138,36 @@ async function fetchAnimeThemesSeason(season) {
   const year = match[2];
 
   const params = new URLSearchParams();
-  params.set("filter[year]", year);
-  params.set("filter[season]", seasonName);
   params.set("include", ANIMETHEMES_INCLUDE);
 
-  let url = `https://api.animethemes.moe/anime?${params.toString()}`;
+  // AnimeThemes exposes the same season grouping used by its /year/{year}/{season}
+  // pages through the animeyear show endpoint. This avoids guessing slugs and
+  // avoids pagination across the full anime index.
+  const yearUrl = `https://api.animethemes.moe/animeyear/${year}?${params.toString()}`;
+
+  try {
+    const response = await fetch(yearUrl, { headers: { accept: "application/json" } });
+    if (response.ok) {
+      const json = await response.json();
+      const seasonAnimes = Array.isArray(json?.[seasonName]) ? json[seasonName] : [];
+      if (seasonAnimes.length) {
+        return seasonAnimes;
+      }
+      console.warn(`AnimeThemes animeyear returned no ${seasonName} entries for ${year}; falling back to anime index.`);
+    } else {
+      console.warn(`AnimeThemes animeyear returned ${response.status} for ${season}`);
+    }
+  } catch (error) {
+    console.warn(`AnimeThemes animeyear request failed for ${season}; falling back to anime index:`, error);
+  }
+
+  // Defensive fallback using the documented anime index filters.
+  const indexParams = new URLSearchParams();
+  indexParams.set("filter[year]", year);
+  indexParams.set("filter[season]", seasonName);
+  indexParams.set("include", ANIMETHEMES_INCLUDE);
+
+  let url = `https://api.animethemes.moe/anime?${indexParams.toString()}`;
   const animes = [];
 
   for (let page = 0; page < 10 && url; page++) {
@@ -1150,13 +1175,13 @@ async function fetchAnimeThemesSeason(season) {
     try {
       response = await fetch(url, { headers: { accept: "application/json" } });
     } catch (error) {
-      console.warn(`AnimeThemes API request failed for ${season}:`, error);
-      return animes;
+      console.warn(`AnimeThemes anime index request failed for ${season}:`, error);
+      break;
     }
 
     if (!response.ok) {
-      console.warn(`AnimeThemes API returned ${response.status} for ${season}`);
-      return animes;
+      console.warn(`AnimeThemes anime index returned ${response.status} for ${season}`);
+      break;
     }
 
     const json = await response.json();
