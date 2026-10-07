@@ -673,6 +673,7 @@ function buildSongPage(item, season, key) {
   const artist = item.artist || "";
   const thumb = normalizeImageUrl(item.thumbnail, SITE_BASE);
   const canonical = `${SITE_BASE}/song/${key}/`;
+  const videoUrl = item.animethemesVideo?.url || "";
 
   const spotifyIcon = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.4a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2Zm4.1 13.6a.58.58 0 0 1-.8.2c-2.2-1.35-4.97-1.65-8.24-.91a.58.58 0 1 1-.26-1.13c3.58-.82 6.65-.48 9.14 1.03.28.17.37.53.16.81Zm1.12-2.51a.72.72 0 0 1-.99.24c-2.51-1.54-6.35-1.99-9.32-1.08a.72.72 0 1 1-.42-1.38c3.4-1.04 7.65-.54 10.48 1.19.34.21.45.66.25 1.03Zm.1-2.65c-3.01-1.78-7.97-1.95-10.85-1.08a.87.87 0 1 1-.5-1.67c3.31-1 8.8-.81 12.29 1.26a.87.87 0 0 1-.94 1.49Z"/></svg>';
   const appleIcon = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.9 12.8c0-2 1.6-3 1.7-3.1-.9-1.3-2.4-1.5-2.9-1.5-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.8-3.2 1.9-1.4 2.3-.4 5.7 1 7.5.7.9 1.4 1.9 2.5 1.8 1 0 1.4-.6 2.6-.6 1.2 0 1.5.6 2.6.6 1.1 0 1.8-.9 2.5-1.8.8-1 1.1-2.1 1.1-2.2-.1 0-2.1-.8-2.5-2.6Zm-1.9-5.8c.5-.7.9-1.7.8-2.7-.9 0-1.9.6-2.5 1.3-.5.6-.9 1.6-.8 2.5 1 .1 1.9-.4 2.5-1.1Z"/></svg>';
@@ -754,19 +755,21 @@ function buildSongPage(item, season, key) {
     .back { color: var(--muted); text-decoration: none; font-size: 11px; font-weight: 800; }
     .back:hover { color: #fff; }
     .card {
+      width: min(900px, 100%);
+      margin: 0 auto;
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: 28px;
+      border-radius: 24px;
       background: linear-gradient(145deg, rgba(23,18,37,.97), rgba(10,8,17,.98));
-      box-shadow: 0 36px 120px rgba(0,0,0,.42);
+      box-shadow: 0 30px 100px rgba(0,0,0,.4);
     }
     .hero {
       position: relative;
       width: 100%;
-      min-height: 430px;
+      min-height: 360px;
       display: grid;
       place-items: center;
-      padding: 28px;
+      padding: 22px;
       overflow: hidden;
       background:
         radial-gradient(circle at 45% 20%, rgba(169,120,255,.17), transparent 40%),
@@ -784,8 +787,8 @@ function buildSongPage(item, season, key) {
     .cover {
       position: relative;
       z-index: 1;
-      width: min(100%, 390px);
-      max-height: 430px;
+      width: min(100%, 330px);
+      max-height: 360px;
       aspect-ratio: 1;
       display: block;
       object-fit: cover;
@@ -802,7 +805,7 @@ function buildSongPage(item, season, key) {
       color: #a27dff;
       background: linear-gradient(145deg, #171126, #0d0a15);
     }
-    .content { padding: 34px 36px 32px; }
+    .content { padding: 28px 32px 30px; }
     .badge {
       display: inline-flex;
       align-items: center;
@@ -817,7 +820,7 @@ function buildSongPage(item, season, key) {
       letter-spacing: .13em;
       text-transform: uppercase;
     }
-    h1 { margin: 14px 0 0; font-size: clamp(28px, 5vw, 48px); line-height: 1; letter-spacing: -.055em; }
+    h1 { margin: 14px 0 0; font-size: clamp(25px, 4vw, 42px); line-height: 1; letter-spacing: -.055em; }
     .song { margin: 11px 0 0; color: #e2dae9; font-size: 17px; line-height: 1.45; font-weight: 800; }
     .artist { margin-top: 5px; color: var(--muted); font-size: 13px; }
     .meta { margin-top: 16px; color: var(--muted2); font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
@@ -906,7 +909,7 @@ function buildSongPage(item, season, key) {
       .page { width: min(100%, calc(100% - 16px)); padding-top: 10px; }
       .card { border-radius: 20px; }
       .hero { padding: 12px; }
-      .cover { width: min(100%, 340px); max-height: 55vh; border-radius: 14px; }
+      .cover { width: min(100%, 300px); max-height: 48vh; border-radius: 14px; }
       .content { padding: 24px 18px 22px; }
       h1 { font-size: 34px; }
       .icon-action { width: 43px; height: 43px; }
