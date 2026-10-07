@@ -2,7 +2,7 @@
   "season": "Winter 2027",
   "url": "https://aniplaylist.com/?seasons=Winter%202027",
   "resultCount": 8,
-  "animeThemesChecked": 0,
+  "animeThemesChecked": 1,
   "animeThemesMatched": 0,
   "jsonResponses": 4,
   "algoliaResponses": 1,
@@ -635,7 +635,8 @@
         "112018",
         "415",
         "UCrPe3hLA51968GwxHSZ1llw"
-      ]
+      ],
+      "animethemesVideo": null
     },
     {
       "id": "us_3215",
@@ -1043,7 +1044,8 @@
         "112018",
         "415",
         "UCrPe3hLA51968GwxHSZ1llw"
-      ]
+      ],
+      "animethemesVideo": null
     }
   ],
   "platformSamples": [
