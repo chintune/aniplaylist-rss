@@ -1443,7 +1443,7 @@ async function resolveAnimeThemesForSeason(page, items, season) {
 
 function buildBrowsePage(season, items) {
   const slugSeason = slug(season);
-  const feedUrl = \`${SITE_BASE}/rss/\${slugSeason}.xml\`;
+  const feedUrl = `${SITE_BASE}/rss/${slugSeason}.xml`;
   const orderedItems = items
     .slice()
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
@@ -1458,8 +1458,8 @@ function buildBrowsePage(season, items) {
   const seasonNav = Array.isArray(CFG.seasons)
     ? CFG.seasons.map(value => {
         const active = String(value) === String(season);
-        const href = \`${SITE_BASE}/browse/\${slug(value)}/\`;
-        return \`<a class="season-pill\${active ? " active" : ""}" href="\${htmlEscape(href)}"\${active ? ' aria-current="page"' : ""}>\${htmlEscape(value)}</a>\`;
+        const href = `${SITE_BASE}/browse/${slug(value)}/`;
+        return `<a class="season-pill${active ? " active" : ""}" href="${htmlEscape(href)}"${active ? ' aria-current="page"' : ""}>${htmlEscape(value)}</a>`;
       }).join("")
     : "";
 
@@ -1471,17 +1471,17 @@ function buildBrowsePage(season, items) {
     );
 
     const image = item.thumbnail
-      ? \`<img src="\${htmlEscape(item.thumbnail)}" alt="" loading="\${index < 6 ? "eager" : "lazy"}">\`
+      ? `<img src="${htmlEscape(item.thumbnail)}" alt="" loading="${index < 6 ? "eager" : "lazy"}">`
       : '<div class="cover-fallback"><span>♪</span></div>';
 
     const watchButton = watchable
-      ? \`<a class="platform watch" href="\${htmlEscape(item.animethemesVideo.url)}"
-          data-watch-url="\${htmlEscape(item.animethemesVideo.url)}"
-          data-watch-poster="\${htmlEscape(item.thumbnail || "")}"
-          data-watch-title="\${htmlEscape(item.anime || "Anime")}"
-          data-watch-song="\${htmlEscape(item.song || "Theme")}"
-          data-watch-kind="\${htmlEscape(kind)}"
-          aria-label="Watch \${htmlEscape(item.song || "theme")}">\u25b6 Watch</a>\`
+      ? `<a class="platform watch" href="${htmlEscape(item.animethemesVideo.url)}"
+          data-watch-url="${htmlEscape(item.animethemesVideo.url)}"
+          data-watch-poster="${htmlEscape(item.thumbnail || "")}"
+          data-watch-title="${htmlEscape(item.anime || "Anime")}"
+          data-watch-song="${htmlEscape(item.song || "Theme")}"
+          data-watch-kind="${htmlEscape(kind)}"
+          aria-label="Watch ${htmlEscape(item.song || "theme")}">\u25b6 Watch</a>`
       : "";
 
     const platforms = [
@@ -1514,50 +1514,50 @@ function buildBrowsePage(season, items) {
     ]).join(" ");
 
     const variantAttrs = variants => [
-      \`data-en="\${htmlEscape(variants.english)}"\`,
-      \`data-romaji="\${htmlEscape(variants.romaji)}"\`,
-      \`data-ja="\${htmlEscape(variants.japanese)}"\`,
+      `data-en="${htmlEscape(variants.english)}"`,
+      `data-romaji="${htmlEscape(variants.romaji)}"`,
+      `data-ja="${htmlEscape(variants.japanese)}"`,
     ].join(" ");
 
-    return \`
+    return `
       <article class="song-card"
-        data-kind="\${htmlEscape(kind)}"
-        data-search="\${htmlEscape(searchText)}">
+        data-kind="${htmlEscape(kind)}"
+        data-search="${htmlEscape(searchText)}">
         <div class="card-art">
-          <div class="rank-badge">#\${index + 1}</div>
+          <div class="rank-badge">#${index + 1}</div>
           <div class="cover-wrap">
-            \${image}
-            \${watchable ? '<div class="video-badge"><span class="mini-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> VIDEO</div>' : ""}
+            ${image}
+            ${watchable ? '<div class="video-badge"><span class="mini-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> VIDEO</div>' : ""}
           </div>
         </div>
 
         <div class="song-main">
           <div class="song-head">
-            <span class="kind kind-\${htmlEscape(kind.toLowerCase())}">\${htmlEscape(kind)}</span>
-            <span class="date">\${htmlEscape(dateText)}</span>
+            <span class="kind kind-${htmlEscape(kind.toLowerCase())}">${htmlEscape(kind)}</span>
+            <span class="date">${htmlEscape(dateText)}</span>
           </div>
 
-          <h2 class="anime-title" \${variantAttrs(animeVariants)}>\${htmlEscape(animeVariants.english || "Unknown anime")}</h2>
-          <div class="song-title" \${variantAttrs(songVariants)}>\${htmlEscape(songVariants.english || "Unknown song")}</div>
-          \${artistVariants.english ? \`<div class="artist" \${variantAttrs(artistVariants)}>\${htmlEscape(artistVariants.english)}</div>\` : ""}
+          <h2 class="anime-title" ${variantAttrs(animeVariants)}>${htmlEscape(animeVariants.english || "Unknown anime")}</h2>
+          <div class="song-title" ${variantAttrs(songVariants)}>${htmlEscape(songVariants.english || "Unknown song")}</div>
+          ${artistVariants.english ? `<div class="artist" ${variantAttrs(artistVariants)}>${htmlEscape(artistVariants.english)}</div>` : ""}
 
           <div class="card-bottom">
-            <div class="platforms">\${platforms}</div>
-            <a class="details" href="\${htmlEscape(SITE_BASE)}/song/\${htmlEscape(item.key)}/" aria-label="Open song page for \${htmlEscape(item.song || "this release")}">Details ↗</a>
+            <div class="platforms">${platforms}</div>
+            <a class="details" href="${htmlEscape(SITE_BASE)}/song/${htmlEscape(item.key)}/" aria-label="Open song page for ${htmlEscape(item.song || "this release")}">Details ↗</a>
           </div>
         </div>
       </article>
-    \`;
+    `;
   }).join("\n");
 
-  return \`<!doctype html>
+  return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0712">
-  <title>\${htmlEscape(\`AniPlaylist — \${season}\`)}</title>
-  <meta name="description" content="\${htmlEscape(\`Anime music releases for \${season}, with Spotify, Apple Music, and verified AnimeThemes OP/ED videos.\`)}">
+  <title>${htmlEscape(`AniPlaylist — ${season}`)}</title>
+  <meta name="description" content="${htmlEscape(`Anime music releases for ${season}, with Spotify, Apple Music, and verified AnimeThemes OP/ED videos.`)}">
   <style>
     :root {
       color-scheme: dark;
@@ -2491,23 +2491,23 @@ function buildBrowsePage(season, items) {
   <div class="wrap">
     <header class="site-header">
       <div class="nav-row">
-        <a class="brand-link" href="\${htmlEscape(SITE_BASE)}/" aria-label="AniPlaylist home">
+        <a class="brand-link" href="${htmlEscape(SITE_BASE)}/" aria-label="AniPlaylist home">
           <span class="brand-mark"><span class="brand-note">♫</span></span>
           <span>
             <strong>AniPlaylist</strong><br>
             <span>Anime Music Hub</span>
           </span>
         </a>
-        <a class="back" href="\${htmlEscape(SITE_BASE)}/">← All seasons</a>
+        <a class="back" href="${htmlEscape(SITE_BASE)}/">← All seasons</a>
       </div>
 
       <section class="hero" aria-labelledby="season-title">
         <div class="hero-top">
           <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> AniPlaylist RSS · \${htmlEscape(season)}</div>
-            <h1 id="season-title">\${htmlEscape(season)}</h1>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> AniPlaylist RSS · ${htmlEscape(season)}</div>
+            <h1 id="season-title">${htmlEscape(season)}</h1>
             <div class="hero-copy">
-              Explore <strong>\${orderedItems.length}</strong> anime music releases from this season.
+              Explore <strong>${orderedItems.length}</strong> anime music releases from this season.
               Search across English, romaji, and Japanese titles, jump to Spotify or Apple Music,
               and <strong>watch verified OP/ED videos</strong> directly from AnimeThemes when a real video is available.
             </div>
@@ -2519,14 +2519,14 @@ function buildBrowsePage(season, items) {
         </div>
 
         <div class="stats" aria-label="Season statistics">
-          <div class="stat"><div class="label">Releases</div><div class="value">\${orderedItems.length}</div></div>
-          <div class="stat"><div class="label">Watch videos</div><div class="value">\${watchCount}</div></div>
-          <div class="stat"><div class="label">Spotify</div><div class="value">\${spotifyCount}</div></div>
-          <div class="stat"><div class="label">Apple Music</div><div class="value">\${appleCount}</div></div>
+          <div class="stat"><div class="label">Releases</div><div class="value">${orderedItems.length}</div></div>
+          <div class="stat"><div class="label">Watch videos</div><div class="value">${watchCount}</div></div>
+          <div class="stat"><div class="label">Spotify</div><div class="value">${spotifyCount}</div></div>
+          <div class="stat"><div class="label">Apple Music</div><div class="value">${appleCount}</div></div>
         </div>
 
         <nav class="season-strip" aria-label="Anime seasons">
-          \${seasonNav}
+          ${seasonNav}
         </nav>
 
         <div class="tools">
@@ -2535,7 +2535,7 @@ function buildBrowsePage(season, items) {
               <span class="search-icon" aria-hidden="true">⌕</span>
               <input id="browse-search" class="search-input" type="search"
                 placeholder="Search anime, song, artist, Japanese, romaji..."
-                aria-label="Search \${htmlEscape(season)} releases"
+                aria-label="Search ${htmlEscape(season)} releases"
                 autocomplete="off" spellcheck="false">
             </div>
 
@@ -2566,13 +2566,13 @@ function buildBrowsePage(season, items) {
 
     <main>
       <div id="song-list" class="song-list">
-        \${cards || '<div class="empty-state">No Spotify or Apple Music entries yet.</div>'}
+        ${cards || '<div class="empty-state">No Spotify or Apple Music entries yet.</div>'}
       </div>
       <div id="pagination" class="pagination-wrap" aria-label="Pagination"></div>
     </main>
 
     <footer>
-      AniPlaylist RSS · \${htmlEscape(season)} · Verified AnimeThemes videos link directly to AnimeThemes media
+      AniPlaylist RSS · ${htmlEscape(season)} · Verified AnimeThemes videos link directly to AnimeThemes media
     </footer>
   </div>
 
@@ -2867,7 +2867,7 @@ function buildBrowsePage(season, items) {
     })();
   </script>
 </body>
-</html>\`;
+</html>`;
 }
 
 function buildBrowseRedirectPage(season, items) {
