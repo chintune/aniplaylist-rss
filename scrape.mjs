@@ -958,7 +958,7 @@ function buildBrowsePage(season, items) {
         : "";
 
       return `
-        <article class="song-card">
+        <article class="song-card" data-search="${htmlEscape([item.anime || "", item.song || "", item.artist || "", item.kind || ""].join(" "))}">
           <div class="rank">${index + 1}</div>
           <div class="art">${image}</div>
           <div class="song-main">
@@ -1040,6 +1040,17 @@ function buildBrowsePage(season, items) {
       color: var(--muted);
       font-size: 15px;
     }
+    .search-box {
+      display: flex; align-items: center; gap: 9px; margin-top: 18px;
+    }
+    .search-input {
+      width: 100%; min-height: 44px; padding: 0 14px; border: 1px solid var(--border);
+      border-radius: 12px; outline: none; background: #131821; color: var(--text);
+      font: inherit; font-size: 14px;
+    }
+    .search-input::placeholder { color: #737e8d; }
+    .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(157,123,255,.10); }
+    .search-count { flex: 0 0 auto; color: var(--muted); font-size: 12px; white-space: nowrap; }
     .top-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1205,6 +1216,14 @@ function buildBrowsePage(season, items) {
       <div class="eyebrow">AniPlaylist RSS</div>
       <h1>${htmlEscape(season)}</h1>
       <div class="sub">${items.length} ${items.length === 1 ? "release" : "releases"} · newest first</div>
+      <div class="search-box">
+        <input id="browse-search" class="search-input" type="search"
+          placeholder="Search anime, song, artist, OP / ED..."
+          aria-label="Search ${htmlEscape(season)} releases"
+          autocomplete="off" spellcheck="false">
+        <span id="search-count" class="search-count">${items.length}</span>
+      </div>
+
       <div class="top-actions">
         <a class="primary" href="${feedUrl}">RSS feed ↗</a>
         <a href="https://aniplaylist.com/?seasons=${encodeURIComponent(season)}" target="_blank" rel="noopener noreferrer">AniPlaylist ↗</a>
@@ -1212,12 +1231,43 @@ function buildBrowsePage(season, items) {
     </header>
 
     <main>
-      <div class="song-list">
+      <div id="song-list" class="song-list">
         ${cards || `<div style="padding:24px;color:#9da7b5;border:1px solid #262e3b;border-radius:16px;background:#121720;">No Spotify or Apple Music entries yet.</div>`}
       </div>
     </main>
 
     <footer>AniPlaylist RSS · ${htmlEscape(season)}</footer>
+
+    <script>
+      (() => {
+        const input = document.getElementById("browse-search");
+        const list = document.getElementById("song-list");
+        const count = document.getElementById("search-count");
+        const cards = [...list.querySelectorAll(".song-card")];
+        const total = cards.length;
+
+        function normalize(value) {
+          return String(value || "").toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function filter() {
+          const query = normalize(input.value.trim());
+          let visible = 0;
+          cards.forEach(card => {
+            const match = !query || normalize(card.dataset.search).includes(query);
+            card.hidden = !match;
+            if (match) {
+              visible += 1;
+              const rank = card.querySelector(".rank");
+              if (rank) rank.textContent = visible;
+            }
+          });
+          count.textContent = query ? visible + " / " + total : String(total);
+        }
+
+        input.addEventListener("input", filter);
+      })();
+    </script>
   </div>
 </body>
 </html>`;
