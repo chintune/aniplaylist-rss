@@ -1,73 +1,68 @@
-# 🎵 AniPlaylist RSS
+# AniPlaylist
 
 <p align="center">
   <a href="https://chintune.github.io/aniplaylist-rss/">
-    <img src="https://raw.githubusercontent.com/chintune/aniplaylist-rss/main/site/favicon.svg" alt="AniPlaylist" width="76">
+    <img src="https://raw.githubusercontent.com/chintune/aniplaylist-rss/main/site/favicon.svg" alt="AniPlaylist" width="72">
   </a>
 </p>
 
-<h1 align="center">AniPlaylist</h1>
-
 <p align="center">
   <strong>Anime music, organized by season.</strong><br>
-  Openings · Endings · Insert Songs · OSTs
+  Openings, endings, insert songs and OSTs
 </p>
 
 <p align="center">
-  <a href="https://chintune.github.io/aniplaylist-rss/">🌐 Website</a>
+  <a href="https://chintune.github.io/aniplaylist-rss/">Website</a>
   ·
-  <a href="https://github.com/chintune/aniplaylist-rss">💻 GitHub</a>
+  <a href="https://github.com/chintune/aniplaylist-rss">GitHub</a>
 </p>
 
 ---
 
-## 🎧 About
+AniPlaylist is a simple way to keep up with anime music releases throughout the year.
 
-AniPlaylist is an anime music hub for discovering songs by anime season.
+Choose a season and browse the songs from its anime. Each release can include links to **Spotify** and **Apple Music**, along with a verified **AnimeThemes** video when one is available.
 
-Browse seasonal releases and quickly find:
+### Features
 
-**Spotify** · **Apple Music** · **RSS** · **AnimeThemes videos**
+**Season browsing**  
+Browse releases by Fall, Winter, Spring and Summer.
 
-The site is designed to make anime music easy to browse, search, and listen to without digging through long lists.
+**Search**  
+Search by anime title, song title or artist. Japanese and Romaji title variants are included where available.
 
-## ✨ What you can do
+**Title languages**  
+Switch between English, Romaji and Japanese titles.
 
-🌸 **Browse by season**  
-Explore Fall, Winter, Spring, and Summer releases.
+**Release filters**  
+Filter releases by OP, ED, IN, OST, Other, or show only releases that have a verified video.
 
-🔎 **Search everything**  
-Search anime titles, song names, artists, and Japanese / Romaji title variants.
+**AnimeThemes playback**  
+Watch supported OP and ED videos directly from the release page or season catalog.
 
-🌐 **Switch languages**  
-View available titles in **English, Romaji, or 日本語**.
+**RSS feeds**  
+Subscribe to individual season feeds and receive new releases through your RSS reader.
 
-🎵 **Find by release type**  
-Filter **OP · ED · IN · OST · Other**.
+**Spotify playlists**  
+Open the Spotify playlist for a supported season directly from AniPlaylist.
 
-🎬 **Find songs with videos**  
-The **Video** filter shows releases with a verified AnimeThemes video.
+### RSS format
 
-▶️ **Watch AnimeThemes videos**  
-Verified OP/ED videos can be played directly from AniPlaylist.
+Each release is kept simple:
 
-📡 **RSS feeds**  
-Follow seasonal releases through RSS.
+```text
+[OP] Anime Title
+Artist - Song Name
+```
 
-💚 **Spotify playlists**  
-Open the playlist for supported seasons directly from the site.
-
-## 🌙 A simple anime-music experience
-
-AniPlaylist keeps the focus on the music:
-
-> **Find the anime. Find the song. Listen.**
-
-Built for anime music fans who want a clean way to keep up with seasonal openings, endings, insert songs, and more.
+The RSS item links back to the corresponding AniPlaylist release page.
 
 ---
 
 <p align="center">
-  <strong>🎶 AniPlaylist · Anime Music Hub</strong><br>
-  <a href="https://chintune.github.io/aniplaylist-rss/">chintune.github.io/aniplaylist-rss</a>
+  <a href="https://chintune.github.io/aniplaylist-rss/"><strong>Open AniPlaylist</strong></a>
+</p>
+
+<p align="center">
+  <sub>Maintained by <a href="https://github.com/chintune">chintune</a></sub>
 </p>
