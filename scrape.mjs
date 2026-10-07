@@ -1446,7 +1446,8 @@ async function resolveAnimeThemesForSeason(page, items, season) {
 }
 
 
-function buildBrowsePage(season, items) {
+function buildBrowsePage(season, items, options = {}) {
+  const isHome = options.isHome === true;
   const slugSeason = slug(season);
   const feedUrl = `${SITE_BASE}/rss/${slugSeason}.xml`;
   const orderedItems = items
@@ -1527,6 +1528,7 @@ function buildBrowsePage(season, items) {
     return `
       <article class="song-card"
         data-kind="${htmlEscape(kind)}"
+        data-has-video="${watchable ? "1" : "0"}"
         data-search="${htmlEscape(searchText)}">
         <div class="card-art">
           <div class="rank-badge">#${index + 1}</div>
@@ -1561,6 +1563,7 @@ function buildBrowsePage(season, items) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0712">
+  <link rel="icon" type="image/svg+xml" href="${isHome ? "./favicon.svg" : "../../favicon.svg"}">
   <title>${htmlEscape(`AniPlaylist — ${season}`)}</title>
   <meta name="description" content="${htmlEscape(`Anime music releases for ${season}, with Spotify, Apple Music, and verified AnimeThemes OP/ED videos.`)}">
   <style>
@@ -2006,7 +2009,7 @@ function buildBrowsePage(season, items) {
 
     .song-list {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
       align-items: start;
     }
@@ -2454,7 +2457,11 @@ function buildBrowsePage(season, items) {
       background: rgba(255,255,255,.018);
     }
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1180px) {
+      .song-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 900px) {
       .song-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hero-visual { display: none; }
     }
@@ -2503,7 +2510,7 @@ function buildBrowsePage(season, items) {
             <span>Anime Music Hub</span>
           </span>
         </a>
-        <a class="back" href="${htmlEscape(SITE_BASE)}/">← All seasons</a>
+        ${isHome ? "" : `<a class="back" href="${htmlEscape(SITE_BASE)}/">← Home</a>`}
       </div>
 
       <section class="hero" aria-labelledby="season-title">
@@ -2512,7 +2519,7 @@ function buildBrowsePage(season, items) {
             <div class="eyebrow"><span class="eyebrow-dot"></span> AniPlaylist RSS · ${htmlEscape(season)}</div>
             <h1 id="season-title">${htmlEscape(season)}</h1>
             <div class="hero-copy">
-              Explore <strong>${orderedItems.length}</strong> anime music releases from this season.
+              Explore <strong>${orderedItems.length}</strong> anime music releases from this season.${isHome ? " This is the main AniPlaylist music hub." : ""}
               Search across English, romaji, and Japanese titles, jump to Spotify or Apple Music,
               and <strong>watch verified OP/ED videos</strong> directly from AnimeThemes when a real video is available.
             </div>
@@ -2559,6 +2566,7 @@ function buildBrowsePage(season, items) {
             <button type="button" class="filter-button" data-type-filter="IN" aria-pressed="false">IN</button>
             <button type="button" class="filter-button" data-type-filter="OST" aria-pressed="false">OST</button>
             <button type="button" class="filter-button" data-type-filter="Other" aria-pressed="false">Other</button>
+            <button type="button" class="filter-button" data-type-filter="VIDEO" aria-pressed="false">Video</button>
           </div>
 
           <div class="result-row">
@@ -2660,7 +2668,11 @@ function buildBrowsePage(season, items) {
         const query = normalize(input.value);
         return cards.filter(card => {
           const textMatches = !query || normalize(card.dataset.search || "").includes(query);
-          const typeMatches = !selectedType || card.dataset.kind === selectedType;
+          const typeMatches =
+            !selectedType ||
+            (selectedType === "VIDEO"
+              ? card.dataset.hasVideo === "1"
+              : card.dataset.kind === selectedType);
           return textMatches && typeMatches;
         });
       }
@@ -2980,6 +2992,8 @@ const context = await browser.newContext({
 
 const page = await context.newPage();
 const summary = [];
+let homeSeason = "";
+let homeSeasonItems = [];
 console.log(`Thumbnail resolver self-test: ${thumbnailResolverSelfTest()}`);
 
 for (const season of CFG.seasons) {
@@ -3259,6 +3273,11 @@ for (const season of CFG.seasons) {
     buildBrowsePage(season, rssItems)
   );
 
+  if (!homeSeasonItems.length && rssItems.length) {
+    homeSeason = season;
+    homeSeasonItems = rssItems;
+  }
+
   await fs.writeFile(
     path.join(RSS_DIR, `${slug(season)}.xml`),
     buildRss(season, rssItems)
@@ -3269,6 +3288,17 @@ for (const season of CFG.seasons) {
   );
 
   summary.push(diag);
+}
+
+/*
+ * The root URL is the primary UI. Keep it focused on the first populated
+ * configured season instead of maintaining a second, older landing page.
+ */
+if (homeSeason && homeSeasonItems.length) {
+  await fs.writeFile(
+    path.join(SITE_DIR, "index.html"),
+    buildBrowsePage(homeSeason, homeSeasonItems, { isHome: true })
+  );
 }
 
 /*
