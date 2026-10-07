@@ -1194,29 +1194,121 @@ async function fetchAnimeThemesSeason(season) {
   return animes;
 }
 
-function attachAnimeThemesVideo(item, animes) {
+const animeThemesSearchCache = new Map();
+
+async function searchAnimeThemes(query) {
+  const normalizedQuery = animeThemesNormalize(query);
+  if (!normalizedQuery) return [];
+
+  if (animeThemesSearchCache.has(normalizedQuery)) {
+    return animeThemesSearchCache.get(normalizedQuery);
+  }
+
+  const promise = (async () => {
+    const params = new URLSearchParams();
+    params.set("q", query);
+    params.set("page[limit]", "4");
+    params.set("fields[search]", "anime");
+    params.set(
+      "include[anime]",
+      "animethemes.animethemeentries.videos,animethemes.group,animethemes.song,images"
+    );
+    params.set(
+      "include[animetheme]",
+      "animethemeentries.videos.audio,anime.images,song.artists,group"
+    );
+    params.set("fields[anime]", "id,name,slug,year,season,media_format");
+    params.set("fields[animetheme]", "id,type,sequence,slug");
+    params.set("fields[animethemeentry]", "id,version,episodes,spoiler,nsfw");
+    params.set(
+      "fields[video]",
+      "id,tags,resolution,nc,subbed,lyrics,uncen,source,overlap,basename"
+    );
+    params.set("fields[song]", "id,title");
+    params.set("fields[artist]", "id,name,slug");
+
+    const url = `https://api.animethemes.moe/search?${params.toString()}`;
+
+    try {
+      const response = await fetch(url, {
+        headers: { accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        console.warn(`AnimeThemes search returned ${response.status} for "${query}"`);
+        return [];
+      }
+
+      const json = await response.json();
+      return Array.isArray(json?.search?.anime) ? json.search.anime : [];
+    } catch (error) {
+      console.warn(`AnimeThemes search failed for "${query}":`, error);
+      return [];
+    }
+  })();
+
+  animeThemesSearchCache.set(normalizedQuery, promise);
+  return promise;
+}
+
+async function findBestAnimeThemesAnime(item, seasonAnimes) {
   const animeCandidates = unique([
     ...(item.animeCandidates || []),
     item.anime,
   ]).filter(Boolean);
 
-  let bestAnime = null;
-  let bestAnimeScore = 0;
+  function pickBest(animes) {
+    let bestAnime = null;
+    let bestScore = 0;
 
-  for (const anime of animes || []) {
-    const names = [
-      anime?.name,
-      ...(Array.isArray(anime?.animesynonyms)
-        ? anime.animesynonyms.map(x => x?.text)
-        : []),
-    ].filter(Boolean);
+    for (const anime of animes || []) {
+      const names = [
+        anime?.name,
+        ...(Array.isArray(anime?.animesynonyms)
+          ? anime.animesynonyms.map(x => x?.text)
+          : []),
+      ].filter(Boolean);
 
-    const score = animeThemesBestScore(animeCandidates, names);
-    if (score > bestAnimeScore) {
-      bestAnimeScore = score;
-      bestAnime = anime;
+      const score = animeThemesBestScore(animeCandidates, names);
+      if (score > bestScore) {
+        bestScore = score;
+        bestAnime = anime;
+      }
+    }
+
+    return { bestAnime, bestScore };
+  }
+
+  const fromSeason = pickBest(seasonAnimes);
+  if (fromSeason.bestAnime && fromSeason.bestScore >= 650) {
+    return fromSeason;
+  }
+
+  // AnimeThemes' own web client uses the global /search endpoint for title
+  // lookup. Use the same API when the season listing does not contain a
+  // title/synonym match.
+  const searched = [];
+  for (const query of animeCandidates.slice(0, 4)) {
+    const results = await searchAnimeThemes(query);
+    searched.push(...results);
+    const picked = pickBest(results);
+    if (picked.bestAnime && picked.bestScore >= 1000) {
+      return picked;
     }
   }
+
+  return pickBest(searched);
+}
+
+async function attachAnimeThemesVideo(item, animes) {
+
+  const animeCandidates = unique([
+    ...(item.animeCandidates || []),
+    item.anime,
+  ]).filter(Boolean);
+
+  const { bestAnime, bestScore: bestAnimeScore } =
+    await findBestAnimeThemesAnime(item, animes);
 
   if (!bestAnime || bestAnimeScore < 650) return null;
 
@@ -1300,7 +1392,7 @@ async function resolveAnimeThemesForSeason(items, season) {
   let matched = 0;
 
   for (const item of needsWatch) {
-    const video = attachAnimeThemesVideo(item, animes);
+    const video = await attachAnimeThemesVideo(item, animes);
     item.animethemesVideo = video;
 
     if (video) matched++;
