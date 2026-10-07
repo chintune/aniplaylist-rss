@@ -3,6 +3,11 @@ name: Build RSS
 on:
   workflow_dispatch:
 
+  push:
+    paths:
+      - "scrape.mjs"
+      - ".github/workflows/build-rss.yml"
+
   schedule:
     - cron: "7,37 * * * *"
 
