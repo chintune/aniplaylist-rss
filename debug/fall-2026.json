@@ -3,7 +3,7 @@
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
   "resultCount": 164,
   "animeThemesChecked": 82,
-  "animeThemesMatched": 0,
+  "animeThemesMatched": 31,
   "animeThemesSeasonLinks": 52,
   "jsonResponses": 24,
   "algoliaResponses": 11,
@@ -696,7 +696,15 @@
         "1313592",
         "UCsy-WAGWKgaPSDGoPBhgSsw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/TenGobu-OP1.webm",
+        "basename": "TenGobu-OP1.webm",
+        "animeSlug": "tensei_goblin_dakedo_shitsumon_aru",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27992",
@@ -755,7 +763,15 @@
         "275967661",
         "UCwwBJHxlinPZ6cHS6UzQ7Ig"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/BlackCloverS2-ED1.webm",
+        "basename": "BlackCloverS2-ED1.webm",
+        "animeSlug": "black_clover_2nd_season",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27993",
@@ -1141,7 +1157,15 @@
         "230000265",
         "UCHE99igrlGCZEBdE8h1MuMA"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/TenkenS2-OP1.webm",
+        "basename": "TenkenS2-OP1.webm",
+        "animeSlug": "tensei_shitara_ken_deshita_2nd_season",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27987",
@@ -1264,7 +1288,15 @@
         "213411307",
         "UCatqqcDCTq6z7NA5pLEZvQg"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/TenGobu-ED1.webm",
+        "basename": "TenGobu-ED1.webm",
+        "animeSlug": "tensei_goblin_dakedo_shitsumon_aru",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27981",
@@ -1451,7 +1483,15 @@
         "98064702",
         "UCqboXUgTe1T90jrQnxTlMfw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/Marronnier-OP1.webm",
+        "basename": "Marronnier-OP1.webm",
+        "animeSlug": "marronnier_oukoku_no_shichinin_no_kishi",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27977",
@@ -1515,7 +1555,15 @@
         "70886932",
         "UCUruaitWu07N2ErrUaBgLWw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/HoreMajo-OP1.webm",
+        "basename": "HoreMajo-OP1.webm",
+        "animeSlug": "doumo_suki_na_hito_ni_horegusuri_wo_irai_sareta_majo_desu",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27976",
@@ -1579,7 +1627,15 @@
         "128010782",
         "UC160OjZevHTl0K8vk_g1vZQ"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/NamaAnaru-ED1.webm",
+        "basename": "NamaAnaru-ED1.webm",
+        "animeSlug": "seitokai_ni_mo_ana_wa_aru",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27986",
@@ -1640,7 +1696,15 @@
         "8184768",
         "UC_L4SD61HE8KajhkywBy12g"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/MahouShoujoIkuseiKeikakuRestart-ED1.webm",
+        "basename": "MahouShoujoIkuseiKeikakuRestart-ED1.webm",
+        "animeSlug": "mahou_shoujo_ikusei_keikaku_restart",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27978",
@@ -2081,7 +2145,15 @@
         "333628081",
         "UCN6CRLFQD6VmYzSE2zsIjyw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/TankChair-ED1.webm",
+        "basename": "TankChair-ED1.webm",
+        "animeSlug": "tank_chair",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27953",
@@ -2204,7 +2276,15 @@
         "150232572",
         "UCgNz7-LG-cqv0_WZ-zpdbKg"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/AoNoHakoS2-ED1.webm",
+        "basename": "AoNoHakoS2-ED1.webm",
+        "animeSlug": "ao_no_hako_season_2",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27952",
@@ -2328,7 +2408,15 @@
         "271898872",
         "UC2PTQOPrZautcQGly-U6Uqw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/HoreMajo-ED1.webm",
+        "basename": "HoreMajo-ED1.webm",
+        "animeSlug": "doumo_suki_na_hito_ni_horegusuri_wo_irai_sareta_majo_desu",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27948",
@@ -2448,7 +2536,15 @@
         "70550782",
         "UC2rP-qlwiiHCBjWq93XRUUg"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/MahouShoujoIkuseiKeikakuRestart-OP1.webm",
+        "basename": "MahouShoujoIkuseiKeikakuRestart-OP1.webm",
+        "animeSlug": "mahou_shoujo_ikusei_keikaku_restart",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27937",
@@ -2785,7 +2881,15 @@
         "1313592",
         "UCsy-WAGWKgaPSDGoPBhgSsw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/TenGobu-OP1.webm",
+        "basename": "TenGobu-OP1.webm",
+        "animeSlug": "tensei_goblin_dakedo_shitsumon_aru",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27992",
@@ -2844,7 +2948,15 @@
         "275967661",
         "UCwwBJHxlinPZ6cHS6UzQ7Ig"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/BlackCloverS2-ED1.webm",
+        "basename": "BlackCloverS2-ED1.webm",
+        "animeSlug": "black_clover_2nd_season",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27993",
@@ -3230,7 +3342,15 @@
         "230000265",
         "UCHE99igrlGCZEBdE8h1MuMA"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/TenkenS2-OP1.webm",
+        "basename": "TenkenS2-OP1.webm",
+        "animeSlug": "tensei_shitara_ken_deshita_2nd_season",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27987",
@@ -3353,7 +3473,15 @@
         "213411307",
         "UCatqqcDCTq6z7NA5pLEZvQg"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/TenGobu-ED1.webm",
+        "basename": "TenGobu-ED1.webm",
+        "animeSlug": "tensei_goblin_dakedo_shitsumon_aru",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27981",
@@ -3540,7 +3668,15 @@
         "98064702",
         "UCqboXUgTe1T90jrQnxTlMfw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/Marronnier-OP1.webm",
+        "basename": "Marronnier-OP1.webm",
+        "animeSlug": "marronnier_oukoku_no_shichinin_no_kishi",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27977",
@@ -3604,7 +3740,15 @@
         "70886932",
         "UCUruaitWu07N2ErrUaBgLWw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/HoreMajo-OP1.webm",
+        "basename": "HoreMajo-OP1.webm",
+        "animeSlug": "doumo_suki_na_hito_ni_horegusuri_wo_irai_sareta_majo_desu",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27976",
@@ -3668,7 +3812,15 @@
         "128010782",
         "UC160OjZevHTl0K8vk_g1vZQ"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/NamaAnaru-ED1.webm",
+        "basename": "NamaAnaru-ED1.webm",
+        "animeSlug": "seitokai_ni_mo_ana_wa_aru",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27986",
@@ -3729,7 +3881,15 @@
         "8184768",
         "UC_L4SD61HE8KajhkywBy12g"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/MahouShoujoIkuseiKeikakuRestart-ED1.webm",
+        "basename": "MahouShoujoIkuseiKeikakuRestart-ED1.webm",
+        "animeSlug": "mahou_shoujo_ikusei_keikaku_restart",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27978",
@@ -4170,7 +4330,15 @@
         "333628081",
         "UCN6CRLFQD6VmYzSE2zsIjyw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/TankChair-ED1.webm",
+        "basename": "TankChair-ED1.webm",
+        "animeSlug": "tank_chair",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27953",
@@ -4293,7 +4461,15 @@
         "150232572",
         "UCgNz7-LG-cqv0_WZ-zpdbKg"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/AoNoHakoS2-ED1.webm",
+        "basename": "AoNoHakoS2-ED1.webm",
+        "animeSlug": "ao_no_hako_season_2",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27952",
@@ -4417,7 +4593,15 @@
         "271898872",
         "UC2PTQOPrZautcQGly-U6Uqw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/HoreMajo-ED1.webm",
+        "basename": "HoreMajo-ED1.webm",
+        "animeSlug": "doumo_suki_na_hito_ni_horegusuri_wo_irai_sareta_majo_desu",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27948",
@@ -4537,7 +4721,15 @@
         "70550782",
         "UC2rP-qlwiiHCBjWq93XRUUg"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/MahouShoujoIkuseiKeikakuRestart-OP1.webm",
+        "basename": "MahouShoujoIkuseiKeikakuRestart-OP1.webm",
+        "animeSlug": "mahou_shoujo_ikusei_keikaku_restart",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27937",
