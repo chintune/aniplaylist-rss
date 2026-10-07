@@ -2,6 +2,8 @@
   "season": "Fall 2027",
   "url": "https://aniplaylist.com/?seasons=Fall%202027",
   "resultCount": null,
+  "animeThemesChecked": 0,
+  "animeThemesMatched": 0,
   "jsonResponses": 3,
   "algoliaResponses": 1,
   "hitArrays": 2,
