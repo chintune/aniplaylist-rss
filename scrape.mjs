@@ -2959,9 +2959,9 @@ async function makeRssItem(item, season) {
   const pageUrl = `${SITE_BASE}/${relativePage}`;
 
   const descriptionLines = [
-    item.song ? `Song: ${item.song}` : "",
-    item.artist ? `Artist: ${item.artist}` : "",
-    `Open the item page for Spotify and Apple Music.`,
+    item.artist && item.song
+      ? `${item.artist} - ${item.song}`
+      : (item.song || item.artist || ""),
   ].filter(Boolean);
 
   return {
