@@ -1096,7 +1096,7 @@ function chooseAnimeThemeVideo(theme) {
 
       const tags = String(video?.tags || "")
         .toLocaleLowerCase()
-        .split(/[\\s,]+/)
+        .split(/[\s,]+/)
         .filter(Boolean);
 
       let score = 0;
@@ -1131,7 +1131,7 @@ function chooseAnimeThemeVideo(theme) {
 }
 
 async function fetchAnimeThemesSeason(page, season) {
-  const match = String(season || "").match(/^(Winter|Spring|Summer|Fall)\\s+(\\d{4})$/i);
+  const match = String(season || "").match(/^(Winter|Spring|Summer|Fall)\s+(\d{4})$/i);
   if (!match) return [];
 
   const seasonName = match[1].toLocaleLowerCase();
@@ -1151,13 +1151,13 @@ async function fetchAnimeThemesSeason(page, season) {
 
     const animeLinks = await page.locator('a[href^="/anime/"]').evaluateAll(links =>
       links.map(link => ({
-        name: String(link.textContent || "").replace(/\\s+/g, " ").trim(),
+        name: String(link.textContent || "").replace(/\s+/g, " ").trim(),
         href: link.getAttribute("href") || "",
       }))
       .filter(item => /^\/anime\/[^/]+\/?$/.test(item.href))
       .map(item => ({
         name: item.name,
-        slug: item.href.replace(/^\\/anime\\//, "").replace(/\\/$/, ""),
+        slug: item.href.replace(/^\/anime\//, "").replace(/\/$/, ""),
       }))
     );
 
