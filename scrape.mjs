@@ -1144,6 +1144,7 @@ async function fetchAnimeThemesSeason(page, season) {
       timeout: 45000,
     });
 
+    // Use the canonical AnimeThemes season page so title-to-slug matching is based on their real routes.
     // The AnimeThemes season page is the same page users browse and contains
     // links to its anime entries. Use those canonical slugs instead of trying
     // to invent/guess AnimeThemes slugs from AniPlaylist titles.
