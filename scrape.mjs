@@ -1067,11 +1067,24 @@ function animeThemesBestScore(queries, candidates) {
 }
 
 function animeThemeArtistNames(theme) {
-  if (!Array.isArray(theme?.song?.artists)) return [];
-  return theme.song.artists.flatMap(artist => [
-    artist?.name,
-    artist?.artistsong?.as,
-  ]).filter(Boolean);
+  const names = [];
+
+  if (Array.isArray(theme?.song?.performances)) {
+    for (const performance of theme.song.performances) {
+      names.push(performance?.as);
+      names.push(performance?.alias);
+      names.push(performance?.artist?.name);
+    }
+  }
+
+  if (Array.isArray(theme?.song?.artists)) {
+    for (const artist of theme.song.artists) {
+      names.push(artist?.name);
+      names.push(artist?.artistsong?.as);
+    }
+  }
+
+  return unique(names);
 }
 
 function animeThemeVideoUrl(video) {
@@ -1085,7 +1098,7 @@ function animeThemeVideoUrl(video) {
 function chooseAnimeThemeVideo(theme) {
   const candidates = [];
 
-  for (const entry of theme?.animethemeentries || []) {
+  for (const entry of (theme?.entries || theme?.animethemeentries || [])) {
     if (entry?.deleted_at || entry?.spoiler || entry?.nsfw) continue;
 
     for (const video of entry?.videos || []) {
@@ -1296,6 +1309,9 @@ function pickAnimeThemesAnime(item, detailedAnimes) {
     const names = [
       anime?.name,
       anime?.slug,
+      ...(Array.isArray(anime?.synonyms)
+        ? anime.synonyms.map(x => x?.text)
+        : []),
       ...(Array.isArray(anime?.animesynonyms)
         ? anime.animesynonyms.map(x => x?.text)
         : []),
@@ -1335,7 +1351,7 @@ async function attachAnimeThemesVideo(item, detailedAnimes) {
   let bestTheme = null;
   let bestThemeScore = 0;
 
-  for (const theme of picked.bestAnime.animethemes || []) {
+  for (const theme of (picked.bestAnime.themes || picked.bestAnime.animethemes || [])) {
     if (String(theme?.type || "").toUpperCase() !== kind) continue;
 
     const songScore = animeThemesBestScore(
