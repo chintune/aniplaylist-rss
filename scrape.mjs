@@ -1177,9 +1177,18 @@ function buildBrowsePage(season, items) {
         ? `<img src="${htmlEscape(item.thumbnail)}" alt="" loading="${index < 4 ? "eager" : "lazy"}">`
         : `<div class="cover-fallback">♪</div>`;
 
+      const watchButton = item.animethemesVideo?.videoUrl
+        ? '<button class="platform watch" type="button" data-watch-url="' + htmlEscape(item.animethemesVideo.videoUrl) +
+          '" data-watch-title="' + htmlEscape((item.anime || "Anime") + " · " + (item.kind || "Theme")) +
+          '" data-watch-song="' + htmlEscape(item.song || "") +
+          '" data-watch-artist="' + htmlEscape(item.artist || "") +
+          '">▶ Watch</button>'
+        : "";
+
       const platforms = [
         browsePlatformButton("Spotify", item.spotify, "spotify"),
         browsePlatformButton("Apple Music", item.apple, "apple"),
+        watchButton,
       ].filter(Boolean).join("\n");
 
       const dateText = Number.isFinite(new Date(item.pubDate).getTime())
@@ -1504,6 +1513,82 @@ function buildBrowsePage(season, items) {
     }
     .platform.spotify { background: #1db954; }
     .platform.apple { background: linear-gradient(135deg, #ff496b, #d9438a); }
+    .platform.watch {
+      border: 0;
+      background: linear-gradient(135deg, #4f8cff, #6f63ff);
+      cursor: pointer;
+      font: inherit;
+    }
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+    }
+    .video-modal[hidden] { display: none; }
+    .video-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(3, 5, 9, .82);
+      backdrop-filter: blur(6px);
+    }
+    .video-panel {
+      position: relative;
+      z-index: 1;
+      width: min(1000px, calc(100% - 28px));
+      margin: 5vh auto 0;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #0f141c;
+      box-shadow: 0 28px 90px rgba(0,0,0,.55);
+    }
+    .video-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .video-title { font-size: 16px; font-weight: 700; }
+    .video-song { margin-top: 3px; color: var(--muted); font-size: 13px; }
+    .video-close {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #171d28;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .theme-video {
+      display: block;
+      width: 100%;
+      max-height: 72vh;
+      border-radius: 12px;
+      background: #05070a;
+    }
+    .video-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 9px;
+      color: #737e8d;
+      font-size: 11px;
+    }
+    .video-meta a { color: #a99bff; text-decoration: none; }
+    @media (max-width: 500px) {
+      .video-panel {
+        width: calc(100% - 16px);
+        margin-top: 2vh;
+        padding: 10px;
+      }
+      .video-meta {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
     .details {
       display: inline-block;
       margin-top: 9px;
@@ -1578,6 +1663,23 @@ function buildBrowsePage(season, items) {
 
     <footer>AniPlaylist RSS · ${htmlEscape(season)}</footer>
 
+    <div id="video-modal" class="video-modal" hidden>
+      <div class="video-backdrop" data-video-close></div>
+      <div class="video-panel" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+        <div class="video-header">
+          <div>
+            <div id="video-modal-title" class="video-title">AnimeThemes</div>
+            <div id="video-modal-song" class="video-song"></div>
+          </div>
+          <button class="video-close" type="button" data-video-close aria-label="Close video">✕</button>
+        </div>
+        <video id="theme-video" class="theme-video" controls playsinline preload="metadata"></video>
+        <div class="video-meta">
+          <span>Video hosted by AnimeThemes</span>
+          <a id="animethemes-link" href="https://animethemes.moe/" target="_blank" rel="noopener noreferrer">AnimeThemes ↗</a>
+        </div>
+      </div>
+    </div>
     <script>
       (() => {
         const input = document.getElementById("browse-search");
