@@ -1808,8 +1808,27 @@ function buildHomePage(seasons, featuredSeason) {
     .season-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
     .season-card { overflow:hidden; border:1px solid var(--line); border-radius:19px; background:linear-gradient(145deg,rgba(22,17,34,.92),rgba(12,9,19,.97)); transition:transform .16s ease,border-color .16s ease; }
     .season-card:hover { transform:translateY(-3px); border-color:rgba(169,120,255,.24); }
-    .season-mosaic { display:grid; grid-template-columns:repeat(3,1fr); height:132px; gap:3px; background:#100b18; }
-    .season-mosaic img { width:100%; height:100%; object-fit:cover; }
+    .season-mosaic {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: 100%;
+      height: 118px !important;
+      min-height: 118px !important;
+      max-height: 118px !important;
+      gap: 3px;
+      overflow: hidden;
+      background: #100b18;
+    }
+    .season-mosaic img {
+      display: block;
+      width: 100% !important;
+      height: 118px !important;
+      min-height: 0 !important;
+      max-height: 118px !important;
+      object-fit: cover;
+      overflow: hidden;
+    }
     .season-mosaic.empty {
       display:grid;
       place-items:center;
@@ -1824,8 +1843,11 @@ function buildHomePage(seasons, featuredSeason) {
         #100b18;
     }
     .season-card-body {
+      position: relative;
+      z-index: 2;
+      min-height: 118px;
       padding: 15px 16px 16px;
-      background: linear-gradient(180deg, rgba(14,10,22,.22), rgba(10,8,17,.7));
+      background: linear-gradient(180deg, rgba(14,10,22,.98), rgba(10,8,17,1));
     }
 
     .season-card h3 {
@@ -1837,7 +1859,6 @@ function buildHomePage(seasons, featuredSeason) {
       text-shadow: 0 1px 18px rgba(0,0,0,.28);
     }
     .season-kicker { color:#8e819b; font-size:8px; font-weight:900; letter-spacing:.13em; }
-    .season-card h3 { margin:7px 0 0; font-size:22px; letter-spacing:-.045em; }
     .season-meta { display:flex; gap:8px; margin-top:6px; color:var(--muted2); font-size:10px; font-weight:800; }
     .season-actions { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:13px; }
     .season-open { display:inline-flex; align-items:center; gap:6px; color:#d8cdf0; text-decoration:none; font-size:10px; font-weight:900; }
@@ -1851,7 +1872,7 @@ function buildHomePage(seasons, featuredSeason) {
       .hero-grid{grid-template-columns:1fr}
       .hero-eq{display:none}
       .featured{grid-template-columns:1fr}
-      .featured-art{min-height:260px}
+      .featured-art{height:260px;min-height:260px}
       .season-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media(max-width:640px){
@@ -1894,8 +1915,7 @@ function buildHomePage(seasons, featuredSeason) {
               Browse a season, search multilingual titles, open your streaming link, or watch a verified AnimeThemes video.
             </div>
             <div class="hero-actions">
-              ${featuredSlug ? `<a class="primary" href="${htmlEscape(featuredUrl)}">Browse ${htmlEscape(featured.season)} →</a>` : ""}
-              <a class="secondary" href="#seasons">Browse seasons</a>
+              <a class="primary" href="#featured">Browse seasons →</a>
             </div>
           </div>
           <div class="hero-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -1903,7 +1923,7 @@ function buildHomePage(seasons, featuredSeason) {
       </section>
 
       ${featured.season ? `
-      <section class="section">
+      <section id="featured" class="section">
         <div class="section-head">
           <div>
             <h2>Featured season</h2>
