@@ -1044,14 +1044,15 @@ function buildBrowsePage(season, items) {
       const watchSongCandidates = unique([...(item.titleCandidates || []), item.song]).filter(Boolean);
       const watchArtistCandidates = unique([...(item.artistCandidates || []), item.artist]).filter(isLikelyArtistDisplay);
       const watchButton = watchable
-        ? '<button class="platform watch" type="button" data-watch-anime="' + htmlEscape(JSON.stringify(watchAnimeCandidates)) +
+        ? '<a class="platform watch" href="https://animethemes.moe/anime/' + slug(item.anime || "anime") +
+          '" target="_blank" rel="noopener noreferrer" data-watch-anime="' + htmlEscape(JSON.stringify(watchAnimeCandidates)) +
           '" data-watch-song="' + htmlEscape(JSON.stringify(watchSongCandidates)) +
           '" data-watch-artist="' + htmlEscape(JSON.stringify(watchArtistCandidates)) +
           '" data-watch-kind="' + htmlEscape(item.kind || "") +
           '" data-watch-poster="' + htmlEscape(item.thumbnail || "") +
           '" data-watch-title="' + htmlEscape((item.anime || "Anime") + " · " + (item.kind || "Theme")) +
           '" data-watch-display-song="' + htmlEscape(item.song || "") +
-          '">▶ Watch</button>'
+          '">▶ Watch</a>'
         : "";
       const platforms = [
         browsePlatformButton("Spotify", item.spotify, "spotify"),
@@ -1732,23 +1733,55 @@ function buildBrowsePage(season, items) {
           const promise = (async () => {
             const include = "animesynonyms,animethemes.animethemeentries.videos,animethemes.song,animethemes.song.artists";
             for (const animeTitle of animeCandidates.slice(0, 4)) {
-              const url = new URL("https://api.animethemes.moe/anime");
-              url.searchParams.set("q", animeTitle);
-              url.searchParams.set("include", include);
+              const candidates = [];
 
-              const response = await fetch(url, { headers: { accept: "application/json" } });
-              if (!response.ok) continue;
-              const json = await response.json();
-              const animes = Array.isArray(json?.anime) ? json.anime : [];
-              if (!animes.length) continue;
+              // First try the direct show endpoint using a slug derived from the title.
+              const directSlug = animeTitle
+                .toLocaleLowerCase()
+                .normalize("NFKC")
+                .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
+                .replace(/^-+|-+$/g, "");
+
+              if (directSlug) {
+                candidates.push("https://api.animethemes.moe/anime/" + encodeURIComponent(directSlug) + "?include=" + encodeURIComponent(include));
+              }
+
+              // Fallback to the documented anime index filter.
+              const filtered = new URL("https://api.animethemes.moe/anime");
+              filtered.searchParams.set("filter[name]", animeTitle);
+              filtered.searchParams.set("include", include);
+              candidates.push(filtered.href);
 
               let bestAnime = null;
               let bestAnimeScore = 0;
-              for (const anime of animes) {
-                const names = [anime?.name, ...(anime?.animesynonyms || []).map(x => x?.text)].filter(Boolean);
-                const score = watchBestScore(animeCandidates, names);
-                if (score > bestAnimeScore) { bestAnimeScore = score; bestAnime = anime; }
+
+              for (const requestUrl of candidates) {
+                let response;
+                try {
+                  response = await fetch(requestUrl, { headers: { accept: "application/json" } });
+                } catch {
+                  continue;
+                }
+
+                if (!response.ok) continue;
+
+                const json = await response.json();
+                const animes = Array.isArray(json?.anime)
+                  ? json.anime
+                  : (json?.anime ? [json.anime] : []);
+
+                for (const anime of animes) {
+                  const names = [anime?.name, ...(anime?.animesynonyms || []).map(x => x?.text)].filter(Boolean);
+                  const score = watchBestScore(animeCandidates, names);
+                  if (score > bestAnimeScore) {
+                    bestAnimeScore = score;
+                    bestAnime = anime;
+                  }
+                }
+
+                if (bestAnime && bestAnimeScore >= 1000) break;
               }
+
               if (!bestAnime || bestAnimeScore < 650) continue;
 
               const themes = (bestAnime.animethemes || []).filter(theme => String(theme?.type || "").toUpperCase() === kind);
@@ -1819,8 +1852,11 @@ function buildBrowsePage(season, items) {
           }
         }
 
-        document.querySelectorAll(".platform.watch").forEach(button => {
-          button.addEventListener("click", () => openVideo(button));
+        document.querySelectorAll(".platform.watch").forEach(link => {
+          link.addEventListener("click", event => {
+            event.preventDefault();
+            openVideo(link);
+          });
         });
         document.querySelectorAll("[data-video-close]").forEach(element => {
           element.addEventListener("click", closeVideo);
