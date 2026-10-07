@@ -21,7 +21,14 @@ const CACHE_PATH = path.join(ROOT, "resolve-cache.json");
  * what belongs in the current Spotify playlists.
  */
 const SPOTIFY_CURRENT_PATH = path.join(ROOT, "spotify-current.json");
+const SPOTIFY_PLAYLISTS_PATH = path.join(ROOT, "spotify-playlists.json");
 const currentSpotifyTracks = {};
+let spotifyPlaylists = {};
+try {
+  spotifyPlaylists = JSON.parse(await fs.readFile(SPOTIFY_PLAYLISTS_PATH, "utf8"));
+} catch {
+  spotifyPlaylists = {};
+}
 
 await fs.mkdir(RSS_DIR, { recursive: true });
 await fs.mkdir(DEBUG_DIR, { recursive: true });
@@ -1534,6 +1541,372 @@ async function resolveAnimeThemesForSeason(page, items, season) {
 }
 
 
+function buildHomePage(seasons, featuredSeason) {
+  const rows = Array.isArray(seasons) ? seasons : [];
+  const featured =
+    rows.find(row => String(row.season) === String(featuredSeason)) ||
+    rows.find(row => Number(row.releases || 0) > 0) ||
+    rows[0] ||
+    {};
+
+  const featuredSlug = featured.season ? slug(featured.season) : "";
+  const featuredUrl = featuredSlug
+    ? `${SITE_BASE}/browse/${featuredSlug}/`
+    : `${SITE_BASE}/`;
+
+  const seasonCards = rows.map(row => {
+    const season = String(row.season || "Season");
+    const seasonSlug = slug(season);
+    const releases = Number(row.releases || 0);
+    const videos = Number(row.watchVideos || 0);
+    const playlist = row.spotifyPlaylist || "";
+    const images = Array.isArray(row.featureImages) ? row.featureImages.slice(0, 3).filter(Boolean) : [];
+
+    const mosaic = images.length
+      ? `<div class="season-mosaic">${images.map(src => `<img src="${htmlEscape(src)}" alt="" loading="lazy">`).join("")}</div>`
+      : '<div class="season-mosaic empty"><span>♫</span></div>';
+
+    return `
+      <article class="season-card">
+        ${mosaic}
+        <div class="season-card-body">
+          <div class="season-kicker">${releases ? "AVAILABLE" : "COMING SOON"}</div>
+          <h3>${htmlEscape(season)}</h3>
+          <div class="season-meta"><span>${releases} releases</span><span>${videos} videos</span></div>
+          <div class="season-actions">
+            <a class="season-open" href="${htmlEscape(SITE_BASE)}/browse/${htmlEscape(seasonSlug)}/">Browse season <span>→</span></a>
+            ${playlist ? `<a class="season-spotify" href="${htmlEscape(playlist)}" target="_blank" rel="noopener noreferrer" title="Spotify playlist">Spotify</a>` : ""}
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  const featuredImages = Array.isArray(featured.featureImages)
+    ? featured.featureImages.slice(0, 4).filter(Boolean)
+    : [];
+
+  const featuredArt = featuredImages.length
+    ? `<div class="featured-art">${featuredImages.map(src => `<img src="${htmlEscape(src)}" alt="" loading="eager">`).join("")}</div>`
+    : '<div class="featured-art fallback"><span>♫</span></div>';
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090711">
+  <link rel="icon" type="image/svg+xml" href="${htmlEscape(SITE_BASE)}/favicon.svg">
+  <link rel="canonical" href="${htmlEscape(SITE_BASE)}/">
+  <title>AniPlaylist — Anime Music Hub</title>
+  <meta name="description" content="Anime openings, endings, insert songs and OSTs organized by season.">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090711;
+      --panel: rgba(20,16,30,.9);
+      --line: rgba(255,255,255,.09);
+      --line2: rgba(255,255,255,.14);
+      --text: #f7f3ff;
+      --muted: #aaa2b5;
+      --muted2: #766d82;
+      --purple: #a978ff;
+      --pink: #ff5ca8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(900px 540px at 8% -10%, rgba(169,120,255,.2), transparent 60%),
+        radial-gradient(800px 520px at 100% 18%, rgba(255,92,168,.1), transparent 62%),
+        linear-gradient(180deg, #090711 0%, #0b0811 55%, #090711 100%);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .13;
+      background-image:
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);
+      background-size: 44px 44px;
+    }
+    a { color: inherit; }
+    svg { display:block; width:1em; height:1em; }
+
+    .wrap { width:min(1180px,calc(100% - 30px)); margin:0 auto; }
+
+    .topbar {
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand {
+      display:inline-flex;
+      align-items:center;
+      gap:11px;
+      text-decoration:none;
+    }
+    .brand-mark {
+      display:grid;
+      place-items:center;
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(135deg,rgba(169,120,255,.96),rgba(120,87,255,.8) 52%,rgba(255,92,168,.82));
+      box-shadow:0 14px 35px rgba(120,87,255,.23);
+      font-size:17px;
+    }
+    .brand-copy strong { display:block; font-size:15px; line-height:1; letter-spacing:-.02em; }
+    .brand-copy span { display:block; margin-top:4px; color:var(--muted2); font-size:10px; font-weight:800; }
+
+    .topnav { display:flex; gap:7px; }
+    .topnav a {
+      display:inline-flex;
+      align-items:center;
+      min-height:34px;
+      padding:0 11px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      color:#9c93a8;
+      text-decoration:none;
+      font-size:10px;
+      font-weight:900;
+    }
+    .topnav a:hover { color:#fff; background:rgba(255,255,255,.03); border-color:var(--line2); }
+
+    .hero {
+      position:relative;
+      overflow:hidden;
+      padding:52px;
+      border:1px solid var(--line);
+      border-radius:30px;
+      background:
+        radial-gradient(520px 260px at 8% 0%,rgba(169,120,255,.18),transparent 72%),
+        radial-gradient(500px 260px at 92% 100%,rgba(255,92,168,.09),transparent 72%),
+        linear-gradient(135deg,rgba(24,18,40,.92),rgba(11,8,18,.97));
+      box-shadow:0 30px 100px rgba(0,0,0,.3);
+    }
+    .hero-grid { display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:36px; align-items:center; }
+    .eyebrow {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:27px;
+      padding:0 10px;
+      border:1px solid rgba(169,120,255,.25);
+      border-radius:999px;
+      background:rgba(169,120,255,.08);
+      color:#ccb7ff;
+      font-size:9px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+    }
+    .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--pink); box-shadow:0 0 14px rgba(255,92,168,.8); }
+    h1 { margin:15px 0 0; max-width:730px; font-size:clamp(45px,6.4vw,78px); line-height:.92; letter-spacing:-.065em; }
+    .hero-copy { max-width:690px; margin-top:17px; color:var(--muted); font-size:14px; line-height:1.7; }
+    .hero-copy strong { color:#e7ddf3; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:23px; }
+    .primary,.secondary {
+      display:inline-flex;
+      align-items:center;
+      min-height:42px;
+      padding:0 14px;
+      border-radius:12px;
+      text-decoration:none;
+      font-size:10px;
+      font-weight:900;
+      transition:transform .15s ease,filter .15s ease;
+    }
+    .primary { color:#fff; background:linear-gradient(135deg,#8d6aff,#6a57ff); box-shadow:0 14px 32px rgba(120,87,255,.18); }
+    .secondary { color:#b7afc0; border:1px solid var(--line); background:rgba(255,255,255,.025); }
+    .primary:hover,.secondary:hover { transform:translateY(-1px); filter:brightness(1.06); }
+
+    .hero-eq { height:170px; display:flex; align-items:flex-end; justify-content:center; gap:9px; }
+    .hero-eq i {
+      display:block;
+      width:9px;
+      border-radius:999px;
+      background:linear-gradient(180deg,#f5eaff,#a978ff 55%,#6b50ff);
+      box-shadow:0 0 26px rgba(169,120,255,.2);
+      animation:bounce 1.15s ease-in-out infinite alternate;
+      transform-origin:bottom;
+    }
+    .hero-eq i:nth-child(1){height:36px;animation-delay:-.2s}
+    .hero-eq i:nth-child(2){height:80px;animation-delay:-.7s}
+    .hero-eq i:nth-child(3){height:130px;animation-delay:-.1s}
+    .hero-eq i:nth-child(4){height:68px;animation-delay:-.55s}
+    .hero-eq i:nth-child(5){height:112px;animation-delay:-.3s}
+    .hero-eq i:nth-child(6){height:56px;animation-delay:-.9s}
+    .hero-eq i:nth-child(7){height:96px;animation-delay:-.45s}
+    @keyframes bounce { from{transform:scaleY(.48);opacity:.65} to{transform:scaleY(1);opacity:1} }
+
+    .section { padding-top:30px; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:14px; margin-bottom:13px; }
+    .section-head h2 { margin:0; font-size:22px; letter-spacing:-.04em; }
+    .section-head p { margin:4px 0 0; color:var(--muted2); font-size:10px; }
+
+    .featured {
+      display:grid;
+      grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:linear-gradient(145deg,rgba(23,18,37,.94),rgba(12,9,19,.97));
+    }
+    .featured-art {
+      min-height:250px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:3px;
+      padding:3px;
+      background:#100b18;
+    }
+    .featured-art img { width:100%; height:100%; min-height:123px; object-fit:cover; border-radius:11px; }
+    .featured-art img:first-child { grid-row:span 2; }
+    .featured-art.fallback { place-items:center; color:#a47bff; font-size:78px; }
+    .featured-copy { padding:31px; display:flex; flex-direction:column; justify-content:center; }
+    .featured-kicker { color:#97899f; font-size:9px; font-weight:900; text-transform:uppercase; letter-spacing:.13em; }
+    .featured h2 { margin:8px 0 0; font-size:clamp(31px,4vw,50px); line-height:.96; letter-spacing:-.055em; }
+    .featured-text { margin-top:9px; color:var(--muted); font-size:11px; line-height:1.6; }
+    .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:7px; margin-top:18px; }
+    .stat { min-width:0; padding:11px 12px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.02); }
+    .stat label { display:block; color:var(--muted2); font-size:8px; font-weight:900; text-transform:uppercase; letter-spacing:.1em; }
+    .stat strong { display:block; margin-top:4px; font-size:18px; }
+    .featured-actions { display:flex; flex-wrap:wrap; gap:7px; margin-top:17px; }
+
+    .season-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
+    .season-card { overflow:hidden; border:1px solid var(--line); border-radius:19px; background:linear-gradient(145deg,rgba(22,17,34,.92),rgba(12,9,19,.97)); transition:transform .16s ease,border-color .16s ease; }
+    .season-card:hover { transform:translateY(-3px); border-color:rgba(169,120,255,.24); }
+    .season-mosaic { display:grid; grid-template-columns:repeat(3,1fr); height:132px; gap:3px; background:#100b18; }
+    .season-mosaic img { width:100%; height:100%; object-fit:cover; }
+    .season-mosaic.empty { place-items:center; color:#8c6cff; font-size:40px; background:radial-gradient(circle,rgba(169,120,255,.13),transparent 55%),#100b18; }
+    .season-card-body { padding:14px; }
+    .season-kicker { color:#8e819b; font-size:8px; font-weight:900; letter-spacing:.13em; }
+    .season-card h3 { margin:7px 0 0; font-size:22px; letter-spacing:-.045em; }
+    .season-meta { display:flex; gap:8px; margin-top:6px; color:var(--muted2); font-size:10px; font-weight:800; }
+    .season-actions { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:13px; }
+    .season-open { display:inline-flex; align-items:center; gap:6px; color:#d8cdf0; text-decoration:none; font-size:10px; font-weight:900; }
+    .season-open:hover { color:#fff; }
+    .season-spotify { color:#6fda9a; text-decoration:none; font-size:9px; font-weight:900; }
+    footer { padding:28px 0 36px; color:#5f5768; text-align:center; font-size:9px; }
+
+    @media(max-width:920px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-eq{display:none}
+      .featured{grid-template-columns:1fr}
+      .featured-art{min-height:260px}
+      .season-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:640px){
+      .wrap{width:min(100%,calc(100% - 18px))}
+      .topbar{height:66px}
+      .topnav{display:none}
+      .hero{padding:30px 20px;border-radius:22px}
+      h1{font-size:48px}
+      .hero-copy{font-size:13px}
+      .featured-copy{padding:24px 20px}
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .season-grid{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="${htmlEscape(SITE_BASE)}/" aria-label="AniPlaylist home">
+        <span class="brand-mark">♫</span>
+        <span class="brand-copy"><strong>AniPlaylist</strong><span>Anime Music Hub</span></span>
+      </a>
+      <nav class="topnav" aria-label="Site navigation">
+        <a href="#seasons">Seasons</a>
+        ${featuredSlug ? `<a href="${htmlEscape(featuredUrl)}">Current releases</a>` : ""}
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> Anime Music · RSS · Streaming · Video</div>
+            <h1>Anime music,<br>organized by season.</h1>
+            <div class="hero-copy">
+              A focused hub for <strong>anime openings, endings, insert songs, and OSTs</strong>.
+              Browse a season, search multilingual titles, open your streaming link, or watch a verified AnimeThemes video.
+            </div>
+            <div class="hero-actions">
+              ${featuredSlug ? `<a class="primary" href="${htmlEscape(featuredUrl)}">Browse ${htmlEscape(featured.season)} →</a>` : ""}
+              <a class="secondary" href="#seasons">Browse seasons</a>
+            </div>
+          </div>
+          <div class="hero-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </section>
+
+      ${featured.season ? `
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Featured season</h2>
+            <p>Choose the season, then use the full catalog tools there.</p>
+          </div>
+        </div>
+        <article class="featured">
+          ${featuredArt}
+          <div class="featured-copy">
+            <div class="featured-kicker">Current catalog</div>
+            <h2>${htmlEscape(featured.season)}</h2>
+            <div class="featured-text">
+              ${Number(featured.releases || 0)} releases · ${Number(featured.watchVideos || 0)} verified AnimeThemes videos.
+              Search, language switching, release-type filters, video-only filtering, and pagination live on the season page.
+            </div>
+            <div class="stats">
+              <div class="stat"><label>Releases</label><strong>${Number(featured.releases || 0)}</strong></div>
+              <div class="stat"><label>Watch videos</label><strong>${Number(featured.watchVideos || 0)}</strong></div>
+              <div class="stat"><label>Spotify</label><strong>${Number(featured.spotifyLinks || 0)}</strong></div>
+              <div class="stat"><label>Apple Music</label><strong>${Number(featured.appleLinks || 0)}</strong></div>
+            </div>
+            <div class="featured-actions">
+              <a class="primary" href="${htmlEscape(featuredUrl)}">Open ${htmlEscape(featured.season)} →</a>
+              <a class="secondary" href="${htmlEscape(SITE_BASE)}/rss/${htmlEscape(slug(featured.season))}.xml">RSS Feed</a>
+              ${featured.spotifyPlaylist ? `<a class="secondary" href="${htmlEscape(featured.spotifyPlaylist)}" target="_blank" rel="noopener noreferrer">Spotify Playlist</a>` : ""}
+            </div>
+          </div>
+        </article>
+      </section>
+      ` : ""}
+
+      <section id="seasons" class="section">
+        <div class="section-head">
+          <div>
+            <h2>Browse seasons</h2>
+            <p>Each season has its own catalog, RSS feed, playlist, filters, and pagination.</p>
+          </div>
+        </div>
+        <div class="season-grid">
+          ${seasonCards || '<div class="season-card"><div class="season-card-body">No seasons configured.</div></div>'}
+        </div>
+      </section>
+    </main>
+
+    <footer>AniPlaylist · Anime Music Hub · Spotify · Apple Music · RSS · AnimeThemes</footer>
+  </div>
+</body>
+</html>`;
+}
 function buildBrowsePage(season, items, options = {}) {
   const isHome = options.isHome === true;
   const slugSeason = slug(season);
@@ -3493,6 +3866,13 @@ for (const season of CFG.seasons) {
 
   const rssItems = await Promise.all(usable.map(x => makeRssItem(x, season)));
 
+  diag.releases = rssItems.length;
+  diag.watchVideos = rssItems.filter(item => !!item.animethemesVideo?.url).length;
+  diag.spotifyLinks = rssItems.filter(item => !!item.spotify).length;
+  diag.appleLinks = rssItems.filter(item => !!item.apple).length;
+  diag.featureImages = rssItems.map(item => item.thumbnail).filter(Boolean).slice(0, 4);
+  diag.spotifyPlaylist = spotifyPlaylists?.[season]?.url || "";
+
   const browsePath = path.join(BROWSE_DIR, slug(season), "index.html");
   await fs.mkdir(path.dirname(browsePath), { recursive: true });
   await fs.writeFile(
@@ -3521,12 +3901,10 @@ for (const season of CFG.seasons) {
  * The root URL is the primary UI. Keep it focused on the first populated
  * configured season instead of maintaining a second, older landing page.
  */
-if (homeSeason && homeSeasonItems.length) {
-  await fs.writeFile(
-    path.join(SITE_DIR, "index.html"),
-    buildBrowsePage(homeSeason, homeSeasonItems, { isHome: true })
-  );
-}
+await fs.writeFile(
+  path.join(SITE_DIR, "index.html"),
+  buildHomePage(summary, homeSeason)
+);
 
 /*
  * Persist ONLY the Spotify IDs discovered during this run.
