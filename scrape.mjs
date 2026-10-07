@@ -1554,7 +1554,9 @@ function buildHomePage(seasons, featuredSeason) {
     ? `${SITE_BASE}/browse/${featuredSlug}/`
     : `${SITE_BASE}/`;
 
-  const seasonCards = rows.map(row => {
+  const seasonCards = rows
+    .filter(row => String(row.season) !== String(featuredSeason))
+    .map(row => {
     const season = String(row.season || "Season");
     const seasonSlug = slug(season);
     const releases = Number(row.releases || 0);
@@ -1941,35 +1943,7 @@ function buildHomePage(seasons, featuredSeason) {
           </div>
         </div>
         <div class="season-grid">
-          \${(() => {
-            const others = rows.filter(row => String(row.season) !== String(featuredSeason));
-            if (!others.length) return '<div class="season-empty">No other seasons configured yet.</div>';
-            const cards = others.map(row => {
-              const season = String(row.season || "Season");
-              const seasonSlug = slug(season);
-              const releases = Number(row.releases || 0);
-              const videos = Number(row.watchVideos || 0);
-              const playlist = row.spotifyPlaylist || "";
-              const images = Array.isArray(row.featureImages) ? row.featureImages.slice(0, 3).filter(Boolean) : [];
-              const mosaic = images.length
-                ? \`<div class="season-mosaic">\${images.map(src => \`<img src="\${htmlEscape(src)}" alt="" loading="lazy">\`).join("")}</div>\`
-                : '<div class="season-mosaic empty"><span>No releases yet</span></div>';
-              return \`
-                <article class="season-card">
-                  \${mosaic}
-                  <div class="season-card-body">
-                    <div class="season-kicker">\${releases ? "AVAILABLE" : "COMING SOON"}</div>
-                    <h3>\${htmlEscape(season)}</h3>
-                    <div class="season-meta"><span>\${releases} releases</span><span>\${videos} videos</span></div>
-                    <div class="season-actions">
-                      <a class="season-open" href="\${htmlEscape(SITE_BASE)}/browse/\${htmlEscape(seasonSlug)}/">Browse season <span>→</span></a>
-                      \${playlist ? \`<a class="season-spotify" href="\${htmlEscape(playlist)}" target="_blank" rel="noopener noreferrer">Spotify</a>\` : ""}
-                    </div>
-                  </div>
-                </article>\`;
-            }).join("");
-            return cards;
-          })()}
+          \${seasonCards || '<div class="season-empty">No other seasons configured yet.</div>'}
         </div>
       </section>
     </main>
