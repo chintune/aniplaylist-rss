@@ -916,10 +916,22 @@ function makePlatformHtml(label, url) {
   return `<p><strong>${htmlEscape(label)}</strong> — <a href="${htmlEscape(url)}">Open ${htmlEscape(label)}</a></p>`;
 }
 
+function browsePlatformIcon(className) {
+  const icons = {
+    spotify: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.4a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0-9.6-9.6Zm4.1 13.6a.58.58 0 0 1-.8.2c-2.2-1.35-4.97-1.65-8.24-.91a.58.58 0 1 1-.26-1.13c3.58-.82 6.65-.48 9.14 1.03.28.17.37.53.16.81Zm1.12-2.51a.72.72 0 0 1-.99.24c-2.51-1.54-6.35-1.99-9.32-1.08a.72.72 0 1 1-.42-1.38c3.4-1.04 7.65-.54 10.48 1.19.34.21.45.66.25 1.03Zm.1-2.65c-3.01-1.78-7.97-1.95-10.85-1.08a.87.87 0 1 1-.5-1.67c3.31-1 8.8-.81 12.29 1.26a.87.87 0 0 1-.94 1.49Z"/></svg>',
+    apple: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.9 12.8c0-2 1.6-3 1.7-3.1-.9-1.3-2.4-1.5-2.9-1.5-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.8-3.2 1.9-1.4 2.3-.4 5.7 1 7.5.7.9 1.4 1.9 2.5 1.8 1 0 1.4-.6 2.6-.6 1.2 0 1.5.6 2.6.6 1.1 0 1.8-.9 2.5-1.8.8-1 1.1-2.1 1.1-2.2-.1 0-2.1-.8-2.5-2.6Zm-1.9-5.8c.5-.7.9-1.7.8-2.7-.9 0-1.9.6-2.5 1.3-.5.6-.9 1.6-.8 2.5 1 .1 1.9-.4 2.5-1.1Z"/></svg>',
+    watch: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.3v13.4a1.1 1.1 0 0 0 1.68.94l9.8-6.7a1.12 1.12 0 0 0 0-1.88l-9.8-6.7A1.1 1.1 0 0 0 8 5.3Z"/></svg>',
+  };
+  return icons[className] || "";
+}
+
 function browsePlatformButton(label, url, className) {
   if (!url) return "";
-  return `<a class="platform ${className}" href="${htmlEscape(url)}" target="_blank" rel="noopener noreferrer">${htmlEscape(label)} ↗</a>`;
+  const icon = browsePlatformIcon(className);
+  const aria = "Open " + label;
+  return `<a class="platform ${className} icon-only" href="${htmlEscape(url)}" target="_blank" rel="noopener noreferrer" title="${htmlEscape(aria)}" aria-label="${htmlEscape(aria)}">${icon}<span class="sr-only">${htmlEscape(label)}</span></a>`;
 }
+
 
 const JAPANESE_TITLE_RE = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff66-\uff9f]/;
 
@@ -1471,13 +1483,14 @@ function buildBrowsePage(season, items, options = {}) {
       : '<div class="cover-fallback"><span>♪</span></div>';
 
     const watchButton = watchable
-      ? `<a class="platform watch" href="${htmlEscape(item.animethemesVideo.url)}"
+      ? `<a class="platform watch icon-only" href="${htmlEscape(item.animethemesVideo.url)}"
           data-watch-url="${htmlEscape(item.animethemesVideo.url)}"
           data-watch-poster="${htmlEscape(item.thumbnail || "")}"
           data-watch-title="${htmlEscape(item.anime || "Anime")}"
           data-watch-song="${htmlEscape(item.song || "Theme")}"
           data-watch-kind="${htmlEscape(kind)}"
-          aria-label="Watch ${htmlEscape(item.song || "theme")}">\u25b6 Watch</a>`
+          title="Watch AnimeThemes video"
+          aria-label="Watch ${htmlEscape(item.song || "theme")}"><span class="play-button-glyph">▶</span></a>`
       : "";
 
     const platforms = [
@@ -2203,6 +2216,28 @@ function buildBrowsePage(season, items, options = {}) {
       flex-wrap: wrap;
       gap: 7px;
       min-width: 0;
+    }
+
+    .platform.icon-only {
+      width: 38px;
+      height: 38px;
+      min-height: 38px;
+      padding: 0;
+      border-radius: 10px;
+    }
+
+    .platform.icon-only svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .play-button-glyph {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      font-size: 11px;
+      line-height: 1;
     }
 
     .platform {
