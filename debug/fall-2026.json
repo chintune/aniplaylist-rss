@@ -3,7 +3,7 @@
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
   "resultCount": 164,
   "animeThemesChecked": 82,
-  "animeThemesMatched": 31,
+  "animeThemesMatched": 48,
   "animeThemesSeasonLinks": 52,
   "jsonResponses": 24,
   "algoliaResponses": 11,
@@ -842,7 +842,15 @@
         "24808",
         "UCx2MQBktBMjtoqFqJ39Os1g"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/Daiseijo-ED1.webm",
+        "basename": "Daiseijo-ED1.webm",
+        "animeSlug": "tensei_shita_dai_seijo_wa_seijo_de_aru_koto_wo_hita_kakusu",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27990",
@@ -1226,7 +1234,15 @@
         "1084662565",
         "UCAjHxGDyW-kTH-NvKL_Qiqg"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/YowakiMax-ED1.webm",
+        "basename": "YowakiMax-ED1.webm",
+        "animeSlug": "yowaki_max_reijou_nano_ni_ratsuwan_konyakushasama_no_kake_ni_notte_shimatta",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27985",
@@ -2022,7 +2038,15 @@
         "6490211",
         "UCyDjbU5RDfEWFyFEtY9Rj4w"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/ShioAma-OP1.webm",
+        "basename": "ShioAma-OP1.webm",
+        "animeSlug": "shiotaiou_no_satousan_ga_ore_ni_dake_amai",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27955",
@@ -2215,7 +2239,15 @@
         "288597931",
         "UCpvym4hXdo4fVz0Rpu_LNoA"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/Ranma2024S3-OP1.webm",
+        "basename": "Ranma2024S3-OP1.webm",
+        "animeSlug": "ranma_12_2024_3rd_season",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27956",
@@ -2345,7 +2377,15 @@
         "4407",
         "UCJCEjx_2PIFi97rJjjfwrcQ"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/Saikyosoubi-OP1.webm",
+        "basename": "Saikyosoubi-OP1.webm",
+        "animeSlug": "mezametara_saikyou_soubi_to_uchuusenmochi_datta_node_ikkodate_mezashite_youhei_to_shite_jiyuu_ni_ikitai",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27950",
@@ -3027,7 +3067,15 @@
         "24808",
         "UCx2MQBktBMjtoqFqJ39Os1g"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/Daiseijo-ED1.webm",
+        "basename": "Daiseijo-ED1.webm",
+        "animeSlug": "tensei_shita_dai_seijo_wa_seijo_de_aru_koto_wo_hita_kakusu",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27990",
@@ -3411,7 +3459,15 @@
         "1084662565",
         "UCAjHxGDyW-kTH-NvKL_Qiqg"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/YowakiMax-ED1.webm",
+        "basename": "YowakiMax-ED1.webm",
+        "animeSlug": "yowaki_max_reijou_nano_ni_ratsuwan_konyakushasama_no_kake_ni_notte_shimatta",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27985",
@@ -4207,7 +4263,15 @@
         "6490211",
         "UCyDjbU5RDfEWFyFEtY9Rj4w"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/ShioAma-OP1.webm",
+        "basename": "ShioAma-OP1.webm",
+        "animeSlug": "shiotaiou_no_satousan_ga_ore_ni_dake_amai",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27955",
@@ -4400,7 +4464,15 @@
         "288597931",
         "UCpvym4hXdo4fVz0Rpu_LNoA"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/Ranma2024S3-OP1.webm",
+        "basename": "Ranma2024S3-OP1.webm",
+        "animeSlug": "ranma_12_2024_3rd_season",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27956",
@@ -4530,7 +4602,15 @@
         "4407",
         "UCJCEjx_2PIFi97rJjjfwrcQ"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/Saikyosoubi-OP1.webm",
+        "basename": "Saikyosoubi-OP1.webm",
+        "animeSlug": "mezametara_saikyou_soubi_to_uchuusenmochi_datta_node_ikkodate_mezashite_youhei_to_shite_jiyuu_ni_ikitai",
+        "themeSlug": "",
+        "type": "OP",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "27950",

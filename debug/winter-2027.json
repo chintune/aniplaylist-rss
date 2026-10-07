@@ -5,7 +5,7 @@
   "animeThemesChecked": 1,
   "animeThemesMatched": 0,
   "animeThemesSeasonLinks": 0,
-  "jsonResponses": 6,
+  "jsonResponses": 4,
   "algoliaResponses": 1,
   "hitArrays": 2,
   "rawHits": 8,
@@ -394,7 +394,7 @@
   ],
   "hitMeta": [
     {
-      "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
+      "url": "https://p4b7ht5p18-2.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
       "nbHits": 8,
       "hitsPerPage": 16,
@@ -402,7 +402,7 @@
       "count": 8
     },
     {
-      "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
+      "url": "https://p4b7ht5p18-2.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
       "nbHits": 28243,
       "hitsPerPage": 0,
