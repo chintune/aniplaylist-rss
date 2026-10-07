@@ -32,12 +32,6 @@ const SITE_BASE = String(
   process.env.SITE_BASE || "https://chintune.github.io/aniplaylist-rss"
 ).replace(/\/$/, "");
 
-const ANIMETHEMES_API_BASE = "https://api.animethemes.moe";
-const ANIMETHEMES_VIDEO_BASE = "https://v.animethemes.moe";
-const ANIMETHEMES_CACHE_VERSION = 1;
-const ANIMETHEMES_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
-const animeThemesMemoryCache = new Map();
-
 let state = {};
 let resolveCache = {};
 
@@ -341,138 +335,6 @@ function normalizeForMatch(value) {
     .replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/gi, " ")
     .replace(/\s+/g, " ")
     .trim();
-}
-function textArray(value) {
-  if (value == null) return [];
-  if (typeof value === "string" || typeof value === "number") return [clean(value)];
-  if (Array.isArray(value)) return unique(value.flatMap(textArray));
-  if (typeof value === "object") return unique([value.name, value.title, value.text, value.label, ...Object.values(value).flatMap(textArray)]);
-  return [];
-}
-
-function matchScore(query, candidate) {
-  const a = normalizeForMatch(query);
-  const b = normalizeForMatch(candidate);
-  if (!a || !b) return 0;
-  if (a === b) return 1000;
-  if (a.includes(b) || b.includes(a)) return 650;
-  const aw = new Set(a.split(" ").filter(Boolean));
-  const bw = new Set(b.split(" ").filter(Boolean));
-  if (!aw.size || !bw.size) return 0;
-  let overlap = 0;
-  for (const word of aw) if (bw.has(word)) overlap++;
-  return overlap ? 300 * (overlap / Math.max(aw.size, bw.size)) : 0;
-}
-
-function bestMatchScore(queries, candidates) {
-  let best = 0;
-  for (const query of queries || []) for (const candidate of candidates || []) best = Math.max(best, matchScore(query, candidate));
-  return best;
-}
-
-async function fetchAnimeThemesRecord(candidates) {
-  const titles = unique(candidates).filter(Boolean).slice(0, 4);
-  if (!titles.length) return null;
-  const memoryKey = JSON.stringify(titles);
-  if (animeThemesMemoryCache.has(memoryKey)) return animeThemesMemoryCache.get(memoryKey);
-  const promise = (async () => {
-    for (const title of titles) {
-      const url = new URL(ANIMETHEMES_API_BASE + "/anime");
-      url.searchParams.set("q", title);
-      url.searchParams.set("include", ["animesynonyms","animethemes.animethemeentries.videos","animethemes.song","animethemes.song.artists"].join(","));
-      try {
-        const response = await fetch(url, { headers: { accept: "application/json" }, signal: AbortSignal.timeout(30000) });
-        if (!response.ok) { console.warn("AnimeThemes API " + response.status + " for " + title); continue; }
-        const json = await response.json();
-        const results = Array.isArray(json?.anime) ? json.anime : [];
-        let bestAnime = null; let bestScore = 0;
-        for (const anime of results) {
-          const names = unique([anime?.name, ...(anime?.animesynonyms || []).map(x => x?.text)]);
-          const score = bestMatchScore(titles, names);
-          if (score > bestScore) { bestScore = score; bestAnime = anime; }
-        }
-        if (bestAnime && bestScore >= 650) return bestAnime;
-      } catch (error) {
-        console.warn("AnimeThemes lookup failed for " + title + ": " + String(error?.message || error));
-      }
-    }
-    return null;
-  })();
-  animeThemesMemoryCache.set(memoryKey, promise);
-  return promise;
-}
-
-function getVideoUrl(video) {
-  const direct = clean(video?.link);
-  if (/^https?:\/\//i.test(direct)) return direct;
-  const basename = clean(video?.basename);
-  return basename ? ANIMETHEMES_VIDEO_BASE + "/" + basename : "";
-}
-
-function videoTagList(video) {
-  if (Array.isArray(video?.tags)) return video.tags.map(x => clean(x).toLowerCase()).filter(Boolean);
-  return String(video?.tags || "").split(/[,\s]+/).map(x => clean(x).toLowerCase()).filter(Boolean);
-}
-
-function selectBestAnimeThemesVideo(entries) {
-  const candidates = [];
-  for (const entry of entries || []) for (const video of entry?.videos || []) {
-    const url = getVideoUrl(video);
-    if (!url) continue;
-    const tags = videoTagList(video);
-    const has = tag => tags.includes(tag);
-    let score = 0;
-    if (has("nc")) score += 500;
-    if (!has("spoiler")) score += 100;
-    if (!has("nsfw")) score += 100;
-    if (!has("over")) score += 50;
-    if (has("uncen")) score += 15;
-    if (!has("subbed")) score += 5;
-    if (!has("lyrics")) score += 5;
-    const resolution = Number(video?.resolution) || 0;
-    score += Math.min(resolution, 2160) / 10;
-    const version = Number(entry?.version) || 1;
-    score -= Math.min(version - 1, 5) * 8;
-    candidates.push({ url, basename: clean(video?.basename), videoId: video?.id ?? null, resolution, tags, source: clean(video?.source), overlap: clean(video?.overlap), version, score });
-  }
-  return candidates.sort((a, b) => b.score - a.score || b.resolution - a.resolution)[0] || null;
-}
-
-function cacheAnimeThemesMiss(targetState, key) {
-  targetState[key] = { ...(targetState[key] || {}), animethemesVideo: { version: ANIMETHEMES_CACHE_VERSION, status: "not-found", checkedAt: new Date().toISOString() } };
-  return null;
-}
-
-async function resolveAnimeThemesVideo(item, season) {
-  if (!["OP", "ED"].includes(String(item.kind || "").toUpperCase())) return null;
-  const key = sha1([season, item.id || "", item.anime, item.kind, item.song, item.artist].join("|"));
-  const cached = state[key]?.animethemesVideo;
-  if (cached?.version === ANIMETHEMES_CACHE_VERSION && cached.videoUrl) return cached;
-  if (cached?.version === ANIMETHEMES_CACHE_VERSION && cached.status === "not-found" && Date.now() - Date.parse(cached.checkedAt || 0) < ANIMETHEMES_CACHE_TTL_MS) return null;
-  const anime = await fetchAnimeThemesRecord(unique([...(item.animeCandidates || []), item.anime]));
-  if (!anime) return cacheAnimeThemesMiss(state, key);
-  const wantedType = String(item.kind || "").toUpperCase();
-  const themes = (anime.animethemes || []).filter(theme => String(theme?.type || "").toUpperCase() === wantedType);
-  if (!themes.length) return cacheAnimeThemesMiss(state, key);
-  const songCandidates = unique([...(item.titleCandidates || []), item.song]).filter(Boolean);
-  const artistCandidates = (item.artistCandidates || []).filter(isLikelyArtistDisplay).concat(item.artist || "");
-  let bestTheme = null;
-  let bestThemeScore = 0;
-  for (const theme of themes) {
-    const titleScore = bestMatchScore(songCandidates, textArray(theme?.song?.title));
-    const themeArtists = Array.isArray(theme?.song?.artists) ? theme.song.artists.flatMap(artist => [artist?.name, artist?.artistsong?.as]) : [];
-    const artistScore = bestMatchScore(artistCandidates, themeArtists);
-    let score = titleScore * 1.5 + artistScore;
-    if ((Number(theme?.sequence) || 0) === 1) score += 20;
-    if (titleScore >= 650) score += 250;
-    if (score > bestThemeScore) { bestThemeScore = score; bestTheme = theme; }
-  }
-  if (!bestTheme || bestThemeScore < 500) return cacheAnimeThemesMiss(state, key);
-  const video = selectBestAnimeThemesVideo(bestTheme.animethemeentries || []);
-  if (!video) return cacheAnimeThemesMiss(state, key);
-  const resolved = { version: ANIMETHEMES_CACHE_VERSION, status: "ok", checkedAt: new Date().toISOString(), animeId: anime.id ?? null, animeSlug: clean(anime.slug), themeId: bestTheme.id ?? null, themeType: clean(bestTheme.type), themeSequence: Number(bestTheme.sequence) || 0, songTitle: clean(bestTheme.song?.title), videoId: video.videoId, videoUrl: video.url, videoBasename: video.basename, resolution: video.resolution, tags: video.tags, source: video.source, overlap: video.overlap };
-  state[key] = { ...(state[key] || {}), animethemesVideo: resolved };
-  return resolved;
 }
 function significantWords(value) {
   return normalizeForMatch(value)
@@ -1177,14 +1039,20 @@ function buildBrowsePage(season, items) {
         ? `<img src="${htmlEscape(item.thumbnail)}" alt="" loading="${index < 4 ? "eager" : "lazy"}">`
         : `<div class="cover-fallback">♪</div>`;
 
-      const watchButton = item.animethemesVideo?.videoUrl
-        ? '<button class="platform watch" type="button" data-watch-url="' + htmlEscape(item.animethemesVideo.videoUrl) +
+      const watchable = ["OP", "ED"].includes(String(item.kind || "").toUpperCase());
+      const watchAnimeCandidates = unique([...(item.animeCandidates || []), item.anime]).filter(Boolean);
+      const watchSongCandidates = unique([...(item.titleCandidates || []), item.song]).filter(Boolean);
+      const watchArtistCandidates = unique([...(item.artistCandidates || []), item.artist]).filter(isLikelyArtistDisplay);
+      const watchButton = watchable
+        ? '<button class="platform watch" type="button" data-watch-anime="' + htmlEscape(JSON.stringify(watchAnimeCandidates)) +
+          '" data-watch-song="' + htmlEscape(JSON.stringify(watchSongCandidates)) +
+          '" data-watch-artist="' + htmlEscape(JSON.stringify(watchArtistCandidates)) +
+          '" data-watch-kind="' + htmlEscape(item.kind || "") +
+          '" data-watch-poster="' + htmlEscape(item.thumbnail || "") +
           '" data-watch-title="' + htmlEscape((item.anime || "Anime") + " · " + (item.kind || "Theme")) +
-          '" data-watch-song="' + htmlEscape(item.song || "") +
-          '" data-watch-artist="' + htmlEscape(item.artist || "") +
+          '" data-watch-display-song="' + htmlEscape(item.song || "") +
           '">▶ Watch</button>'
         : "";
-
       const platforms = [
         browsePlatformButton("Spotify", item.spotify, "spotify"),
         browsePlatformButton("Apple Music", item.apple, "apple"),
@@ -1859,7 +1727,6 @@ async function makeRssItem(item, season) {
     animeCandidates: Array.isArray(item.animeCandidates) ? item.animeCandidates : [],
     titleCandidates: Array.isArray(item.titleCandidates) ? item.titleCandidates : [],
     artistCandidates: Array.isArray(item.artistCandidates) ? item.artistCandidates : [],
-    animethemesVideo: item.animethemesVideo || null,
     thumbnail: item.thumbnail,
     spotify: item.spotify,
     apple: item.apple,
@@ -2112,16 +1979,6 @@ for (const season of CFG.seasons) {
   console.log(
     `${season}: current Spotify tracks=${currentSpotifyTracks[season].length}`
   );
-
-  // Resolve exact OP/ED videos from AnimeThemes. Results are stored in state.json.
-  for (const item of usable) {
-    try {
-      item.animethemesVideo = await resolveAnimeThemesVideo(item, season);
-    } catch (error) {
-      console.warn("AnimeThemes enrichment failed for " + item.anime + " / " + item.song + ": " + String(error?.message || error));
-      item.animethemesVideo = null;
-    }
-  }
 
   // For the small set that actually enters the RSS feed, resolve the image
   // from the exact AniPlaylist detail page when the record did not give us a
