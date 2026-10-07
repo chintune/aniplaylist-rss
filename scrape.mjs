@@ -1821,7 +1821,19 @@ function buildHomePage(seasons, featuredSeason) {
         radial-gradient(circle at 75% 75%, rgba(255,92,168,.055), transparent 45%),
         #100b18;
     }
-    .season-card-body { padding:14px; }
+    .season-card-body {
+      padding: 15px 16px 16px;
+      background: linear-gradient(180deg, rgba(14,10,22,.22), rgba(10,8,17,.7));
+    }
+
+    .season-card h3 {
+      margin: 8px 0 0;
+      color: var(--text);
+      font-size: 23px;
+      line-height: 1.05;
+      letter-spacing: -.045em;
+      text-shadow: 0 1px 18px rgba(0,0,0,.28);
+    }
     .season-kicker { color:#8e819b; font-size:8px; font-weight:900; letter-spacing:.13em; }
     .season-card h3 { margin:7px 0 0; font-size:22px; letter-spacing:-.045em; }
     .season-meta { display:flex; gap:8px; margin-top:6px; color:var(--muted2); font-size:10px; font-weight:800; }
@@ -1924,12 +1936,40 @@ function buildHomePage(seasons, featuredSeason) {
       <section id="seasons" class="section">
         <div class="section-head">
           <div>
-            <h2>Browse seasons</h2>
-            <p>Each season has its own catalog, RSS feed, playlist, filters, and pagination.</p>
+            <h2>Next seasons</h2>
+            <p>Explore upcoming and additional season catalogs.</p>
           </div>
         </div>
         <div class="season-grid">
-          ${seasonCards || '<div class="season-card"><div class="season-card-body">No seasons configured.</div></div>'}
+          \${(() => {
+            const others = rows.filter(row => String(row.season) !== String(featuredSeason));
+            if (!others.length) return '<div class="season-empty">No other seasons configured yet.</div>';
+            const cards = others.map(row => {
+              const season = String(row.season || "Season");
+              const seasonSlug = slug(season);
+              const releases = Number(row.releases || 0);
+              const videos = Number(row.watchVideos || 0);
+              const playlist = row.spotifyPlaylist || "";
+              const images = Array.isArray(row.featureImages) ? row.featureImages.slice(0, 3).filter(Boolean) : [];
+              const mosaic = images.length
+                ? \`<div class="season-mosaic">\${images.map(src => \`<img src="\${htmlEscape(src)}" alt="" loading="lazy">\`).join("")}</div>\`
+                : '<div class="season-mosaic empty"><span>No releases yet</span></div>';
+              return \`
+                <article class="season-card">
+                  \${mosaic}
+                  <div class="season-card-body">
+                    <div class="season-kicker">\${releases ? "AVAILABLE" : "COMING SOON"}</div>
+                    <h3>\${htmlEscape(season)}</h3>
+                    <div class="season-meta"><span>\${releases} releases</span><span>\${videos} videos</span></div>
+                    <div class="season-actions">
+                      <a class="season-open" href="\${htmlEscape(SITE_BASE)}/browse/\${htmlEscape(seasonSlug)}/">Browse season <span>→</span></a>
+                      \${playlist ? \`<a class="season-spotify" href="\${htmlEscape(playlist)}" target="_blank" rel="noopener noreferrer">Spotify</a>\` : ""}
+                    </div>
+                  </div>
+                </article>\`;
+            }).join("");
+            return cards;
+          })()}
         </div>
       </section>
     </main>
