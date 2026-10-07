@@ -1397,6 +1397,25 @@ async function attachAnimeThemesVideo(item, detailedAnimes) {
     // differently from AniPlaylist.
     if (songScore < 650) continue;
 
+    if (/gensou|suikoden/i.test(item.anime || "")) {
+      console.log(
+        "AnimeThemes DEBUG SCORE:",
+        JSON.stringify({
+          itemSongCandidates: songCandidates,
+          themeType: theme?.type,
+          themeSong: theme?.song?.title,
+          songScore,
+          artistCandidates,
+          themeArtists: animeThemeArtistNames(theme),
+          artistScore: animeThemesBestScore(
+            artistCandidates,
+            animeThemeArtistNames(theme)
+          ),
+          videoCount: (theme?.entries || []).flatMap(entry => entry?.videos || []).length,
+        })
+      );
+    }
+
     const artistScore = animeThemesBestScore(
       artistCandidates,
       animeThemeArtistNames(theme)
