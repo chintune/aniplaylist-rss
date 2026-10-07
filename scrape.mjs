@@ -1134,22 +1134,13 @@ async function fetchAnimeThemesSeason(season) {
   const match = String(season || "").match(/^(Winter|Spring|Summer|Fall)\\s+(\\d{4})$/i);
   if (!match) return [];
 
-  const seasonName = match[1];
+  const seasonName = match[1].toLocaleLowerCase();
   const year = match[2];
 
   const params = new URLSearchParams();
   params.set("filter[year]", year);
   params.set("filter[season]", seasonName);
-  params.set("page[size]", "100");
   params.set("include", ANIMETHEMES_INCLUDE);
-  params.set("fields[anime]", "id,name,slug,year,season");
-  params.set("fields[animesynonym]", "id,text");
-  params.set("fields[animetheme]", "id,type,sequence,slug");
-  params.set("fields[animethemeentry]", "id,version,episodes,spoiler,nsfw");
-  params.set("fields[video]", "id,basename,filename,resolution,nc,subbed,lyrics,uncen,source,overlap,tags,link");
-  params.set("fields[song]", "id,title");
-  params.set("fields[artist]", "id,name,slug");
-  params.set("fields[artistsong]", "id,as");
 
   let url = `https://api.animethemes.moe/anime?${params.toString()}`;
   const animes = [];
@@ -2311,6 +2302,10 @@ for (const season of CFG.seasons) {
   console.log(`Apple Music accepted: ${usable.filter(item => !!item.apple).length}`);
   console.log(`Images resolved from exact AniPlaylist pages: ${diag.detailImagesResolved}`);
 
+  const animeThemesResult = await resolveAnimeThemesForSeason(usable, season);
+  diag.animeThemesChecked = animeThemesResult.checked;
+  diag.animeThemesMatched = animeThemesResult.matched;
+
   // Save a concise but rich diagnostic file.
   await fs.writeFile(
     path.join(DEBUG_DIR, `${slug(season)}.json`),
@@ -2346,10 +2341,6 @@ for (const season of CFG.seasons) {
 
   diag.unavailableDetailPages = 0;
   diag.mismatchedDetailPages = 0;
-
-  const animeThemesResult = await resolveAnimeThemesForSeason(usable, season);
-  diag.animeThemesChecked = animeThemesResult.checked;
-  diag.animeThemesMatched = animeThemesResult.matched;
 
   const rssItems = await Promise.all(usable.map(x => makeRssItem(x, season)));
 
