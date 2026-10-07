@@ -674,9 +674,17 @@ function buildSongPage(item, season, key) {
   const thumb = normalizeImageUrl(item.thumbnail, SITE_BASE);
   const canonical = `${SITE_BASE}/song/${key}/`;
 
+  const spotifyIcon = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.4a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2Zm4.1 13.6a.58.58 0 0 1-.8.2c-2.2-1.35-4.97-1.65-8.24-.91a.58.58 0 1 1-.26-1.13c3.58-.82 6.65-.48 9.14 1.03.28.17.37.53.16.81Zm1.12-2.51a.72.72 0 0 1-.99.24c-2.51-1.54-6.35-1.99-9.32-1.08a.72.72 0 1 1-.42-1.38c3.4-1.04 7.65-.54 10.48 1.19.34.21.45.66.25 1.03Zm.1-2.65c-3.01-1.78-7.97-1.95-10.85-1.08a.87.87 0 1 1-.5-1.67c3.31-1 8.8-.81 12.29 1.26a.87.87 0 0 1-.94 1.49Z"/></svg>';
+  const appleIcon = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.9 12.8c0-2 1.6-3 1.7-3.1-.9-1.3-2.4-1.5-2.9-1.5-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.8-3.2 1.9-1.4 2.3-.4 5.7 1 7.5.7.9 1.4 1.9 2.5 1.8 1 0 1.4-.6 2.6-.6 1.2 0 1.5.6 2.6.6 1.1 0 1.8-.9 2.5-1.8.8-1 1.1-2.1 1.1-2.2-.1 0-2.1-.8-2.5-2.6Zm-1.9-5.8c.5-.7.9-1.7.8-2.7-.9 0-1.9.6-2.5 1.3-.5.6-.9 1.6-.8 2.5 1 .1 1.9-.4 2.5-1.1Z"/></svg>';
+  const watchIcon = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.3v13.4a1.1 1.1 0 0 0 1.68.94l9.8-6.7a1.12 1.12 0 0 0 0-1.88l-9.8-6.7A1.1 1.1 0 0 0 8 5.3Z"/></svg>';
+  const action = (url, cls, icon, label) => url
+    ? '<a class="icon-action ' + cls + '" href="' + htmlEscape(url) + '" target="_blank" rel="noopener noreferrer" title="' + htmlEscape(label) + '" aria-label="' + htmlEscape(label) + '">' + icon + '<span class="sr-only">' + htmlEscape(label) + '</span></a>'
+    : "";
+
   const buttons = [
-    platformButton("Spotify", item.spotify, "spotify"),
-    platformButton("Apple Music", item.apple, "apple"),
+    action(item.spotify, "spotify", spotifyIcon, "Open on Spotify"),
+    action(item.apple, "apple", appleIcon, "Open on Apple Music"),
+    item.animethemesVideo?.url ? action(item.animethemesVideo.url, "watch", watchIcon, "Open AnimeThemes video") : "",
   ].filter(Boolean).join("\n");
 
   const image = thumb
@@ -708,189 +716,170 @@ function buildSongPage(item, season, key) {
   <style>
     :root {
       color-scheme: dark;
-      --bg: #0b0d12;
-      --panel: #131821;
-      --border: #272f3b;
-      --text: #f2f5f9;
-      --muted: #9ca6b5;
-      --purple: #8e72ff;
-      --green: #5fd39b;
+      --bg: #090711;
+      --line: rgba(255,255,255,.09);
+      --line2: rgba(255,255,255,.14);
+      --text: #f7f3ff;
+      --muted: #aaa2b5;
+      --muted2: #766d82;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
+      color: var(--text);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(700px 420px at 0% 0%, rgba(142,114,255,.14), transparent 60%),
-        radial-gradient(600px 400px at 100% 100%, rgba(95,211,155,.06), transparent 60%),
-        var(--bg);
-      color: var(--text);
+        radial-gradient(900px 540px at 8% -10%, rgba(169,120,255,.2), transparent 60%),
+        radial-gradient(800px 520px at 100% 18%, rgba(255,92,168,.1), transparent 60%),
+        linear-gradient(180deg, #090711, #0c0912 52%, #090711);
     }
-
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .15;
+      background-image:
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.014) 1px, transparent 1px);
+      background-size: 42px 42px;
+    }
+    a { color: inherit; }
+    .page { width: min(1160px, calc(100% - 28px)); margin: 0 auto; padding: 22px 0 46px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .back { color: var(--muted); text-decoration: none; font-size: 11px; font-weight: 800; }
+    .back:hover { color: #fff; }
     .card {
-      width: min(520px, 100%);
       overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background: rgba(19,24,33,.96);
-      box-shadow: 0 26px 80px rgba(0,0,0,.35);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(23,18,37,.97), rgba(10,8,17,.98));
+      box-shadow: 0 36px 120px rgba(0,0,0,.42);
     }
-
     .hero {
+      position: relative;
       width: 100%;
-      min-height: 120px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #0f141c;
-      overflow: hidden;
-    }
-
-    .cover {
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 360px;
-      display: block;
-      object-fit: contain;
-      margin: 0 auto;
-    }
-
-    .cover.fallback {
-      width: 100%;
-      height: 300px;
       display: grid;
       place-items: center;
-      font-size: 72px;
-      color: #7563d2;
-      background: #171d27;
+      padding: 22px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 45% 20%, rgba(169,120,255,.17), transparent 40%),
+        linear-gradient(145deg, rgba(18,13,28,.98), rgba(8,6,13,.99));
     }
-
-    .content {
-      padding: 24px;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 10%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(169,120,255,.12), transparent 64%);
+      filter: blur(26px);
+      pointer-events: none;
     }
-
+    .cover {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 620px);
+      max-height: 700px;
+      display: block;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.46);
+    }
+    .cover.fallback {
+      width: min(75%, 420px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      font-size: 94px;
+      color: #a27dff;
+      background: linear-gradient(145deg, #171126, #0d0a15);
+    }
+    .content { padding: 34px 36px 32px; }
     .badge {
       display: inline-flex;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(142,114,255,.12);
-      color: #c2b5ff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .03em;
-    }
-
-    h1 {
-      margin: 15px 0 0;
-      font-size: clamp(24px, 5vw, 32px);
-      line-height: 1.12;
-      letter-spacing: -.035em;
-    }
-
-    .song {
-      margin: 10px 0 0;
-      font-size: 17px;
-      color: #d7dde6;
-    }
-
-    .artist {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .meta {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .platforms {
-      display: grid;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .platform {
-      display: flex;
       align-items: center;
-      justify-content: space-between;
-      min-height: 50px;
-      padding: 0 15px;
+      min-height: 29px;
+      padding: 0 10px;
+      border: 1px solid rgba(169,120,255,.24);
+      border-radius: 999px;
+      background: rgba(169,120,255,.08);
+      color: #d1bcff;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 14px 0 0; font-size: clamp(28px, 5vw, 48px); line-height: 1; letter-spacing: -.055em; }
+    .song { margin: 11px 0 0; color: #e2dae9; font-size: 17px; line-height: 1.45; font-weight: 800; }
+    .artist { margin-top: 5px; color: var(--muted); font-size: 13px; }
+    .meta { margin-top: 16px; color: var(--muted2); font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .platforms { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 23px; }
+    .icon-action {
+      position: relative;
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid transparent;
       border-radius: 13px;
+      color: #fff;
       text-decoration: none;
-      font-weight: 700;
-      color: white;
+      box-shadow: 0 12px 32px rgba(0,0,0,.16);
       transition: transform .15s ease, filter .15s ease;
     }
-
-    .platform:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-    }
-
-    .platform.spotify {
-      background: linear-gradient(135deg, #1f9d61, #1db954);
-    }
-
-    .platform.apple {
-      background: linear-gradient(135deg, #eb5b78, #ff2f58);
-    }
-
-    .arrow {
-      font-size: 18px;
-      opacity: .85;
-    }
-
+    .icon-action:hover { transform: translateY(-2px) scale(1.02); filter: brightness(1.07); }
+    .icon-action svg { width: 22px; height: 22px; }
+    .icon-action.spotify { background: linear-gradient(135deg, #17b85a, #1ed760); }
+    .icon-action.apple { background: linear-gradient(135deg, #ff466f, #c92f87); }
+    .icon-action.watch { background: linear-gradient(135deg, #5f71ff, #8f62ff); }
     .source {
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
       display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: #788394;
-      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
     }
-
     .source a {
-      color: #a9b2bf;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.025);
+      color: #958b9e;
       text-decoration: none;
+      font-size: 10px;
+      font-weight: 800;
     }
-
-    .source a:hover { color: var(--text); }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 12px;
-      }
-
-      .card {
-        border-radius: 18px;
-      }
-
-      .hero {
-        min-height: 100px;
-      }
-
-      .cover {
-        max-height: 300px;
-      }
-
-      .content {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 26px;
-      }
+    .source a:hover { color: #fff; border-color: var(--line2); }
+    .source a:first-child::before { content: "◔"; opacity: .8; }
+    .source a + a::before { content: "↗"; opacity: .7; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+    @media (max-width: 640px) {
+      body { padding: 0; }
+      .page { width: min(100%, calc(100% - 16px)); padding-top: 10px; }
+      .card { border-radius: 20px; }
+      .hero { padding: 12px; }
+      .cover { max-height: 72vh; border-radius: 14px; }
+      .content { padding: 24px 18px 22px; }
+      h1 { font-size: 34px; }
+      .icon-action { width: 43px; height: 43px; }
     }
   </style>
 </head>
@@ -909,8 +898,9 @@ function buildSongPage(item, season, key) {
       </div>
 
       <div class="source">
-        <span>AniPlaylist RSS</span>
-        <a href="https://aniplaylist.com/" target="_blank" rel="noopener noreferrer">Source ↗</a>
+        <a href="${SITE_BASE}/rss/${slug(season)}.xml">RSS feed</a>
+        <a href="${SITE_BASE}/browse/${slug(season)}/">Season hub</a>
+        <a href="https://aniplaylist.com/" target="_blank" rel="noopener noreferrer">AniPlaylist</a>
       </div>
     </div>
   </main>
