@@ -1130,44 +1130,57 @@ function chooseAnimeThemeVideo(theme) {
   )[0] || null;
 }
 
-async function fetchAnimeThemesSeason(season) {
+async function fetchAnimeThemesSeason(page, season) {
   const match = String(season || "").match(/^(Winter|Spring|Summer|Fall)\\s+(\\d{4})$/i);
   if (!match) return [];
 
   const seasonName = match[1].toLocaleLowerCase();
   const year = match[2];
+  const url = `https://animethemes.moe/year/${year}/${seasonName}`;
 
-  const params = new URLSearchParams();
-  params.set("filter[year]", year);
-  params.set("filter[season]", seasonName);
+  try {
+    await page.goto(url, {
+      waitUntil: "domcontentloaded",
+      timeout: 45000,
+    });
 
-  let url = `https://api.animethemes.moe/anime?${params.toString()}`;
-  const animes = [];
+    // The AnimeThemes season page is the same page users browse and contains
+    // links to its anime entries. Use those canonical slugs instead of trying
+    // to invent/guess AnimeThemes slugs from AniPlaylist titles.
+    await page.waitForTimeout(1200);
 
-  for (let page = 0; page < 20 && url; page++) {
-    let response;
-    try {
-      response = await fetch(url, { headers: { accept: "application/json" } });
-    } catch (error) {
-      console.warn(`AnimeThemes anime index request failed for ${season}:`, error);
-      break;
+    const animeLinks = await page.locator('a[href^="/anime/"]').evaluateAll(links =>
+      links.map(link => ({
+        name: String(link.textContent || "").replace(/\\s+/g, " ").trim(),
+        href: link.getAttribute("href") || "",
+      }))
+      .filter(item => /^\/anime\/[^/]+\/?$/.test(item.href))
+      .map(item => ({
+        name: item.name,
+        slug: item.href.replace(/^\\/anime\\//, "").replace(/\\/$/, ""),
+      }))
+    );
+
+    const uniqueLinks = [];
+    const seen = new Set();
+
+    for (const item of animeLinks) {
+      if (!item.slug || seen.has(item.slug)) continue;
+      seen.add(item.slug);
+      uniqueLinks.push(item);
     }
 
-    if (!response.ok) {
-      console.warn(`AnimeThemes anime index returned ${response.status} for ${season}`);
-      break;
-    }
+    console.log(
+      `AnimeThemes ${season}: season page=${url} anime links=${uniqueLinks.length}`
+    );
 
-    const json = await response.json();
-    if (Array.isArray(json?.anime)) animes.push(...json.anime);
-
-    const next = json?.links?.next;
-    url = typeof next === "string" && next ? next : "";
+    return uniqueLinks;
+  } catch (error) {
+    console.warn(`AnimeThemes season page failed for ${season}:`, error);
+    return [];
   }
-
-  console.log(`AnimeThemes ${season}: index anime count=${animes.length}`);
-  return animes;
 }
+
 
 const animeThemesDetailCache = new Map();
 
@@ -1215,17 +1228,32 @@ async function fetchAnimeThemesAnime(slugValue) {
   return promise;
 }
 
-async function loadAnimeThemesSeasonDetails(indexAnimes) {
+async function loadAnimeThemesSeasonDetails(indexAnimes, items) {
+  const candidates = [];
+
+  for (const item of items || []) {
+    const picked = pickAnimeThemesIndexAnime(item, indexAnimes);
+    if (picked.bestAnime && picked.bestScore >= 650) {
+      candidates.push(picked.bestAnime);
+    }
+  }
+
+  const uniqueAnimes = [];
+  const seen = new Set();
+
+  for (const anime of candidates) {
+    if (!anime?.slug || seen.has(anime.slug)) continue;
+    seen.add(anime.slug);
+    uniqueAnimes.push(anime);
+  }
+
   const details = [];
   let failed = 0;
 
-  // The AnimeThemes web client resolves season anime first, then loads each
-  // anime's themes/synonyms from /anime/{slug}. Keep concurrency low to avoid
-  // tripping the API rate limiter during the 30-minute RSS builds.
-  for (let i = 0; i < (indexAnimes || []).length; i += 2) {
-    const batch = indexAnimes.slice(i, i + 2);
+  for (let i = 0; i < uniqueAnimes.length; i += 2) {
+    const batch = uniqueAnimes.slice(i, i + 2);
     const result = await Promise.all(
-      batch.map(anime => fetchAnimeThemesAnime(anime?.slug))
+      batch.map(anime => fetchAnimeThemesAnime(anime.slug))
     );
 
     for (const anime of result) {
@@ -1235,11 +1263,12 @@ async function loadAnimeThemesSeasonDetails(indexAnimes) {
   }
 
   console.log(
-    `AnimeThemes detail load: ok=${details.length} failed=${failed}`
+    `AnimeThemes detail load: requested=${uniqueAnimes.length} ok=${details.length} failed=${failed}`
   );
 
   return details;
 }
+
 
 function pickAnimeThemesAnime(item, detailedAnimes) {
   const animeCandidates = unique([
@@ -1338,7 +1367,7 @@ async function attachAnimeThemesVideo(item, detailedAnimes) {
   };
 }
 
-async function resolveAnimeThemesForSeason(items, season) {
+async function resolveAnimeThemesForSeason(page, items, season) {
   const needsWatch = items.filter(item =>
     ["OP", "ED"].includes(String(item.kind || "").toUpperCase())
   );
@@ -1347,8 +1376,8 @@ async function resolveAnimeThemesForSeason(items, season) {
     return { matched: 0, checked: 0 };
   }
 
-  const indexAnimes = await fetchAnimeThemesSeason(season);
-  const detailedAnimes = await loadAnimeThemesSeasonDetails(indexAnimes);
+  const indexAnimes = await fetchAnimeThemesSeason(page, season);
+  const detailedAnimes = await loadAnimeThemesSeasonDetails(indexAnimes, needsWatch);
 
   let matched = 0;
   let animeMatched = 0;
@@ -1372,6 +1401,7 @@ async function resolveAnimeThemesForSeason(items, season) {
   return {
     matched,
     checked: needsWatch.length,
+    seasonLinks: indexAnimes.length,
   };
 }
 
@@ -2173,6 +2203,7 @@ for (const season of CFG.seasons) {
     resultCount: null,
     animeThemesChecked: 0,
     animeThemesMatched: 0,
+    animeThemesSeasonLinks: 0,
     jsonResponses: 0,
     algoliaResponses: 0,
     hitArrays: 0,
@@ -2390,9 +2421,10 @@ for (const season of CFG.seasons) {
   console.log(`Apple Music accepted: ${usable.filter(item => !!item.apple).length}`);
   console.log(`Images resolved from exact AniPlaylist pages: ${diag.detailImagesResolved}`);
 
-  const animeThemesResult = await resolveAnimeThemesForSeason(usable, season);
+  const animeThemesResult = await resolveAnimeThemesForSeason(page, usable, season);
   diag.animeThemesChecked = animeThemesResult.checked;
   diag.animeThemesMatched = animeThemesResult.matched;
+  diag.animeThemesSeasonLinks = animeThemesResult.seasonLinks;
 
   // Save a concise but rich diagnostic file.
   await fs.writeFile(
