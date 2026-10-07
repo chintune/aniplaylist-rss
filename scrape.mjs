@@ -1144,22 +1144,19 @@ async function fetchAnimeThemesSeason(page, season) {
       timeout: 45000,
     });
 
-    // Use the canonical AnimeThemes season page so title-to-slug matching is based on their real routes.
-    // The AnimeThemes season page is the same page users browse and contains
-    // links to its anime entries. Use those canonical slugs instead of trying
-    // to invent/guess AnimeThemes slugs from AniPlaylist titles.
-    await page.waitForTimeout(1200);
+    await page.waitForTimeout(800);
 
     const animeLinks = await page.locator('a[href^="/anime/"]').evaluateAll(links =>
-      links.map(link => ({
-        name: String(link.textContent || "").replace(/\s+/g, " ").trim(),
-        href: link.getAttribute("href") || "",
-      }))
-      .filter(item => /^\/anime\/[^/]+\/?$/.test(item.href))
-      .map(item => ({
-        name: item.name,
-        slug: item.href.replace(/^\/anime\//, "").replace(/\/$/, ""),
-      }))
+      links
+        .map(link => ({
+          name: String(link.textContent || "").replace(/\s+/g, " ").trim(),
+          href: link.getAttribute("href") || "",
+        }))
+        .filter(item => /^\/anime\/[^/]+\/?$/.test(item.href))
+        .map(item => ({
+          name: item.name,
+          slug: item.href.replace(/^\/anime\//, "").replace(/\/$/, ""),
+        }))
     );
 
     const uniqueLinks = [];
@@ -1180,53 +1177,6 @@ async function fetchAnimeThemesSeason(page, season) {
     console.warn(`AnimeThemes season page failed for ${season}:`, error);
     return [];
   }
-}
-
-
-const animeThemesDetailCache = new Map();
-
-async function fetchAnimeThemesAnime(slugValue) {
-  const slug = clean(slugValue);
-  if (!slug) return null;
-
-  if (animeThemesDetailCache.has(slug)) {
-    return animeThemesDetailCache.get(slug);
-  }
-
-  const promise = (async () => {
-    const include = [
-      "animesynonyms",
-      "animethemes.animethemeentries.videos",
-      "animethemes.song",
-      "animethemes.song.artists",
-    ].join(",");
-
-    const url =
-      "https://api.animethemes.moe/anime/" +
-      encodeURIComponent(slug) +
-      "?include=" +
-      encodeURIComponent(include);
-
-    try {
-      const response = await fetch(url, {
-        headers: { accept: "application/json" },
-      });
-
-      if (!response.ok) {
-        console.warn(`AnimeThemes anime show returned ${response.status} for ${slug}`);
-        return null;
-      }
-
-      const json = await response.json();
-      return json?.anime || null;
-    } catch (error) {
-      console.warn(`AnimeThemes anime show failed for ${slug}:`, error);
-      return null;
-    }
-  })();
-
-  animeThemesDetailCache.set(slug, promise);
-  return promise;
 }
 
 function pickAnimeThemesIndexAnime(item, indexAnimes) {
@@ -1251,7 +1201,54 @@ function pickAnimeThemesIndexAnime(item, indexAnimes) {
   return { bestAnime, bestScore };
 }
 
-async function loadAnimeThemesSeasonDetails(indexAnimes, items) {
+const animeThemesPageCache = new Map();
+
+async function fetchAnimeThemesAnimePage(page, animeSlug) {
+  const slugValue = clean(animeSlug);
+  if (!slugValue) return null;
+
+  if (animeThemesPageCache.has(slugValue)) {
+    return animeThemesPageCache.get(slugValue);
+  }
+
+  const promise = (async () => {
+    const url = `https://animethemes.moe/anime/${encodeURIComponent(slugValue)}`;
+
+    try {
+      await page.goto(url, {
+        waitUntil: "domcontentloaded",
+        timeout: 45000,
+      });
+
+      const raw = await page.locator("#__NEXT_DATA__").textContent().catch(() => "");
+      if (!raw) {
+        console.warn(`AnimeThemes page has no __NEXT_DATA__ for ${slugValue}`);
+        return null;
+      }
+
+      const json = JSON.parse(raw);
+      const anime =
+        json?.props?.pageProps?.anime ||
+        json?.props?.pageProps?.data?.anime ||
+        null;
+
+      if (!anime) {
+        console.warn(`AnimeThemes page has no anime data for ${slugValue}`);
+        return null;
+      }
+
+      return anime;
+    } catch (error) {
+      console.warn(`AnimeThemes anime page failed for ${slugValue}:`, error);
+      return null;
+    }
+  })();
+
+  animeThemesPageCache.set(slugValue, promise);
+  return promise;
+}
+
+async function loadAnimeThemesSeasonDetails(page, indexAnimes, items) {
   const candidates = [];
 
   for (const item of items || []) {
@@ -1273,25 +1270,18 @@ async function loadAnimeThemesSeasonDetails(indexAnimes, items) {
   const details = [];
   let failed = 0;
 
-  for (let i = 0; i < uniqueAnimes.length; i += 2) {
-    const batch = uniqueAnimes.slice(i, i + 2);
-    const result = await Promise.all(
-      batch.map(anime => fetchAnimeThemesAnime(anime.slug))
-    );
-
-    for (const anime of result) {
-      if (anime) details.push(anime);
-      else failed++;
-    }
+  for (const anime of uniqueAnimes) {
+    const detail = await fetchAnimeThemesAnimePage(page, anime.slug);
+    if (detail) details.push(detail);
+    else failed++;
   }
 
   console.log(
-    `AnimeThemes detail load: requested=${uniqueAnimes.length} ok=${details.length} failed=${failed}`
+    `AnimeThemes detail pages: requested=${uniqueAnimes.length} ok=${details.length} failed=${failed}`
   );
 
   return details;
 }
-
 
 function pickAnimeThemesAnime(item, detailedAnimes) {
   const animeCandidates = unique([
@@ -1353,8 +1343,9 @@ async function attachAnimeThemesVideo(item, detailedAnimes) {
       theme?.song?.title ? [theme.song.title] : []
     );
 
-    // The song title must match; artist-only matches are not enough because an
-    // anime can have multiple OP/ED themes by the same performer.
+    // Song title is the primary identity check. Artist matching is used as
+    // corroboration but is not mandatory because AnimeThemes can list aliases
+    // differently from AniPlaylist.
     if (songScore < 650) continue;
 
     const artistScore = animeThemesBestScore(
@@ -1396,17 +1387,22 @@ async function resolveAnimeThemesForSeason(page, items, season) {
   );
 
   if (!needsWatch.length) {
-    return { matched: 0, checked: 0 };
+    return { matched: 0, checked: 0, seasonLinks: 0 };
   }
 
   const indexAnimes = await fetchAnimeThemesSeason(page, season);
-  const detailedAnimes = await loadAnimeThemesSeasonDetails(indexAnimes, needsWatch);
+  const detailedAnimes = await loadAnimeThemesSeasonDetails(
+    page,
+    indexAnimes,
+    needsWatch
+  );
 
   let matched = 0;
   let animeMatched = 0;
 
   for (const item of needsWatch) {
     const picked = pickAnimeThemesAnime(item, detailedAnimes);
+
     if (picked.bestAnime && picked.bestScore >= 650) {
       animeMatched++;
     }
@@ -1946,10 +1942,8 @@ function buildBrowsePage(season, items) {
         const list = document.getElementById("song-list");
         const count = document.getElementById("search-count");
         const cards = [...list.querySelectorAll(".song-card")];
-        const languageSwitch = document.querySelector(".language-switch");
         const languageButtons = [...document.querySelectorAll(".language-button")];
         const total = cards.length;
-        const storageKey = "aniplaylist-title-language-v2";
 
         function normalize(value) {
           return String(value || "")
@@ -1962,20 +1956,22 @@ function buildBrowsePage(season, items) {
         function updateLanguage(language) {
           const selected = ["en", "romaji", "ja"].includes(language) ? language : "en";
 
-          document.querySelectorAll(".anime-title[data-en], .song-title[data-en], .artist[data-en]").forEach(el => {
-            const next = el.getAttribute("data-" + selected) || el.getAttribute("data-en") || "";
-            if (el.textContent !== next) el.textContent = next;
+          cards.forEach(card => {
+            card.querySelectorAll("[data-en][data-romaji][data-ja]").forEach(el => {
+              const next =
+                el.getAttribute("data-" + selected) ||
+                el.getAttribute("data-en") ||
+                el.textContent ||
+                "";
+              el.textContent = next;
+            });
           });
 
-          for (const button of languageButtons) {
+          languageButtons.forEach(button => {
             const active = button.dataset.language === selected;
             button.classList.toggle("active", active);
             button.setAttribute("aria-pressed", active ? "true" : "false");
-          }
-
-          try {
-            localStorage.setItem(storageKey, selected);
-          } catch {}
+          });
         }
 
         function filter() {
@@ -2004,19 +2000,13 @@ function buildBrowsePage(season, items) {
         input.addEventListener("input", filter);
         typeFilter.addEventListener("change", filter);
 
-        languageSwitch?.addEventListener("click", event => {
-          const button = event.target.closest(".language-button");
-          if (!button || !languageSwitch.contains(button)) return;
-          updateLanguage(button.dataset.language);
+        languageButtons.forEach(button => {
+          button.addEventListener("click", () => {
+            updateLanguage(button.dataset.language);
+          });
         });
 
-        let initialLanguage = "en";
-        try {
-          const saved = localStorage.getItem(storageKey);
-          if (["en", "romaji", "ja"].includes(saved)) initialLanguage = saved;
-        } catch {}
-
-        updateLanguage(initialLanguage);
+        updateLanguage("en");
 
         let activePlayer = null;
 
@@ -2447,6 +2437,7 @@ for (const season of CFG.seasons) {
   const animeThemesResult = await resolveAnimeThemesForSeason(page, usable, season);
   diag.animeThemesChecked = animeThemesResult.checked;
   diag.animeThemesMatched = animeThemesResult.matched;
+  diag.animeThemesSeasonLinks = animeThemesResult.seasonLinks;
   diag.animeThemesSeasonLinks = animeThemesResult.seasonLinks;
 
   // Save a concise but rich diagnostic file.
