@@ -1100,6 +1100,9 @@ function buildBrowsePage(season, items) {
       display: grid;
       gap: 13px;
     }
+    .song-card[hidden] {
+      display: none !important;
+    }
     .song-card {
       position: relative;
       display: grid;
