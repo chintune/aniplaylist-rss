@@ -958,7 +958,7 @@ function buildBrowsePage(season, items) {
         : "";
 
       return `
-        <article class="song-card" data-search="${htmlEscape([item.anime || "", item.song || "", item.artist || "", item.kind || ""].join(" "))}">
+        <article class="song-card" data-kind="${htmlEscape(item.kind || "Other")}">
           <div class="rank">${index + 1}</div>
           <div class="art">${image}</div>
           <div class="song-main">
@@ -1041,7 +1041,10 @@ function buildBrowsePage(season, items) {
       font-size: 15px;
     }
     .search-box {
-      display: flex; align-items: center; gap: 9px; margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 9px;
+      margin-top: 18px;
     }
     .search-input {
       width: 100%; min-height: 44px; padding: 0 14px; border: 1px solid var(--border);
@@ -1050,7 +1053,24 @@ function buildBrowsePage(season, items) {
     }
     .search-input::placeholder { color: #737e8d; }
     .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(157,123,255,.10); }
-    .search-count { flex: 0 0 auto; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .search-filter {
+      min-height: 44px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      background: #131821;
+      color: var(--text);
+      font: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .search-filter:focus { border-color: var(--accent); }
+    .search-count { align-self: center; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    @media (max-width: 500px) {
+      .search-box { grid-template-columns: minmax(0, 1fr); }
+      .search-filter { width: 100%; }
+    }
     .top-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1221,6 +1241,14 @@ function buildBrowsePage(season, items) {
           placeholder="Search anime, song, artist, OP / ED..."
           aria-label="Search ${htmlEscape(season)} releases"
           autocomplete="off" spellcheck="false">
+        <select id="search-filter" class="search-filter" aria-label="Filter by release type">
+          <option value="">All types</option>
+          <option value="OP">OP</option>
+          <option value="ED">ED</option>
+          <option value="IN">IN</option>
+          <option value="OST">OST</option>
+          <option value="Other">Other</option>
+        </select>
         <span id="search-count" class="search-count">${items.length}</span>
       </div>
 
@@ -1241,31 +1269,44 @@ function buildBrowsePage(season, items) {
     <script>
       (() => {
         const input = document.getElementById("browse-search");
+        const typeFilter = document.getElementById("search-filter");
         const list = document.getElementById("song-list");
         const count = document.getElementById("search-count");
         const cards = [...list.querySelectorAll(".song-card")];
         const total = cards.length;
 
         function normalize(value) {
-          return String(value || "").toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          return String(value || "")
+            .toLocaleLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
         }
 
         function filter() {
           const query = normalize(input.value.trim());
+          const selectedType = typeFilter.value;
           let visible = 0;
+
           cards.forEach(card => {
-            const match = !query || normalize(card.dataset.search).includes(query);
+            const searchableText = normalize(card.querySelector(".song-main")?.textContent || "");
+            const typeMatches = !selectedType || card.dataset.kind === selectedType;
+            const textMatches = !query || searchableText.includes(query);
+            const match = typeMatches && textMatches;
+
             card.hidden = !match;
+
             if (match) {
               visible += 1;
               const rank = card.querySelector(".rank");
               if (rank) rank.textContent = visible;
             }
           });
-          count.textContent = query ? visible + " / " + total : String(total);
+
+          count.textContent = (query || selectedType) ? visible + " / " + total : String(total);
         }
 
         input.addEventListener("input", filter);
+        typeFilter.addEventListener("change", filter);
       })();
     </script>
   </div>
