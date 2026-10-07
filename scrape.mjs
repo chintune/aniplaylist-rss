@@ -1359,6 +1359,11 @@ async function attachAnimeThemesVideo(item, detailedAnimes) {
   for (const theme of (picked.bestAnime.themes || picked.bestAnime.animethemes || [])) {
     if (String(theme?.type || "").toUpperCase() !== kind) continue;
 
+    const artistScore = animeThemesBestScore(
+      artistCandidates,
+      animeThemeArtistNames(theme)
+    );
+
     const songScore = animeThemesBestScore(
       songCandidates,
       theme?.song?.title ? [theme.song.title] : []
