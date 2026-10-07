@@ -1943,7 +1943,7 @@ function buildHomePage(seasons, featuredSeason) {
           </div>
         </div>
         <div class="season-grid">
-          \${seasonCards || '<div class="season-empty">No other seasons configured yet.</div>'}
+          ${seasonCards || '<div class="season-empty">No other seasons configured yet.</div>'}
         </div>
       </section>
     </main>
