@@ -677,14 +677,17 @@ function buildSongPage(item, season, key) {
   const spotifyIcon = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.4a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2Zm4.1 13.6a.58.58 0 0 1-.8.2c-2.2-1.35-4.97-1.65-8.24-.91a.58.58 0 1 1-.26-1.13c3.58-.82 6.65-.48 9.14 1.03.28.17.37.53.16.81Zm1.12-2.51a.72.72 0 0 1-.99.24c-2.51-1.54-6.35-1.99-9.32-1.08a.72.72 0 1 1-.42-1.38c3.4-1.04 7.65-.54 10.48 1.19.34.21.45.66.25 1.03Zm.1-2.65c-3.01-1.78-7.97-1.95-10.85-1.08a.87.87 0 1 1-.5-1.67c3.31-1 8.8-.81 12.29 1.26a.87.87 0 0 1-.94 1.49Z"/></svg>';
   const appleIcon = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.9 12.8c0-2 1.6-3 1.7-3.1-.9-1.3-2.4-1.5-2.9-1.5-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.8-3.2 1.9-1.4 2.3-.4 5.7 1 7.5.7.9 1.4 1.9 2.5 1.8 1 0 1.4-.6 2.6-.6 1.2 0 1.5.6 2.6.6 1.1 0 1.8-.9 2.5-1.8.8-1 1.1-2.1 1.1-2.2-.1 0-2.1-.8-2.5-2.6Zm-1.9-5.8c.5-.7.9-1.7.8-2.7-.9 0-1.9.6-2.5 1.3-.5.6-.9 1.6-.8 2.5 1 .1 1.9-.4 2.5-1.1Z"/></svg>';
   const watchIcon = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.3v13.4a1.1 1.1 0 0 0 1.68.94l9.8-6.7a1.12 1.12 0 0 0 0-1.88l-9.8-6.7A1.1 1.1 0 0 0 8 5.3Z"/></svg>';
-  const action = (url, cls, icon, label) => url
-    ? '<a class="icon-action ' + cls + '" href="' + htmlEscape(url) + '" target="_blank" rel="noopener noreferrer" title="' + htmlEscape(label) + '" aria-label="' + htmlEscape(label) + '">' + icon + '<span class="sr-only">' + htmlEscape(label) + '</span></a>'
+  const action = (url, cls, icon, label, watch = false) => url
+    ? '<a class="icon-action ' + cls + '" href="' + htmlEscape(url) + '"' +
+      (watch ? ' data-watch-trigger="true" data-watch-url="' + htmlEscape(url) + '"' : ' target="_blank" rel="noopener noreferrer"') +
+      ' title="' + htmlEscape(label) + '" aria-label="' + htmlEscape(label) + '">' +
+      icon + '<span class="sr-only">' + htmlEscape(label) + '</span></a>'
     : "";
 
   const buttons = [
     action(item.spotify, "spotify", spotifyIcon, "Open on Spotify"),
     action(item.apple, "apple", appleIcon, "Open on Apple Music"),
-    item.animethemesVideo?.url ? action(item.animethemesVideo.url, "watch", watchIcon, "Open AnimeThemes video") : "",
+    videoUrl ? action(videoUrl, "watch", watchIcon, "Watch AnimeThemes video", true) : "",
   ].filter(Boolean).join("\n");
 
   const image = thumb
@@ -760,9 +763,10 @@ function buildSongPage(item, season, key) {
     .hero {
       position: relative;
       width: 100%;
+      min-height: 430px;
       display: grid;
       place-items: center;
-      padding: 22px;
+      padding: 28px;
       overflow: hidden;
       background:
         radial-gradient(circle at 45% 20%, rgba(169,120,255,.17), transparent 40%),
@@ -780,12 +784,13 @@ function buildSongPage(item, season, key) {
     .cover {
       position: relative;
       z-index: 1;
-      width: min(100%, 620px);
-      max-height: 700px;
+      width: min(100%, 390px);
+      max-height: 430px;
+      aspect-ratio: 1;
       display: block;
-      object-fit: contain;
+      object-fit: cover;
       border-radius: 18px;
-      box-shadow: 0 30px 90px rgba(0,0,0,.46);
+      box-shadow: 0 24px 70px rgba(0,0,0,.42);
     }
     .cover.fallback {
       width: min(75%, 420px);
@@ -871,12 +876,37 @@ function buildSongPage(item, season, key) {
       white-space: nowrap;
       border: 0;
     }
+    .song-watch-modal {
+      position: fixed; inset: 0; z-index: 100; display: grid; place-items: center;
+      padding: 16px; background: rgba(5,3,9,.82); backdrop-filter: blur(18px);
+    }
+    .song-watch-modal[hidden] { display: none !important; }
+    .song-watch-dialog {
+      width: min(1040px, 100%); max-height: calc(100vh - 32px); overflow: auto;
+      border: 1px solid var(--line2); border-radius: 22px; background: #0e0a16;
+      box-shadow: 0 45px 140px rgba(0,0,0,.54);
+    }
+    .song-watch-head {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;
+      padding: 16px 18px; border-bottom: 1px solid var(--line);
+    }
+    .song-watch-kicker { color: #a89dab; font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; }
+    .song-watch-title { margin-top: 4px; font-size: 18px; font-weight: 900; }
+    .song-watch-song { margin-top: 3px; color: #aaa1b3; font-size: 11px; }
+    .song-watch-close {
+      width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 10px;
+      background: rgba(255,255,255,.04); color: #aaa1b4; cursor: pointer; font-size: 17px;
+    }
+    .song-watch-video-wrap { padding: 12px; }
+    .song-watch-video-wrap video { display: block; width: 100%; max-height: 74vh; border-radius: 14px; background: #050308; }
+    .song-watch-direct { display: inline-flex; margin: 0 12px 14px; color: #c9b7ff; text-decoration: none; font-size: 10px; font-weight: 800; }
+
     @media (max-width: 640px) {
       body { padding: 0; }
       .page { width: min(100%, calc(100% - 16px)); padding-top: 10px; }
       .card { border-radius: 20px; }
       .hero { padding: 12px; }
-      .cover { max-height: 72vh; border-radius: 14px; }
+      .cover { width: min(100%, 340px); max-height: 55vh; border-radius: 14px; }
       .content { padding: 24px 18px 22px; }
       h1 { font-size: 34px; }
       .icon-action { width: 43px; height: 43px; }
@@ -904,6 +934,59 @@ function buildSongPage(item, season, key) {
       </div>
     </div>
   </main>
+
+  ${videoUrl ? `
+  <div id="song-watch-modal" class="song-watch-modal" hidden>
+    <div class="song-watch-dialog" role="dialog" aria-modal="true" aria-labelledby="song-watch-title">
+      <div class="song-watch-head">
+        <div>
+          <div class="song-watch-kicker">AnimeThemes · ${htmlEscape(prettyKind(item.kind))}</div>
+          <div id="song-watch-title" class="song-watch-title">${htmlEscape(anime)}</div>
+          <div class="song-watch-song">${htmlEscape(song)}</div>
+        </div>
+        <button id="song-watch-close" class="song-watch-close" type="button" aria-label="Close video">×</button>
+      </div>
+      <div class="song-watch-video-wrap">
+        <video id="song-watch-video" controls playsinline preload="metadata"></video>
+      </div>
+      <a class="song-watch-direct" href="${htmlEscape(videoUrl)}" target="_blank" rel="noopener noreferrer">Open direct AnimeThemes video ↗</a>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const modal = document.getElementById("song-watch-modal");
+      const video = document.getElementById("song-watch-video");
+      const closeButton = document.getElementById("song-watch-close");
+      const trigger = document.querySelector("[data-watch-trigger]");
+
+      function closePlayer() {
+        if (video) { video.pause(); video.removeAttribute("src"); video.load(); }
+        if (modal) modal.hidden = true;
+        document.body.style.overflow = "";
+        trigger?.focus();
+      }
+
+      function openPlayer() {
+        if (!trigger || !video || !modal) return;
+        const url = trigger.dataset.watchUrl || "";
+        if (!url) return;
+        video.src = url;
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        const play = video.play();
+        if (play?.catch) play.catch(() => {});
+      }
+
+      trigger?.addEventListener("click", event => { event.preventDefault(); openPlayer(); });
+      closeButton?.addEventListener("click", closePlayer);
+      modal?.addEventListener("click", event => { if (event.target === modal) closePlayer(); });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && modal && !modal.hidden) closePlayer();
+      });
+    })();
+  </script>
+  ` : ""}
 </body>
 </html>`;
 }
