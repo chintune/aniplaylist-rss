@@ -1044,15 +1044,14 @@ function buildBrowsePage(season, items) {
       const watchSongCandidates = unique([...(item.titleCandidates || []), item.song]).filter(Boolean);
       const watchArtistCandidates = unique([...(item.artistCandidates || []), item.artist]).filter(isLikelyArtistDisplay);
       const watchButton = watchable
-        ? '<a class="platform watch" href="https://animethemes.moe/anime/' + slug(item.anime || "anime") +
-          '" target="_blank" rel="noopener noreferrer" data-watch-anime="' + htmlEscape(JSON.stringify(watchAnimeCandidates)) +
+        ? '<button class="platform watch" type="button" data-watch-anime="' + htmlEscape(JSON.stringify(watchAnimeCandidates)) +
           '" data-watch-song="' + htmlEscape(JSON.stringify(watchSongCandidates)) +
           '" data-watch-artist="' + htmlEscape(JSON.stringify(watchArtistCandidates)) +
           '" data-watch-kind="' + htmlEscape(item.kind || "") +
           '" data-watch-poster="' + htmlEscape(item.thumbnail || "") +
           '" data-watch-title="' + htmlEscape((item.anime || "Anime") + " · " + (item.kind || "Theme")) +
           '" data-watch-display-song="' + htmlEscape(item.song || "") +
-          '">▶ Watch</a>'
+          '">▶ Watch</button>'
         : "";
       const platforms = [
         browsePlatformButton("Spotify", item.spotify, "spotify"),
@@ -1104,6 +1103,18 @@ function buildBrowsePage(season, items) {
             <div class="song-title" ${variantAttrs(songVariants)}>${htmlEscape(songVariants.english || "Unknown song")}</div>
             ${artistVariants.english ? `<div class="artist" ${variantAttrs(artistVariants)}>${htmlEscape(artistVariants.english)}</div>` : ""}
             <div class="platforms">${platforms}</div>
+            <div class="watch-player" hidden>
+              <div class="watch-player-head">
+                <div class="watch-player-title">${htmlEscape((item.anime || "Anime") + " · " + (item.kind || "Theme"))}</div>
+                <button class="watch-player-close" type="button">Close</button>
+              </div>
+              <div class="watch-status">Finding the matching AnimeThemes video…</div>
+              <video class="theme-video" controls playsinline preload="metadata" hidden></video>
+              <div class="watch-meta">
+                <span>Video hosted by AnimeThemes</span>
+                <a href="https://animethemes.moe/" target="_blank" rel="noopener noreferrer">AnimeThemes ↗</a>
+              </div>
+            </div>
             <a class="details" href="${SITE_BASE}/song/${htmlEscape(item.key)}/">Song page ↗</a>
           </div>
         </article>
@@ -1388,84 +1399,71 @@ function buildBrowsePage(season, items) {
       cursor: pointer;
       font: inherit;
     }
-    .video-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-    }
-    .video-modal[hidden] { display: none; }
-    .video-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(3, 5, 9, .82);
-      backdrop-filter: blur(6px);
-    }
-    .video-panel {
-      position: relative;
-      z-index: 1;
-      width: min(1000px, calc(100% - 28px));
-      margin: 5vh auto 0;
-      padding: 14px;
+    .platform.watch:hover { filter: brightness(1.08); }
+    .watch-player {
+      margin-top: 12px;
+      padding: 10px;
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 14px;
       background: #0f141c;
-      box-shadow: 0 28px 90px rgba(0,0,0,.55);
     }
-    .video-header {
+    .watch-player[hidden] { display: none !important; }
+    .watch-player-head {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
+      gap: 10px;
+      margin-bottom: 9px;
     }
-    .video-title { font-size: 16px; font-weight: 700; }
-    .video-song { margin-top: 3px; color: var(--muted); font-size: 13px; }
-    .video-close {
+    .watch-player-title {
+      min-width: 0;
+      color: #dfe5ed;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .watch-player-close {
       flex: 0 0 auto;
-      width: 34px;
-      height: 34px;
+      padding: 4px 8px;
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 8px;
       background: #171d28;
-      color: var(--text);
+      color: #aeb8c7;
       cursor: pointer;
+      font: inherit;
+      font-size: 11px;
     }
-    .video-status {
-      min-height: 80px;
+    .watch-player-close:hover { color: var(--text); }
+    .watch-status {
+      min-height: 64px;
       display: grid;
       place-items: center;
-      padding: 20px;
+      padding: 16px;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 11px;
       background: #080b10;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
       text-align: center;
     }
     .theme-video {
       display: block;
       width: 100%;
-      max-height: 72vh;
-      border-radius: 12px;
+      max-height: 70vh;
+      border-radius: 11px;
       background: #05070a;
     }
-    .video-meta {
+    .watch-meta {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      margin-top: 9px;
+      margin-top: 8px;
       color: #737e8d;
-      font-size: 11px;
+      font-size: 10px;
     }
-    .video-meta a { color: #a99bff; text-decoration: none; }
+    .watch-meta a { color: #a99bff; text-decoration: none; }
     @media (max-width: 500px) {
-      .video-panel {
-        width: calc(100% - 16px);
-        margin-top: 2vh;
-        padding: 10px;
-      }
-      .video-meta {
+      .watch-meta {
         align-items: flex-start;
         flex-direction: column;
       }
@@ -1544,24 +1542,6 @@ function buildBrowsePage(season, items) {
 
     <footer>AniPlaylist RSS · ${htmlEscape(season)}</footer>
 
-    <div id="video-modal" class="video-modal" hidden>
-      <div class="video-backdrop" data-video-close></div>
-      <div class="video-panel" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
-        <div class="video-header">
-          <div>
-            <div id="video-modal-title" class="video-title">AnimeThemes</div>
-            <div id="video-modal-song" class="video-song"></div>
-          </div>
-          <button class="video-close" type="button" data-video-close aria-label="Close video">✕</button>
-        </div>
-        <div id="video-status" class="video-status">Finding the matching AnimeThemes video…</div>
-        <video id="theme-video" class="theme-video" controls playsinline preload="metadata" hidden></video>
-        <div class="video-meta">
-          <span>Video hosted by AnimeThemes</span>
-          <a id="animethemes-link" href="https://animethemes.moe/" target="_blank" rel="noopener noreferrer">AnimeThemes ↗</a>
-        </div>
-      </div>
-    </div>
     <script>
       (() => {
         const input = document.getElementById("browse-search");
@@ -1569,9 +1549,10 @@ function buildBrowsePage(season, items) {
         const list = document.getElementById("song-list");
         const count = document.getElementById("search-count");
         const cards = [...list.querySelectorAll(".song-card")];
+        const languageSwitch = document.querySelector(".language-switch");
         const languageButtons = [...document.querySelectorAll(".language-button")];
         const total = cards.length;
-        const storageKey = "aniplaylist-title-language";
+        const storageKey = "aniplaylist-title-language-v2";
 
         function normalize(value) {
           return String(value || "")
@@ -1582,20 +1563,21 @@ function buildBrowsePage(season, items) {
         }
 
         function updateLanguage(language) {
-          for (const card of cards) {
-            for (const el of card.querySelectorAll("[data-en]")) {
-              el.textContent = el.dataset[language] || el.dataset.en || "";
-            }
-          }
+          const selected = ["en", "romaji", "ja"].includes(language) ? language : "en";
+
+          document.querySelectorAll(".anime-title[data-en], .song-title[data-en], .artist[data-en]").forEach(el => {
+            const next = el.getAttribute("data-" + selected) || el.getAttribute("data-en") || "";
+            if (el.textContent !== next) el.textContent = next;
+          });
 
           for (const button of languageButtons) {
-            const active = button.dataset.language === language;
+            const active = button.dataset.language === selected;
             button.classList.toggle("active", active);
             button.setAttribute("aria-pressed", active ? "true" : "false");
           }
 
           try {
-            localStorage.setItem(storageKey, language);
+            localStorage.setItem(storageKey, selected);
           } catch {}
         }
 
@@ -1625,9 +1607,11 @@ function buildBrowsePage(season, items) {
         input.addEventListener("input", filter);
         typeFilter.addEventListener("change", filter);
 
-        for (const button of languageButtons) {
-          button.addEventListener("click", () => updateLanguage(button.dataset.language));
-        }
+        languageSwitch?.addEventListener("click", event => {
+          const button = event.target.closest(".language-button");
+          if (!button || !languageSwitch.contains(button)) return;
+          updateLanguage(button.dataset.language);
+        });
 
         let initialLanguage = "en";
         try {
@@ -1636,11 +1620,10 @@ function buildBrowsePage(season, items) {
         } catch {}
 
         updateLanguage(initialLanguage);
-        const videoModal = document.getElementById("video-modal");
-        const themeVideo = document.getElementById("theme-video");
-        const videoStatus = document.getElementById("video-status");
-        const videoTitle = document.getElementById("video-modal-title");
-        const videoSong = document.getElementById("video-modal-song");
+
+        let activePlayer = null;
+        let activeVideo = null;
+        let activeButton = null;
         const watchCache = new Map();
 
         function watchNormalize(value) {
@@ -1810,60 +1793,101 @@ function buildBrowsePage(season, items) {
           return promise;
         }
 
-        function closeVideo() {
-          themeVideo.pause();
-          themeVideo.removeAttribute("src");
-          themeVideo.removeAttribute("poster");
-          themeVideo.load();
-          themeVideo.hidden = true;
-          videoStatus.hidden = false;
-          videoStatus.textContent = "Finding the matching AnimeThemes video…";
-          videoModal.hidden = true;
-          document.body.style.overflow = "";
+        function closePlayer(player) {
+          if (!player) return;
+
+          const video = player.querySelector(".theme-video");
+          const status = player.querySelector(".watch-status");
+
+          if (video) {
+            video.pause();
+            video.removeAttribute("src");
+            video.removeAttribute("poster");
+            video.load();
+            video.hidden = true;
+          }
+
+          if (status) {
+            status.hidden = false;
+            status.textContent = "Finding the matching AnimeThemes video…";
+          }
+
+          player.hidden = true;
         }
 
-        async function openVideo(button) {
-          videoTitle.textContent = button.dataset.watchTitle || "AnimeThemes";
-          videoSong.textContent = [
-            button.dataset.watchDisplaySong || "",
-            watchJson(button, "watchArtist")[0] || "",
-          ].filter(Boolean).join(" · ");
-          themeVideo.hidden = true;
-          videoStatus.hidden = false;
-          videoStatus.textContent = "Finding the matching AnimeThemes video…";
-          videoModal.hidden = false;
-          document.body.style.overflow = "hidden";
+        async function openPlayer(button) {
+          const card = button.closest(".song-card");
+          if (!card) return;
+
+          const player = card.querySelector(".watch-player");
+          if (!player) return;
+
+          if (activePlayer === player && !player.hidden) {
+            closePlayer(player);
+            activePlayer = null;
+            activeVideo = null;
+            activeButton = null;
+            return;
+          }
+
+          if (activePlayer && activePlayer !== player) {
+            closePlayer(activePlayer);
+          }
+
+          activePlayer = player;
+          activeButton = button;
+          const video = player.querySelector(".theme-video");
+          const status = player.querySelector(".watch-status");
+
+          player.hidden = false;
+          status.hidden = false;
+          status.textContent = "Finding the matching AnimeThemes video…";
+          video.hidden = true;
+          video.removeAttribute("src");
+          video.removeAttribute("poster");
+          video.load();
 
           try {
-            const video = await resolveWatchVideo(button);
-            if (!video) {
-              videoStatus.textContent = "No matching AnimeThemes OP/ED video was found for this release.";
+            const result = await resolveWatchVideo(button);
+
+            if (activePlayer !== player) return;
+
+            if (!result) {
+              status.hidden = false;
+              status.textContent = "No matching AnimeThemes OP/ED video was found for this release.";
               return;
             }
-            themeVideo.poster = button.dataset.watchPoster || "";
-            themeVideo.src = video.url;
-            themeVideo.hidden = false;
-            videoStatus.hidden = true;
-            const playPromise = themeVideo.play();
+
+            video.poster = button.dataset.watchPoster || "";
+            video.src = result.url;
+            video.hidden = false;
+            status.hidden = true;
+            activeVideo = video;
+
+            const playPromise = video.play();
             if (playPromise?.catch) playPromise.catch(() => {});
           } catch (error) {
-            videoStatus.textContent = "AnimeThemes could not be reached right now. Please try again.";
+            if (activePlayer !== player) return;
+            status.hidden = false;
+            status.textContent = "AnimeThemes could not be reached right now. Please try again.";
             console.warn(error);
           }
         }
 
-        document.querySelectorAll(".platform.watch").forEach(link => {
-          link.addEventListener("click", event => {
-            event.preventDefault();
-            openVideo(link);
-          });
-        });
-        document.querySelectorAll("[data-video-close]").forEach(element => {
-          element.addEventListener("click", closeVideo);
+        document.querySelectorAll(".platform.watch").forEach(button => {
+          button.addEventListener("click", () => openPlayer(button));
         });
 
-        document.addEventListener("keydown", event => {
-          if (event.key === "Escape" && !videoModal.hidden) closeVideo();
+        document.querySelectorAll(".watch-player-close").forEach(button => {
+          button.addEventListener("click", () => {
+            const player = button.closest(".watch-player");
+            closePlayer(player);
+            if (activePlayer === player) {
+              activePlayer = null;
+              activeVideo = null;
+              activeButton = null;
+            }
+          });
         });
 
       })();
