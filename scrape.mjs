@@ -1443,678 +1443,1431 @@ async function resolveAnimeThemesForSeason(page, items, season) {
 
 function buildBrowsePage(season, items) {
   const slugSeason = slug(season);
-  const feedUrl = `${SITE_BASE}/rss/${slugSeason}.xml`;
-
-  const cards = items
+  const feedUrl = \`${SITE_BASE}/rss/\${slugSeason}.xml\`;
+  const orderedItems = items
     .slice()
-    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
-    .map((item, index) => {
-      const image = item.thumbnail
-        ? `<img src="${htmlEscape(item.thumbnail)}" alt="" loading="${index < 4 ? "eager" : "lazy"}">`
-        : `<div class="cover-fallback">♪</div>`;
+    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-      const watchable = Boolean(
-        item.animethemesVideo?.url &&
-        ["OP", "ED"].includes(String(item.kind || "").toUpperCase())
-      );
-      const watchButton = watchable
-        ? '<button class="platform watch" type="button" data-watch-url="' + htmlEscape(item.animethemesVideo.url) +
-          '" data-watch-poster="' + htmlEscape(item.thumbnail || "") +
-          '">▶ Watch</button>'
-        : "";
-      const platforms = [
-        browsePlatformButton("Spotify", item.spotify, "spotify"),
-        browsePlatformButton("Apple Music", item.apple, "apple"),
-        watchButton,
-      ].filter(Boolean).join("\n");
+  const watchCount = orderedItems.filter(item =>
+    item.animethemesVideo?.url &&
+    ["OP", "ED"].includes(String(item.kind || "").toUpperCase())
+  ).length;
+  const spotifyCount = orderedItems.filter(item => !!item.spotify).length;
+  const appleCount = orderedItems.filter(item => !!item.apple).length;
 
-      const dateText = Number.isFinite(new Date(item.pubDate).getTime())
-        ? new Date(item.pubDate).toLocaleDateString("en", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })
-        : "";
+  const seasonNav = Array.isArray(CFG.seasons)
+    ? CFG.seasons.map(value => {
+        const active = String(value) === String(season);
+        const href = \`${SITE_BASE}/browse/\${slug(value)}/\`;
+        return \`<a class="season-pill\${active ? " active" : ""}" href="\${htmlEscape(href)}"\${active ? ' aria-current="page"' : ""}>\${htmlEscape(value)}</a>\`;
+      }).join("")
+    : "";
 
-      const animeVariants = getTitleVariants(item.animeCandidates, item.anime);
-      const songVariants = getTitleVariants(item.titleCandidates, item.song);
-      const artistCandidates = (item.artistCandidates || []).filter(isLikelyArtistDisplay);
-      const artistVariants = getTitleVariants(artistCandidates, item.artist);
+  const cards = orderedItems.map((item, index) => {
+    const kind = String(item.kind || "Other").toUpperCase();
+    const watchable = Boolean(
+      item.animethemesVideo?.url &&
+      ["OP", "ED"].includes(kind)
+    );
 
-      const searchText = unique([
-        item.anime,
-        item.song,
-        item.artist,
-        item.kind,
-        ...(item.animeCandidates || []),
-        ...(item.titleCandidates || []),
-        ...artistCandidates,
-      ]).join(" ");
+    const image = item.thumbnail
+      ? \`<img src="\${htmlEscape(item.thumbnail)}" alt="" loading="\${index < 6 ? "eager" : "lazy"}">\`
+      : '<div class="cover-fallback"><span>♪</span></div>';
 
-      const variantAttrs = variants => [
-        `data-en="${htmlEscape(variants.english)}"`,
-        `data-romaji="${htmlEscape(variants.romaji)}"`,
-        `data-ja="${htmlEscape(variants.japanese)}"`,
-      ].join(" ");
+    const watchButton = watchable
+      ? \`<a class="platform watch" href="\${htmlEscape(item.animethemesVideo.url)}"
+          data-watch-url="\${htmlEscape(item.animethemesVideo.url)}"
+          data-watch-poster="\${htmlEscape(item.thumbnail || "")}"
+          data-watch-title="\${htmlEscape(item.anime || "Anime")}"
+          data-watch-song="\${htmlEscape(item.song || "Theme")}"
+          data-watch-kind="\${htmlEscape(kind)}"
+          aria-label="Watch \${htmlEscape(item.song || "theme")}">\u25b6 Watch</a>\`
+      : "";
 
-      return `
-        <article class="song-card"
-          data-kind="${htmlEscape(item.kind || "Other")}"
-          data-search="${htmlEscape(searchText)}">
-          <div class="rank">${index + 1}</div>
-          <div class="art">${image}</div>
-          <div class="song-main">
-            <div class="song-head">
-              <span class="kind">${htmlEscape(item.kind || "Other")}</span>
-              <span class="date">${htmlEscape(dateText)}</span>
-            </div>
-            <h2 class="anime-title" ${variantAttrs(animeVariants)}>${htmlEscape(animeVariants.english || "Unknown anime")}</h2>
-            <div class="song-title" ${variantAttrs(songVariants)}>${htmlEscape(songVariants.english || "Unknown song")}</div>
-            ${artistVariants.english ? `<div class="artist" ${variantAttrs(artistVariants)}>${htmlEscape(artistVariants.english)}</div>` : ""}
-            <div class="platforms">${platforms}</div>
-            <div class="watch-player" hidden>
-              <div class="watch-player-head">
-                <div class="watch-player-title">${htmlEscape((item.anime || "Anime") + " · " + (item.kind || "Theme"))}</div>
-                <button class="watch-player-close" type="button">Close</button>
-              </div>
-              <div class="watch-status">Finding the matching AnimeThemes video…</div>
-              <video class="theme-video" controls playsinline preload="metadata" hidden></video>
-              <div class="watch-meta">
-                <span>Video hosted by AnimeThemes</span>
-                <a href="https://animethemes.moe/" target="_blank" rel="noopener noreferrer">AnimeThemes ↗</a>
-              </div>
-            </div>
-            <a class="details" href="${SITE_BASE}/song/${htmlEscape(item.key)}/">Song page ↗</a>
+    const platforms = [
+      browsePlatformButton("Spotify", item.spotify, "spotify"),
+      browsePlatformButton("Apple Music", item.apple, "apple"),
+      watchButton,
+    ].filter(Boolean).join("\n");
+
+    const dateText = Number.isFinite(new Date(item.pubDate).getTime())
+      ? new Date(item.pubDate).toLocaleDateString("en", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })
+      : "";
+
+    const animeVariants = getTitleVariants(item.animeCandidates, item.anime);
+    const songVariants = getTitleVariants(item.titleCandidates, item.song);
+    const artistCandidates = (item.artistCandidates || []).filter(isLikelyArtistDisplay);
+    const artistVariants = getTitleVariants(artistCandidates, item.artist);
+
+    const searchText = unique([
+      item.anime,
+      item.song,
+      item.artist,
+      item.kind,
+      ...(item.animeCandidates || []),
+      ...(item.titleCandidates || []),
+      ...artistCandidates,
+    ]).join(" ");
+
+    const variantAttrs = variants => [
+      \`data-en="\${htmlEscape(variants.english)}"\`,
+      \`data-romaji="\${htmlEscape(variants.romaji)}"\`,
+      \`data-ja="\${htmlEscape(variants.japanese)}"\`,
+    ].join(" ");
+
+    return \`
+      <article class="song-card"
+        data-kind="\${htmlEscape(kind)}"
+        data-search="\${htmlEscape(searchText)}">
+        <div class="card-art">
+          <div class="rank-badge">#\${index + 1}</div>
+          <div class="cover-wrap">
+            \${image}
+            \${watchable ? '<div class="video-badge"><span class="mini-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> VIDEO</div>' : ""}
           </div>
-        </article>
-      `;
-    }).join("\n");
+        </div>
 
-  return `<!doctype html>
+        <div class="song-main">
+          <div class="song-head">
+            <span class="kind kind-\${htmlEscape(kind.toLowerCase())}">\${htmlEscape(kind)}</span>
+            <span class="date">\${htmlEscape(dateText)}</span>
+          </div>
+
+          <h2 class="anime-title" \${variantAttrs(animeVariants)}>\${htmlEscape(animeVariants.english || "Unknown anime")}</h2>
+          <div class="song-title" \${variantAttrs(songVariants)}>\${htmlEscape(songVariants.english || "Unknown song")}</div>
+          \${artistVariants.english ? \`<div class="artist" \${variantAttrs(artistVariants)}>\${htmlEscape(artistVariants.english)}</div>\` : ""}
+
+          <div class="card-bottom">
+            <div class="platforms">\${platforms}</div>
+            <a class="details" href="\${htmlEscape(SITE_BASE)}/song/\${htmlEscape(item.key)}/" aria-label="Open song page for \${htmlEscape(item.song || "this release")}">Details ↗</a>
+          </div>
+        </div>
+      </article>
+    \`;
+  }).join("\n");
+
+  return \`<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0d12">
-  <title>${htmlEscape(`AniPlaylist RSS — ${season}`)}</title>
-  <meta name="description" content="${htmlEscape(`AniPlaylist ${season} releases with Spotify and Apple Music links.`)}">
+  <meta name="theme-color" content="#0b0712">
+  <title>\${htmlEscape(\`AniPlaylist — \${season}\`)}</title>
+  <meta name="description" content="\${htmlEscape(\`Anime music releases for \${season}, with Spotify, Apple Music, and verified AnimeThemes OP/ED videos.\`)}">
   <style>
     :root {
       color-scheme: dark;
-      --bg: #0b0d12;
-      --panel: #121720;
-      --panel-2: #171d28;
-      --border: #262e3b;
-      --text: #eef2f7;
-      --muted: #9da7b5;
-      --accent: #9d7bff;
-      --green: #5fd39b;
-      --apple: #ff4f73;
+      --bg: #090711;
+      --bg-2: #100c1b;
+      --panel: rgba(21, 17, 31, .82);
+      --panel-strong: #171225;
+      --line: rgba(255,255,255,.08);
+      --line-strong: rgba(255,255,255,.13);
+      --text: #f7f3ff;
+      --muted: #a8a0b6;
+      --muted-2: #756c84;
+      --purple: #a978ff;
+      --purple-2: #7857ff;
+      --pink: #ff5ca8;
+      --cyan: #56d7ff;
+      --green: #30d77b;
+      --shadow: 0 30px 90px rgba(0,0,0,.32);
     }
+
     * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(850px 450px at 0% -5%, rgba(157,123,255,.13), transparent 60%),
-        radial-gradient(650px 430px at 100% 20%, rgba(95,211,155,.05), transparent 62%),
-        var(--bg);
+        radial-gradient(900px 520px at 7% -10%, rgba(169,120,255,.22), transparent 58%),
+        radial-gradient(900px 550px at 100% 18%, rgba(255,92,168,.12), transparent 60%),
+        radial-gradient(760px 500px at 50% 100%, rgba(86,215,255,.08), transparent 65%),
+        linear-gradient(180deg, #090711 0%, #0c0912 45%, #090711 100%);
     }
-    .wrap { width: min(980px, calc(100% - 28px)); margin: 0 auto; }
-    header { padding: 48px 0 24px; }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+      opacity: .22;
+    }
+
+    a { color: inherit; }
+
+    button, input { font: inherit; }
+
+    .wrap {
+      width: min(1320px, calc(100% - 34px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      padding: 22px 0 30px;
+      position: relative;
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: -.025em;
+    }
+
+    .brand-mark {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 13px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.32), transparent 28%),
+        linear-gradient(135deg, rgba(169,120,255,.95), rgba(120,87,255,.76) 52%, rgba(255,92,168,.8));
+      box-shadow: 0 14px 36px rgba(120,87,255,.26);
+      overflow: hidden;
+    }
+
+    .brand-note {
+      position: relative;
+      z-index: 2;
+      font-size: 17px;
+      transform: translateY(-1px);
+    }
+
+    .brand-link strong { font-size: 15px; }
+    .brand-link span:last-child { color: var(--muted); font-size: 12px; font-weight: 700; }
+
     .back {
       display: inline-flex;
+      align-items: center;
+      gap: 7px;
       color: var(--muted);
       text-decoration: none;
-      font-size: 13px;
-      margin-bottom: 18px;
+      font-size: 12px;
+      font-weight: 700;
     }
+
     .back:hover { color: var(--text); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        radial-gradient(500px 240px at 12% 0%, rgba(169,120,255,.17), transparent 72%),
+        radial-gradient(600px 260px at 84% 100%, rgba(255,92,168,.08), transparent 72%),
+        linear-gradient(135deg, rgba(23,18,37,.94), rgba(13,10,22,.9));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -130px;
+      top: -150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(169,120,255,.18), transparent 66%);
+      filter: blur(4px);
+      pointer-events: none;
+    }
+
+    .hero-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      padding: 6px 10px;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid rgba(169,120,255,.24);
       border-radius: 999px;
-      background: rgba(157,123,255,.10);
-      color: #c5b8ff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .03em;
+      background: rgba(169,120,255,.08);
+      color: #ceb8ff;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
     }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--pink);
+      box-shadow: 0 0 14px rgba(255,92,168,.8);
+    }
+
     h1 {
-      margin: 14px 0 0;
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1;
-      letter-spacing: -.04em;
-    }
-    .sub {
       margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 15px;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: .94;
+      letter-spacing: -.06em;
     }
-    .search-box {
+
+    .hero-copy {
+      max-width: 720px;
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hero-copy strong { color: #e4d8ff; }
+
+    .hero-visual {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: flex-end;
+      gap: 7px;
+      min-height: 94px;
+      padding: 0 8px 8px 0;
+    }
+
+    .eq {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 90px;
+    }
+
+    .eq i {
+      display: block;
+      width: 7px;
+      min-height: 14px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, #f6eaff, #a978ff 52%, #6b50ff);
+      box-shadow: 0 0 22px rgba(169,120,255,.28);
+      animation: equalize 1s ease-in-out infinite alternate;
+      transform-origin: bottom;
+    }
+
+    .eq i:nth-child(1) { height: 26px; animation-delay: -.55s; }
+    .eq i:nth-child(2) { height: 58px; animation-delay: -.2s; }
+    .eq i:nth-child(3) { height: 40px; animation-delay: -.75s; }
+    .eq i:nth-child(4) { height: 76px; animation-delay: -.35s; }
+    .eq i:nth-child(5) { height: 32px; animation-delay: -.6s; }
+    .eq i:nth-child(6) { height: 64px; animation-delay: -.1s; }
+    .eq i:nth-child(7) { height: 46px; animation-delay: -.45s; }
+
+    @keyframes equalize {
+      0% { transform: scaleY(.46); opacity: .65; }
+      100% { transform: scaleY(1); opacity: 1; }
+    }
+
+    .stats {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .stat .label {
+      color: var(--muted-2);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+    }
+
+    .stat .value {
+      margin-top: 4px;
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+
+    .season-strip {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding: 16px 0 4px;
+      scrollbar-width: none;
+    }
+
+    .season-strip::-webkit-scrollbar { display: none; }
+
+    .season-pill {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.022);
+      color: #a79fad;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 800;
+      transition: transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;
+    }
+
+    .season-pill:hover {
+      transform: translateY(-1px);
+      color: var(--text);
+      border-color: var(--line-strong);
+      background: rgba(255,255,255,.05);
+    }
+
+    .season-pill.active {
+      color: white;
+      border-color: rgba(169,120,255,.32);
+      background: linear-gradient(135deg, rgba(169,120,255,.2), rgba(120,87,255,.12));
+      box-shadow: inset 0 0 0 1px rgba(169,120,255,.06);
+    }
+
+    .tools {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(8,6,13,.55);
+      backdrop-filter: blur(16px);
+    }
+
+    .search-row {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 9px;
-      margin-top: 18px;
-    }
-    .search-input {
-      width: 100%; min-height: 44px; padding: 0 14px; border: 1px solid var(--border);
-      border-radius: 12px; outline: none; background: #131821; color: var(--text);
-      font: inherit; font-size: 14px;
-    }
-    .search-input::placeholder { color: #737e8d; }
-    .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(157,123,255,.10); }
-    .search-filter {
-      min-height: 44px;
-      padding: 0 12px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      outline: none;
-      background: #131821;
-      color: var(--text);
-      font: inherit;
-      font-size: 13px;
-      cursor: pointer;
-    }
-    .search-filter:focus { border-color: var(--accent); }
-    .search-count { align-self: center; color: var(--muted); font-size: 12px; white-space: nowrap; }
-    .browse-controls {
-      margin-top: 18px;
-      display: grid;
       gap: 10px;
     }
-    .language-row {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      flex-wrap: wrap;
+
+    .search-shell {
+      position: relative;
+      min-width: 0;
     }
-    .language-label {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 600;
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7e7589;
+      font-size: 16px;
+      pointer-events: none;
     }
+
+    .search-input {
+      width: 100%;
+      min-height: 52px;
+      padding: 0 17px 0 43px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      outline: none;
+      background: rgba(255,255,255,.035);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .search-input::placeholder { color: #766e80; }
+
+    .search-input:focus {
+      border-color: rgba(169,120,255,.52);
+      box-shadow: 0 0 0 4px rgba(169,120,255,.1);
+    }
+
     .language-switch {
       display: inline-flex;
+      align-items: center;
       gap: 4px;
       padding: 4px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: #10151e;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
     }
+
     .language-button {
+      min-height: 42px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+      color: #857c90;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .language-button:hover { color: var(--text); }
+
+    .language-button.active {
+      color: white;
+      background: linear-gradient(135deg, rgba(169,120,255,.85), rgba(120,87,255,.78));
+      box-shadow: 0 8px 24px rgba(120,87,255,.2);
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 11px;
+    }
+
+    .filter-label {
+      margin-right: 2px;
+      color: var(--muted-2);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .filter-button {
       min-height: 32px;
       padding: 0 11px;
-      border: 0;
-      border-radius: 8px;
-      background: transparent;
-      color: #8f9aaa;
-      font: inherit;
-      font-size: 12px;
-      font-weight: 700;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.025);
+      color: #8f8799;
       cursor: pointer;
+      font-size: 11px;
+      font-weight: 800;
+      transition: .15s ease;
     }
-    .language-button:hover { color: var(--text); }
-    .language-button.active {
-      background: linear-gradient(135deg, #735edf, #9d7bff);
+
+    .filter-button:hover {
+      color: var(--text);
+      border-color: var(--line-strong);
+    }
+
+    .filter-button.active {
       color: white;
+      border-color: rgba(255,92,168,.3);
+      background: linear-gradient(135deg, rgba(255,92,168,.18), rgba(169,120,255,.16));
     }
-    @media (max-width: 500px) {
-      .search-box { grid-template-columns: minmax(0, 1fr); }
-      .search-filter { width: 100%; }
-      .language-row { align-items: flex-start; }
-    }
-    .top-actions {
+
+    .result-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 18px;
-    }
-    .top-actions a {
-      display: inline-flex;
       align-items: center;
-      min-height: 38px;
-      padding: 0 13px;
-      border-radius: 10px;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      color: #dbe1e9;
-      background: #131821;
-      font-size: 13px;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 11px;
     }
-    .top-actions a.primary {
-      background: linear-gradient(135deg, #735edf, #9d7bff);
-      color: white;
-      border-color: transparent;
-      font-weight: 600;
-    }
-    main { padding: 6px 0 56px; }
+
+    .result-row strong { color: #e2dce8; }
+
+    main { padding: 22px 0 48px; }
+
     .song-list {
       display: grid;
-      gap: 13px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
     }
-    .song-card[hidden] {
-      display: none !important;
-    }
+
     .song-card {
       position: relative;
-      display: grid;
-      grid-template-columns: 34px 118px minmax(0, 1fr);
-      gap: 14px;
-      align-items: stretch;
-      padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(23,29,40,.96), rgba(18,23,32,.96));
-      box-shadow: 0 14px 45px rgba(0,0,0,.18);
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 22px;
       overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(24,19,35,.95), rgba(16,13,24,.96));
+      box-shadow: 0 18px 55px rgba(0,0,0,.18);
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
     }
-    .rank {
-      align-self: start;
-      display: grid;
-      place-items: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 9px;
-      background: #1a202b;
-      color: #8994a4;
-      font-size: 12px;
-      font-weight: 700;
-      margin-top: 2px;
+
+    .song-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(169,120,255,.08), transparent 34%, rgba(255,92,168,.045));
+      pointer-events: none;
     }
-    .art {
-      width: 118px;
-      height: 118px;
-      border-radius: 13px;
+
+    .song-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(169,120,255,.2);
+      box-shadow: 0 24px 70px rgba(0,0,0,.28), 0 0 0 1px rgba(169,120,255,.04);
+    }
+
+    .song-card[hidden] { display: none !important; }
+
+    .card-art {
+      padding: 12px 12px 0;
+    }
+
+    .cover-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 17px;
       overflow: hidden;
-      background: #1a202b;
+      background:
+        radial-gradient(circle at 30% 15%, rgba(169,120,255,.22), transparent 36%),
+        linear-gradient(135deg, #171126, #0d0a15);
     }
-    .art img {
+
+    .cover-wrap img,
+    .cover-fallback {
       width: 100%;
       height: 100%;
       display: block;
       object-fit: cover;
     }
+
+    .cover-wrap img {
+      transform: scale(1.005);
+      transition: transform .35s ease;
+    }
+
+    .song-card:hover .cover-wrap img { transform: scale(1.035); }
+
     .cover-fallback {
-      width: 100%;
-      height: 100%;
       display: grid;
       place-items: center;
-      color: #7565d0;
-      font-size: 44px;
-      background: linear-gradient(145deg, #171d28, #20263a);
+      font-size: 74px;
+      color: #9b79ff;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(169,120,255,.19), transparent 38%),
+        linear-gradient(145deg, #171126, #0d0a15);
     }
-    .song-main { min-width: 0; }
+
+    .cover-fallback span { transform: translateY(-2px); }
+
+    .rank-badge {
+      position: absolute;
+      z-index: 3;
+      top: 21px;
+      left: 21px;
+      min-width: 38px;
+      height: 30px;
+      padding: 0 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      background: rgba(10,7,17,.7);
+      backdrop-filter: blur(12px);
+      color: #f5effb;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .video-badge {
+      position: absolute;
+      z-index: 2;
+      right: 11px;
+      bottom: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 28px;
+      padding: 0 9px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 9px;
+      background: rgba(10,7,17,.72);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .mini-eq {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+    }
+
+    .mini-eq i {
+      width: 2px;
+      border-radius: 2px;
+      background: #d8c8ff;
+      animation: equalize-mini .9s ease-in-out infinite alternate;
+    }
+
+    .mini-eq i:nth-child(1) { height: 5px; animation-delay: -.2s; }
+    .mini-eq i:nth-child(2) { height: 9px; animation-delay: -.45s; }
+    .mini-eq i:nth-child(3) { height: 6px; animation-delay: -.1s; }
+    .mini-eq i:nth-child(4) { height: 11px; animation-delay: -.35s; }
+
+    @keyframes equalize-mini {
+      from { transform: scaleY(.55); opacity: .62; }
+      to { transform: scaleY(1); opacity: 1; }
+    }
+
+    .song-main {
+      position: relative;
+      padding: 14px 14px 15px;
+    }
+
     .song-head {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 8px;
+      min-width: 0;
       flex-wrap: wrap;
     }
+
     .kind {
-      padding: 5px 8px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 0 9px;
       border-radius: 999px;
-      background: rgba(95,211,155,.09);
-      color: #8be0b3;
-      font-size: 11px;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      background: rgba(169,120,255,.12);
+      color: #c9b7ff;
+      border: 1px solid rgba(169,120,255,.18);
+    }
+
+    .kind-ed {
+      background: rgba(255,92,168,.11);
+      color: #ffb1d0;
+      border-color: rgba(255,92,168,.2);
+    }
+
+    .kind-in, .kind-ost, .kind-other {
+      background: rgba(86,215,255,.09);
+      color: #a9eaff;
+      border-color: rgba(86,215,255,.16);
+    }
+
+    .date {
+      color: var(--muted-2);
+      font-size: 10px;
       font-weight: 700;
     }
-    .date {
-      color: #737e8d;
-      font-size: 11px;
+
+    .anime-title {
+      margin: 10px 0 0;
+      font-size: clamp(18px, 2.1vw, 22px);
+      line-height: 1.12;
+      letter-spacing: -.035em;
     }
-    h2 {
-      margin: 8px 0 0;
-      font-size: clamp(17px, 2.3vw, 22px);
-      line-height: 1.15;
-      letter-spacing: -.025em;
-    }
+
     .song-title {
       margin-top: 6px;
-      color: #d9dee6;
-      font-size: 15px;
-      line-height: 1.35;
+      color: #ddd7e4;
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 700;
     }
+
     .artist {
       margin-top: 4px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 11px;
+      line-height: 1.4;
     }
+
+    .card-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
     .platforms {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 13px;
+      gap: 7px;
+      min-width: 0;
     }
+
     .platform {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       min-height: 34px;
-      padding: 0 11px;
-      border-radius: 9px;
-      text-decoration: none;
+      padding: 0 10px;
+      border: 1px solid transparent;
+      border-radius: 10px;
       color: white;
-      font-size: 12px;
-      font-weight: 700;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+      transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
     }
-    .platform.spotify { background: #1db954; }
-    .platform.apple { background: linear-gradient(135deg, #ff496b, #d9438a); }
+
+    .platform:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.06);
+    }
+
+    .platform.spotify {
+      background: linear-gradient(135deg, #17b85a, #1ed760);
+      box-shadow: 0 10px 26px rgba(29,215,96,.1);
+    }
+
+    .platform.apple {
+      background: linear-gradient(135deg, #ff466f, #c92f87);
+      box-shadow: 0 10px 26px rgba(255,70,111,.1);
+    }
+
     .platform.watch {
-      border: 0;
-      background: linear-gradient(135deg, #4f8cff, #6f63ff);
-      cursor: pointer;
-      font: inherit;
+      border-color: rgba(135,105,255,.28);
+      background: linear-gradient(135deg, #5f71ff, #8f62ff);
+      box-shadow: 0 10px 26px rgba(120,87,255,.16);
     }
-    .platform.watch:hover { filter: brightness(1.08); }
-    .watch-player {
-      margin-top: 12px;
-      padding: 10px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #0f141c;
+
+    .details {
+      flex: 0 0 auto;
+      color: #7f7689;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 800;
+      white-space: nowrap;
     }
-    .watch-player[hidden] { display: none !important; }
-    .watch-player-head {
+
+    .details:hover { color: var(--text); }
+
+    .pagination-wrap {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 9px;
+      justify-content: center;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 25px;
     }
-    .watch-player-title {
-      min-width: 0;
-      color: #dfe5ed;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .watch-player-close {
-      flex: 0 0 auto;
-      padding: 4px 8px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: #171d28;
-      color: #aeb8c7;
+
+    .page-button {
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.025);
+      color: #948a9e;
       cursor: pointer;
-      font: inherit;
-      font-size: 11px;
+      font-size: 10px;
+      font-weight: 900;
     }
-    .watch-player-close:hover { color: var(--text); }
-    .watch-status {
-      min-height: 64px;
-      display: grid;
-      place-items: center;
-      padding: 16px;
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      background: #080b10;
-      color: var(--muted);
+
+    .page-button:hover:not(:disabled) {
+      color: white;
+      border-color: var(--line-strong);
+    }
+
+    .page-button.active {
+      color: white;
+      border-color: rgba(169,120,255,.36);
+      background: linear-gradient(135deg, rgba(169,120,255,.48), rgba(120,87,255,.48));
+    }
+
+    .page-button:disabled {
+      opacity: .36;
+      cursor: not-allowed;
+    }
+
+    .page-ellipsis {
+      color: #675f70;
+      padding: 0 2px;
       font-size: 12px;
+    }
+
+    footer {
+      padding: 0 0 34px;
+      color: #625a69;
+      font-size: 10px;
       text-align: center;
     }
+
+    .watch-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(5,3,9,.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .watch-modal[hidden] { display: none !important; }
+
+    .watch-dialog {
+      width: min(1080px, 100%);
+      max-height: min(900px, calc(100vh - 40px));
+      overflow: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(21,17,31,.98), rgba(11,9,17,.98));
+      box-shadow: 0 45px 140px rgba(0,0,0,.54);
+    }
+
+    .watch-dialog-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .watch-dialog-copy { min-width: 0; }
+
+    .watch-dialog-kicker {
+      color: #a99aba;
+      font-size: 9px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+
+    .watch-dialog-title {
+      margin-top: 5px;
+      font-size: clamp(18px, 3vw, 26px);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+
+    .watch-dialog-song {
+      margin-top: 4px;
+      color: #b6afbf;
+      font-size: 12px;
+    }
+
+    .watch-close {
+      flex: 0 0 auto;
+      min-width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(255,255,255,.04);
+      color: #bcb3c6;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .watch-close:hover { color: white; }
+
+    .watch-video-wrap {
+      padding: 14px;
+    }
+
     .theme-video {
       display: block;
       width: 100%;
       max-height: 70vh;
-      border-radius: 11px;
-      background: #05070a;
+      border-radius: 16px;
+      background: #050308;
     }
+
+    .watch-error {
+      display: none;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.02);
+      color: #a89fb0;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .watch-error.show { display: block; }
+
+    .watch-error a {
+      display: inline-flex;
+      margin-top: 12px;
+      color: #c9b7ff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
     .watch-meta {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      margin-top: 8px;
-      color: #737e8d;
+      gap: 12px;
+      padding: 0 14px 14px;
+      color: #6f6877;
       font-size: 10px;
     }
-    .watch-meta a { color: #a99bff; text-decoration: none; }
-    @media (max-width: 500px) {
-      .watch-meta {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-    .details {
-      display: inline-block;
-      margin-top: 9px;
-      color: #7e8999;
+
+    .watch-meta a {
+      color: #ab9bff;
       text-decoration: none;
-      font-size: 12px;
+      font-weight: 800;
     }
-    .details:hover { color: var(--text); }
-    footer {
-      padding-bottom: 34px;
-      color: #687383;
-      font-size: 12px;
+
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 54px 20px;
+      border: 1px dashed var(--line-strong);
+      border-radius: 22px;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(255,255,255,.018);
     }
-    @media (max-width: 680px) {
-      .song-card { grid-template-columns: 28px 92px minmax(0,1fr); gap: 11px; }
-      .art { width: 92px; height: 92px; }
-      .rank { width: 25px; height: 25px; }
+
+    @media (max-width: 1080px) {
+      .song-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-visual { display: none; }
     }
-    @media (max-width: 500px) {
-      .song-card { grid-template-columns: 26px 78px minmax(0,1fr); }
-      .art { width: 78px; height: 78px; }
-      h2 { font-size: 16px; }
-      .song-title { font-size: 14px; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100%, calc(100% - 22px)); }
+      .site-header { padding-top: 13px; }
+      .hero { padding: 20px; border-radius: 22px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .search-row { grid-template-columns: 1fr; }
+      .language-switch { width: 100%; }
+      .language-button { flex: 1; }
+      .card-bottom { align-items: flex-start; flex-direction: column; }
+      .details { padding-top: 1px; }
+    }
+
+    @media (max-width: 560px) {
+      .song-list { grid-template-columns: 1fr; gap: 13px; }
+      h1 { font-size: 43px; }
+      .hero-copy { font-size: 13px; }
+      .stats { gap: 8px; }
+      .stat { padding: 11px 12px; }
+      .stat .value { font-size: 17px; }
+      .watch-dialog { max-height: calc(100vh - 18px); border-radius: 18px; }
+      .watch-modal { padding: 9px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <a class="back" href="${SITE_BASE}/">← All seasons</a>
-      <div class="eyebrow">AniPlaylist RSS</div>
-      <h1>${htmlEscape(season)}</h1>
-      <div class="sub">${items.length} ${items.length === 1 ? "release" : "releases"} · newest first</div>
-      <div class="browse-controls">
-        <div class="search-box">
-          <input id="browse-search" class="search-input" type="search"
-            placeholder="Search anime, song, artist, Japanese, romaji..."
-            aria-label="Search ${htmlEscape(season)} releases in English, romaji, Japanese, and artist names"
-            autocomplete="off" spellcheck="false">
-          <select id="search-filter" class="search-filter" aria-label="Filter by release type">
-            <option value="">All types</option>
-            <option value="OP">OP</option>
-            <option value="ED">ED</option>
-            <option value="IN">IN</option>
-            <option value="OST">OST</option>
-            <option value="Other">Other</option>
-          </select>
-          <span id="search-count" class="search-count">${items.length}</span>
-        </div>
+    <header class="site-header">
+      <div class="nav-row">
+        <a class="brand-link" href="\${htmlEscape(SITE_BASE)}/" aria-label="AniPlaylist home">
+          <span class="brand-mark"><span class="brand-note">♫</span></span>
+          <span>
+            <strong>AniPlaylist</strong><br>
+            <span>Anime Music Hub</span>
+          </span>
+        </a>
+        <a class="back" href="\${htmlEscape(SITE_BASE)}/">← All seasons</a>
+      </div>
 
-        <div class="language-row">
-          <span class="language-label">Display:</span>
-          <div class="language-switch" role="group" aria-label="Title language">
-            <button type="button" class="language-button active" data-language="en">English</button>
-            <button type="button" class="language-button" data-language="romaji">Romaji</button>
-            <button type="button" class="language-button" data-language="ja">日本語</button>
+      <section class="hero" aria-labelledby="season-title">
+        <div class="hero-top">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> AniPlaylist RSS · \${htmlEscape(season)}</div>
+            <h1 id="season-title">\${htmlEscape(season)}</h1>
+            <div class="hero-copy">
+              Explore <strong>\${orderedItems.length}</strong> anime music releases from this season.
+              Search across English, romaji, and Japanese titles, jump to Spotify or Apple Music,
+              and <strong>watch verified OP/ED videos</strong> directly from AnimeThemes when a real video is available.
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </div>
         </div>
-      </div>
 
-      <div class="top-actions">
-        <a class="primary" href="${feedUrl}">RSS feed ↗</a>
-        <a href="https://aniplaylist.com/?seasons=${encodeURIComponent(season)}" target="_blank" rel="noopener noreferrer">AniPlaylist ↗</a>
-      </div>
+        <div class="stats" aria-label="Season statistics">
+          <div class="stat"><div class="label">Releases</div><div class="value">\${orderedItems.length}</div></div>
+          <div class="stat"><div class="label">Watch videos</div><div class="value">\${watchCount}</div></div>
+          <div class="stat"><div class="label">Spotify</div><div class="value">\${spotifyCount}</div></div>
+          <div class="stat"><div class="label">Apple Music</div><div class="value">\${appleCount}</div></div>
+        </div>
+
+        <nav class="season-strip" aria-label="Anime seasons">
+          \${seasonNav}
+        </nav>
+
+        <div class="tools">
+          <div class="search-row">
+            <div class="search-shell">
+              <span class="search-icon" aria-hidden="true">⌕</span>
+              <input id="browse-search" class="search-input" type="search"
+                placeholder="Search anime, song, artist, Japanese, romaji..."
+                aria-label="Search \${htmlEscape(season)} releases"
+                autocomplete="off" spellcheck="false">
+            </div>
+
+            <div class="language-switch" role="group" aria-label="Display title language">
+              <button type="button" class="language-button active" data-language="en" aria-pressed="true">English</button>
+              <button type="button" class="language-button" data-language="romaji" aria-pressed="false">Romaji</button>
+              <button type="button" class="language-button" data-language="ja" aria-pressed="false">日本語</button>
+            </div>
+          </div>
+
+          <div class="filter-row" role="group" aria-label="Release type">
+            <span class="filter-label">Type</span>
+            <button type="button" class="filter-button active" data-type-filter="" aria-pressed="true">All</button>
+            <button type="button" class="filter-button" data-type-filter="OP" aria-pressed="false">OP</button>
+            <button type="button" class="filter-button" data-type-filter="ED" aria-pressed="false">ED</button>
+            <button type="button" class="filter-button" data-type-filter="IN" aria-pressed="false">IN</button>
+            <button type="button" class="filter-button" data-type-filter="OST" aria-pressed="false">OST</button>
+            <button type="button" class="filter-button" data-type-filter="Other" aria-pressed="false">Other</button>
+          </div>
+
+          <div class="result-row">
+            <span id="search-summary">Showing 0 releases</span>
+            <span>24 releases per page</span>
+          </div>
+        </div>
+      </section>
     </header>
 
     <main>
       <div id="song-list" class="song-list">
-        ${cards || `<div style="padding:24px;color:#9da7b5;border:1px solid #262e3b;border-radius:16px;background:#121720;">No Spotify or Apple Music entries yet.</div>`}
+        \${cards || '<div class="empty-state">No Spotify or Apple Music entries yet.</div>'}
       </div>
+      <div id="pagination" class="pagination-wrap" aria-label="Pagination"></div>
     </main>
 
-    <footer>AniPlaylist RSS · ${htmlEscape(season)}</footer>
+    <footer>
+      AniPlaylist RSS · \${htmlEscape(season)} · Verified AnimeThemes videos link directly to AnimeThemes media
+    </footer>
+  </div>
 
-    <script>
-      (() => {
-        const input = document.getElementById("browse-search");
-        const typeFilter = document.getElementById("search-filter");
-        const list = document.getElementById("song-list");
-        const count = document.getElementById("search-count");
-        const cards = [...list.querySelectorAll(".song-card")];
-        const languageButtons = [...document.querySelectorAll(".language-button")];
-        const total = cards.length;
+  <div id="watch-modal" class="watch-modal" hidden>
+    <div class="watch-dialog" role="dialog" aria-modal="true" aria-labelledby="watch-dialog-title">
+      <div class="watch-dialog-head">
+        <div class="watch-dialog-copy">
+          <div class="watch-dialog-kicker" id="watch-dialog-kicker">AnimeThemes · OP</div>
+          <div class="watch-dialog-title" id="watch-dialog-title">Anime</div>
+          <div class="watch-dialog-song" id="watch-dialog-song">Theme</div>
+        </div>
+        <button id="watch-close" class="watch-close" type="button" aria-label="Close video">×</button>
+      </div>
 
-        function normalize(value) {
-          return String(value || "")
-            .toLocaleLowerCase()
-            .normalize("NFKC")
-            .replace(/[\u200B-\u200D\uFEFF]/g, "")
-            .replace(/[\u0300-\u036f]/g, "");
-        }
+      <div class="watch-video-wrap">
+        <video id="theme-video" class="theme-video" controls playsinline preload="metadata"></video>
+        <div id="watch-error" class="watch-error">
+          This AnimeThemes video could not be played in the embedded player.
+          <br>
+          <a id="watch-direct" href="#" target="_blank" rel="noopener noreferrer">Open the direct AnimeThemes video ↗</a>
+        </div>
+      </div>
 
-        function updateLanguage(language) {
-          const selected = ["en", "romaji", "ja"].includes(language) ? language : "en";
+      <div class="watch-meta">
+        <span>Video hosted by AnimeThemes</span>
+        <a href="https://animethemes.moe/" target="_blank" rel="noopener noreferrer">AnimeThemes ↗</a>
+      </div>
+    </div>
+  </div>
 
-          cards.forEach(card => {
-            card.querySelectorAll("[data-en][data-romaji][data-ja]").forEach(el => {
-              const next =
-                el.getAttribute("data-" + selected) ||
-                el.getAttribute("data-en") ||
-                el.textContent ||
-                "";
-              el.textContent = next;
-            });
-          });
+  <script>
+    (() => {
+      const PAGE_SIZE = 24;
+      const input = document.getElementById("browse-search");
+      const list = document.getElementById("song-list");
+      const summary = document.getElementById("search-summary");
+      const pagination = document.getElementById("pagination");
+      const cards = [...list.querySelectorAll(".song-card")];
+      const languageButtons = [...document.querySelectorAll(".language-button")];
+      const filterButtons = [...document.querySelectorAll(".filter-button")];
 
-          languageButtons.forEach(button => {
-            const active = button.dataset.language === selected;
-            button.classList.toggle("active", active);
-            button.setAttribute("aria-pressed", active ? "true" : "false");
-          });
-        }
+      let selectedType = "";
+      let currentPage = Number(new URLSearchParams(location.search).get("page") || "1");
+      if (!Number.isFinite(currentPage) || currentPage < 1) currentPage = 1;
 
-        function filter() {
-          const query = normalize(input.value.trim());
-          const selectedType = typeFilter.value;
-          let visible = 0;
+      function normalize(value) {
+        return String(value || "")
+          .toLocaleLowerCase()
+          .normalize("NFKC")
+          .replace(/[\u200B-\u200D\uFEFF]/g, "")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
 
-          cards.forEach(card => {
-            const searchableText = normalize(card.dataset.search || "");
-            const typeMatches = !selectedType || card.dataset.kind === selectedType;
-            const textMatches = !query || searchableText.includes(query);
-            const match = typeMatches && textMatches;
+      function updateLanguage(language) {
+        const selected = ["en", "romaji", "ja"].includes(language) ? language : "en";
 
-            card.hidden = !match;
-
-            if (match) {
-              visible += 1;
-              const rank = card.querySelector(".rank");
-              if (rank) rank.textContent = visible;
-            }
-          });
-
-          count.textContent = (query || selectedType) ? visible + " / " + total : String(total);
-        }
-
-        input.addEventListener("input", filter);
-        typeFilter.addEventListener("change", filter);
-
-        languageButtons.forEach(button => {
-          button.addEventListener("click", () => {
-            updateLanguage(button.dataset.language);
+        cards.forEach(card => {
+          card.querySelectorAll("[data-en][data-romaji][data-ja]").forEach(el => {
+            const next =
+              el.getAttribute("data-" + selected) ||
+              el.getAttribute("data-en") ||
+              el.textContent ||
+              "";
+            el.textContent = next;
           });
         });
 
-        updateLanguage("en");
+        languageButtons.forEach(button => {
+          const active = button.dataset.language === selected;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
 
-        let activePlayer = null;
+        try { localStorage.setItem("aniplaylist-language", selected); } catch {}
+      }
 
-        function watchJson(button, name) {
-          try { return JSON.parse(button.dataset[name] || "[]"); } catch { return []; }
+      function getFilteredCards() {
+        const query = normalize(input.value);
+        return cards.filter(card => {
+          const textMatches = !query || normalize(card.dataset.search || "").includes(query);
+          const typeMatches = !selectedType || card.dataset.kind === selectedType;
+          return textMatches && typeMatches;
+        });
+      }
+
+      function makePageButton(label, page, active, disabled) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "page-button" + (active ? " active" : "");
+        button.textContent = label;
+        button.disabled = !!disabled;
+        if (!disabled) {
+          button.addEventListener("click", () => {
+            currentPage = page;
+            renderPage(true);
+          });
+        }
+        return button;
+      }
+
+      function pushPageNumber(label, page, totalPages, fragment) {
+        if (fragment === "...") {
+          const span = document.createElement("span");
+          span.className = "page-ellipsis";
+          span.textContent = "…";
+          pagination.appendChild(span);
+          return;
+        }
+        pagination.appendChild(makePageButton(label, page, page === currentPage, false));
+      }
+
+      function renderPagination(totalPages) {
+        pagination.textContent = "";
+        if (totalPages <= 1) return;
+
+        pagination.appendChild(makePageButton("←", Math.max(1, currentPage - 1), false, currentPage === 1));
+
+        const pages = [];
+        if (totalPages <= 7) {
+          for (let page = 1; page <= totalPages; page++) pages.push(page);
+        } else {
+          pages.push(1);
+          if (currentPage > 4) pages.push("...");
+          const start = Math.max(2, currentPage - 1);
+          const end = Math.min(totalPages - 1, currentPage + 1);
+          for (let page = start; page <= end; page++) pages.push(page);
+          if (currentPage < totalPages - 3) pages.push("...");
+          pages.push(totalPages);
         }
 
-        function closePlayer(player) {
-          if (!player) return;
-
-          const video = player.querySelector(".theme-video");
-          const status = player.querySelector(".watch-status");
-
-          if (video) {
-            video.pause();
-            video.removeAttribute("src");
-            video.removeAttribute("poster");
-            video.load();
-            video.hidden = true;
+        pages.forEach(page => {
+          if (page === "...") {
+            pushPageNumber("…", 1, totalPages, "...");
+          } else {
+            pushPageNumber(String(page), page, totalPages, page);
           }
+        });
 
-          if (status) {
-            status.hidden = false;
-            status.textContent = "Finding the matching AnimeThemes video…";
+        pagination.appendChild(makePageButton("→", Math.min(totalPages, currentPage + 1), false, currentPage === totalPages));
+      }
+
+      function syncUrl() {
+        const url = new URL(location.href);
+        if (currentPage > 1) url.searchParams.set("page", String(currentPage));
+        else url.searchParams.delete("page");
+        history.replaceState(null, "", url);
+      }
+
+      function renderPage(scrollTop) {
+        const filtered = getFilteredCards();
+        const total = filtered.length;
+        const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        cards.forEach(card => {
+          card.hidden = true;
+          card.classList.remove("page-visible");
+        });
+
+        const start = (currentPage - 1) * PAGE_SIZE;
+        const visible = filtered.slice(start, start + PAGE_SIZE);
+
+        visible.forEach((card, index) => {
+          card.hidden = false;
+          card.classList.add("page-visible");
+          const rank = card.querySelector(".rank-badge");
+          if (rank) rank.textContent = "#" + (start + index + 1);
+        });
+
+        if (summary) {
+          if (!total) {
+            summary.innerHTML = "<strong>0</strong> releases";
+          } else {
+            const from = start + 1;
+            const to = Math.min(start + PAGE_SIZE, total);
+            summary.innerHTML =
+              "Showing <strong>" + from + "–" + to + "</strong> of <strong>" + total + "</strong> releases";
           }
-
-          player.hidden = true;
         }
 
-        function openPlayer(button) {
-          const card = button.closest(".song-card");
-          if (!card) return;
+        renderPagination(totalPages);
+        syncUrl();
 
-          const player = card.querySelector(".watch-player");
-          if (!player) return;
+        if (scrollTop) {
+          window.scrollTo({ top: Math.max(0, document.querySelector(".song-list").offsetTop - 24), behavior: "smooth" });
+        }
+      }
 
-          if (activePlayer === player && !player.hidden) {
-            closePlayer(player);
-            activePlayer = null;
-            return;
-          }
+      input.addEventListener("input", () => {
+        currentPage = 1;
+        renderPage(false);
+      });
 
-          if (activePlayer && activePlayer !== player) {
-            closePlayer(activePlayer);
-          }
+      filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          selectedType = button.dataset.typeFilter || "";
+          currentPage = 1;
 
-          activePlayer = player;
+          filterButtons.forEach(other => {
+            const active = other === button;
+            other.classList.toggle("active", active);
+            other.setAttribute("aria-pressed", active ? "true" : "false");
+          });
 
-          const video = player.querySelector(".theme-video");
-          const status = player.querySelector(".watch-status");
-          const url = String(button.dataset.watchUrl || "").trim();
+          renderPage(false);
+        });
+      });
 
-          player.hidden = false;
-          status.hidden = false;
-          video.hidden = true;
+      languageButtons.forEach(button => {
+        button.addEventListener("click", () => updateLanguage(button.dataset.language));
+      });
+
+      let savedLanguage = "en";
+      try { savedLanguage = localStorage.getItem("aniplaylist-language") || "en"; } catch {}
+      updateLanguage(savedLanguage);
+      renderPage(false);
+
+      const modal = document.getElementById("watch-modal");
+      const video = document.getElementById("theme-video");
+      const closeButton = document.getElementById("watch-close");
+      const dialog = modal.querySelector(".watch-dialog");
+      const dialogTitle = document.getElementById("watch-dialog-title");
+      const dialogSong = document.getElementById("watch-dialog-song");
+      const dialogKicker = document.getElementById("watch-dialog-kicker");
+      const errorBox = document.getElementById("watch-error");
+      const directLink = document.getElementById("watch-direct");
+      let lastTrigger = null;
+
+      function closePlayer() {
+        if (video) {
+          video.pause();
           video.removeAttribute("src");
           video.removeAttribute("poster");
           video.load();
-
-          if (!url) {
-            status.textContent = "No AnimeThemes video is available for this release.";
-            return;
-          }
-
-          video.poster = button.dataset.watchPoster || "";
-          video.src = url;
-          video.hidden = false;
-          status.hidden = true;
-
-          const playPromise = video.play();
-          if (playPromise?.catch) playPromise.catch(() => {});
         }
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        if (lastTrigger) {
+          lastTrigger.focus();
+          lastTrigger = null;
+        }
+      }
 
-        document.querySelectorAll(".platform.watch").forEach(button => {
-          button.addEventListener("click", () => openPlayer(button));
+      function openPlayer(trigger) {
+        const url = String(trigger.dataset.watchUrl || "").trim();
+        if (!url) return;
+
+        lastTrigger = trigger;
+        dialogTitle.textContent = trigger.dataset.watchTitle || "AnimeThemes";
+        dialogSong.textContent = trigger.dataset.watchSong || "Theme";
+        dialogKicker.textContent = "AnimeThemes · " + (trigger.dataset.watchKind || "OP");
+
+        errorBox.classList.remove("show");
+        directLink.href = url;
+        video.poster = trigger.dataset.watchPoster || "";
+        video.src = url;
+
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+
+        const playPromise = video.play();
+        if (playPromise?.catch) playPromise.catch(() => {});
+      }
+
+      document.querySelectorAll(".platform.watch").forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          openPlayer(link);
         });
+      });
 
-        document.querySelectorAll(".watch-player-close").forEach(button => {
-          button.addEventListener("click", () => {
-            const player = button.closest(".watch-player");
-            closePlayer(player);
-            if (activePlayer === player) {
-              activePlayer = null;
-            }
-          });
-        });
+      video.addEventListener("error", () => {
+        errorBox.classList.add("show");
+      });
 
-      })();
-    </script>
-  </div>
+      closeButton.addEventListener("click", closePlayer);
+
+      modal.addEventListener("click", event => {
+        if (event.target === modal) closePlayer();
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !modal.hidden) closePlayer();
+      });
+
+      if (dialog) {
+        dialog.addEventListener("click", event => event.stopPropagation());
+      }
+    })();
+  </script>
 </body>
-</html>`;
+</html>\`;
 }
 
 function buildBrowseRedirectPage(season, items) {
