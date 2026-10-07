@@ -1564,7 +1564,7 @@ function buildHomePage(seasons, featuredSeason) {
 
     const mosaic = images.length
       ? `<div class="season-mosaic">${images.map(src => `<img src="${htmlEscape(src)}" alt="" loading="lazy">`).join("")}</div>`
-      : '<div class="season-mosaic empty"><span>♫</span></div>';
+      : '<div class="season-mosaic empty"><span>No releases yet</span></div>';
 
     return `
       <article class="season-card">
@@ -1583,12 +1583,12 @@ function buildHomePage(seasons, featuredSeason) {
   }).join("");
 
   const featuredImages = Array.isArray(featured.featureImages)
-    ? featured.featureImages.slice(0, 4).filter(Boolean)
+    ? featured.featureImages.slice(0, 3).filter(Boolean)
     : [];
 
   const featuredArt = featuredImages.length
     ? `<div class="featured-art">${featuredImages.map(src => `<img src="${htmlEscape(src)}" alt="" loading="eager">`).join("")}</div>`
-    : '<div class="featured-art fallback"><span>♫</span></div>';
+    : '<div class="featured-art fallback"><span>No cover art yet</span></div>';
 
   return `<!doctype html>
 <html lang="en">
@@ -1765,19 +1765,37 @@ function buildHomePage(seasons, featuredSeason) {
       background:linear-gradient(145deg,rgba(23,18,37,.94),rgba(12,9,19,.97));
     }
     .featured-art {
-      min-height:250px;
+      height:260px;
       display:grid;
-      grid-template-columns:repeat(2,1fr);
+      grid-template-columns:1.15fr .85fr;
+      grid-template-rows:1fr 1fr;
       gap:3px;
       padding:3px;
+      overflow:hidden;
       background:#100b18;
     }
-    .featured-art img { width:100%; height:100%; min-height:123px; object-fit:cover; border-radius:11px; }
-    .featured-art img:first-child { grid-row:span 2; }
-    .featured-art.fallback { place-items:center; color:#a47bff; font-size:78px; }
-    .featured-copy { padding:31px; display:flex; flex-direction:column; justify-content:center; }
+    .featured-art img {
+      width:100%;
+      height:100%;
+      min-width:0;
+      min-height:0;
+      object-fit:cover;
+      border-radius:11px;
+    }
+    .featured-art img:first-child { grid-row:1 / span 2; }
+    .featured-art img:nth-child(n+4) { display:none; }
+    .featured-art.fallback {
+      display:grid;
+      place-items:center;
+      color:#81768e;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .featured-copy { min-width:0; padding:28px 30px; display:flex; flex-direction:column; justify-content:center; }
     .featured-kicker { color:#97899f; font-size:9px; font-weight:900; text-transform:uppercase; letter-spacing:.13em; }
-    .featured h2 { margin:8px 0 0; font-size:clamp(31px,4vw,50px); line-height:.96; letter-spacing:-.055em; }
+    .featured h2 { margin:8px 0 0; font-size:clamp(28px,3.5vw,46px); line-height:.96; letter-spacing:-.055em; }
     .featured-text { margin-top:9px; color:var(--muted); font-size:11px; line-height:1.6; }
     .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:7px; margin-top:18px; }
     .stat { min-width:0; padding:11px 12px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.02); }
@@ -1790,7 +1808,19 @@ function buildHomePage(seasons, featuredSeason) {
     .season-card:hover { transform:translateY(-3px); border-color:rgba(169,120,255,.24); }
     .season-mosaic { display:grid; grid-template-columns:repeat(3,1fr); height:132px; gap:3px; background:#100b18; }
     .season-mosaic img { width:100%; height:100%; object-fit:cover; }
-    .season-mosaic.empty { place-items:center; color:#8c6cff; font-size:40px; background:radial-gradient(circle,rgba(169,120,255,.13),transparent 55%),#100b18; }
+    .season-mosaic.empty {
+      display:grid;
+      place-items:center;
+      color:#655d6c;
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(169,120,255,.08), transparent 45%),
+        radial-gradient(circle at 75% 75%, rgba(255,92,168,.055), transparent 45%),
+        #100b18;
+    }
     .season-card-body { padding:14px; }
     .season-kicker { color:#8e819b; font-size:8px; font-weight:900; letter-spacing:.13em; }
     .season-card h3 { margin:7px 0 0; font-size:22px; letter-spacing:-.045em; }
@@ -1800,6 +1830,8 @@ function buildHomePage(seasons, featuredSeason) {
     .season-open:hover { color:#fff; }
     .season-spotify { color:#6fda9a; text-decoration:none; font-size:9px; font-weight:900; }
     footer { padding:28px 0 36px; color:#5f5768; text-align:center; font-size:9px; }
+    .github-link { color:#8d82a0; text-decoration:none; font-weight:900; }
+    .github-link:hover { color:#d9ceeb; }
 
     @media(max-width:920px){
       .hero-grid{grid-template-columns:1fr}
@@ -1902,7 +1934,10 @@ function buildHomePage(seasons, featuredSeason) {
       </section>
     </main>
 
-    <footer>AniPlaylist · Anime Music Hub · Spotify · Apple Music · RSS · AnimeThemes</footer>
+    <footer>
+      AniPlaylist · Anime Music Hub · Spotify · Apple Music · RSS · AnimeThemes ·
+      <a class="github-link" href="https://github.com/chintune" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </footer>
   </div>
 </body>
 </html>`;
@@ -3567,7 +3602,7 @@ function buildRss(season, items) {
   <channel>
     <title>${rssEscape(`AniPlaylist — ${season}`)}</title>
     <link>https://aniplaylist.com/?seasons=${encodeURIComponent(season)}</link>
-    <description>New AniPlaylist entries for ${rssEscape(season)}. Each item links to a page with Spotify and Apple Music options.</description>
+    <description>Anime music releases for ${rssEscape(season)}. Each item uses the format [TYPE] Anime Title with Artist - Song Name and links to the AniPlaylist release page.</description>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${body}
   </channel>
