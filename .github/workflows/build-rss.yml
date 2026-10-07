@@ -258,9 +258,14 @@ jobs:
             echo "No state/debug/Spotify changes to commit."
           else
             git commit -m "Update AniPlaylist RSS and Spotify playlists"
-            git push
-          fi
 
+            git fetch origin main
+            if git merge-base --is-ancestor HEAD origin/main; then
+              git push origin HEAD:main
+            else
+              echo "Remote main advanced during the build; skipping state push."
+            fi
+          fi
 
       # --------------------------------------------------
       # Build GitHub Pages site
