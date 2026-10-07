@@ -1754,6 +1754,48 @@ function buildBrowsePage(season, items) {
         } catch {}
 
         updateLanguage(initialLanguage);
+        const videoModal = document.getElementById("video-modal");
+        const themeVideo = document.getElementById("theme-video");
+        const videoTitle = document.getElementById("video-modal-title");
+        const videoSong = document.getElementById("video-modal-song");
+
+        function closeVideo() {
+          themeVideo.pause();
+          themeVideo.removeAttribute("src");
+          themeVideo.load();
+          videoModal.hidden = true;
+          document.body.style.overflow = "";
+        }
+
+        function openVideo(button) {
+          const url = button.dataset.watchUrl || "";
+          if (!url) return;
+
+          videoTitle.textContent = button.dataset.watchTitle || "AnimeThemes";
+          videoSong.textContent = [button.dataset.watchSong || "", button.dataset.watchArtist || ""]
+            .filter(Boolean)
+            .join(" · ");
+
+          themeVideo.src = url;
+          videoModal.hidden = false;
+          document.body.style.overflow = "hidden";
+
+          const playPromise = themeVideo.play();
+          if (playPromise?.catch) playPromise.catch(() => {});
+        }
+
+        document.querySelectorAll("[data-watch-url]").forEach(button => {
+          button.addEventListener("click", () => openVideo(button));
+        });
+
+        document.querySelectorAll("[data-video-close]").forEach(element => {
+          element.addEventListener("click", closeVideo);
+        });
+
+        document.addEventListener("keydown", event => {
+          if (event.key === "Escape" && !videoModal.hidden) closeVideo();
+        });
+
       })();
     </script>
   </div>
