@@ -299,3 +299,5 @@ jobs:
         uses: actions/deploy-pages@v5
 
 # homepage: dedicated landing page
+
+# home rebuild trigger
