@@ -1429,6 +1429,18 @@ function buildBrowsePage(season, items) {
       color: var(--text);
       cursor: pointer;
     }
+    .video-status {
+      min-height: 80px;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #080b10;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
     .theme-video {
       display: block;
       width: 100%;
@@ -1541,7 +1553,8 @@ function buildBrowsePage(season, items) {
           </div>
           <button class="video-close" type="button" data-video-close aria-label="Close video">✕</button>
         </div>
-        <video id="theme-video" class="theme-video" controls playsinline preload="metadata"></video>
+        <div id="video-status" class="video-status">Finding the matching AnimeThemes video…</div>
+        <video id="theme-video" class="theme-video" controls playsinline preload="metadata" hidden></video>
         <div class="video-meta">
           <span>Video hosted by AnimeThemes</span>
           <a id="animethemes-link" href="https://animethemes.moe/" target="_blank" rel="noopener noreferrer">AnimeThemes ↗</a>
@@ -1624,38 +1637,191 @@ function buildBrowsePage(season, items) {
         updateLanguage(initialLanguage);
         const videoModal = document.getElementById("video-modal");
         const themeVideo = document.getElementById("theme-video");
+        const videoStatus = document.getElementById("video-status");
         const videoTitle = document.getElementById("video-modal-title");
         const videoSong = document.getElementById("video-modal-song");
+        const watchCache = new Map();
+
+        function watchNormalize(value) {
+          return String(value || "")
+            .toLocaleLowerCase()
+            .normalize("NFKC")
+            .replace(/[\u200B-\u200D\uFEFF]/g, "")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/gi, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+        }
+
+        function watchScore(query, candidate) {
+          const a = watchNormalize(query);
+          const b = watchNormalize(candidate);
+          if (!a || !b) return 0;
+          if (a === b) return 1000;
+          if (a.includes(b) || b.includes(a)) return 650;
+          const aw = new Set(a.split(" ").filter(Boolean));
+          const bw = new Set(b.split(" ").filter(Boolean));
+          let overlap = 0;
+          for (const word of aw) if (bw.has(word)) overlap++;
+          return overlap ? 300 * overlap / Math.max(aw.size, bw.size) : 0;
+        }
+
+        function watchBestScore(queries, candidates) {
+          let best = 0;
+          for (const query of queries || []) {
+            for (const candidate of candidates || []) best = Math.max(best, watchScore(query, candidate));
+          }
+          return best;
+        }
+
+        function watchJson(button, name) {
+          try { return JSON.parse(button.dataset[name] || "[]"); } catch { return []; }
+        }
+
+        function videoUrlFromApi(video) {
+          const direct = String(video?.link || "").trim();
+          if (/^https?:\/\//i.test(direct)) return direct;
+          const basename = String(video?.basename || "").trim();
+          return basename ? "https://v.animethemes.moe/" + basename : "";
+        }
+
+        function videoTags(video) {
+          if (Array.isArray(video?.tags)) return video.tags.map(x => String(x).toLowerCase());
+          return String(video?.tags || "").split(/[,\s]+/).filter(Boolean).map(x => x.toLowerCase());
+        }
+
+        function chooseWatchVideo(entries) {
+          const candidates = [];
+          for (const entry of entries || []) {
+            for (const video of entry?.videos || []) {
+              const url = videoUrlFromApi(video);
+              if (!url) continue;
+              const tags = videoTags(video);
+              const has = tag => tags.includes(tag);
+              let score = 0;
+              if (has("nc")) score += 500;
+              if (!has("spoiler")) score += 100;
+              if (!has("nsfw")) score += 100;
+              if (!has("over")) score += 50;
+              if (has("uncen")) score += 15;
+              if (!has("subbed")) score += 5;
+              if (!has("lyrics")) score += 5;
+              const resolution = Number(video?.resolution) || 0;
+              score += Math.min(resolution, 2160) / 10;
+              const version = Number(entry?.version) || 1;
+              score -= Math.min(version - 1, 5) * 8;
+              candidates.push({
+                url,
+                resolution,
+                score,
+                title: entry?.animetheme?.song?.title || "",
+              });
+            }
+          }
+          return candidates.sort((a, b) => b.score - a.score || b.resolution - a.resolution)[0] || null;
+        }
+
+        async function resolveWatchVideo(button) {
+          const animeCandidates = watchJson(button, "watchAnime");
+          const songCandidates = watchJson(button, "watchSong");
+          const artistCandidates = watchJson(button, "watchArtist");
+          const kind = String(button.dataset.watchKind || "").toUpperCase();
+          const cacheKey = JSON.stringify([animeCandidates, songCandidates, artistCandidates, kind]);
+          if (watchCache.has(cacheKey)) return watchCache.get(cacheKey);
+
+          const promise = (async () => {
+            const include = "animesynonyms,animethemes.animethemeentries.videos,animethemes.song,animethemes.song.artists";
+            for (const animeTitle of animeCandidates.slice(0, 4)) {
+              const url = new URL("https://api.animethemes.moe/anime");
+              url.searchParams.set("q", animeTitle);
+              url.searchParams.set("include", include);
+
+              const response = await fetch(url, { headers: { accept: "application/json" } });
+              if (!response.ok) continue;
+              const json = await response.json();
+              const animes = Array.isArray(json?.anime) ? json.anime : [];
+              if (!animes.length) continue;
+
+              let bestAnime = null;
+              let bestAnimeScore = 0;
+              for (const anime of animes) {
+                const names = [anime?.name, ...(anime?.animesynonyms || []).map(x => x?.text)].filter(Boolean);
+                const score = watchBestScore(animeCandidates, names);
+                if (score > bestAnimeScore) { bestAnimeScore = score; bestAnime = anime; }
+              }
+              if (!bestAnime || bestAnimeScore < 650) continue;
+
+              const themes = (bestAnime.animethemes || []).filter(theme => String(theme?.type || "").toUpperCase() === kind);
+              let bestTheme = null;
+              let bestThemeScore = 0;
+              for (const theme of themes) {
+                const songScore = watchBestScore(songCandidates, [theme?.song?.title || ""]);
+                const artistNames = Array.isArray(theme?.song?.artists)
+                  ? theme.song.artists.flatMap(a => [a?.name, a?.artistsong?.as]).filter(Boolean)
+                  : [];
+                const artistScore = watchBestScore(artistCandidates, artistNames);
+                let score = songScore * 1.5 + artistScore;
+                if ((Number(theme?.sequence) || 0) === 1) score += 20;
+                if (songScore >= 650) score += 250;
+                if (score > bestThemeScore) { bestThemeScore = score; bestTheme = theme; }
+              }
+
+              if (!bestTheme || bestThemeScore < 500) continue;
+              const video = chooseWatchVideo(bestTheme.animethemeentries || []);
+              if (video) return video;
+            }
+            return null;
+          })();
+
+          watchCache.set(cacheKey, promise);
+          return promise;
+        }
 
         function closeVideo() {
           themeVideo.pause();
           themeVideo.removeAttribute("src");
+          themeVideo.removeAttribute("poster");
           themeVideo.load();
+          themeVideo.hidden = true;
+          videoStatus.hidden = false;
+          videoStatus.textContent = "Finding the matching AnimeThemes video…";
           videoModal.hidden = true;
           document.body.style.overflow = "";
         }
 
-        function openVideo(button) {
-          const url = button.dataset.watchUrl || "";
-          if (!url) return;
-
+        async function openVideo(button) {
           videoTitle.textContent = button.dataset.watchTitle || "AnimeThemes";
-          videoSong.textContent = [button.dataset.watchSong || "", button.dataset.watchArtist || ""]
-            .filter(Boolean)
-            .join(" · ");
-
-          themeVideo.src = url;
+          videoSong.textContent = [
+            button.dataset.watchDisplaySong || "",
+            watchJson(button, "watchArtist")[0] || "",
+          ].filter(Boolean).join(" · ");
+          themeVideo.hidden = true;
+          videoStatus.hidden = false;
+          videoStatus.textContent = "Finding the matching AnimeThemes video…";
           videoModal.hidden = false;
           document.body.style.overflow = "hidden";
 
-          const playPromise = themeVideo.play();
-          if (playPromise?.catch) playPromise.catch(() => {});
+          try {
+            const video = await resolveWatchVideo(button);
+            if (!video) {
+              videoStatus.textContent = "No matching AnimeThemes OP/ED video was found for this release.";
+              return;
+            }
+            themeVideo.poster = button.dataset.watchPoster || "";
+            themeVideo.src = video.url;
+            themeVideo.hidden = false;
+            videoStatus.hidden = true;
+            const playPromise = themeVideo.play();
+            if (playPromise?.catch) playPromise.catch(() => {});
+          } catch (error) {
+            videoStatus.textContent = "AnimeThemes could not be reached right now. Please try again.";
+            console.warn(error);
+          }
         }
 
-        document.querySelectorAll("[data-watch-url]").forEach(button => {
+        document.querySelectorAll(".platform.watch").forEach(button => {
           button.addEventListener("click", () => openVideo(button));
         });
-
         document.querySelectorAll("[data-video-close]").forEach(element => {
           element.addEventListener("click", closeVideo);
         });
