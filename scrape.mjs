@@ -1534,7 +1534,7 @@ function buildBrowsePage(season, items, options = {}) {
           <div class="rank-badge">#${index + 1}</div>
           <div class="cover-wrap">
             ${image}
-            ${watchable ? '<div class="video-badge"><span class="mini-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> VIDEO</div>' : ""}
+            ${watchable ? '<div class="video-badge" aria-hidden="true"><span class="play-glyph">▶</span> VIDEO</div>' : ""}
           </div>
         </div>
 
@@ -2123,28 +2123,13 @@ function buildBrowsePage(season, items, options = {}) {
       letter-spacing: .08em;
     }
 
-    .mini-eq {
-      display: inline-flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 12px;
-    }
-
-    .mini-eq i {
-      width: 2px;
-      border-radius: 2px;
-      background: #d8c8ff;
-      animation: equalize-mini .9s ease-in-out infinite alternate;
-    }
-
-    .mini-eq i:nth-child(1) { height: 5px; animation-delay: -.2s; }
-    .mini-eq i:nth-child(2) { height: 9px; animation-delay: -.45s; }
-    .mini-eq i:nth-child(3) { height: 6px; animation-delay: -.1s; }
-    .mini-eq i:nth-child(4) { height: 11px; animation-delay: -.35s; }
-
-    @keyframes equalize-mini {
-      from { transform: scaleY(.55); opacity: .62; }
-      to { transform: scaleY(1); opacity: 1; }
+    .play-glyph {
+      display: inline-grid;
+      place-items: center;
+      width: 14px;
+      height: 14px;
+      color: white;
+      font-size: 8px;
     }
 
     .song-main {
@@ -2537,6 +2522,17 @@ function buildBrowsePage(season, items, options = {}) {
           <div class="stat"><div class="label">Apple Music</div><div class="value">${appleCount}</div></div>
         </div>
 
+
+        <div class="hero-actions" aria-label="Season resources">
+          <a class="resource-button rss" href="${feedUrl}" title="Open ${htmlEscape(season)} RSS feed" aria-label="Open ${htmlEscape(season)} RSS feed">
+            <span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 5h.01"></path><path d="M5 11a8 8 0 0 1 8 8"></path><path d="M5 5a14 14 0 0 1 14 14"></path><circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none"></circle></svg></span>
+            RSS Feed
+          </a>
+          <a id="spotify-playlist" class="resource-button spotify" href="#" target="_blank" rel="noopener noreferrer" title="Open ${htmlEscape(season)} Spotify playlist" aria-label="Open ${htmlEscape(season)} Spotify playlist" hidden>
+            <span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.4a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2Zm4.1 13.6a.58.58 0 0 1-.8.2c-2.2-1.35-4.97-1.65-8.24-.91a.58.58 0 1 1-.26-1.13c3.58-.82 6.65-.48 9.14 1.03.28.17.37.53.16.81Zm1.12-2.51a.72.72 0 0 1-.99.24c-2.51-1.54-6.35-1.99-9.32-1.08a.72.72 0 1 1-.42-1.38c3.4-1.04 7.65-.54 10.48 1.19.34.21.45.66.25 1.03Zm.1-2.65c-3.01-1.78-7.97-1.95-10.85-1.08a.87.87 0 1 1-.5-1.67c3.31-1 8.8-.81 12.29 1.26a.87.87 0 0 1-.94 1.49Z"/></svg></span>
+            Spotify Playlist
+          </a>
+        </div>
         <nav class="season-strip" aria-label="Anime seasons">
           ${seasonNav}
         </nav>
@@ -2809,6 +2805,20 @@ function buildBrowsePage(season, items, options = {}) {
       try { savedLanguage = localStorage.getItem("aniplaylist-language") || "en"; } catch {}
       updateLanguage(savedLanguage);
       renderPage(false);
+
+      const spotifyPlaylist = document.getElementById("spotify-playlist");
+      if (spotifyPlaylist) {
+        fetch("${SITE_BASE}/spotify-playlists.json", { cache: "no-store" })
+          .then(res => res.ok ? res.json() : {})
+          .then(data => {
+            const playlist = data["${season}"];
+            if (playlist?.url) {
+              spotifyPlaylist.href = playlist.url;
+              spotifyPlaylist.hidden = false;
+            }
+          })
+          .catch(() => {});
+      }
 
       const modal = document.getElementById("watch-modal");
       const video = document.getElementById("theme-video");
