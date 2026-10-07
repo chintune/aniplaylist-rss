@@ -1229,6 +1229,28 @@ async function fetchAnimeThemesAnime(slugValue) {
   return promise;
 }
 
+function pickAnimeThemesIndexAnime(item, indexAnimes) {
+  const animeCandidates = unique([
+    ...(item.animeCandidates || []),
+    item.anime,
+  ]).filter(Boolean);
+
+  let bestAnime = null;
+  let bestScore = 0;
+
+  for (const anime of indexAnimes || []) {
+    const names = [anime?.name, anime?.slug].filter(Boolean);
+    const score = animeThemesBestScore(animeCandidates, names);
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestAnime = anime;
+    }
+  }
+
+  return { bestAnime, bestScore };
+}
+
 async function loadAnimeThemesSeasonDetails(indexAnimes, items) {
   const candidates = [];
 
