@@ -36,7 +36,7 @@ await fs.mkdir(SONGS_DIR, { recursive: true });
 await fs.mkdir(BROWSE_DIR, { recursive: true });
 
 const SITE_BASE = String(
-  process.env.SITE_BASE || "https://chintune.github.io/aniplaylist-rss"
+  process.env.SITE_BASE || "https://chintu-io.github.io/aniplaylist-rss"
 ).replace(/\/$/, "");
 
 let state = {};
@@ -1970,7 +1970,7 @@ function buildHomePage(seasons, featuredSeason) {
 
     <footer>
       AniPlaylist · Anime Music Hub · Spotify · Apple Music · RSS · AnimeThemes ·
-      <a class="github-link" href="https://github.com/chintune" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a class="github-link" href="https://github.com/chintu-io" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </footer>
   </div>
 </body>
