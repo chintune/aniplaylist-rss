@@ -1,8 +1,8 @@
 # AniPlaylist
 
 <p align="center">
-  <a href="https://chintune.github.io/aniplaylist-rss/">
-    <img src="https://raw.githubusercontent.com/chintune/aniplaylist-rss/main/site/favicon.svg" alt="AniPlaylist" width="72">
+  <a href="https://chintu-io.github.io/aniplaylist-rss/">
+    <img src="https://raw.githubusercontent.com/chintu-io/aniplaylist-rss/main/site/favicon.svg" alt="AniPlaylist" width="72">
   </a>
 </p>
 
@@ -12,9 +12,9 @@
 </p>
 
 <p align="center">
-  <a href="https://chintune.github.io/aniplaylist-rss/">Website</a>
+  <a href="https://chintu-io.github.io/aniplaylist-rss/">Website</a>
   ·
-  <a href="https://github.com/chintune/aniplaylist-rss">GitHub</a>
+  <a href="https://github.com/chintu-io/aniplaylist-rss">GitHub</a>
 </p>
 
 ---
@@ -60,9 +60,9 @@ The RSS item links back to the corresponding AniPlaylist release page.
 ---
 
 <p align="center">
-  <a href="https://chintune.github.io/aniplaylist-rss/"><strong>Open AniPlaylist</strong></a>
+  <a href="https://chintu-io.github.io/aniplaylist-rss/"><strong>Open AniPlaylist</strong></a>
 </p>
 
 <p align="center">
-  <sub>Maintained by <a href="https://github.com/chintune">chintune</a></sub>
+  <sub>Maintained by <a href="https://github.com/chintu-io">chintu-io</a></sub>
 </p>
