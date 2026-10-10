@@ -1,6 +1,8 @@
 {
   "season": "Spring 2027",
   "url": "https://aniplaylist.com/?seasons=Spring%202027",
+  "pageLoaded": true,
+  "scrapeValidated": true,
   "resultCount": null,
   "animeThemesChecked": 0,
   "animeThemesMatched": 0,
@@ -22,6 +24,9 @@
   "sample": [],
   "errors": [],
   "thumbnailFieldSamples": [],
+  "expectedHits": 0,
+  "expectedPages": 0,
+  "receivedPages": 0,
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
