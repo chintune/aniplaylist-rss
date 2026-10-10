@@ -445,6 +445,32 @@ body{font-size:15px}
 }
 
 </style>
+<style id="standalone-track-styles">
+[hidden]{display:none!important}
+.detail-view{padding:18px 0 42px}
+.detail-layout{max-width:1040px;margin:0 auto}
+.detail-back{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;min-height:42px;padding:0 13px;border:1px solid var(--line);border-radius:11px;background:var(--surface);font-size:12px;font-weight:800;color:var(--muted)}
+.detail-back:hover{border-color:var(--accent);color:var(--text)}
+.detail-card{display:grid;grid-template-columns:minmax(220px,360px) minmax(0,1fr);align-items:center;gap:clamp(22px,4vw,48px);padding:clamp(18px,4vw,38px);border:1px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:var(--shadow)}
+.detail-art{position:relative;width:100%;max-width:360px;aspect-ratio:1;margin:auto;overflow:hidden;display:grid;place-items:center;border:1px solid var(--line);border-radius:19px;background:var(--surface2);color:var(--accent);font-size:82px;font-weight:900}
+.detail-art img{display:block;width:100%;height:100%;object-fit:cover;cursor:zoom-in}
+.detail-copy{min-width:0}
+.detail-eyebrow{margin:0 0 13px;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.detail-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;color:var(--muted);font-size:11px;font-weight:750}
+.detail-anime{margin:0;font-size:clamp(29px,4.2vw,49px);line-height:1.04;letter-spacing:-.065em;font-weight:900;overflow-wrap:anywhere}
+.detail-song{margin:14px 0 0;color:var(--accent);font-size:clamp(19px,2.4vw,27px);line-height:1.25;letter-spacing:-.035em;font-weight:850;overflow-wrap:anywhere}
+.detail-artist{margin-top:8px;color:var(--muted);font-size:14px;line-height:1.55}
+.detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:23px}
+.detail-actions .service-btn{min-height:42px;padding:0 13px;font-size:12px;border-radius:11px}
+.detail-actions .service-btn svg{width:17px;height:17px}
+.detail-source{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px;padding-top:17px;border-top:1px solid var(--line)}
+.detail-source a{font-size:11px;color:var(--muted);font-weight:800}
+.detail-source a:hover{color:var(--accent)}
+.detail-missing{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:36px;text-align:center}
+.detail-missing h1{font-size:28px;margin:0 0 9px}
+.detail-missing p{color:var(--muted);font-size:13px;line-height:1.7}
+@media(max-width:700px){.detail-card{grid-template-columns:1fr;gap:23px;padding:16px;border-radius:19px}.detail-art{width:min(100%,280px)}.detail-anime{font-size:34px}.detail-song{font-size:22px}.detail-actions{margin-top:18px}.detail-actions .service-btn{min-height:40px}}
+</style>
 </head>
 <body>
 <div class="shell">
@@ -454,6 +480,7 @@ body{font-size:15px}
 </nav>
 <header class="hero"><div><div class="eyebrow">Your seasonal anime music library</div><h1>Every season has<br>a <span class="highlight">soundtrack.</span></h1><p>Openings, endings, insert songs and OSTs — find the track, play the video, or jump to your music app. No maze of pages. Just press play.</p></div><div class="hero-art" aria-label="Animated record illustration"><span class="art-label">SIDE A · ANIME SONGS</span><span class="art-sticker">NOW SPINNING ↗</span><div class="disc"></div><div class="sound-bars"><i style="--h:8px"></i><i style="--h:17px"></i><i style="--h:25px"></i><i style="--h:13px"></i><i style="--h:31px"></i><i style="--h:20px"></i><i style="--h:10px"></i></div></div></header>
 <div class="stats" aria-label="Library summary"><div class="stat"><strong id="statTracks">—</strong><span>Tracks in season</span></div><div class="stat"><strong id="statServices">3</strong><span>Ways to listen</span></div><div class="stat"><strong id="statSeasons">—</strong><span>Seasons loaded</span></div></div>
+<main id="detailView" class="detail-view" hidden></main>
 <main class="catalog" id="catalog">
 <div class="sectionline"><div><h2>Browse the library <span style="color:var(--accent)">↘</span></h2><p id="seasonSubtitle">Pick a season and find your next repeat.</p></div><div class="section-tools"><button class="outline-btn" id="copyFeedTop" title="Copy RSS URL">⌁ Copy RSS</button></div></div>
 <div class="season-row" id="seasonRow" aria-label="Choose a season"></div>
@@ -492,7 +519,7 @@ const PAGE_SIZE=25; let toastTimer;
 const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const seasonUrl = season => "rss/"+slug(season)+".xml";
-const fullUrl = relative => new URL(relative,location.href).href;
+const fullUrl = relative => new URL(relative,document.baseURI).href;
 function notify(message){const el=$("#toast");el.textContent=message;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),1800)}
 async function getJSON(url){const response=await fetch(url,{cache:"no-store"});if(!response.ok)throw new Error("Could not load "+url+" ("+response.status+")");return response.json()}
 const ENGLISH_VARIANT_HINTS=new Set([
@@ -632,6 +659,69 @@ function videoButton(url,title,kind,poster){
  if(!url||!/^https?:\/\//i.test(url))return "";
  return '<button type="button" class="service-btn video" data-video-url="'+escapeHtml(url)+'" data-video-title="'+escapeHtml(title||"Anime theme")+'" data-video-kind="'+escapeHtml(kind||"OP")+'" data-video-poster="'+escapeHtml(poster||"")+'" aria-label="Play video for '+escapeHtml(title||"anime song")+'" title="Play video on this page">'+videoIcon+'<span>Watch</span></button>';
 }
+
+function songDetailHTML(r){
+ const song=titleFor(r,"song")||r.song||"Untitled track";
+ const anime=titleFor(r,"anime")||r.anime||"Unknown anime";
+ const creditCount=Number(r.artistDisplayCount||1);
+ const artist=creditCount>1?(r.artistDisplay||r.artist||""):(titleFor(r,"artist")||r.artistDisplay||r.artist||"");
+ const cover=coverFor(r);
+ const kindClass=r.kind.toLowerCase()==="op"?"op":r.kind.toLowerCase()==="ed"?"ed":"";
+ const coverHTML=cover&&/^https?:\/\//i.test(cover)
+  ?'<img data-cover-preview="1" tabindex="0" role="button" aria-label="Enlarge cover art for '+escapeHtml(song)+'" src="'+escapeHtml(cover)+'" alt="'+escapeHtml(song)+' cover art">'
+  :"♪";
+ const actions=[
+  serviceButton(r.spotify,"Spotify","spotify",spotifyIcon),
+  serviceButton(r.apple,"Apple Music","apple",appleIcon),
+  hasVideo(r)?videoButton(videoUrl(r),anime+" — "+song,r.kind,cover):""
+ ].filter(Boolean).join("");
+ const season=String(r.season||state.chosen||"");
+ const seasonHref="./?season="+encodeURIComponent(season);
+ const sourceUrl=isValidDetailUrl(r.detailUrl)?r.detailUrl:"https://aniplaylist.com/";
+ return '<div class="detail-layout">'
+  +'<a class="detail-back" href="'+escapeHtml(seasonHref)+'">← Browse '+escapeHtml(season||"the library")+'</a>'
+  +'<article class="detail-card">'
+  +'<div class="detail-art">'+coverHTML+'</div>'
+  +'<div class="detail-copy">'
+  +'<div class="detail-meta"><span class="kind '+kindClass+'">'+escapeHtml(r.kindLabel||r.kind)+'</span><span>'+escapeHtml(season)+'</span></div>'
+  +'<p class="detail-eyebrow">ANIME MUSIC RELEASE</p>'
+  +'<h1 class="detail-anime">'+escapeHtml(anime)+'</h1>'
+  +'<p class="detail-song">'+escapeHtml(song)+'</p>'
+  +(artist?'<div class="detail-artist"><span class="track-meta-label">Artist</span> '+escapeHtml(artist)+'</div>':"")
+  +'<div class="detail-actions">'+(actions||'<span class="tiny-note">No streaming links are available for this track.</span>')+'</div>'
+  +'<div class="detail-source"><a href="'+escapeHtml(sourceUrl)+'" target="_blank" rel="noopener noreferrer">AniPlaylist source ↗</a><a href="'+escapeHtml(seasonHref)+'">More from this season ↗</a></div>'
+  +'</div></article></div>';
+}
+function showSongDetail(r){
+ $(".hero").hidden=true;
+ $(".stats").hidden=true;
+ $(".catalog").hidden=true;
+ const view=$("#detailView");
+ view.hidden=false;
+ view.innerHTML=songDetailHTML(r);
+ document.title=(titleFor(r,"song")||r.song||"Track")+" — "+(titleFor(r,"anime")||r.anime||"Anime")+" | AniPlaylist";
+ const description=$('meta[name="description"]');
+ if(description)description.content=[r.anime,r.song,r.artist,r.season].filter(Boolean).join(" · ");
+}
+function showSongMissing(key){
+ $(".hero").hidden=true;
+ $(".stats").hidden=true;
+ $(".catalog").hidden=true;
+ const view=$("#detailView");
+ view.hidden=false;
+ view.innerHTML='<div class="detail-layout"><div class="detail-missing"><h1>Track not found</h1><p>This song link may belong to an older feed entry. Browse the current catalogue to find the latest link.</p><a class="outline-btn" href="./">Open AniPlaylist</a></div></div>';
+ document.title="Track not found | AniPlaylist";
+}
+function routeFromLocation(){
+ const segments=location.pathname.split("/").filter(Boolean);
+ const songIndex=segments.lastIndexOf("song");
+ if(songIndex>=0&&segments[songIndex+1])return{kind:"song",key:segments[songIndex+1]};
+ const browseIndex=segments.lastIndexOf("browse");
+ if(browseIndex>=0&&segments[browseIndex+1])return{kind:"browse",seasonSlug:segments[browseIndex+1]};
+ const seasonParam=new URLSearchParams(location.search).get("season");
+ if(seasonParam)return{kind:"browse",seasonSlug:slug(seasonParam)};
+ return{kind:"home"};
+}
 function trackHTML(r){
  const title=titleFor(r,"song")||r.song||"Untitled track";
  const anime=titleFor(r,"anime")||r.anime||"Unknown anime";
@@ -705,8 +795,17 @@ async function init(){try{
  const currentSeason=seasonName+" "+now.getFullYear();
  const preferred=state.seasons.find(s=>s.toLowerCase()===currentSeason.toLowerCase());
  const seasonOrder=s=>{const parts=s.split(" ");const index=["Winter","Spring","Summer","Fall"].indexOf(parts[0]);const year=Number(parts[1]);return index>=0&&Number.isFinite(year)?year*4+index:Infinity};
- const chosen=preferred||state.seasons.find(s=>seasonOrder(s)>=seasonOrder(currentSeason));
+ const route=routeFromLocation();
+ const routeRecord=route.kind==="song"?state.catalogRecords.find(r=>String(r.key||"")===route.key):null;
+ const requestedSeason=route.kind==="browse"
+  ?state.seasons.find(s=>slug(s)===route.seasonSlug)
+  :(routeRecord?state.seasons.find(s=>s.toLowerCase()===String(routeRecord.season||"").toLowerCase()):null);
+ const chosen=requestedSeason||preferred||state.seasons.find(s=>seasonOrder(s)>=seasonOrder(currentSeason));
  await selectSeason(chosen||state.seasons[state.seasons.length-1]||state.seasons[0]);
+ if(route.kind==="song"){
+  const record=state.records.find(r=>String(r.key||"")===route.key)||routeRecord;
+  if(record)showSongDetail(record);else showSongMissing(route.key);
+ }
  }catch(err){
   $("#trackList").innerHTML='<div class="empty"><strong>Couldn’t load the library.</strong><p>'+escapeHtml(err.message||"Try refreshing the page.")+'</p><button class="outline-btn" id="retryLoad">Try again</button></div>';
   $("#retryLoad")?.addEventListener("click",init);
@@ -815,7 +914,17 @@ $("#trackList").addEventListener("click",e=>{
  const image=e.target.closest("[data-cover-preview]");
  if(image){openImage(image.currentSrc||image.src,image.alt);return;}
 });
+$("#detailView").addEventListener("click",e=>{
+ const play=e.target.closest("[data-video-url]");
+ if(play){e.preventDefault();openVideo(play.dataset.videoUrl,play.dataset.videoTitle,play.dataset.videoKind,play.dataset.videoPoster);return;}
+ const image=e.target.closest("[data-cover-preview]");
+ if(image){openImage(image.currentSrc||image.src,image.alt);return;}
+});
 $("#trackList").addEventListener("keydown",e=>{
+ const image=e.target.closest("[data-cover-preview]");
+ if(image&&(e.key==="Enter"||e.key===" ")){e.preventDefault();openImage(image.currentSrc||image.src,image.alt);}
+});
+$("#detailView").addEventListener("keydown",e=>{
  const image=e.target.closest("[data-cover-preview]");
  if(image&&(e.key==="Enter"||e.key===" ")){e.preventDefault();openImage(image.currentSrc||image.src,image.alt);}
 });
