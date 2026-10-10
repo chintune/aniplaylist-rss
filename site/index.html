@@ -426,7 +426,12 @@ body{font-size:15px}
 .video-loading{position:absolute;z-index:2;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;flex-direction:column;padding:22px;background:rgba(5,6,5,.78);color:#f3f1e8;text-align:center;font-size:13px;line-height:1.5;pointer-events:none}
 .buffer-spinner{width:32px;height:32px;border:3px solid rgba(255,255,255,.2);border-top-color:var(--lime);border-right-color:var(--accent);border-radius:50%;animation:buffer-spin .8s linear infinite}
 .video-loading.is-error .buffer-spinner{display:none}
-.video-loading.is-error{color:#ffb7a8}
+.video-loading.is-error{color:#ffb7a8;pointer-events:auto}
+.video-recovery{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:2px;pointer-events:auto}
+.video-recovery[hidden]{display:none!important}
+.video-retry,.video-recovery a{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 13px;border:1px solid rgba(243,241,232,.22);border-radius:10px;background:#222620;color:#f3f1e8;text-decoration:none;font:700 12px/1 system-ui,sans-serif;cursor:pointer}
+.video-retry:hover,.video-recovery a:hover{border-color:var(--accent);background:#2b3028}
+.video-loading.is-error .buffer-spinner{display:none}
 @keyframes buffer-spin{to{transform:rotate(360deg)}}
 #videoPlayer{width:100%;min-height:180px;object-fit:contain}
 @media(max-width:780px){
@@ -460,7 +465,7 @@ body{font-size:15px}
    <div class="media-dialog-title"><span class="media-dialog-kicker" id="videoModalKicker">AnimeThemes · OP</span><strong id="videoModalTitle">Now playing</strong></div>
    <button type="button" class="media-close" id="closeVideo" aria-label="Close video player">×</button>
   </div>
-  <div class="video-stage"><div class="video-loading" id="videoLoading" role="status" aria-live="polite"><span class="buffer-spinner" aria-hidden="true"></span><span id="videoLoadingText">Connecting to the video server…</span></div><video id="videoPlayer" controls playsinline preload="auto"></video></div>
+  <div class="video-stage"><div class="video-loading" id="videoLoading" role="status" aria-live="polite"><span class="buffer-spinner" aria-hidden="true"></span><span id="videoLoadingText">Connecting to the video server…</span><div class="video-recovery" id="videoRecovery" hidden><button type="button" class="video-retry" id="retryVideo">↻ Retry video</button><a id="videoDirectLinkOverlay" href="#" target="_blank" rel="noopener noreferrer">Open video separately ↗</a></div></div><video id="videoPlayer" controls playsinline preload="auto"></video></div>
   <div class="media-dialog-foot"><span>Video plays here on AniPlaylist</span><a id="videoDirectLink" href="#" target="_blank" rel="noopener noreferrer">Open video file ↗</a></div>
  </div>
 </div>
@@ -670,14 +675,32 @@ document.addEventListener("keydown",e=>{if(e.key==="/"&&!["INPUT","TEXTAREA"].in
 function syncScrollLock(){
  document.body.style.overflow=(!$("#videoModal").hidden||!$("#imageModal").hidden)?"hidden":"";
 }
+let currentVideoRequest=null;
+let videoStallTimer=null;
+const VIDEO_STALL_TIMEOUT_MS=12000;
+function clearVideoStallTimer(){
+ if(videoStallTimer!==null){clearTimeout(videoStallTimer);videoStallTimer=null;}
+}
 function setVideoLoading(visible,message,isError=false){
  const panel=$("#videoLoading");
  panel.hidden=!visible;
  panel.classList.toggle("is-error",!!isError);
+ $("#videoRecovery").hidden=!isError;
  if(message)$("#videoLoadingText").textContent=message;
+}
+function showVideoStallWarning(){
+ clearVideoStallTimer();
+ videoStallTimer=setTimeout(()=>{
+  const player=$("#videoPlayer");
+  if(!$("#videoModal").hidden&&!player.paused&&player.readyState<3){
+   setVideoLoading(true,"Still buffering. Retry the stream or open the source directly.",true);
+  }
+ },VIDEO_STALL_TIMEOUT_MS);
 }
 function openVideo(url,title,kind,poster){
  if(!url||!/^https?:\/\//i.test(url))return;
+ currentVideoRequest={url,title,kind,poster};
+ clearVideoStallTimer();
  const modal=$("#videoModal"),player=$("#videoPlayer");
  player.pause();player.removeAttribute("src");player.load();
  player.poster=poster||"";
@@ -686,29 +709,35 @@ function openVideo(url,title,kind,poster){
  $("#videoModalTitle").textContent=title||"Anime theme";
  $("#videoModalKicker").textContent="AnimeThemes · "+(kind||"OP");
  $("#videoDirectLink").href=url;
+ $("#videoDirectLinkOverlay").href=url;
  modal.hidden=false;syncScrollLock();
  player.src=url;player.load();
+ showVideoStallWarning();
  $("#closeVideo").focus();
  const playPromise=player.play();
  if(playPromise&&typeof playPromise.catch==="function")playPromise.catch(()=>{
-  // Keep the loading state if the network is still resolving; media events will
-  // show either the playable state or a useful direct-link fallback.
-  if(player.error) setVideoLoading(true,"Playback failed. Try opening the video file below.",true);
-  else notify("Video is loading. Press play if it doesn't start automatically.");
+  if(player.error){
+   clearVideoStallTimer();
+   setVideoLoading(true,"Playback failed. Retry or open the video source directly.",true);
+  }else notify("Video is loading. Press play if it doesn't start automatically.");
  });
 }
 function closeVideo(){
  const modal=$("#videoModal"),player=$("#videoPlayer");
+ clearVideoStallTimer();
  player.pause();player.removeAttribute("src");player.load();
  modal.hidden=true;syncScrollLock();
 }
 const videoElement=$("#videoPlayer");
-videoElement.addEventListener("loadstart",()=>setVideoLoading(true,"Loading video…"));
-videoElement.addEventListener("waiting",()=>setVideoLoading(true,"Buffering video…"));
-videoElement.addEventListener("stalled",()=>setVideoLoading(true,"Waiting for video data…"));
-videoElement.addEventListener("canplay",()=>setVideoLoading(false));
-videoElement.addEventListener("playing",()=>setVideoLoading(false));
-videoElement.addEventListener("error",()=>setVideoLoading(true,"Playback failed. Try opening the video file below.",true));
+videoElement.addEventListener("loadstart",()=>{setVideoLoading(true,"Loading video…");showVideoStallWarning();});
+videoElement.addEventListener("waiting",()=>{setVideoLoading(true,"Buffering video…");showVideoStallWarning();});
+videoElement.addEventListener("stalled",()=>{setVideoLoading(true,"Waiting for video data…");showVideoStallWarning();});
+videoElement.addEventListener("canplay",()=>{clearVideoStallTimer();setVideoLoading(false);});
+videoElement.addEventListener("playing",()=>{clearVideoStallTimer();setVideoLoading(false);});
+videoElement.addEventListener("error",()=>{clearVideoStallTimer();setVideoLoading(true,"Playback failed. Retry or open the video source directly.",true);});
+$("#retryVideo").addEventListener("click",()=>{
+ if(currentVideoRequest)openVideo(currentVideoRequest.url,currentVideoRequest.title,currentVideoRequest.kind,currentVideoRequest.poster);
+});
 
 function openImage(src,caption){
  if(!src)return;
