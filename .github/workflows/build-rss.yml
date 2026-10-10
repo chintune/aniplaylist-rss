@@ -282,6 +282,23 @@ jobs:
           cp seasons.json site_build/seasons.json
 
           cp spotify-playlists.json site_build/spotify-playlists.json
+          
+          # Publish the full listening catalog for the single-page UI.
+          # state.json contains historical entries too, so use the current
+          # generated season catalog instead of exposing stale records.
+          node --input-type=module <<'NODE'
+          import fs from "node:fs/promises";
+          const state = JSON.parse(await fs.readFile("state.json", "utf8"));
+          const seasons = JSON.parse(await fs.readFile("seasons.json", "utf8")).seasons || [];
+          const records = Object.values(state).filter(item =>
+            seasons.includes(item.season) && (item.spotify || item.apple)
+          );
+          await fs.writeFile(
+            "site_build/catalog.json",
+            JSON.stringify({ generatedAt: new Date().toISOString(), records }, null, 2) + "\\n"
+          );
+          console.log(`Catalog records exported: ${records.length}`);
+          NODE
 
           cp -r rss/. site_build/rss/
 
