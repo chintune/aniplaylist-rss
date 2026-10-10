@@ -65,7 +65,8 @@
     "kindLabel": "Ending",
     "apple": "https://geo.music.apple.com/album/6809426974?i=6809426976&at=1001l384j&ct=website-as-a-reincarnated-aristocrat-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2cb6f30bfd4c71ce77845850e1c400695166aa49@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "ed276ad9c00b366a": {
     "firstSeen": "2026-09-29T07:21:58.114Z",
@@ -139,7 +140,8 @@
       "type": "ED",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   },
   "e9358c3b2b2164be": {
     "firstSeen": "2026-09-29T07:21:58.115Z",
@@ -208,7 +210,8 @@
     "kindLabel": "Opening",
     "apple": "https://geo.music.apple.com/album/6806963625?i=6806963628&at=1001l384j&ct=website-chitose-is-in-the-ramune-bott-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c6fe18d65c58205f8fc6f2090dccee9f1fb5a800@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "46696b565ea10fa7": {
     "firstSeen": "2026-09-29T07:21:58.115Z",
@@ -272,7 +275,8 @@
     "kindLabel": "Ending",
     "apple": "https://geo.music.apple.com/album/6810085354?i=6810085358&at=1001l384j&ct=website-a-returners-magic-should-be-s-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/dc5e3c95f2793e37a3be05be4b04ecbed70a2167@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "22c00ad64aceb5a3": {
     "firstSeen": "2026-09-29T07:21:58.115Z",
@@ -337,7 +341,8 @@
     "kindLabel": "Opening",
     "apple": "https://music.apple.com/nz/album/6810484114?i=6810484116&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/62f935a021ce799e1890dd2bacab33a446e03999@2xl.jpeg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "bdd4c7b916a1fac3": {
     "firstSeen": "2026-09-29T07:21:58.115Z",
@@ -407,7 +412,8 @@
       "type": "OP",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   },
   "4f43c6ba7790eaad": {
     "firstSeen": "2026-09-29T07:21:58.115Z",
@@ -470,7 +476,8 @@
     "artistDisplayCount": 1,
     "kindLabel": "Insert",
     "apple": "https://geo.music.apple.com/album/1884871758?i=1884871759&at=1001l384j&ct=website-to-you-in-the-beyond-in&app=music",
-    "thumbnail": "https://cdn.aniplaylist.com/thumbnails/69a78171736a3b8f9d2d13a14fdb7b017229f405@2xl.jpg"
+    "thumbnail": "https://cdn.aniplaylist.com/thumbnails/69a78171736a3b8f9d2d13a14fdb7b017229f405@2xl.jpg",
+    "episodes": []
   },
   "5654eadd7b71a295": {
     "firstSeen": "2026-09-29T07:21:58.115Z",
@@ -537,7 +544,8 @@
     "artistDisplayCount": 1,
     "kindLabel": "Insert",
     "apple": "https://geo.music.apple.com/album/6773239605?i=6773239607&at=1001l384j&ct=website-uncles-obsession-with-cute-th-in&app=music",
-    "thumbnail": "https://cdn.aniplaylist.com/thumbnails/8f7641c8a13ec3d789f685dbaabbe54f93a299c0@2xl.jpeg"
+    "thumbnail": "https://cdn.aniplaylist.com/thumbnails/8f7641c8a13ec3d789f685dbaabbe54f93a299c0@2xl.jpeg",
+    "episodes": []
   },
   "49fba1cd9865b0eb": {
     "firstSeen": "2026-09-29T07:21:58.115Z",
@@ -607,7 +615,8 @@
       "type": "OP",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   },
   "b6b12f03ab570514": {
     "firstSeen": "2026-09-29T07:22:10.827Z",
@@ -669,7 +678,8 @@
     "kindLabel": "Opening",
     "apple": "https://music.apple.com/us/album/1586410660?i=1586410664&at=1001l384j&ct=website-the-guy-she-was-interested-in-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/829dbb34b66a8943b4f34b42d81dfe2afc164088@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "7f65bb39231f8e28": {
     "firstSeen": "2026-09-29T07:36:58.835Z",
@@ -733,7 +743,8 @@
     "kindLabel": "Ending",
     "apple": "https://geo.music.apple.com/album/6817190323?i=6817190324&at=1001l384j&ct=website-detective-conan-ed76&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/41ee9bf2fcdf136b6149ec76273bc113e5779721@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "ea8139001be33b74": {
     "firstSeen": "2026-09-29T07:36:58.835Z",
@@ -1621,7 +1632,8 @@
     "kindLabel": "Opening",
     "apple": "https://geo.music.apple.com/album/6817218109?i=6817218111&at=1001l384j&ct=website-the-exiled-heavy-knight-know-op2&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "a067f6fb5e90cea9": {
     "firstSeen": "2026-09-29T07:36:58.835Z",
@@ -1748,7 +1760,8 @@
       "type": "OP",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   },
   "a4d6d80ac09fee64": {
     "firstSeen": "2026-09-29T07:36:58.835Z",
@@ -2203,7 +2216,8 @@
       "type": "ED",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   },
   "45b721b2e81e1559": {
     "firstSeen": "2026-09-29T07:36:58.836Z",
@@ -2427,7 +2441,8 @@
     "kindLabel": "Opening",
     "apple": "https://geo.music.apple.com/album/6814318091?i=6814318214&at=1001l384j&ct=website-tetsuryou-meet-with-te-optv-size&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/2aab051a5960e85e8847c10748331087529273ee@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "971116ea0ee5d3c9": {
     "firstSeen": "2026-09-29T07:36:58.836Z",
@@ -3469,7 +3484,8 @@
     "kindLabel": "Ending",
     "apple": "https://geo.music.apple.com/album/6816049062?i=6816049064&at=1001l384j&ct=website-the-vermilion-mask-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/9779d96388ce7537330f69976bb8b537b55f69e5@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "a6f0c7ccb47db5c5": {
     "firstSeen": "2026-09-29T07:36:58.836Z",
@@ -4451,7 +4467,8 @@
     "kindLabel": "Ending",
     "apple": "https://geo.music.apple.com/album/6812974305?i=6812974306&at=1001l384j&ct=website-full-clearing-another-world-u-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c1ecf652495bb650f1f4dafa41a7167be3a6e4bd@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "7b3d47074354c031": {
     "firstSeen": "2026-09-29T07:36:58.836Z",
@@ -6031,7 +6048,8 @@
     "kindLabel": "Opening",
     "apple": "https://geo.music.apple.com/album/6812356807?i=6812356812&at=1001l384j&ct=website-the-iceblade-sorcerer-shall-r-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/0c077b04730d9832ecb397d746eab01c9cf66cc1@2xl.jpeg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "73c601036f5a6f32": {
     "firstSeen": "2026-09-29T07:36:58.836Z",
@@ -7424,7 +7442,8 @@
     "kindLabel": "Opening",
     "apple": "https://geo.music.apple.com/album/6816049883?i=6816049884&at=1001l384j&ct=website-a-returners-magic-should-be-s-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/ff0c9fe0893ed2357380de38ba7aaf05c9fdd099@2xl.jpeg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "89cb5db008a95d6c": {
     "firstSeen": "2026-09-29T07:36:58.836Z",
@@ -8172,7 +8191,8 @@
     "kindLabel": "Ending",
     "apple": "https://geo.music.apple.com/album/6809991313?i=6809991318&at=1001l384j&ct=website-steel-ball-run-jojos-bizarre-ad-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/e401524581656fa101348307b5daabc8550975f7@2xl.jpg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "c66a545ec061b0a0": {
     "firstSeen": "2026-09-29T08:00:48.182Z",
@@ -8231,10 +8251,11 @@
     "kindLabel": "Ending",
     "apple": "https://geo.music.apple.com/album/6804926378?i=6804926379&at=1001l384j&ct=website-umayuru-full-gate-ed1&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/151ac5833d3d4223d2ca2c14acb17eb978d11637@2xl.jpeg",
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "21c17286583c4c6b": {
-    "firstSeen": "2026-09-29T08:28:32.687Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27859",
     "anime": "The Iceblade Sorcerer Shall Rule the World II",
@@ -8290,12 +8311,14 @@
       "4hJl41jTq14yNuc1f3bLe6",
       "808648654",
       "14108225",
-      "UCG_xHIWGhBDSGDZV0PgNaXg"
+      "UCG_xHIWGhBDSGDZV0PgNaXg",
+      "6885799"
     ],
     "animethemesVideo": null,
     "artistDisplay": "Maaya Uchida",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "33faed19a20f7429": {
     "firstSeen": "2026-09-29T08:28:32.687Z",
@@ -9061,7 +9084,7 @@
     "animethemesVideo": null
   },
   "019a6056802e529e": {
-    "firstSeen": "2026-09-29T12:29:43.917Z",
+    "firstSeen": "2026-09-29T07:36:58.835Z",
     "season": "Fall 2026",
     "id": "27860",
     "anime": "Tougen Anki: Nikko Kegon Falls Arc",
@@ -9132,7 +9155,8 @@
     },
     "artistDisplay": "Hiromitsu Kitayama",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "441c51f77372e4db": {
     "firstSeen": "2026-09-29T12:29:43.918Z",
@@ -9197,10 +9221,11 @@
     "animethemesVideo": null,
     "artistDisplay": "Mugendai Mewtype",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "fea055291f77c3e8": {
-    "firstSeen": "2026-09-29T12:29:43.918Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27870",
     "anime": "The Ramparts of Ice Season 2",
@@ -9255,7 +9280,8 @@
       "5M8AXrOifBT8elkLKbGPQZ",
       "150974880",
       "142878",
-      "UCarJ-jLDuyHOlRXzIcqL4oQ"
+      "UCarJ-jLDuyHOlRXzIcqL4oQ",
+      "1006923568"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/KooriNoJouhekiS2-ED1.webm",
@@ -9268,10 +9294,11 @@
     },
     "artistDisplay": "Superfly",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "bfe340ac337dff6c": {
-    "firstSeen": "2026-09-29T18:14:43.247Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27884",
     "anime": "Diamond no Ace: Act II Second Season Part 2",
@@ -9324,15 +9351,17 @@
       "GLAY",
       "00AFbqxvdDK6T1D6MQZ9c1",
       "705683182",
-      "UCXRmrNzERQzfA_2XI1OzJ9A"
+      "UCXRmrNzERQzfA_2XI1OzJ9A",
+      "4363"
     ],
     "animethemesVideo": null,
     "artistDisplay": "GLAY",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "6d6859ee7684a0fd": {
-    "firstSeen": "2026-09-29T18:14:43.247Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27883",
     "anime": "Rascal Does Not Dream of a Dear Friend",
@@ -9391,10 +9420,11 @@
     ],
     "artistDisplay": "Touko Kirishima",
     "artistDisplayCount": 1,
-    "kindLabel": "Insert"
+    "kindLabel": "Insert",
+    "episodes": []
   },
   "b8a57d85eca58e3d": {
-    "firstSeen": "2026-09-29T18:14:43.248Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27882",
     "anime": "Red River",
@@ -9462,15 +9492,18 @@
       "4896145",
       "25489",
       "VAP Official",
-      "UCazjJ6udlwl6cP_om1zqTQQ"
+      "UCazjJ6udlwl6cP_om1zqTQQ",
+      "81692171",
+      "UCUW7BA2PIPWn0lQCFfbU3pA"
     ],
     "animethemesVideo": null,
     "artistDisplay": "Ryu Matsuyama & Yuko Ando",
     "artistDisplayCount": 2,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "d7a3ee0dc6ea15d9": {
-    "firstSeen": "2026-09-30T01:55:28.846Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27888",
     "anime": "Cardfight!! Vanguard: Divinez Parallactic Fate",
@@ -9526,20 +9559,21 @@
     ],
     "artistDisplay": "Kis-My-Ft2",
     "artistDisplayCount": 1,
-    "kindLabel": "Theme Song"
+    "kindLabel": "Theme Song",
+    "episodes": []
   },
   "da033a04ea7fd954": {
-    "firstSeen": "2026-09-30T01:55:28.846Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27887",
-    "anime": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+    "anime": "The Cold Sato-san is Only Sweet to Me",
     "song": "Hatsukoi Reply",
     "artist": "MARUMOCHI from HoneyWorks",
     "kind": "ED",
     "spotify": "https://open.spotify.com/track/57UeOQ9Ae6o6PdWU4nxzK3",
-    "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-shiotaiou-no-satou-san-ga-ore-ed&app=music",
+    "apple": "https://geo.music.apple.com/album/6810162490?i=6810162494&at=1001l384j&ct=website-the-cold-sato-san-is-only-swe-ed&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a19c5e2e1a82f0c92d603c79966d8bca62543e96@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/play/shiotaiou-no-satou-san-ga-ore-ni-dake-amai-ending",
+    "detailUrl": "https://aniplaylist.com/play/the-cold-sato-san-is-only-sweet-to-me-ending",
     "rawKeys": [
       "id",
       "alert_id",
@@ -9564,7 +9598,6 @@
       "display_artists",
       "label",
       "short_link",
-      "status",
       "tags",
       "other_link_ids",
       "unreleased",
@@ -9576,10 +9609,10 @@
       "First Love Reply"
     ],
     "animeCandidates": [
+      "The Cold Sato-san is Only Sweet to Me",
       "Shiotaiou no Satou-san ga Ore ni dake Amai",
       "Aren't You Too Sweet Salt-God Sato-san?",
       "塩対応の佐藤さんが俺にだけ甘い",
-      "The Cold Sato-san is Only Sweet to Me",
       "Aren't You Too Sweet Salt-God Sato-san"
     ],
     "artistCandidates": [
@@ -9593,11 +9626,30 @@
       "Sara Hoshikawa",
       "星川サラ",
       "1L3rnizraR5DcYjEhluZU9",
-      "409596672"
-    ]
+      "409596672",
+      "308",
+      "HoneyWorks",
+      "40oxjbVm3kdeyJEiGsKrmd",
+      "415606364",
+      "9314266",
+      "UCOEOmIJgNwtXCS6GxCD2pag"
+    ],
+    "artistDisplay": "MARUMOCHI from HoneyWorks & Sara Hoshikawa",
+    "artistDisplayCount": 2,
+    "kindLabel": "Ending",
+    "episodes": [],
+    "animethemesVideo": {
+      "url": "https://v.animethemes.moe/ShioAma-ED1.webm",
+      "basename": "ShioAma-ED1.webm",
+      "animeSlug": "shiotaiou_no_satousan_ga_ore_ni_dake_amai",
+      "themeSlug": "",
+      "type": "ED",
+      "sequence": 1,
+      "version": 1
+    }
   },
   "9b62714f3ce3084f": {
-    "firstSeen": "2026-09-30T01:55:28.846Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27886",
     "anime": "Magical Sisters Lulutto Lilly Part 2",
@@ -9664,10 +9716,11 @@
     },
     "artistDisplay": "ILLIT",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "6145301d403ba847": {
-    "firstSeen": "2026-09-30T08:14:29.234Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27861",
     "anime": "Hotel Inhumans 2nd Season",
@@ -9727,7 +9780,9 @@
       "UC6vIISWr5SMH8lt5rqOR_RQ",
       "25502",
       "テレ東アニメ",
-      "UC0OXPEQRKArB_EVyFMwDbAQ"
+      "UC0OXPEQRKArB_EVyFMwDbAQ",
+      "Takanori Iwata",
+      "岩田剛典"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/HotelInhumansS2-OP1.webm",
@@ -9740,7 +9795,8 @@
     },
     "artistDisplay": "GAN",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "4f5ca6255ba00554": {
     "firstSeen": "2026-10-01T08:50:31.028Z",
@@ -9804,10 +9860,11 @@
     ],
     "artistDisplay": "Shigeru Kishida",
     "artistDisplayCount": 1,
-    "kindLabel": "OST"
+    "kindLabel": "OST",
+    "episodes": []
   },
   "813df64fbac067c7": {
-    "firstSeen": "2026-10-01T16:22:27.928Z",
+    "firstSeen": "2026-09-29T07:36:58.835Z",
     "season": "Fall 2026",
     "id": "27899",
     "anime": "The Exiled Heavy Knight Knows How to Game the System",
@@ -9869,10 +9926,11 @@
     "animethemesVideo": null,
     "artistDisplay": "PompadollS",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "e964de441cfde9d1": {
-    "firstSeen": "2026-10-01T16:22:27.929Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27900",
     "anime": "Black Clover 2nd Season",
@@ -9943,7 +10001,8 @@
     },
     "artistDisplay": "WANIMA",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "a544c07fcfac66fb": {
     "firstSeen": "2026-10-01T16:22:27.929Z",
@@ -10015,10 +10074,11 @@
     },
     "artistDisplay": "Kurumi Fukuga (CV: Aina Suzuki)",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "b418ba7c2a49f020": {
-    "firstSeen": "2026-10-01T16:22:27.929Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27897",
     "anime": "FX Fighter Kurumi-chan",
@@ -10075,7 +10135,8 @@
       "10imAtJXms1Dx3MKJpXsrp",
       "6812579036",
       "416287132",
-      "UClhEcDvAfTHa4mo-Jvo5How"
+      "UClhEcDvAfTHa4mo-Jvo5How",
+      "福賀くるみ(CV:鈴木愛奈)"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/FXKurumi-OP1.webm",
@@ -10088,10 +10149,11 @@
     },
     "artistDisplay": "Kurumi Fukuga (CV: Aina Suzuki)",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "7fd107dc92888b9d": {
-    "firstSeen": "2026-10-01T16:22:27.929Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27896",
     "anime": "Vertex Force",
@@ -10159,10 +10221,11 @@
     },
     "artistDisplay": "Hashimero",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "24f72c1c7b6f02f2": {
-    "firstSeen": "2026-10-01T16:22:27.929Z",
+    "firstSeen": "2026-09-29T07:36:58.835Z",
     "season": "Fall 2026",
     "id": "27895",
     "anime": "The Apothecary Diaries Season 3",
@@ -10221,7 +10284,8 @@
       "UCcjpUrxD6_eT09KnzIg3U3A",
       "24642",
       "TOHO animation",
-      "UC14Yc2Qv92DMuyNRlHvpo2Q"
+      "UC14Yc2Qv92DMuyNRlHvpo2Q",
+      "UCXW81UHV3UeWUjVMr11ov2A"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/KusuriyaNoHitorigotoS3-ED1.webm",
@@ -10234,10 +10298,11 @@
     },
     "artistDisplay": "Eve",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "fc91b71cdb9bb887": {
-    "firstSeen": "2026-10-02T13:49:43.703Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27905",
     "anime": "Blue Box Season 2",
@@ -10292,7 +10357,8 @@
       "aiko",
       "6TDMbiQCWeMClsMr9ORLRK",
       "635154255",
-      "2643581"
+      "2643581",
+      "UCNrMzBJs0ZNlRApq80pqrbA"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/AoNoHakoS2-OP1.webm",
@@ -10305,10 +10371,11 @@
     },
     "artistDisplay": "aiko",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "d6794779a0a22987": {
-    "firstSeen": "2026-10-02T13:49:43.703Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27909",
     "anime": "Vertex Force",
@@ -10375,10 +10442,11 @@
     },
     "artistDisplay": "ClariS",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "35a5aebb46a0ee32": {
-    "firstSeen": "2026-10-02T13:49:43.703Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27901",
     "anime": "Pan Dorobou",
@@ -10445,7 +10513,8 @@
     },
     "artistDisplay": "Kyary Pamyu Pamyu",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "2becb0d48d92afee": {
     "firstSeen": "2026-10-02T13:49:43.704Z",
@@ -10527,7 +10596,7 @@
     "kindLabel": "Ending"
   },
   "c44104654f2e2fe0": {
-    "firstSeen": "2026-10-02T13:49:43.704Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27911",
     "anime": "A Tale of the Secret Saint",
@@ -10600,20 +10669,21 @@
     },
     "artistDisplay": "Kaya",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "67d9500ba42e4bed": {
-    "firstSeen": "2026-10-02T13:49:43.704Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27910",
-    "anime": "#Zombie Sagashitemasu",
-    "song": "Rakiraki",
+    "anime": "#I'm Looking For a Zombie",
+    "song": "LAKILAKI",
     "artist": "Threee",
     "kind": "OP",
     "spotify": "https://open.spotify.com/track/7Kw2k1TRfQkjcYRNMQ3mo9",
-    "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-zombie-sagashitemasu-op&app=music",
+    "apple": "https://geo.music.apple.com/album/6815596270?i=6815596273&at=1001l384j&ct=website-im-looking-for-a-zombie-op&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/7a3765f6047d70bf6ca0f5e151df6fe048ea351f@2xl.jpg",
-    "detailUrl": "https://aniplaylist.com/play/zombie-sagashitemasu-opening",
+    "detailUrl": "https://aniplaylist.com/play/im-looking-for-a-zombie-opening",
     "rawKeys": [
       "id",
       "alert_id",
@@ -10638,21 +10708,21 @@
       "display_artists",
       "label",
       "short_link",
-      "status",
       "tags",
       "other_link_ids",
       "unreleased",
       "objectID"
     ],
     "titleCandidates": [
+      "LAKILAKI",
       "Rakiraki",
       "ラキラキ"
     ],
     "animeCandidates": [
+      "#I'm Looking For a Zombie",
       "#Zombie Sagashitemasu",
       "#ゾンビさがしてます",
-      "#I'm Looking for Zombie",
-      "#I'm Looking For a Zombie"
+      "#I'm Looking for Zombie"
     ],
     "artistCandidates": [
       "19234",
@@ -10665,10 +10735,23 @@
       "1401778817",
       "102465092",
       "UCekuD5lZYEm4XUto7ggbVSg"
-    ]
+    ],
+    "artistDisplay": "Threee",
+    "artistDisplayCount": 1,
+    "kindLabel": "Opening",
+    "episodes": [],
+    "animethemesVideo": {
+      "url": "https://v.animethemes.moe/ZombieSagashitemasu-OP1.webm",
+      "basename": "ZombieSagashitemasu-OP1.webm",
+      "animeSlug": "zombie_sagashitemasu",
+      "themeSlug": "",
+      "type": "OP",
+      "sequence": 1,
+      "version": 1
+    }
   },
   "b5be84c9161cf07a": {
-    "firstSeen": "2026-10-02T19:14:12.026Z",
+    "firstSeen": "2026-09-29T07:36:58.835Z",
     "season": "Fall 2026",
     "id": "27917",
     "anime": "Please Excuse My Younger Brothers",
@@ -10732,10 +10815,11 @@
     "animethemesVideo": null,
     "artistDisplay": "MEminor",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "5fbbcc292ea0d66b": {
-    "firstSeen": "2026-10-02T19:14:12.026Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27916",
     "anime": "Pan Dorobou",
@@ -10796,7 +10880,9 @@
       "UC_CcsYjMCSfNpbWB5f4obRw",
       "25498",
       "パンどろぼう / PANDOROBO【公式】",
-      "UC_8oRpdwdS8yE_AOXA9FeZQ"
+      "UC_8oRpdwdS8yE_AOXA9FeZQ",
+      "24037",
+      "パンどろぼうとパンやのおじさん (CV：朝井彩加 諏訪部順一)"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/PanDorobou-OP1.webm",
@@ -10809,10 +10895,11 @@
     },
     "artistDisplay": "Pan Dorobou to Panya no Ojisan (CV: Ayaka Asai, Junichi Suwabe)",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "735ccb78912140ea": {
-    "firstSeen": "2026-10-02T19:14:12.026Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27914",
     "anime": "Please Excuse My Younger Brothers",
@@ -10880,7 +10967,8 @@
     "animethemesVideo": null,
     "artistDisplay": "Neguse.",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "e253830f2c11e220": {
     "firstSeen": "2026-10-03T13:47:46.465Z",
@@ -10948,7 +11036,7 @@
     ]
   },
   "f63722563ba6152d": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27927",
     "anime": "A Wild Last Boss Appeared! Season 2",
@@ -11006,7 +11094,8 @@
       "UCbPIfH7b5X4ix-gEaUaMXQg",
       "25504",
       "NBCUniversal Anime/Music",
-      "UCeOMz8AiNhsDhEovu5_3ujQ"
+      "UCeOMz8AiNhsDhEovu5_3ujQ",
+      "ep 1"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/LastBossS2-OP1.webm",
@@ -11019,10 +11108,11 @@
     },
     "artistDisplay": "Suspended 4th",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "6f0f991ec4dccfb3": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27926",
     "anime": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
@@ -11097,10 +11187,11 @@
     },
     "artistDisplay": "Kotani",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "2f6b96471bd21ecd": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27925",
     "anime": "Uncle's Obsession with Cute Things",
@@ -11161,7 +11252,9 @@
       "5ooX6UO1AbsI7EdnrRhUjh",
       "1659773773",
       "218204535",
-      "UC4VN7zZaBMePTewBFkNKJSw"
+      "UC4VN7zZaBMePTewBFkNKJSw",
+      "1512967273",
+      "5uZjp2LZ0JGqmLfAFDOrkd"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/OjiKawa-ED1.webm",
@@ -11174,10 +11267,11 @@
     },
     "artistDisplay": "Kaori Maeda",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "6d5ce38b479a106f": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27924",
     "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
@@ -11246,10 +11340,11 @@
     },
     "artistDisplay": "ASTERISM",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "f39fdbf78f354a28": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27923",
     "anime": "Suikoden: The Anime",
@@ -11310,7 +11405,8 @@
       "Honoka Takahashi",
       "たかはしほのか",
       "6iNGcEg7r3hBC7K5VtRBEc",
-      "401283471"
+      "401283471",
+      "15256083"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/Suikoden-ED1.webm",
@@ -11323,10 +11419,11 @@
     },
     "artistDisplay": "Koji Nakamura & Honoka Takahashi",
     "artistDisplayCount": 2,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "0a36fe260696acd3": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27922",
     "anime": "#I'm Looking For a Zombie",
@@ -11388,10 +11485,11 @@
     "animethemesVideo": null,
     "artistDisplay": "cadode",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "c55333c97f895493": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27921",
     "anime": "Magical★Explorer",
@@ -11454,10 +11552,11 @@
     "animethemesVideo": null,
     "artistDisplay": "ASCA",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "22c1da4351c4f81b": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27920",
     "anime": "Magical★Explorer",
@@ -11520,10 +11619,11 @@
     "animethemesVideo": null,
     "artistDisplay": "ASCA",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "276332d22b5eb7e2": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27919",
     "anime": "Dandivine",
@@ -11582,7 +11682,8 @@
       "西川貴教",
       "2ayMogRmamCnzMAk4YiFAz",
       "338161170",
-      "7951442"
+      "7951442",
+      "UCKax69FSPtSFMpYHBQVzqxg"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/Dandivine-OP1.webm",
@@ -11595,10 +11696,11 @@
     },
     "artistDisplay": "Takanori Nishikawa",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "86477a706b5fc2b1": {
-    "firstSeen": "2026-10-03T13:47:46.466Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27918",
     "anime": "Even the Student Council Has Its Holes!",
@@ -11669,10 +11771,11 @@
     },
     "artistDisplay": "Sangatsu no Phantasia",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "519bcd7651f94f0f": {
-    "firstSeen": "2026-10-06T07:20:00.565Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27959",
     "anime": "Romelia War Chronicle",
@@ -11739,10 +11842,11 @@
     "animethemesVideo": null,
     "artistDisplay": "KOHTA YAMAMOTO & Maika Loubté",
     "artistDisplayCount": 2,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "3e423c2bf74b71d6": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27958",
     "anime": "Romelia War Chronicle",
@@ -11802,15 +11906,17 @@
       "1o3K28VZiWLErDUMWD6xuo",
       "1543171756",
       "200498657",
-      "UCNqzk1hGE1UbZRTCMYsdrHg"
+      "UCNqzk1hGE1UbZRTCMYsdrHg",
+      "148469062"
     ],
     "animethemesVideo": null,
     "artistDisplay": "Chogakusei",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "958246777277cc74": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.835Z",
     "season": "Fall 2026",
     "id": "27957",
     "anime": "The Cold Sato-san is Only Sweet to Me",
@@ -11873,7 +11979,13 @@
       "2NmgIfLAFl1DD1FZOY4YqC",
       "908870855",
       "6490211",
-      "UCyDjbU5RDfEWFyFEtY9Rj4w"
+      "UCyDjbU5RDfEWFyFEtY9Rj4w",
+      "2bHO4c0aYykqvNB1dF9MFT",
+      "0tLEG5ldusAX0SQm6enMYQ",
+      "17gTKeyevi8Qb08pNaesby",
+      "283505569",
+      "2DCpkbmYB8FVjI0n15MdSR",
+      "5fuEw5UqrTkW8hVAbBClv2"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/ShioAma-OP1.webm",
@@ -11886,10 +11998,11 @@
     },
     "artistDisplay": "Masayoshi Ooishi",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "f949922df7dcffd2": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27955",
     "anime": "Magical Sisters Lulutto Lilly Part 2",
@@ -11949,12 +12062,17 @@
       "6lWX6iEZImX6muub7hBTHy",
       "1882213719",
       "377320371",
-      "UC-0lpvzhBM10zWUo5FKxmYg"
+      "UC-0lpvzhBM10zWUo5FKxmYg",
+      "24192",
+      "Lulutto Lilly [CompatoLilly (CV: May Tachibana)",
+      "24193",
+      "MashuLulu (CV: Nao Ojika)]"
     ],
     "animethemesVideo": null,
     "artistDisplay": "Lulutto Lilly",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "4317025cb1ae3ba5": {
     "firstSeen": "2026-10-06T07:20:00.566Z",
@@ -12025,10 +12143,11 @@
     },
     "artistDisplay": "DAOKO",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "3d5c9152d099ca26": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27953",
     "anime": "Ranma ½ (2024) 3rd Season",
@@ -12099,10 +12218,11 @@
     },
     "artistDisplay": "Fumino",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "50b68877b99e5c9f": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27956",
     "anime": "Blue Box Season 2",
@@ -12172,10 +12292,11 @@
     },
     "artistDisplay": "Elsewhere-KIKOU",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "fa7ed8c63b90482e": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27952",
     "anime": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
@@ -12232,7 +12353,10 @@
       "3w2HqkKa6upwuXEULtGvnY",
       "624956375",
       "4407",
-      "UCJCEjx_2PIFi97rJjjfwrcQ"
+      "UCJCEjx_2PIFi97rJjjfwrcQ",
+      "7GMgCot47Kb532QnbbMrGg",
+      "6MfYt5ENS3ibojRVzdEP4g",
+      "1LLoCjhog0xlgIkRDMkj2M"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/Saikyosoubi-OP1.webm",
@@ -12245,10 +12369,11 @@
     },
     "artistDisplay": "FLOW",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "6d19dbe8532bdd0e": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27949",
     "anime": "So What's Wrong with Getting Reborn as a Goblin?",
@@ -12305,7 +12430,8 @@
       "04ZUR9nJSI7nr1ZrHKLGJ8",
       "1411296734",
       "1313592",
-      "UCsy-WAGWKgaPSDGoPBhgSsw"
+      "UCsy-WAGWKgaPSDGoPBhgSsw",
+      "215721805"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/TenGobu-OP1.webm",
@@ -12318,10 +12444,11 @@
     },
     "artistDisplay": "Sou",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "edf1f6343b135970": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27950",
     "anime": "Hello, I Am a Witch and My Crush Wants Me to Make a Love Potion!",
@@ -12393,10 +12520,11 @@
     },
     "artistDisplay": "Reini",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "8cb41e36ffdc7d30": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.835Z",
     "season": "Fall 2026",
     "id": "27948",
     "anime": "Psyren",
@@ -12456,10 +12584,11 @@
     "animethemesVideo": null,
     "artistDisplay": "Who-ya Extended",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "9202a4c228c9d32e": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27951",
     "anime": "Magical Girl Raising Project: Restart",
@@ -12529,10 +12658,11 @@
     },
     "artistDisplay": "Minori Chihara",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "6ed2e4c77f660e5d": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27937",
     "anime": "Ao Ashi Season 2",
@@ -12596,10 +12726,11 @@
     "animethemesVideo": null,
     "artistDisplay": "10-FEET",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "3fe8647a67b20a5f": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27938",
     "anime": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
@@ -12656,7 +12787,12 @@
       "32vntVlDOsm1HGm9Xe0FSz",
       "1361445379",
       "122365542",
-      "UCmNJnINtgmp9XyYq_yADLpw"
+      "UCmNJnINtgmp9XyYq_yADLpw",
+      "0dQOWoVOSrMeGKXOjSflnU",
+      "1417853622",
+      "3gcfJgddvivr7C5uRhwX4n",
+      "1765473892",
+      "279732681"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/KanteiSkillS3-OP1.webm",
@@ -12669,10 +12805,11 @@
     },
     "artistDisplay": "Rico Sasaki",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "4edec3e4d86c9c58": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27940",
     "anime": "Ao Ashi Season 2",
@@ -12733,15 +12870,18 @@
       "UC8aw_ot8rVqpwRoN_DGkSTA",
       "25509",
       "ShoProアニメチャンネル",
-      "UC-cXutYzvqARF5wNKx1KCNA"
+      "UC-cXutYzvqARF5wNKx1KCNA",
+      "0KZzmjrOQumJVVnoGRbXCu",
+      "74613812"
     ],
     "animethemesVideo": null,
     "artistDisplay": "Ai Higuchi",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "8a8feb6da57494e1": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27936",
     "anime": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
@@ -12801,7 +12941,11 @@
       "3O0kLS5sLZ41XZRxjBKmLF",
       "524306307",
       "7501576",
-      "UCPUwlkBq5Gwg7frdT4juTfw"
+      "UCPUwlkBq5Gwg7frdT4juTfw",
+      "2zL2DcyFc5UL5WI9zaWZqR",
+      "1077652266",
+      "14107459",
+      "215175435"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/YowakiMax-OP1.webm",
@@ -12814,10 +12958,11 @@
     },
     "artistDisplay": "Konomi Suzuki",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "bfdace6e3d8606c9": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27933",
     "anime": "I'm Dating a Dark Summoner",
@@ -12889,10 +13034,11 @@
     },
     "artistDisplay": "Mao Komiya",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "e86fcc50f7dc8e1a": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27932",
     "anime": "I'm Dating a Dark Summoner",
@@ -12962,7 +13108,8 @@
     },
     "artistDisplay": "COISIO RINGO",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "db3feca24833d303": {
     "firstSeen": "2026-10-06T07:20:00.566Z",
@@ -13033,7 +13180,8 @@
     },
     "artistDisplay": "Ceui",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "31a7fded28300543": {
     "firstSeen": "2026-10-06T07:20:00.566Z",
@@ -13105,10 +13253,11 @@
     },
     "artistDisplay": "Airots",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "940f2d8e99eabd4e": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27934",
     "anime": "From Far Away",
@@ -13174,10 +13323,11 @@
     "animethemesVideo": null,
     "artistDisplay": "GNJB",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "54db7f7f34ce0304": {
-    "firstSeen": "2026-10-06T07:20:00.566Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27939",
     "anime": "Psyren",
@@ -13237,7 +13387,8 @@
     "animethemesVideo": null,
     "artistDisplay": "CLAN QUEEN",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "4f81f44da26ebf1f": {
     "firstSeen": "2026-10-06T07:20:00.566Z",
@@ -13303,7 +13454,8 @@
     "animethemesVideo": null,
     "artistDisplay": "Onegai Kanae-tai",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "5da9cb6bff7e0af6": {
     "firstSeen": "2026-10-06T07:20:00.566Z",
@@ -13364,7 +13516,8 @@
     ],
     "artistDisplay": "Maware Isogavva",
     "artistDisplayCount": 1,
-    "kindLabel": "Theme Song"
+    "kindLabel": "Theme Song",
+    "episodes": []
   },
   "785487e139610fb7": {
     "firstSeen": "2026-10-06T07:20:00.566Z",
@@ -13428,7 +13581,8 @@
     ],
     "artistDisplay": "Nobuaki Nobusawa",
     "artistDisplayCount": 1,
-    "kindLabel": "OST"
+    "kindLabel": "OST",
+    "episodes": []
   },
   "dcaf33360a8c4020": {
     "firstSeen": "2026-10-06T07:20:00.566Z",
@@ -13508,7 +13662,7 @@
     "kindLabel": "Opening"
   },
   "6eff117d09f590e0": {
-    "firstSeen": "2026-10-06T14:27:38.344Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27986",
     "anime": "Magical Girl Raising Project: Restart",
@@ -13565,7 +13719,11 @@
       "7aRuyfAPmG5sOTaKTv2mJf",
       "1460659133",
       "8184768",
-      "UC_L4SD61HE8KajhkywBy12g"
+      "UC_L4SD61HE8KajhkywBy12g",
+      "5wYga8lT3TNapDC8ciqarN",
+      "5e98XSgxcUQziOa3ypZQYc",
+      "402653087",
+      "7kPcnupLCiq27iKmVBm9yG"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/MahouShoujoIkuseiKeikakuRestart-ED1.webm",
@@ -13578,7 +13736,8 @@
     },
     "artistDisplay": "Daisy×Daisy",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "35249b9b9833b7b3": {
     "firstSeen": "2026-10-06T14:27:38.345Z",
@@ -13654,10 +13813,11 @@
     },
     "artistDisplay": "FZMZ",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "77b99e1fbc7f96c6": {
-    "firstSeen": "2026-10-06T14:27:38.345Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27987",
     "anime": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
@@ -13714,7 +13874,8 @@
       "伊藤美来",
       "4IcWgtz5hpMVQ8ZFEXUSAD",
       "1084662565",
-      "UCAjHxGDyW-kTH-NvKL_Qiqg"
+      "UCAjHxGDyW-kTH-NvKL_Qiqg",
+      "115290642"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/YowakiMax-ED1.webm",
@@ -13727,10 +13888,11 @@
     },
     "artistDisplay": "Miku Ito",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "ee1b5dc1195e08d0": {
-    "firstSeen": "2026-10-06T14:27:38.345Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27985",
     "anime": "So What's Wrong with Getting Reborn as a Goblin?",
@@ -13802,10 +13964,11 @@
     },
     "artistDisplay": "AHUB",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "685e21faeb156946": {
-    "firstSeen": "2026-10-06T14:27:38.345Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27982",
     "anime": "The Seven Knights of the Marronnier Kingdom",
@@ -13861,7 +14024,8 @@
       "7kOrrFIBIBc8uCu2zbxbLv",
       "1506180365",
       "98064702",
-      "UCqboXUgTe1T90jrQnxTlMfw"
+      "UCqboXUgTe1T90jrQnxTlMfw",
+      "174482337"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/Marronnier-OP1.webm",
@@ -13874,10 +14038,11 @@
     },
     "artistDisplay": "yama",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "fdb9fd28b3149500": {
-    "firstSeen": "2026-10-06T14:27:38.345Z",
+    "firstSeen": "2026-09-29T07:36:58.835Z",
     "season": "Fall 2026",
     "id": "27981",
     "anime": "Super Psychic Policeman Chojo",
@@ -13935,15 +14100,17 @@
       "0jGAznw2F6sZBJZpIRMYwP",
       "1723471479",
       "248764362",
-      "UCierlqKaoSU6qir2Gy0pQZQ"
+      "UCierlqKaoSU6qir2Gy0pQZQ",
+      "Shifuku Poncho"
     ],
     "animethemesVideo": null,
     "artistDisplay": "shifukuponcho",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "db09e6174970465f": {
-    "firstSeen": "2026-10-06T14:27:38.345Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27980",
     "anime": "Suikoden: The Anime",
@@ -13986,7 +14153,8 @@
     ],
     "titleCandidates": [
       "Kanashimi Sae Otonobite",
-      "悲しみさえ大人びて"
+      "悲しみさえ大人びて",
+      "悲しみさえ⼤⼈びて"
     ],
     "animeCandidates": [
       "Suikoden: The Anime",
@@ -14004,10 +14172,11 @@
     "animethemesVideo": null,
     "artistDisplay": "amazarashi",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "428fe1eaf0bcfedc": {
-    "firstSeen": "2026-10-06T14:27:38.345Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27979",
     "anime": "Nia Liston: The Merciless Maiden",
@@ -14050,7 +14219,8 @@
     ],
     "titleCandidates": [
       "RESPAWN!!",
-      "リスポーン!!"
+      "リスポーン!!",
+      "Respawn!!"
     ],
     "animeCandidates": [
       "Nia Liston: The Merciless Maiden",
@@ -14065,15 +14235,17 @@
       "68609MOnEU86kVyMf26JnM",
       "1535893459",
       "110211102",
-      "UCX2NCyh8ipCoydn1iKWyM_Q"
+      "UCX2NCyh8ipCoydn1iKWyM_Q",
+      "194351347"
     ],
     "animethemesVideo": null,
     "artistDisplay": "Watame Tsunomaki",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "6f176ef185de161e": {
-    "firstSeen": "2026-10-06T14:27:38.345Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27978",
     "anime": "Keroro Gunsou☆",
@@ -14143,10 +14315,11 @@
     },
     "artistDisplay": "PURPLE BUBBLE",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "4739a4cd0a36209d": {
-    "firstSeen": "2026-10-06T14:27:38.345Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27977",
     "anime": "Hello, I Am a Witch and My Crush Wants Me to Make a Love Potion!",
@@ -14219,10 +14392,11 @@
     },
     "artistDisplay": "センチミリメンタル",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "2ab510ce8eaa9a09": {
-    "firstSeen": "2026-10-06T14:27:38.345Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27976",
     "anime": "Even the Student Council Has Its Holes!",
@@ -14287,10 +14461,11 @@
     "animethemesVideo": null,
     "artistDisplay": "NANAOAKARI",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "11005badf78f4186": {
-    "firstSeen": "2026-10-06T23:46:32.375Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27993",
     "anime": "A Tale of the Secret Saint",
@@ -14357,7 +14532,9 @@
       "1711511094",
       "346769621",
       "24808",
-      "UCx2MQBktBMjtoqFqJ39Os1g"
+      "UCx2MQBktBMjtoqFqJ39Os1g",
+      "2UR2qNURmuqnLZwhPC6Dyz",
+      "271193302"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/Daiseijo-ED1.webm",
@@ -14370,10 +14547,11 @@
     },
     "artistDisplay": "UTAHIME DREAM & UTAHIME DREAM ALLSTARS",
     "artistDisplayCount": 2,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "3e76533e903d251f": {
-    "firstSeen": "2026-10-06T23:46:32.376Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27992",
     "anime": "Black Clover 2nd Season",
@@ -14441,10 +14619,11 @@
     },
     "artistDisplay": "ONE OR EIGHT",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "4e0c6a768d831db4": {
-    "firstSeen": "2026-10-06T23:46:32.378Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27994",
     "anime": "Battle Spirits [Re]: Zekkai no Kuu",
@@ -14505,10 +14684,11 @@
     "animethemesVideo": null,
     "artistDisplay": "Himegoto",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "27e58fc82689b6e0": {
-    "firstSeen": "2026-10-06T23:46:32.378Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27991",
     "anime": "Keroro Gunsou☆",
@@ -14565,7 +14745,9 @@
       "7Il739Q5W4yJUYC3hfnX6z",
       "1529999013",
       "120366332",
-      "UCwX3q7Vb3HfEoVKxqY6jLqA"
+      "UCwX3q7Vb3HfEoVKxqY6jLqA",
+      "166080187",
+      "5184143"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/KeroroGunsou2026-OP1.webm",
@@ -14578,10 +14760,11 @@
     },
     "artistDisplay": "ano",
     "artistDisplayCount": 1,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "aace766fcd450cc8": {
-    "firstSeen": "2026-10-06T23:46:32.378Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27990",
     "anime": "The World's Strongest Witch",
@@ -14645,15 +14828,26 @@
       "HaKoniwaLily",
       "ハコニワリリ",
       "2rsT3GtKdBr9qBYXEn8lEZ",
-      "417230252"
+      "417230252",
+      "308",
+      "HoneyWorks",
+      "40oxjbVm3kdeyJEiGsKrmd",
+      "415606364",
+      "9314266",
+      "UCOEOmIJgNwtXCS6GxCD2pag",
+      "1572624547",
+      "136398582",
+      "374729241",
+      "UCFh3h1R6GAWfrAyH-hSwdSQ"
     ],
     "animethemesVideo": null,
     "artistDisplay": "MARUMOCHI from HoneyWorks & HaKoniwalily",
     "artistDisplayCount": 2,
-    "kindLabel": "Opening"
+    "kindLabel": "Opening",
+    "episodes": []
   },
   "33414eacb34d8913": {
-    "firstSeen": "2026-10-06T23:46:32.378Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "27989",
     "anime": "The World's Strongest Witch",
@@ -14716,7 +14910,8 @@
     "animethemesVideo": null,
     "artistDisplay": "Rokudenashi",
     "artistDisplayCount": 1,
-    "kindLabel": "Ending"
+    "kindLabel": "Ending",
+    "episodes": []
   },
   "6c38d6391f45db72": {
     "firstSeen": "2026-10-10T08:09:10.374Z",
@@ -14789,10 +14984,11 @@
       "type": "ED",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   },
   "65dad0d2ecedf7f6": {
-    "firstSeen": "2026-10-10T08:09:10.375Z",
+    "firstSeen": "2026-09-29T07:36:58.835Z",
     "season": "Fall 2026",
     "id": "28062",
     "anime": "Welsh & Shedar",
@@ -14853,7 +15049,12 @@
       "6qTKdHuHW9MFnjfV3JYmz8",
       "334391255",
       "9780734",
-      "UCaSg7S3Cnjg1Hcw28yPQi0w"
+      "UCaSg7S3Cnjg1Hcw28yPQi0w",
+      "Kageyama Hironobu",
+      "576139319",
+      "4dWcF2057qBLh97EfrVfun",
+      "1558985106",
+      "1359441"
     ],
     "animethemesVideo": {
       "url": "https://v.animethemes.moe/WelshAndShedar-ED1.webm",
@@ -14863,10 +15064,11 @@
       "type": "ED",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   },
   "f128f63d64f8d743": {
-    "firstSeen": "2026-10-10T08:09:10.376Z",
+    "firstSeen": "2026-09-29T07:36:58.835Z",
     "season": "Fall 2026",
     "id": "28061",
     "anime": "Welsh & Shedar",
@@ -14932,8 +15134,14 @@
       "奥井雅美",
       "4Ii7UojF0YlO2h2dIhdWfU",
       "263554940",
-      "4929099"
-    ]
+      "4929099",
+      "Kageyama Hironobu",
+      "576139319",
+      "4dWcF2057qBLh97EfrVfun",
+      "1558985106",
+      "1359441"
+    ],
+    "episodes": []
   },
   "866c7c48a97ec2d2": {
     "firstSeen": "2026-10-10T08:09:10.376Z",
@@ -15006,7 +15214,8 @@
       "type": "ED",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   },
   "ad41c758013811c9": {
     "firstSeen": "2026-10-10T08:09:10.377Z",
@@ -15071,7 +15280,8 @@
       "7kniYU57GLxnOgV9uAXanD",
       "6806244065",
       "UCxYVoE9mVcn_2zFIlrDtOAw"
-    ]
+    ],
+    "episodes": []
   },
   "14495d977f889f06": {
     "firstSeen": "2026-10-10T08:09:10.381Z",
@@ -15139,7 +15349,8 @@
       "1800755831",
       "418821402"
     ],
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "299368ef0c046192": {
     "firstSeen": "2026-10-10T08:09:10.382Z",
@@ -15206,7 +15417,8 @@
       "116405692",
       "UCcc3i63-n_3JOdUMW8bzOuA"
     ],
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "a3b5f78f25ab56f7": {
     "firstSeen": "2026-10-10T08:09:10.382Z",
@@ -15286,10 +15498,11 @@
       "type": "ED",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   },
   "7d11ebac181ac6bc": {
-    "firstSeen": "2026-10-10T08:09:10.383Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "28002",
     "anime": "The Detective Is Already Dead Season 2",
@@ -15337,7 +15550,8 @@
     ],
     "titleCandidates": [
       "Kono Shinzou ni Hanataba o",
-      "この心臓に花束を"
+      "この心臓に花束を",
+      "Kono Shinzou ni Hanataba wo"
     ],
     "animeCandidates": [
       "The Detective Is Already Dead Season 2",
@@ -15355,7 +15569,8 @@
       "14777929",
       "UCu_TEd41PUb7qC5GXXauFuQ"
     ],
-    "animethemesVideo": null
+    "animethemesVideo": null,
+    "episodes": []
   },
   "c205f5cc5857ec16": {
     "firstSeen": "2026-10-10T08:09:10.384Z",
@@ -15422,7 +15637,8 @@
       "976522186",
       "118020132",
       "UCSTBcOOQr8lWok8Ggs3jaCA"
-    ]
+    ],
+    "episodes": []
   },
   "b7810a1eac1e09f8": {
     "firstSeen": "2026-10-10T08:09:10.384Z",
@@ -15434,7 +15650,7 @@
     "artistDisplay": "GROTESQQQUE & Kairi Yagi",
     "artistDisplayCount": 2,
     "kind": "IN",
-    "kindLabel": "Insert",
+    "kindLabel": "Insert (ep 3)",
     "spotify": "https://open.spotify.com/track/5pY9Ts7ggr8KQTG2QPTeI3",
     "apple": "https://geo.music.apple.com/album/6816049728?i=6816049980&at=1001l384j&ct=website-grotesqqque-in-ep-3&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/8ef49c8ba69b10561f46f03352086183c11731a4@2xl.jpeg",
@@ -15505,6 +15721,9 @@
       "1569322201",
       "134054942",
       "UCesE-qIip8qYuCk-PfV9RXA"
+    ],
+    "episodes": [
+      "3"
     ]
   },
   "0f05b5a4e1751416": {
@@ -15517,7 +15736,7 @@
     "artistDisplay": "GROTESQQQUE, Rei Yasuda & Myuk",
     "artistDisplayCount": 3,
     "kind": "IN",
-    "kindLabel": "Insert",
+    "kindLabel": "Insert (ep 2)",
     "spotify": "https://open.spotify.com/track/638rNPWmqsA8MPZ4biO8OA",
     "apple": "https://geo.music.apple.com/album/6811036768?i=6811036769&at=1001l384j&ct=website-grotesqqque-in-ep-2&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/041de57b29e41e94c42493b44782c208b26bce95@2xl.jpeg",
@@ -15592,6 +15811,9 @@
       "5797",
       "Myuk",
       "7oVNI7cJUA5f1Qvu8vQlq9"
+    ],
+    "episodes": [
+      "2"
     ]
   },
   "b3a6791f6b0a7e22": {
@@ -15604,7 +15826,7 @@
     "artistDisplay": "GROTESQQQUE, otoha, Shiina Natsukawa & Runaar",
     "artistDisplayCount": 4,
     "kind": "IN",
-    "kindLabel": "Insert",
+    "kindLabel": "Insert (ep 2)",
     "spotify": "https://open.spotify.com/track/4lx8rUPVVMQYXRseBRns73",
     "apple": "https://geo.music.apple.com/album/6807077603?i=6807077604&at=1001l384j&ct=website-grotesqqque-in-ep-2&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/a6f458157d13eec4ca86d58fe6053462b6a38c49@2xl.jpeg",
@@ -15678,6 +15900,9 @@
       "Shiina Natsukawa",
       "夏川椎菜",
       "1fkqRIgZFVQAsJT6D8L3JZ"
+    ],
+    "episodes": [
+      "2"
     ]
   },
   "6f999e7a66dcf64a": {
@@ -15690,7 +15915,7 @@
     "artistDisplay": "GROTESQQQUE, ASCA & Kanon Shizaki",
     "artistDisplayCount": 3,
     "kind": "IN",
-    "kindLabel": "Insert",
+    "kindLabel": "Insert (ep 2)",
     "spotify": "https://open.spotify.com/track/44fyVuN4FnMWGuYNkrPhDG",
     "apple": "https://geo.music.apple.com/album/6806183829?i=6806183831&at=1001l384j&ct=website-grotesqqque-in-ep-2&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/bcfe3c45d7df6d457f45062cb44b5c0d57c7a711@2xl.jpeg",
@@ -15764,6 +15989,9 @@
       "Kanon Shizaki",
       "志崎樺音",
       "2s2f7DTKmw8BLRzzj2n5RH"
+    ],
+    "episodes": [
+      "2"
     ]
   },
   "dde9eab5c576c7df": {
@@ -15776,7 +16004,7 @@
     "artistDisplay": "GROTESQQQUE, Iori Noguchi & MIRI",
     "artistDisplayCount": 3,
     "kind": "IN",
-    "kindLabel": "Insert",
+    "kindLabel": "Insert (ep 2)",
     "spotify": "https://open.spotify.com/track/2FRf5fgRzgZ6cKBeEy9e8U",
     "apple": "https://geo.music.apple.com/album/6804476653?i=6804476666&at=1001l384j&ct=website-grotesqqque-in-ep-2&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/95ff53ed6ce55cab937b03cdcd0e520addd68263@2xl.jpeg",
@@ -15850,6 +16078,9 @@
       "25544",
       "MIRI",
       "1xfPSDV9Xxi4Yyuru7e6Ln"
+    ],
+    "episodes": [
+      "2"
     ]
   },
   "9567febed69dd221": {
@@ -15862,7 +16093,7 @@
     "artistDisplay": "GROTESQQQUE & Nanahira",
     "artistDisplayCount": 2,
     "kind": "IN",
-    "kindLabel": "Insert",
+    "kindLabel": "Insert (ep 1)",
     "spotify": "https://open.spotify.com/track/6CSDW9qhgBmDx8ElmsHrpK",
     "apple": "https://geo.music.apple.com/album/6799808405?i=6799808406&at=1001l384j&ct=website-grotesqqque-in-ep-1&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b96582a31a94aa13b085a3f77d14bd9e15833eef@2xl.jpeg",
@@ -15933,6 +16164,9 @@
       "509805207",
       "7597390",
       "UCyAy_NeCwbW4IaJ6EbjDKQA"
+    ],
+    "episodes": [
+      "1"
     ]
   },
   "803c3e7b76e6cd82": {
@@ -15945,7 +16179,7 @@
     "artistDisplay": "GROTESQQQUE & Mika Ichinose",
     "artistDisplayCount": 2,
     "kind": "IN",
-    "kindLabel": "Insert",
+    "kindLabel": "Insert (ep 1)",
     "spotify": "https://open.spotify.com/track/11Bmxx9RomNOYYTAniF5C7",
     "apple": "https://geo.music.apple.com/album/6799807912?i=6799808247&at=1001l384j&ct=website-grotesqqque-in-ep-1&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/42a5c789dea3eab305650e201f7128130509ca9d@2xl.jpeg",
@@ -16017,6 +16251,9 @@
       "1508716229",
       "406241072",
       "UCrVWSI_RyqwqunM4NIjNjKA"
+    ],
+    "episodes": [
+      "1"
     ]
   },
   "e06d24aa1c4cfd14": {
@@ -16029,7 +16266,7 @@
     "artistDisplay": "GROTESQQQUE & Nanahira",
     "artistDisplayCount": 2,
     "kind": "IN",
-    "kindLabel": "Insert",
+    "kindLabel": "Insert (ep 1)",
     "spotify": "https://open.spotify.com/track/3B4aiVAdznTrJlr2FjxyIR",
     "apple": "https://geo.music.apple.com/album/6791445851?i=6791445854&at=1001l384j&ct=website-grotesqqque-in-ep-1&app=music",
     "thumbnail": "https://cdn.aniplaylist.com/thumbnails/7eedfdf8a5677542dd18a526e8a1a4242ce1352d@2xl.jpeg",
@@ -16100,10 +16337,13 @@
       "509805207",
       "7597390",
       "UCyAy_NeCwbW4IaJ6EbjDKQA"
+    ],
+    "episodes": [
+      "1"
     ]
   },
   "eb31af97a76991a5": {
-    "firstSeen": "2026-10-10T08:09:10.389Z",
+    "firstSeen": "2026-09-29T07:36:58.836Z",
     "season": "Fall 2026",
     "id": "28004",
     "anime": "Dandivine",
@@ -16174,6 +16414,7 @@
       "type": "ED",
       "sequence": 1,
       "version": 1
-    }
+    },
+    "episodes": []
   }
 }
