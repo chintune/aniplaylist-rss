@@ -1,17 +1,27 @@
+Warning: truncated output (original token count: 30785)
+Total output lines: 3676
+
 import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
 import { chromium } from "playwright";
+import { assertCompleteScrape, buildSpotifyReferences, cdataSafe } from "./lib/scrape-safety.mjs";
 
 const ROOT = process.cwd();
 const CFG = JSON.parse(await fs.readFile(path.join(ROOT, "seasons.json"), "utf8"));
+if (
+  !CFG || !Array.isArray(CFG.seasons) || CFG.seasons.length === 0 ||
+  CFG.seasons.some(season => typeof season !== "string" || !season.trim()) ||
+  new Set(CFG.seasons).size !== CFG.seasons.length
+) {
+  throw new Error("seasons.json must contain a nonempty array of unique season names.");
+}
 const RSS_DIR = path.join(ROOT, "rss");
 const DEBUG_DIR = path.join(ROOT, "debug");
 const SITE_DIR = path.join(ROOT, "site");
 const SONGS_DIR = path.join(SITE_DIR, "song");
 const BROWSE_DIR = path.join(SITE_DIR, "browse");
 const STATE_PATH = path.join(ROOT, "state.json");
-const CACHE_PATH = path.join(ROOT, "resolve-cache.json");
 
 /*
  * Spotify source of truth for the CURRENT scrape only.
@@ -22,12 +32,11 @@ const CACHE_PATH = path.join(ROOT, "resolve-cache.json");
  */
 const SPOTIFY_CURRENT_PATH = path.join(ROOT, "spotify-current.json");
 const SPOTIFY_PLAYLISTS_PATH = path.join(ROOT, "spotify-playlists.json");
-const currentSpotifyTracks = {};
+const currentSpotifySources = {};
 let spotifyPlaylists = {};
-try {
-  spotifyPlaylists = JSON.parse(await fs.readFile(SPOTIFY_PLAYLISTS_PATH, "utf8"));
-} catch {
-  spotifyPlaylists = {};
+spotifyPlaylists = JSON.parse(await fs.readFile(SPOTIFY_PLAYLISTS_PATH, "utf8"));
+if (!spotifyPlaylists || typeof spotifyPlaylists !== "object" || Array.isArray(spotifyPlaylists)) {
+  throw new Error("spotify-playlists.json must contain a JSON object.");
 }
 
 await fs.mkdir(RSS_DIR, { recursive: true });
@@ -44,17 +53,15 @@ const SITE_BASE = String(
 const BUILD_STARTED_AT = new Date(Math.floor(Date.now() / 1000) * 1000).toISOString();
 
 let state = {};
-let resolveCache = {};
-
-try { state = JSON.parse(await fs.readFile(STATE_PATH, "utf8")); } catch {}
-
-// v7/v8 cached arbitrary Spotify URLs from rendered pages. Never reuse them.
-// v9 starts a new validated resolver cache.
 try {
-  const oldCache = JSON.parse(await fs.readFile(CACHE_PATH, "utf8"));
-  resolveCache = oldCache && oldCache.__cacheVersion === 2 ? oldCache : { __cacheVersion: 2 };
-} catch {
-  resolveCache = { __cacheVersion: 2 };
+  state = JSON.parse(await fs.readFile(STATE_PATH, "utf8"));
+} catch (error) {
+  if (error.code !== "ENOENT") {
+    throw new Error(`Could not read ${path.basename(STATE_PATH)}: ${error.message}`);
+  }
+}
+if (!state || typeof state !== "object" || Array.isArray(state)) {
+  throw new Error("state.json must contain a JSON object.");
 }
 
 const SPOTIFY_RE = /https?:\/\/open\.spotify\.com\/(?:track|album|playlist|artist)\/[A-Za-z0-9]+/i;
@@ -387,140 +394,6 @@ function normaliseHit(hit) {
     animeCandidates: animeTitles,
     artistCandidates: artists,
   };
-}
-function normalizeForMatch(value) {
-  return String(value ?? "")
-    .toLowerCase()
-    .normalize("NFKC")
-    .replace(/[\u200B-\u200D\uFEFF]/g, "")
-    .replace(/[^\p{Letter}\p{Number}]+/gu, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-function significantWords(value) {
-  return normalizeForMatch(value)
-    .split(" ")
-    .filter(w => w.length >= 3)
-    .slice(0, 12);
-}
-
-function pageMatchesItem(bodyText, item) {
-  const body = normalizeForMatch(bodyText);
-  const song = normalizeForMatch(item.song);
-  const anime = normalizeForMatch(item.anime);
-
-  // The detail page must at least mention the song title.
-  if (song && !body.includes(song)) return false;
-
-  // Anime title is a second guard against accidentally resolving a generic/
-  // stale page. For very long titles, accept a strong word overlap.
-  if (anime) {
-    if (body.includes(anime)) return true;
-
-    const words = significantWords(anime);
-    const matches = words.filter(w => body.includes(w)).length;
-    if (words.length >= 3 && matches >= Math.max(2, Math.ceil(words.length * 0.5))) return true;
-
-    return false;
-  }
-
-  return !!song;
-}
-
-function pageSaysUnavailable(bodyText) {
-  const body = normalizeForMatch(bodyText);
-
-  const phrases = [
-    "not available for streaming yet",
-    "not yet released on streaming platforms",
-    "not available on streaming",
-    "notify me",
-    "add it to your wishlist",
-    "wishlist to be notified",
-  ];
-
-  return phrases.some(p => body.includes(p));
-}
-
-async function resolveSpotifyFromDetail(page, item) {
-  if (!item.detailUrl || !/^https?:\/\//i.test(item.detailUrl)) return "";
-
-  const key = item.detailUrl;
-  const cached = resolveCache[key];
-
-  // Only reuse the new validated cache format. Older v7/v8 cache entries may
-  // contain false positives produced by the old resolver.
-  if (cached && cached.version === 2 && typeof cached.spotify === "string") {
-    return cached.spotify;
-  }
-
-  try {
-    await page.goto(item.detailUrl, {
-      waitUntil: "domcontentloaded",
-      timeout: 45000,
-    });
-
-    await page.waitForTimeout(1200);
-
-    const bodyText = await page.locator("body").innerText().catch(() => "");
-    const matchesItem = pageMatchesItem(bodyText, item);
-
-    if (!matchesItem) {
-      resolveCache[key] = {
-        version: 2,
-        spotify: "",
-        status: "mismatch",
-        checkedAt: new Date().toISOString(),
-      };
-      return "";
-    }
-
-    // This is the most important guard: AniPlaylist explicitly marks these
-    // cards/pages as unavailable and shows "Notify me". Never trust any
-    // unrelated Spotify URL that happens to be present in the page HTML.
-    if (pageSaysUnavailable(bodyText)) {
-      resolveCache[key] = {
-        version: 2,
-        spotify: "",
-        status: "unavailable",
-        checkedAt: new Date().toISOString(),
-      };
-      return "";
-    }
-
-    // Only use a Spotify URL from a real anchor, not arbitrary text in scripts,
-    // JSON-LD, site navigation, recommendations, etc.
-    const hrefs = await page.locator('a[href]').evaluateAll(as =>
-      as.map(a => ({
-        href: a.href || "",
-        text: (a.innerText || a.getAttribute("aria-label") || "").trim()
-      }))
-    ).catch(() => []);
-
-    const candidates = hrefs
-      .map(x => x.href)
-      .filter(h => SPOTIFY_RE.test(h));
-
-    const spotify = candidates[0]?.match(SPOTIFY_RE)?.[0] || "";
-
-    resolveCache[key] = {
-      version: 2,
-      spotify,
-      status: spotify ? "available" : "no-spotify-link",
-      checkedAt: new Date().toISOString(),
-    };
-
-    return spotify;
-  } catch (e) {
-    resolveCache[key] = {
-      version: 2,
-      spotify: "",
-      status: "error",
-      checkedAt: new Date().toISOString(),
-      error: String(e.message || e).slice(0, 300),
-    };
-    return "";
-  }
 }
 function rssEscape(s) {
   return String(s)
@@ -1627,441 +1500,6 @@ async function resolveAnimeThemesForSeason(page, items, season) {
 }
 
 
-function buildHomePage(seasons, featuredSeason) {
-  const rows = Array.isArray(seasons) ? seasons : [];
-  const featured =
-    rows.find(row => String(row.season) === String(featuredSeason)) ||
-    rows.find(row => Number(row.releases || 0) > 0) ||
-    rows[0] ||
-    {};
-
-  const featuredSlug = featured.season ? slug(featured.season) : "";
-  const featuredUrl = featuredSlug
-    ? `${SITE_BASE}/browse/${featuredSlug}/`
-    : `${SITE_BASE}/`;
-
-  const seasonCards = rows
-    .filter(row => String(row.season) !== String(featuredSeason))
-    .map(row => {
-    const season = String(row.season || "Season");
-    const seasonSlug = slug(season);
-    const releases = Number(row.releases || 0);
-    const videos = Number(row.watchVideos || 0);
-    const playlist = row.spotifyPlaylist || "";
-    const images = Array.isArray(row.featureImages) ? row.featureImages.slice(0, 3).filter(Boolean) : [];
-
-    const mosaic = images.length
-      ? `<div class="season-mosaic">${images.map(src => `<img src="${htmlEscape(src)}" alt="" loading="lazy">`).join("")}</div>`
-      : '<div class="season-mosaic empty"><span>No releases yet</span></div>';
-
-    return `
-      <article class="season-card">
-        ${mosaic}
-        <div class="season-card-body">
-          <div class="season-kicker">${releases ? "AVAILABLE" : "COMING SOON"}</div>
-          <h3>${htmlEscape(season)}</h3>
-          <div class="season-meta"><span>${releases} releases</span><span>${videos} videos</span></div>
-          <div class="season-actions">
-            <a class="season-open" href="${htmlEscape(SITE_BASE)}/browse/${htmlEscape(seasonSlug)}/">Browse season <span>→</span></a>
-            ${playlist ? `<a class="season-spotify" href="${htmlEscape(playlist)}" target="_blank" rel="noopener noreferrer" title="Spotify playlist">Spotify</a>` : ""}
-          </div>
-        </div>
-      </article>
-    `;
-  }).join("");
-
-  const featuredImages = Array.isArray(featured.featureImages)
-    ? featured.featureImages.slice(0, 3).filter(Boolean)
-    : [];
-
-  const featuredArt = featuredImages.length
-    ? `<div class="featured-art">${featuredImages.map(src => `<img src="${htmlEscape(src)}" alt="" loading="eager">`).join("")}</div>`
-    : '<div class="featured-art fallback"><span>No cover art yet</span></div>';
-
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090711">
-  <link rel="icon" type="image/svg+xml" href="${htmlEscape(SITE_BASE)}/favicon.svg">
-  <link rel="canonical" href="${htmlEscape(SITE_BASE)}/">
-  <title>AniPlaylist — Anime Music Hub</title>
-  <meta name="description" content="Anime openings, endings, insert songs and OSTs organized by season.">
-
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #090711;
-      --panel: rgba(20,16,30,.9);
-      --line: rgba(255,255,255,.09);
-      --line2: rgba(255,255,255,.14);
-      --text: #f7f3ff;
-      --muted: #aaa2b5;
-      --muted2: #766d82;
-      --purple: #a978ff;
-      --pink: #ff5ca8;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--bg); }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(900px 540px at 8% -10%, rgba(169,120,255,.2), transparent 60%),
-        radial-gradient(800px 520px at 100% 18%, rgba(255,92,168,.1), transparent 62%),
-        linear-gradient(180deg, #090711 0%, #0b0811 55%, #090711 100%);
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .13;
-      background-image:
-        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);
-      background-size: 44px 44px;
-    }
-    a { color: inherit; }
-    svg { display:block; width:1em; height:1em; }
-
-    .wrap { width:min(1180px,calc(100% - 30px)); margin:0 auto; }
-
-    .topbar {
-      height:76px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
-    .brand {
-      display:inline-flex;
-      align-items:center;
-      gap:11px;
-      text-decoration:none;
-    }
-    .brand-mark {
-      display:grid;
-      place-items:center;
-      width:42px;
-      height:42px;
-      border-radius:13px;
-      border:1px solid rgba(255,255,255,.12);
-      background:linear-gradient(135deg,rgba(169,120,255,.96),rgba(120,87,255,.8) 52%,rgba(255,92,168,.82));
-      box-shadow:0 14px 35px rgba(120,87,255,.23);
-      font-size:17px;
-    }
-    .brand-copy strong { display:block; font-size:15px; line-height:1; letter-spacing:-.02em; }
-    .brand-copy span { display:block; margin-top:4px; color:var(--muted2); font-size:10px; font-weight:800; }
-
-    .topnav { display:flex; gap:7px; }
-    .topnav a {
-      display:inline-flex;
-      align-items:center;
-      min-height:34px;
-      padding:0 11px;
-      border:1px solid var(--line);
-      border-radius:10px;
-      color:#9c93a8;
-      text-decoration:none;
-      font-size:10px;
-      font-weight:900;
-    }
-    .topnav a:hover { color:#fff; background:rgba(255,255,255,.03); border-color:var(--line2); }
-
-    .hero {
-      position:relative;
-      overflow:hidden;
-      padding:52px;
-      border:1px solid var(--line);
-      border-radius:30px;
-      background:
-        radial-gradient(520px 260px at 8% 0%,rgba(169,120,255,.18),transparent 72%),
-        radial-gradient(500px 260px at 92% 100%,rgba(255,92,168,.09),transparent 72%),
-        linear-gradient(135deg,rgba(24,18,40,.92),rgba(11,8,18,.97));
-      box-shadow:0 30px 100px rgba(0,0,0,.3);
-    }
-    .hero-grid { display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:36px; align-items:center; }
-    .eyebrow {
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      min-height:27px;
-      padding:0 10px;
-      border:1px solid rgba(169,120,255,.25);
-      border-radius:999px;
-      background:rgba(169,120,255,.08);
-      color:#ccb7ff;
-      font-size:9px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.13em;
-    }
-    .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--pink); box-shadow:0 0 14px rgba(255,92,168,.8); }
-    h1 { margin:15px 0 0; max-width:730px; font-size:clamp(45px,6.4vw,78px); line-height:.92; letter-spacing:-.065em; }
-    .hero-copy { max-width:690px; margin-top:17px; color:var(--muted); font-size:14px; line-height:1.7; }
-    .hero-copy strong { color:#e7ddf3; }
-    .hero-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:23px; }
-    .primary,.secondary {
-      display:inline-flex;
-      align-items:center;
-      min-height:42px;
-      padding:0 14px;
-      border-radius:12px;
-      text-decoration:none;
-      font-size:10px;
-      font-weight:900;
-      transition:transform .15s ease,filter .15s ease;
-    }
-    .primary { color:#fff; background:linear-gradient(135deg,#8d6aff,#6a57ff); box-shadow:0 14px 32px rgba(120,87,255,.18); }
-    .secondary { color:#b7afc0; border:1px solid var(--line); background:rgba(255,255,255,.025); }
-    .primary:hover,.secondary:hover { transform:translateY(-1px); filter:brightness(1.06); }
-
-    .hero-eq { height:170px; display:flex; align-items:flex-end; justify-content:center; gap:9px; }
-    .hero-eq i {
-      display:block;
-      width:9px;
-      border-radius:999px;
-      background:linear-gradient(180deg,#f5eaff,#a978ff 55%,#6b50ff);
-      box-shadow:0 0 26px rgba(169,120,255,.2);
-      animation:bounce 1.15s ease-in-out infinite alternate;
-      transform-origin:bottom;
-    }
-    .hero-eq i:nth-child(1){height:36px;animation-delay:-.2s}
-    .hero-eq i:nth-child(2){height:80px;animation-delay:-.7s}
-    .hero-eq i:nth-child(3){height:130px;animation-delay:-.1s}
-    .hero-eq i:nth-child(4){height:68px;animation-delay:-.55s}
-    .hero-eq i:nth-child(5){height:112px;animation-delay:-.3s}
-    .hero-eq i:nth-child(6){height:56px;animation-delay:-.9s}
-    .hero-eq i:nth-child(7){height:96px;animation-delay:-.45s}
-    @keyframes bounce { from{transform:scaleY(.48);opacity:.65} to{transform:scaleY(1);opacity:1} }
-
-    .section { padding-top:30px; }
-    .section-head { display:flex; justify-content:space-between; align-items:end; gap:14px; margin-bottom:13px; }
-    .section-head h2 { margin:0; font-size:22px; letter-spacing:-.04em; }
-    .section-head p { margin:4px 0 0; color:var(--muted2); font-size:10px; }
-
-    .featured {
-      display:grid;
-      grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:linear-gradient(145deg,rgba(23,18,37,.94),rgba(12,9,19,.97));
-    }
-    .featured-art {
-      height:260px;
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      grid-template-rows:1fr 1fr;
-      gap:3px;
-      padding:3px;
-      overflow:hidden;
-      background:#100b18;
-    }
-    .featured-art img {
-      width:100%;
-      height:100%;
-      min-width:0;
-      min-height:0;
-      object-fit:cover;
-      border-radius:11px;
-    }
-    .featured-art img:first-child { grid-row:1 / span 2; }
-    .featured-art img:nth-child(n+4) { display:none; }
-    .featured-art.fallback {
-      display:grid;
-      place-items:center;
-      color:#81768e;
-      font-size:10px;
-      font-weight:900;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .featured-copy { min-width:0; padding:28px 30px; display:flex; flex-direction:column; justify-content:center; }
-    .featured-kicker { color:#97899f; font-size:9px; font-weight:900; text-transform:uppercase; letter-spacing:.13em; }
-    .featured h2 { margin:8px 0 0; font-size:clamp(28px,3.5vw,46px); line-height:.96; letter-spacing:-.055em; }
-    .featured-text { margin-top:9px; color:var(--muted); font-size:11px; line-height:1.6; }
-    .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:7px; margin-top:18px; }
-    .stat { min-width:0; padding:11px 12px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.02); }
-    .stat label { display:block; color:var(--muted2); font-size:8px; font-weight:900; text-transform:uppercase; letter-spacing:.1em; }
-    .stat strong { display:block; margin-top:4px; font-size:18px; }
-    .featured-actions { display:flex; flex-wrap:wrap; gap:7px; margin-top:17px; }
-
-    .season-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
-    .season-card { overflow:hidden; border:1px solid var(--line); border-radius:19px; background:linear-gradient(145deg,rgba(22,17,34,.92),rgba(12,9,19,.97)); transition:transform .16s ease,border-color .16s ease; }
-    .season-card:hover { transform:translateY(-3px); border-color:rgba(169,120,255,.24); }
-    .season-mosaic {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      width: 100%;
-      height: 118px !important;
-      min-height: 118px !important;
-      max-height: 118px !important;
-      gap: 3px;
-      overflow: hidden;
-      background: #100b18;
-    }
-    .season-mosaic img {
-      display: block;
-      width: 100% !important;
-      height: 118px !important;
-      min-height: 0 !important;
-      max-height: 118px !important;
-      object-fit: cover;
-      overflow: hidden;
-    }
-    .season-mosaic.empty {
-      display:grid;
-      place-items:center;
-      color:#655d6c;
-      font-size:9px;
-      font-weight:900;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      background:
-        radial-gradient(circle at 30% 25%, rgba(169,120,255,.08), transparent 45%),
-        radial-gradient(circle at 75% 75%, rgba(255,92,168,.055), transparent 45%),
-        #100b18;
-    }
-    .season-card-body {
-      position: relative;
-      z-index: 2;
-      min-height: 118px;
-      padding: 15px 16px 16px;
-      background: linear-gradient(180deg, rgba(14,10,22,.98), rgba(10,8,17,1));
-    }
-
-    .season-card h3 {
-      margin: 8px 0 0;
-      color: var(--text);
-      font-size: 23px;
-      line-height: 1.05;
-      letter-spacing: -.045em;
-      text-shadow: 0 1px 18px rgba(0,0,0,.28);
-    }
-    .season-kicker { color:#8e819b; font-size:8px; font-weight:900; letter-spacing:.13em; }
-    .season-meta { display:flex; gap:8px; margin-top:6px; color:var(--muted2); font-size:10px; font-weight:800; }
-    .season-actions { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:13px; }
-    .season-open { display:inline-flex; align-items:center; gap:6px; color:#d8cdf0; text-decoration:none; font-size:10px; font-weight:900; }
-    .season-open:hover { color:#fff; }
-    .season-spotify { color:#6fda9a; text-decoration:none; font-size:9px; font-weight:900; }
-    footer { padding:28px 0 36px; color:#5f5768; text-align:center; font-size:9px; }
-    .github-link { color:#8d82a0; text-decoration:none; font-weight:900; }
-    .github-link:hover { color:#d9ceeb; }
-
-    @media(max-width:920px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-eq{display:none}
-      .featured{grid-template-columns:1fr}
-      .featured-art{height:260px;min-height:260px}
-      .season-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
-    @media(max-width:640px){
-      .wrap{width:min(100%,calc(100% - 18px))}
-      .topbar{height:66px}
-      .topnav{display:none}
-      .hero{padding:30px 20px;border-radius:22px}
-      h1{font-size:48px}
-      .hero-copy{font-size:13px}
-      .featured-copy{padding:24px 20px}
-      .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .season-grid{grid-template-columns:1fr}
-    }
-    @media(prefers-reduced-motion:reduce){
-      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header class="topbar">
-      <a class="brand" href="${htmlEscape(SITE_BASE)}/" aria-label="AniPlaylist home">
-        <span class="brand-mark">♫</span>
-        <span class="brand-copy"><strong>AniPlaylist</strong><span>Anime Music Hub</span></span>
-      </a>
-      <nav class="topnav" aria-label="Site navigation">
-        <a href="#seasons">Seasons</a>
-        ${featuredSlug ? `<a href="${htmlEscape(featuredUrl)}">Current releases</a>` : ""}
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> Anime Music · RSS · Streaming · Video</div>
-            <h1>Anime music,<br>organized by season.</h1>
-            <div class="hero-copy">
-              A focused hub for <strong>anime openings, endings, insert songs, and OSTs</strong>.
-              Browse a season, search multilingual titles, open your streaming link, or watch a verified AnimeThemes video.
-            </div>
-            <div class="hero-actions">
-              <a class="primary" href="#featured">Browse seasons →</a>
-            </div>
-          </div>
-          <div class="hero-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        </div>
-      </section>
-
-      ${featured.season ? `
-      <section id="featured" class="section">
-        <div class="section-head">
-          <div>
-            <h2>Featured season</h2>
-            <p>Choose the season, then use the full catalog tools there.</p>
-          </div>
-        </div>
-        <article class="featured">
-          ${featuredArt}
-          <div class="featured-copy">
-            <div class="featured-kicker">Current catalog</div>
-            <h2>${htmlEscape(featured.season)}</h2>
-            <div class="featured-text">
-              ${Number(featured.releases || 0)} releases · ${Number(featured.watchVideos || 0)} verified AnimeThemes videos.
-              Search, language switching, release-type filters, video-only filtering, and pagination live on the season page.
-            </div>
-            <div class="stats">
-              <div class="stat"><label>Releases</label><strong>${Number(featured.releases || 0)}</strong></div>
-              <div class="stat"><label>Watch videos</label><strong>${Number(featured.watchVideos || 0)}</strong></div>
-              <div class="stat"><label>Spotify</label><strong>${Number(featured.spotifyLinks || 0)}</strong></div>
-              <div class="stat"><label>Apple Music</label><strong>${Number(featured.appleLinks || 0)}</strong></div>
-            </div>
-            <div class="featured-actions">
-              <a class="primary" href="${htmlEscape(featuredUrl)}">Open ${htmlEscape(featured.season)} →</a>
-              <a class="secondary" href="${htmlEscape(SITE_BASE)}/rss/${htmlEscape(slug(featured.season))}.xml">RSS Feed</a>
-              ${featured.spotifyPlaylist ? `<a class="secondary" href="${htmlEscape(featured.spotifyPlaylist)}" target="_blank" rel="noopener noreferrer">Spotify Playlist</a>` : ""}
-            </div>
-          </div>
-        </article>
-      </section>
-      ` : ""}
-
-      <section id="seasons" class="section">
-        <div class="section-head">
-          <div>
-            <h2>Next seasons</h2>
-            <p>Explore upcoming and additional season catalogs.</p>
-          </div>
-        </div>
-        <div class="season-grid">
-          ${seasonCards || '<div class="season-empty">No other seasons configured yet.</div>'}
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      AniPlaylist · Anime Music Hub · Spotify · Apple Music · RSS · AnimeThemes ·
-      <a class="github-link" href="https://github.com/chintu-io" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-    </footer>
-  </div>
-</body>
-</html>`;
-}
 function buildBrowsePage(season, items, options = {}) {
   const isHome = options.isHome === true;
   const slugSeason = slug(season);
@@ -2299,128 +1737,7 @@ function buildBrowsePage(season, items, options = {}) {
     }
 
     .brand-link strong { font-size: 15px; }
-    .brand-link span:last-child { color: var(--muted); font-size: 12px; font-weight: 700; }
-
-    .back {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .back:hover { color: var(--text); }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      background:
-        radial-gradient(500px 240px at 12% 0%, rgba(169,120,255,.17), transparent 72%),
-        radial-gradient(600px 260px at 84% 100%, rgba(255,92,168,.08), transparent 72%),
-        linear-gradient(135deg, rgba(23,18,37,.94), rgba(13,10,22,.9));
-      box-shadow: var(--shadow);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      right: -130px;
-      top: -150px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(169,120,255,.18), transparent 66%);
-      filter: blur(4px);
-      pointer-events: none;
-    }
-
-    .hero-top {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 11px;
-      border: 1px solid rgba(169,120,255,.24);
-      border-radius: 999px;
-      background: rgba(169,120,255,.08);
-      color: #ceb8ff;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-    }
-
-    .eyebrow-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--pink);
-      box-shadow: 0 0 14px rgba(255,92,168,.8);
-    }
-
-    h1 {
-      margin: 12px 0 0;
-      font-size: clamp(38px, 6vw, 72px);
-      line-height: .94;
-      letter-spacing: -.06em;
-    }
-
-    .hero-copy {
-      max-width: 720px;
-      margin-top: 15px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .hero-copy strong { color: #e4d8ff; }
-
-    .hero-visual {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: flex-end;
-      gap: 7px;
-      min-height: 94px;
-      padding: 0 8px 8px 0;
-    }
-
-    .eq {
-      display: flex;
-      align-items: flex-end;
-      gap: 6px;
-      height: 90px;
-    }
-
-    .eq i {
-      display: block;
-      width: 7px;
-      min-height: 14px;
-      border-radius: 99px;
-      background: linear-gradient(180deg, #f6eaff, #a978ff 52%, #6b50ff);
-      box-shadow: 0 0 22px rgba(169,120,255,.28);
-      animation: equalize 1s ease-in-out infinite alternate;
-      transform-origin: bottom;
-    }
-
-    .eq i:nth-child(1) { height: 26px; animation-delay: -.55s; }
-    .eq i:nth-child(2) { height: 58px; animation-delay: -.2s; }
-    .eq i:nth-child(3) { height: 40px; animation-delay: -.75s; }
-    .eq i:nth-child(4) { height: 76px; animation-delay: -.35s; }
-    .eq i:nth-child(5) { height: 32px; animation-delay: -.6s; }
-    .eq i:nth-child(6) { height: 64px; animation-delay: -.1s; }
+    .brand-link span:last-child { color: v…785 tokens truncated…h-child(6) { height: 64px; animation-delay: -.1s; }
     .eq i:nth-child(7) { height: 46px; animation-delay: -.45s; }
 
     @keyframes equalize {
@@ -3644,12 +2961,6 @@ function buildBrowsePage(season, items, options = {}) {
 </html>`;
 }
 
-function buildBrowseRedirectPage(season, items) {
-  // Kept as a separate helper so future layouts can be swapped without
-  // changing RSS generation.
-  return buildBrowsePage(season, items);
-}
-
 async function makeRssItem(item, season) {
   const kind = item.kind || "Other";
 
@@ -3815,7 +3126,7 @@ function buildRss(season, items) {
 
   const body = items.map(i => `    <item>
       <title>${rssEscape(i.title)}</title>
-      <description><![CDATA[${i.description}]]></description>
+      <description><![CDATA[${cdataSafe(i.description)}]]></description>
       <link>${rssEscape(i.link)}</link>
       <guid isPermaLink="false">${rssEscape(i.guid)}</guid>
       <pubDate>${new Date(i.pubDate).toUTCString()}</pubDate>
@@ -3852,8 +3163,6 @@ const context = await browser.newContext({
 const page = await context.newPage();
 const summary = [];
 const catalogRecords = [];
-let homeSeason = "";
-let homeSeasonItems = [];
 console.log(`Thumbnail resolver self-test: ${thumbnailResolverSelfTest()}`);
 
 for (const season of CFG.seasons) {
@@ -3861,6 +3170,8 @@ for (const season of CFG.seasons) {
   const diag = {
     season,
     url,
+    pageLoaded: false,
+    scrapeValidated: false,
     resultCount: null,
     animeThemesChecked: 0,
     animeThemesMatched: 0,
@@ -3906,6 +3217,7 @@ for (const season of CFG.seasons) {
 
   try {
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 120000 });
+    diag.pageLoaded = true;
     await page.waitForTimeout(7000);
 
     // Keep scrolling until the page stops changing or 60 passes have occurred.
@@ -4011,12 +3323,42 @@ for (const season of CFG.seasons) {
 
   diag.normalized = normalized.length;
 
+  try {
+    const completeness = assertCompleteScrape({
+      season,
+      pageLoaded: diag.pageLoaded,
+      errors: diag.errors,
+      hitArrays,
+      uniqueHits: diag.uniqueHits,
+      normalized: diag.normalized,
+      resultCount: diag.resultCount,
+    });
+    Object.assign(diag, completeness, { scrapeValidated: true });
+  } catch (error) {
+    diag.errors.push(error.message);
+    await fs.writeFile(
+      path.join(DEBUG_DIR, `${slug(season)}.json`),
+      JSON.stringify({
+        ...diag,
+        hitMeta: hitArrays.map(response => ({
+          url: response.url,
+          page: response.page,
+          nbHits: response.nbHits,
+          hitsPerPage: response.hitsPerPage,
+          nbPages: response.nbPages,
+          count: response.hits.length,
+        })),
+      }, null, 2)
+    );
+    await browser.close();
+    throw error;
+  }
+
   const withSpotify = normalized.filter(x => !!x.spotify);
   const withApple = normalized.filter(x => !!x.apple);
   const withPlatform = normalized.filter(x => !!x.spotify || !!x.apple);
   const withDetailUrl = normalized.filter(x => !!x.detailUrl);
   diag.recordThumbnails = normalized.filter(x => !!x.thumbnail).length;
-  console.log(`Normalized records with AniPlaylist detail URL: ${withDetailUrl.length}`);
   diag.withSpotify = withSpotify.length;
   diag.withApple = withApple.length;
   diag.withDetailUrl = withDetailUrl.length;
@@ -4068,7 +3410,6 @@ for (const season of CFG.seasons) {
   const animeThemesResult = await resolveAnimeThemesForSeason(page, usable, season);
   diag.animeThemesChecked = animeThemesResult.checked;
   diag.animeThemesMatched = animeThemesResult.matched;
-  diag.animeThemesSeasonLinks = animeThemesResult.seasonLinks;
   diag.animeThemesSeasonLinks = animeThemesResult.seasonLinks;
 
   // Save a concise but rich diagnostic file.
@@ -4139,11 +3480,6 @@ for (const season of CFG.seasons) {
     buildBrowsePage(season, rssItems)
   );
 
-  if (!homeSeasonItems.length && rssItems.length) {
-    homeSeason = season;
-    homeSeasonItems = rssItems;
-  }
-
   // buildRss sorts by pubDate (firstSeen) descending; preserve that exact
   // previous Browse/RSS order in the single-page catalog.
   const rssXml = buildRss(season, rssItems);
@@ -4155,21 +3491,14 @@ for (const season of CFG.seasons) {
   // buildRss sorts rssItems in place with the same comparator used by the
   // website catalog: newest first, stable source-ID tie-break for same-batch entries.
   // Create Spotify refs only after this sort, so playlist order follows the site.
-  currentSpotifyTracks[season] = [
-    ...new Set(
-      rssItems
-        .map(item => {
-          const match = String(item.spotify || "").match(
-            /https?:\/\/open\.spotify\.com\/track\/([A-Za-z0-9]+)/i
-          );
-          return match?.[1] || "";
-        })
-        .filter(Boolean)
-    ),
-  ];
+  currentSpotifySources[season] = {
+    complete: true,
+    resultCount: diag.expectedHits,
+    refs: buildSpotifyReferences(rssItems),
+  };
 
   console.log(
-    `${season}: current Spotify tracks=${currentSpotifyTracks[season].length}`
+    `${season}: current Spotify references=${currentSpotifySources[season].refs.length}`
   );
   catalogRecords.push(...rssItems.map(item => ({
     ...item,
@@ -4196,15 +3525,6 @@ await fs.writeFile(
 );
 
 /*
- * The root URL is the primary UI. Keep it focused on the first populated
- * configured season instead of maintaining a second, older landing page.
- */
-await fs.writeFile(
-  path.join(SITE_DIR, "index.html"),
-  buildHomePage(summary, homeSeason)
-);
-
-/*
  * Persist ONLY the Spotify IDs discovered during this run.
  *
  * This file is intentionally separate from state.json.
@@ -4212,12 +3532,14 @@ await fs.writeFile(
  */
 await fs.writeFile(
   SPOTIFY_CURRENT_PATH,
-  JSON.stringify(currentSpotifyTracks, null, 2) + "\n"
+  JSON.stringify({
+    version: 2,
+    generatedAt: BUILD_STARTED_AT,
+    seasons: currentSpotifySources,
+  }, null, 2) + "\n"
 );
 
 await fs.writeFile(STATE_PATH, JSON.stringify(state, null, 2) + "\n");
-resolveCache.__cacheVersion = 2;
-await fs.writeFile(CACHE_PATH, JSON.stringify(resolveCache, null, 2) + "\n");
 
 await browser.close();
 
@@ -4229,26 +3551,8 @@ await fs.writeFile(path.join(ROOT, "build-summary.txt"), summaryText + "\n");
 console.log("\n===== FINAL SUMMARY =====\n" + summaryText);
 
 console.log("\n===== CURRENT SPOTIFY SOURCE OF TRUTH =====");
-for (const season of CFG.seasons) {
-  console.log(
-    `${season}: ${currentSpotifyTracks[season]?.length || 0} tracks`
-  );
+for (const [season, source] of Object.entries(currentSpotifySources)) {
+  console.log(`${season}: ${source.refs.length} references`);
 }
 console.log(`Written: ${SPOTIFY_CURRENT_PATH}`);
 
-// Do not fail because an unreleased future season has no results.
-// Do fail for a populated season if the site gave us hits but not even one
-// recognizable record. That means the schema changed and needs attention.
-const bad = summary.find(s =>
-  Number.isFinite(s.resultCount) &&
-  s.resultCount > 0 &&
-  s.uniqueHits > 0 &&
-  s.normalized === 0
-);
-
-if (bad) {
-  console.error(
-    `Schema extraction failed for ${bad.season}: AniPlaylist returned ${bad.resultCount} results and ${bad.uniqueHits} unique hits, but 0 hits could be normalized. See debug/${slug(bad.season)}.json.`
-  );
-  process.exit(2);
-}

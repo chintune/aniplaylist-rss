@@ -4,9 +4,11 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "build": "node scrape.mjs"
+    "build": "node scrape.mjs",
+    "test": "node --test"
   },
   "dependencies": {
-    "playwright": "1.55.0"
+    "playwright": "1.64.0"
   }
 }
+
