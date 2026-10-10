@@ -495,33 +495,69 @@ const seasonUrl = season => "rss/"+slug(season)+".xml";
 const fullUrl = relative => new URL(relative,location.href).href;
 function notify(message){const el=$("#toast");el.textContent=message;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),1800)}
 async function getJSON(url){const response=await fetch(url,{cache:"no-store"});if(!response.ok)throw new Error("Could not load "+url+" ("+response.status+")");return response.json()}
+const ENGLISH_VARIANT_HINTS=new Set([
+ "a","an","the","and","or","of","to","in","on","with","from","for","is","are","be","my","your","our",
+ "world","worlds","strongest","witch","secret","saint","tale","great","reincarnated","limitless","influence",
+ "idol","days","season","story","dream","star","stars","night","moon","sun","love","heart","life","girl","girls",
+ "boy","boys","school","hero","heroes","magic","king","queen","road","brick","flower","flowers","song","songs",
+ "again","tomorrow","beyond","past","super","psychic","policeman","bloom","blue","sky","future","memory","memories",
+ "eternal","beautiful","another","clearing","goddess","believers","game","heavy","knight","system","know","knows",
+ "answer","already","dead","returner","returners","special","another","world","under","accepted","crush","make","potion"
+]);
+const ROMAJI_VARIANT_HINTS=new Set([
+ "no","wa","ga","wo","o","ni","de","to","mo","he","kara","made","nara","ne","yo","desu","masu","shita","shite",
+ "suru","seka","sekai","majo","hajimemashita","tensei","reijou","jou","kanashii","bokura","kimi","boku","watashi",
+ "kokoro","hoshi","meguru","eikyouroku","saikyou","uta","yoru","kaze","hana","mata","ashita","choujun","choujou",
+ "senpai","mikansei","mirai","yume","sora","koi","suki","daisuki","natsu","haru","fuyu","aki","niji","sakura",
+ "akari","hikari","yami","ame","arigatou","tsuki","aisuru","aisite","minna","kirai","shiawase","hajimari","owari",
+ "koe","yukionna","shinjitsu","kibou","hitori","kimi","boku","watashi"
+]);
+function hasJapaneseScript(value){return /[\u3040-\u30ff\u3400-\u9fff]/.test(String(value||""))}
+function normalizeVariantText(value){return String(value||"").toLowerCase().normalize("NFKC").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").replace(/\s+/g," ").trim()}
+function variantScore(value,mode){
+ const words=normalizeVariantText(value).split(" ").filter(Boolean);
+ if(!words.length)return -Infinity;
+ const englishHits=words.filter(word=>ENGLISH_VARIANT_HINTS.has(word)).length;
+ const romajiHits=words.filter(word=>ROMAJI_VARIANT_HINTS.has(word)).length;
+ if(mode==="english")return englishHits*7-romajiHits*6+(words.length>1?2:0)+(/^[A-Za-z0-9 .,'’!?:+&-]+$/.test(String(value||""))?1:0);
+ return romajiHits*8-englishHits*4+(/[aeiou]/i.test(String(value||""))?1:0);
+}
+function chooseVariant(candidates,mode,exclude=""){
+ const pool=candidates.filter(value=>value!==exclude&&!hasJapaneseScript(value));
+ return pool.map((value,index)=>({value,index,score:variantScore(value,mode)}))
+  .sort((a,b)=>b.score-a.score||a.index-b.index)[0]?.value||"";
+}
 function variants(rec,type){
  const key=type==="anime"?"animeCandidates":type==="artist"?"artistCandidates":"titleCandidates";
  const source=rec[key];
- const isJapanese=value=>/[\u3040-\u30ff\u3400-\u9fff]/.test(value);
- const candidates=(Array.isArray(source)?source:[])
-  .map(value=>String(value??"").trim())
-  .filter(value=>{
-   if(!value)return false;
-   // artistCandidates also contains database IDs, Spotify IDs and channel IDs.
-   if(type==="artist"&&(/^\d+$/.test(value)||/^[A-Za-z0-9_-]{16,}$/.test(value)))return false;
-   return true;
-  });
- if(candidates.length){
-  const jp=candidates.find(isJapanese);
-  const plain=candidates.find(value=>!isJapanese(value));
-  const romaji=candidates.find(value=>!isJapanese(value)&&value!==plain)||plain||candidates[0];
-  return {english:plain||candidates[0],romaji:romaji,japanese:jp||plain||candidates[0],all:candidates.join(" ")};
- }
- const list=String(rec[type]||"").split(/\s*,\s*/).map(x=>x.trim()).filter(Boolean);
- const jp=list.find(isJapanese);
- const eng=list.find(x=>!isJapanese(x))||list[0]||"";
- return {english:eng,romaji:eng,japanese:jp||eng,all:list.join(" ")};
+ const isUsable=value=>{
+  if(!value)return false;
+  if(type==="artist"&&/^\d+$/.test(value))return false;
+  // Long all-lowercase strings may be Romaji names, not IDs. Filter common provider IDs.
+  if(type==="artist"&&/^[A-Za-z0-9_-]{16,}$/.test(value)&&!/\s/.test(value)
+      &&(/[0-9]/.test(value)||/[A-Z]/.test(value)||/[_-]/.test(value)))return false;
+  return true;
+ };
+ const candidates=[...new Set([...(Array.isArray(source)?source:[]).map(value=>String(value??"").trim()),String(rec[type]||"").trim()].filter(isUsable))];
+ if(!candidates.length)return {english:"",romaji:"",japanese:"",all:""};
+ const jpPool=candidates.filter(hasJapaneseScript);
+ const japanese=jpPool.map((value,index)=>({
+   value,index,
+   score:(value.match(/[\u3040-\u30ff\u3400-\u9fff]/g)||[]).length*2
+        -(value.match(/[A-Za-z]/g)||[]).length
+ })).sort((a,b)=>b.score-a.score||a.index-b.index)[0]?.value||"";
+ const latin=candidates.filter(value=>!hasJapaneseScript(value));
+ let english=chooseVariant(latin,"english");
+ let romaji=chooseVariant(latin,"romaji",english);
+ if(latin.length===1){english=latin[0];romaji=latin[0]}
+ if(!english)english=latin[0]||japanese;
+ if(!romaji)romaji=latin.find(value=>value!==english)||english||japanese;
+ return {english:english||romaji||japanese,romaji:romaji||english||japanese,japanese:japanese||english||romaji,all:candidates.join(" ")};
 }
 
 function titleFor(rec,type){const v=variants(rec,type);return v[state.lang]||v.english||rec[type]||"Unknown"}
 function kindFor(rec){let k=String(rec.kind||rec.song_type_short||rec.song_type||rec.type||"Other").toUpperCase();if(["OP","OPENING"].includes(k))return"OP";if(["ED","ENDING"].includes(k))return"ED";if(["IN","INSERT","INSERT SONG","INSERT SONGS"].includes(k))return"IN";if(["OST","SOUNDTRACK","ORIGINAL SOUNDTRACK"].includes(k))return"OST";return["OTHER","UNKNOWN"].includes(k)?"Other":["OP","ED","IN","OST"].includes(k)?k:"Other"}
-function kindLabelFor(rec){const supplied=String(rec.kindLabel||rec.song_type||rec.type||"").trim();if(supplied&&!/^(OP|ED|IN|OST|TS|CS|VA|IMGA|IMGS|MV|PV|OTHER|UNKNOWN)$/i.test(supplied))return supplied;const code=String(rec.kind||rec.song_type_short||rec.song_type||rec.type||"").trim().toUpperCase();const labels={OP:"Opening",ED:"Ending",IN:"Insert",OST:"OST",CS:"Character Song",VA:"Vocal Album",IMGA:"Image Album",IMGS:"Image Song",TS:"Theme Song",MV:"Music Video",PV:"PV Song"};return labels[code]||supplied||"Other"}
+function kindLabelFor(rec){const supplied=String(rec.kindLabel||rec.song_type||rec.type||"").trim();if(supplied&&!/^(OP|ED|IN|OST|TS|CS|VA|IMGA|IMGS|MV|PV|OTHER|UNKNOWN)$/i.test(supplied))return supplied;const code=String(rec.kind||rec.song_type_short||rec.song_type||rec.type||"").trim().toUpperCase();const labels={OP:"Opening",ED:"Ending",IN:"Insert",OST:"OST",TS:"Theme Song",CS:"Character Song",VA:"Vocal Album",IMGA:"Image Album",IMGS:"Image Song",MV:"Music Video",PV:"PV Song"};return labels[code]||supplied||"Other"}
 function linkFrom(rec,service){
  const aliases=service==="apple"?["apple","appleMusic","apple_music"]:service==="spotify"?["spotify"]: [service];const candidates=aliases.flatMap(key=>[rec[key],rec[key+"Url"],rec[key+"_url"]]);
  for(const value of candidates)if(typeof value==="string"&&/^https?:\/\//i.test(value))return value;
@@ -599,7 +635,8 @@ function videoButton(url,title,kind,poster){
 function trackHTML(r){
  const title=titleFor(r,"song")||r.song||"Untitled track";
  const anime=titleFor(r,"anime")||r.anime||"Unknown anime";
- const artist=r.artistDisplay||r.artist||titleFor(r,"artist")||"";
+ const creditCount=Number(r.artistDisplayCount||1);
+ const artist=creditCount>1?(r.artistDisplay||r.artist||""):(titleFor(r,"artist")||r.artistDisplay||r.artist||"");
  const cover=coverFor(r);
  const kindClass=r.kind.toLowerCase()==="op"?"op":r.kind.toLowerCase()==="ed"?"ed":"";
  const coverHTML=cover&&/^https?:\/\//i.test(cover)?'<img data-cover-preview="1" tabindex="0" role="button" aria-label="Enlarge cover art for '+escapeHtml(title)+'" loading="lazy" src="'+escapeHtml(cover)+'" alt="'+escapeHtml(title)+' cover art" onerror="this.parentElement.innerHTML=\'♪\'">':"♪";
@@ -624,14 +661,17 @@ async function selectSeason(season){
  renderSeasons();
  const records=await loadSeasonRecords(season);
  const orderedRecords=records.map(r=>({...r,season})).sort((a,b)=>{
-  const aDate=Date.parse(a.firstSeen||a.pubDate||0)||0;
-  const bDate=Date.parse(b.firstSeen||b.pubDate||0)||0;
+  const aDate=Date.parse(a.firstSeen||a.pubDate||"")||0;
+  const bDate=Date.parse(b.firstSeen||b.pubDate||"")||0;
   const byNewest=bDate-aDate;
   if(byNewest)return byNewest;
-  // Use content-based tie breaking, not API result order, so repeated builds stay deterministic.
-  const aKey=[a.id||"",a.anime||"",a.song||"",a.artist||"",a.kind||"",a.detailUrl||""].join("|").toLowerCase();
-  const bKey=[b.id||"",b.anime||"",b.song||"",b.artist||"",b.kind||"",b.detailUrl||""].join("|").toLowerCase();
-  return aKey.localeCompare(bKey);
+  // Multiple tracks first found during the same build can share a timestamp.
+  // Numeric AniPlaylist IDs provide a stable newest-first tie-breaker.
+  const aId=/^\d+$/.test(String(a.id||""))?Number(a.id):null;
+  const bId=/^\d+$/.test(String(b.id||""))?Number(b.id):null;
+  if(aId!==null&&bId!==null&&aId!==bId)return bId-aId;
+  return String(b.id||"").localeCompare(String(a.id||""))
+    ||String(a.song||"").localeCompare(String(b.song||""));
  });
  // Sort before de-duplication so the newest version of a repeated track ID wins.
  state.records=dedupe(orderedRecords);
