@@ -1,831 +1,111 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Seasonal anime music RSS feeds from AniPlaylist.">
-  <title>AniPlaylist RSS</title>
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #0b0d12;
-      --panel: #11151d;
-      --panel-2: #171c26;
-      --border: #252c38;
-      --text: #eef2f7;
-      --muted: #9da7b6;
-      --accent: #9d7bff;
-      --accent-2: #6f5ce7;
-      --green: #65d39a;
-      --spotify: #1ed760;
-      --shadow: 0 18px 50px rgba(0,0,0,.28);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(
-          900px 500px at 10% -10%,
-          rgba(157,123,255,.12),
-          transparent 60%
-        ),
-        radial-gradient(
-          700px 420px at 100% 0%,
-          rgba(81,144,255,.08),
-          transparent 58%
-        ),
-        var(--bg);
-      color: var(--text);
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .wrap {
-      width: min(1040px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    header {
-      padding: 64px 0 34px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      letter-spacing: -.04em;
-      background: linear-gradient(135deg, var(--accent), #5e73f3);
-      color: white;
-      box-shadow: 0 10px 30px rgba(120, 98, 255, .28);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(34px, 5vw, 52px);
-      line-height: 1;
-      letter-spacing: -.04em;
-    }
-
-    .lead {
-      max-width: 720px;
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.65;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 11px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(17,21,29,.7);
-      color: #c9d1dc;
-      font-size: 13px;
-    }
-
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 4px rgba(101,211,154,.08);
-    }
-
-    main {
-      padding: 10px 0 72px;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: 18px;
-      letter-spacing: -.02em;
-    }
-
-    .section-head a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .section-head a:hover {
-      color: var(--text);
-    }
-
-    .feeds {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    @media (max-width: 760px) {
-      .feeds {
-        grid-template-columns: 1fr;
-      }
-
-      header {
-        padding-top: 42px;
-      }
-    }
-
-    .card {
-      background:
-        linear-gradient(
-          180deg,
-          rgba(23,28,38,.94),
-          rgba(17,21,29,.94)
-        );
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .season {
-      margin: 0;
-      font-size: 22px;
-      letter-spacing: -.03em;
-    }
-
-    .status {
-      padding: 6px 9px;
-      border-radius: 999px;
-      background: rgba(101,211,154,.08);
-      color: #8fe2b5;
-      font-size: 12px;
-      white-space: nowrap;
-    }
-
-    .status.empty {
-      background: rgba(157,123,255,.08);
-      color: #c0adff;
-    }
-
-    .details {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .url {
-      margin-top: 15px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: rgba(11,13,18,.65);
-      border: 1px solid #202631;
-      color: #aeb8c7;
-      font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      overflow-wrap: anywhere;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 16px;
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 38px;
-      padding: 0 13px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      font-size: 13px;
-      cursor: pointer;
-      transition:
-        transform .15s ease,
-        border-color .15s ease,
-        background .15s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      border-color: #3a4352;
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, var(--accent-2), var(--accent));
-      border-color: transparent;
-      color: white;
-      font-weight: 600;
-    }
-
-    .btn.secondary {
-      background: #131821;
-      color: #d5dbe4;
-    }
-
-    /*
-     * Spotify button
-     */
-
-    .btn.spotify {
-      background: var(--spotify);
-      border-color: var(--spotify);
-      color: #061108;
-      font-weight: 700;
-    }
-
-    .btn.spotify:hover {
-      background: #24e36b;
-      border-color: #24e36b;
-    }
-
-    .spotify-icon {
-      width: 15px;
-      height: 15px;
-      margin-right: 7px;
-      flex-shrink: 0;
-    }
-
-    .notice {
-      margin-top: 24px;
-      padding: 15px 17px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(17,21,29,.7);
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    footer {
-      padding: 0 0 38px;
-      color: #707a89;
-      font-size: 12px;
-    }
-
-    .loading {
-      color: var(--muted);
-      padding: 18px 0;
-    }
-
-    .error {
-      color: #f0a6a6;
-      padding: 18px 0;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Find anime openings, endings, insert songs and soundtracks by season. Search, watch and follow anime music in one place.">
+<meta name="theme-color" content="#111311">
+<title>AniPlaylist — anime music, in one place</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<style>
+:root{color-scheme:dark;--bg:#111311;--surface:#191c18;--surface2:#222620;--line:#343a31;--text:#f3f1e8;--muted:#a2a79a;--accent:#ff684a;--lime:#d6f36a;--green:#31d17c;--shadow:0 20px 65px #0003}
+html[data-theme="light"]{color-scheme:light;--bg:#f6f4ec;--surface:#fffdf6;--surface2:#efeee4;--line:#deddd1;--text:#1c211a;--muted:#697064;--accent:#e84e35;--lime:#d8ee76;--green:#12844c;--shadow:0 20px 55px #4c47300d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;transition:background .2s,color .2s}button,input{font:inherit}a{color:inherit;text-decoration:none}.shell{max-width:1240px;width:calc(100% - 44px);margin:auto}
+.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:18px}.brand{display:flex;align-items:center;gap:11px;min-width:0}.brand-mark{width:39px;height:39px;border-radius:12px;background:var(--accent);color:white;display:grid;place-items:center;font-weight:950;font-size:15px;letter-spacing:-.1em;transform:rotate(-5deg)}.brand-name{font-weight:850;letter-spacing:-.055em;font-size:19px}.brand-name span{color:var(--accent)}.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.13em;text-transform:uppercase;margin-top:2px}.top-actions{display:flex;align-items:center;gap:9px}.quiet-link{font-size:12px;font-weight:650;color:var(--muted);padding:10px}.icon-btn{width:40px;height:40px;border:1px solid var(--line);border-radius:12px;background:var(--surface);display:grid;place-items:center;cursor:pointer}.icon-btn:hover{border-color:var(--accent)}.icon{width:18px;height:18px;display:block}
+.hero{position:relative;overflow:hidden;padding:56px 0 34px;display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:28px}.eyebrow{display:flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.17em;color:var(--muted);font-size:10px;font-weight:800}.eyebrow:before{content:"";height:2px;width:25px;background:var(--accent)}h1{font-size:clamp(38px,6.5vw,76px);letter-spacing:-.075em;line-height:.99;margin:18px 0 15px;max-width:760px;font-weight:900}.hero .highlight{color:var(--accent)}.hero p{color:var(--muted);margin:0;max-width:640px;font-size:15px;line-height:1.75}.hero-art{height:185px;position:relative;border:1px solid var(--line);border-radius:22px;background:var(--surface);overflow:hidden;display:flex;align-items:center;justify-content:center}.disc{width:148px;height:148px;border-radius:50%;background:repeating-radial-gradient(circle at center,#222820 0 3px,#111510 4px 7px);border:5px solid var(--accent);box-shadow:0 0 0 8px #ff684a1b;display:grid;place-items:center;animation:spin 24s linear infinite}.disc:before{content:"";width:54px;height:54px;border-radius:50%;background:var(--lime);border:8px solid var(--accent);box-shadow:inset 0 0 0 4px var(--bg)}.sound-bars{position:absolute;right:20px;bottom:21px;display:flex;gap:4px;align-items:center;height:33px}.sound-bars i{display:block;width:4px;border-radius:4px;background:var(--lime);height:var(--h)}.art-label{position:absolute;left:16px;top:15px;color:var(--muted);font:700 9px ui-monospace,monospace;letter-spacing:.12em}.art-sticker{position:absolute;right:14px;top:13px;background:var(--lime);color:#1d2610;border-radius:6px;padding:6px 8px;font-size:9px;font-weight:900;transform:rotate(5deg)}
+.stats{display:flex;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:14px 0 32px}.stat{padding:16px 22px 16px 0;margin-right:22px;border-right:1px solid var(--line);min-width:105px}.stat:last-child{border:0}.stat strong{font-size:23px;letter-spacing:-.05em;display:block}.stat span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:750}
+.catalog{padding-bottom:64px}.sectionline{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:17px}.sectionline h2{font-size:25px;letter-spacing:-.055em;margin:0;font-weight:850}.sectionline p{margin:6px 0 0;font-size:12px;color:var(--muted)}.section-tools{display:flex;gap:8px;align-items:center}.outline-btn,.pill-btn{border:1px solid var(--line);background:var(--surface);border-radius:11px;min-height:39px;padding:0 12px;font-size:12px;font-weight:700;cursor:pointer}.outline-btn:hover,.pill-btn:hover{border-color:var(--accent)}.season-row{display:flex;gap:8px;overflow:auto;padding:2px 0 17px;scrollbar-width:thin}.season-btn{flex:none;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:12px;font-weight:750;cursor:pointer}.season-btn.active{background:var(--lime);border-color:var(--lime);color:#202617}.season-btn small{display:block;font-size:9px;font-weight:650;opacity:.75;margin-top:4px;text-align:left}
+.filter-panel{background:var(--surface);border:1px solid var(--line);padding:13px;border-radius:16px;margin-bottom:15px}.search-row{display:grid;grid-template-columns:minmax(180px,1fr) auto;gap:9px}.searchbox{height:47px;display:flex;align-items:center;gap:10px;padding:0 14px;background:var(--bg);border:1px solid var(--line);border-radius:12px;min-width:0}.searchbox:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px #ff684a18}.searchbox svg{color:var(--muted);flex:none}.searchbox input{min-width:0;width:100%;border:0;outline:0;background:transparent;color:var(--text);font-size:13px}.searchbox input::placeholder{color:var(--muted)}.search-hint{font-size:10px;border:1px solid var(--line);padding:3px 6px;border-radius:5px;color:var(--muted);white-space:nowrap}.language-toggle{display:flex;align-items:center;padding:4px;background:var(--bg);border:1px solid var(--line);border-radius:12px;gap:3px}.language-toggle button{border:0;background:transparent;color:var(--muted);padding:0 10px;height:37px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer}.language-toggle button.active{background:var(--surface2);color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}.filter-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding-top:11px}.filter-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-right:3px}.chip{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--muted);font-size:11px;font-weight:800;cursor:pointer}.chip.active{color:var(--text);background:var(--surface2);border-color:var(--text)}.chip[data-kind="OP"].active{background:#ff684a1c;border-color:var(--accent);color:var(--accent)}.chip[data-kind="ED"].active{background:#d6f36a22;border-color:#a8c547}.chip.video.active{background:var(--lime);color:#202617;border-color:var(--lime)}.filter-spacer{flex:1}.results-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 2px 13px;color:var(--muted);font-size:11px}.results-head strong{color:var(--text)}.results-actions{display:flex;gap:8px;align-items:center}.text-btn{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:750;cursor:pointer;padding:5px}.text-btn:hover{color:var(--accent)}
+.track-list{border-top:1px solid var(--line)}.track{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:13px;padding:13px 8px;border-bottom:1px solid var(--line);transition:background .15s;min-width:0}.track:hover{background:var(--surface)}.cover{width:42px;height:42px;border-radius:10px;background:var(--surface2);overflow:hidden;display:grid;place-items:center;color:var(--accent);font-weight:950;font-size:16px;flex:none}.cover img{width:100%;height:100%;object-fit:cover;display:block}.track-main{min-width:0}.track-topline{display:flex;align-items:center;gap:7px;min-width:0}.kind{font-size:9px;font-weight:950;letter-spacing:.04em;padding:4px 6px;border-radius:5px;background:var(--surface2);border:1px solid var(--line);flex:none}.kind.op{color:var(--accent);border-color:#ff684a55}.kind.ed{color:#9aaf35;border-color:#a8c54770}.track-title{font-size:14px;font-weight:800;letter-spacing:-.025em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.track-anime{font-size:11px;color:var(--muted);margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.track-artist{font-size:10px;color:var(--muted);margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.track-actions{display:flex;align-items:center;gap:6px}.service-btn{height:34px;min-width:35px;padding:0 9px;display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:9px;font-size:10px;font-weight:850;white-space:nowrap;cursor:pointer}.service-btn:hover{border-color:var(--accent)}.service-btn.spotify{color:#1ed760}.service-btn.video{color:var(--accent)}.service-btn.detail{color:var(--muted)}.service-btn svg{width:15px;height:15px}.empty{padding:55px 20px;text-align:center;color:var(--muted);border-bottom:1px solid var(--line)}.empty strong{display:block;font-size:18px;color:var(--text);margin-bottom:8px}.empty p{font-size:12px;margin:0 0 18px}.pagination{display:flex;justify-content:center;align-items:center;gap:7px;padding:22px 0}.page-btn{height:35px;min-width:36px;padding:0 10px;border:1px solid var(--line);border-radius:9px;background:var(--surface);font-size:11px;font-weight:800;cursor:pointer}.page-btn.active{background:var(--accent);color:white;border-color:var(--accent)}.page-btn:disabled{opacity:.35;cursor:not-allowed}
+.extra{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}.extra-card{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--surface)}.extra-card h3{margin:0 0 7px;font-size:16px;letter-spacing:-.03em}.extra-card p{font-size:12px;line-height:1.7;color:var(--muted);margin:0 0 14px}.feed-buttons{display:flex;gap:8px;flex-wrap:wrap}.tiny-note{font-size:10px;color:var(--muted);line-height:1.6;margin-top:12px}.footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:10px}.footer a{color:var(--text);font-weight:750}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--text);color:var(--bg);padding:11px 15px;border-radius:10px;font-size:12px;font-weight:800;box-shadow:var(--shadow);transition:.2s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media(max-width:780px){.shell{width:calc(100% - 30px)}.hero{grid-template-columns:1fr;padding-top:37px}.hero-art{display:none}.topbar{height:66px}.hero p{font-size:13px}.stats{margin-bottom:27px}.stat{min-width:0;padding-right:14px;margin-right:14px;flex:1}.stat strong{font-size:19px}.stat span{font-size:8px}.sectionline{align-items:start}.sectionline h2{font-size:22px}.search-row{grid-template-columns:1fr}.language-toggle{justify-content:space-between}.language-toggle button{flex:1}.track{grid-template-columns:39px minmax(0,1fr) auto;gap:9px;padding:12px 2px}.cover{width:39px;height:39px}.track-title{font-size:12px}.track-anime{font-size:10px}.track-artist{font-size:9px}.track-actions{gap:4px}.service-btn{min-width:32px;padding:0 7px;height:32px}.service-btn span{display:none}.extra{grid-template-columns:1fr}.results-head{align-items:flex-start}.footer{flex-direction:column;gap:7px}}
+@media(max-width:420px){.brand-sub{display:none}.brand-name{font-size:17px}.quiet-link{display:none}.hero{padding-top:32px}.stats .stat{margin-right:9px;padding-right:8px}.stat strong{font-size:17px}.stat span{letter-spacing:.05em}.track-actions .detail{display:none}.filter-panel{padding:10px}.filter-row{gap:5px}.chip{padding:7px 9px}.filter-label{width:100%;margin:3px 0}.filter-spacer{display:none}.section-tools .outline-btn{padding:0 9px;font-size:10px}}
+</style>
 </head>
-
 <body>
-
-  <div class="wrap">
-
-    <header>
-      <div class="brand">
-        <div class="mark">AP</div>
-
-        <div>
-          <h1>AniPlaylist RSS</h1>
-        </div>
-      </div>
-
-      <p class="lead">
-        Seasonal anime music feeds from AniPlaylist, with Spotify and Apple Music links when available. Each season also has a browsable release list.
-      </p>
-
-      <div class="meta">
-        <span class="pill">
-          <span class="dot"></span>
-          Updates every 30 minutes
-        </span>
-
-        <span class="pill">
-          Spotify · Apple Music
-        </span>
-
-        <span class="pill">
-          OP · ED · IN · OST · and more
-        </span>
-      </div>
-    </header>
-
-
-    <main>
-
-      <div class="section-head">
-        <h2>Season feeds</h2>
-
-        <a
-          href="https://aniplaylist.com/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          AniPlaylist ↗
-        </a>
-      </div>
-
-
-      <div id="feeds" class="feeds">
-        <div class="loading">
-          Loading feeds…
-        </div>
-      </div>
-
-
-      <div class="notice">
-        Add or remove seasons in <code>seasons.json</code>. The workflow will generate the matching RSS feed automatically.
-      </div>
-
-    </main>
-
-
-    <footer>
-      AniPlaylist RSS · Generated by GitHub Actions · Hosted on GitHub Pages
-    </footer>
-
-  </div>
-
-
-  <script>
-
-    const feeds = document.getElementById("feeds");
-
-
-    function slug(season) {
-      return season
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-|-$/g, "");
-    }
-
-
-    function escapeHtml(value) {
-      return String(value).replace(/[&<>\"']/g, ch => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        "\"": "&quot;",
-        "'": "&#39;"
-      }[ch]));
-    }
-
-
-    /*
-     * Load a single RSS feed and get basic information.
-     */
-
-    async function readFeed(url) {
-
-      try {
-
-        const res = await fetch(url, {
-          cache: "no-store"
-        });
-
-        if (!res.ok) {
-          return {
-            count: null,
-            updated: null
-          };
-        }
-
-        const xml = await res.text();
-
-        const doc = new DOMParser().parseFromString(
-          xml,
-          "application/xml"
-        );
-
-        const items = [
-          ...doc.querySelectorAll("item")
-        ];
-
-        const lastBuild =
-          doc.querySelector("lastBuildDate")?.textContent || "";
-
-        return {
-          count: items.length,
-          updated: lastBuild
-            ? new Date(lastBuild)
-            : null
-        };
-
-      } catch {
-
-        return {
-          count: null,
-          updated: null
-        };
-
-      }
-
-    }
-
-
-    /*
-     * Spotify logo.
-     */
-
-    function spotifyIcon() {
-
-      return `
-        <svg
-          class="spotify-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          fill="currentColor"
-        >
-          <path d="M12 1.8a10.2 10.2 0 1 0 0 20.4 10.2 10.2 0 0 0 0-20.4Zm4.68 14.7a.63.63 0 0 1-.87.21c-2.39-1.46-5.4-1.79-8.95-.98a.63.63 0 1 1-.28-1.23c3.88-.89 7.2-.52 9.89 1.12.3.18.39.57.21.88Zm1.24-2.76a.79.79 0 0 1-1.08.26c-2.73-1.68-6.9-2.17-10.13-1.18a.79.79 0 1 1-.46-1.51c3.69-1.12 8.28-.58 11.41 1.34.37.23.49.72.26 1.09Zm.11-2.88c-3.27-1.94-8.67-2.12-11.79-1.17a.95.95 0 1 1-.55-1.82c3.59-1.09 9.56-.88 13.35 1.37a.95.95 0 0 1-1.01 1.62Z"/>
-        </svg>
-      `;
-
-    }
-
-
-    /*
-     * Load Spotify playlist configuration.
-     *
-     * This file is generated/updated by the GitHub Action.
-     */
-
-    async function loadSpotifyPlaylists() {
-
-      try {
-
-        const res = await fetch(
-          "spotify-playlists.json",
-          {
-            cache: "no-store"
-          }
-        );
-
-        if (!res.ok) {
-          return {};
-        }
-
-        const data = await res.json();
-
-        return data || {};
-
-      } catch {
-
-        return {};
-
-      }
-
-    }
-
-
-    /*
-     * Render the season cards.
-     */
-
-    async function render() {
-
-      let seasons;
-
-      let spotifyPlaylists = {};
-
-
-      /*
-       * Load seasons.
-       */
-
-      try {
-
-        const res = await fetch(
-          "seasons.json",
-          {
-            cache: "no-store"
-          }
-        );
-
-        seasons = (await res.json()).seasons || [];
-
-      } catch {
-
-        feeds.innerHTML =
-          '<div class="error">Could not load seasons.json.</div>';
-
-        return;
-
-      }
-
-
-      /*
-       * Load Spotify playlists.
-       *
-       * If the file is unavailable, the site still works normally.
-       */
-
-      spotifyPlaylists =
-        await loadSpotifyPlaylists();
-
-
-      if (!seasons.length) {
-
-        feeds.innerHTML =
-          '<div class="loading">No seasons configured.</div>';
-
-        return;
-
-      }
-
-
-      /*
-       * Build all cards.
-       */
-
-      const cards = await Promise.all(
-
-        seasons.map(async season => {
-
-          const feedUrl =
-            `rss/${slug(season)}.xml`;
-
-          const data =
-            await readFeed(feedUrl);
-
-
-          const countText =
-            data.count == null
-              ? "Feed unavailable"
-              : `${data.count} ${
-                  data.count === 1
-                    ? "entry"
-                    : "entries"
-                }`;
-
-
-          const status =
-            data.count == null
-              ? "Unavailable"
-              : data.count
-                ? "Active"
-                : "No entries";
-
-
-          const statusClass =
-            data.count
-              ? ""
-              : "empty";
-
-
-          const updated =
-            data.updated &&
-            !Number.isNaN(data.updated.getTime())
-
-              ? `Updated ${
-                  data.updated.toLocaleString(
-                    undefined,
-                    {
-                      dateStyle: "medium",
-                      timeStyle: "short"
-                    }
-                  )
-                }`
-
-              : "Waiting for data";
-
-
-          /*
-           * Find Spotify playlist for this season.
-           */
-
-          const playlist =
-            spotifyPlaylists[season];
-
-          const spotifyUrl =
-            playlist &&
-            playlist.url
-              ? playlist.url
-              : "";
-
-
-          /*
-           * Only show Spotify button when
-           * the playlist actually exists.
-           */
-
-          const spotifyButton =
-            spotifyUrl
-
-              ? `
-                <a
-                  class="btn spotify"
-                  href="${escapeHtml(spotifyUrl)}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open ${escapeHtml(season)} Spotify playlist"
-                >
-                  ${spotifyIcon()}
-                  Spotify Playlist
-                </a>
-              `
-
-              : "";
-
-
-          return `
-
-            <article class="card">
-
-              <div class="card-top">
-
-                <h3 class="season">
-                  ${escapeHtml(season)}
-                </h3>
-
-                <span class="status ${statusClass}">
-                  ${status}
-                </span>
-
-              </div>
-
-
-              <div class="details">
-
-                <span>
-                  ${escapeHtml(countText)}
-                </span>
-
-                <span>·</span>
-
-                <span>
-                  ${escapeHtml(updated)}
-                </span>
-
-              </div>
-
-
-              <div class="url">
-                ${escapeHtml(
-                  location.origin +
-                  location.pathname.replace(/\/?$/, "/") +
-                  feedUrl
-                )}
-              </div>
-
-
-              <div class="actions">
-
-                <a
-                  class="btn primary"
-                  href="${feedUrl}"
-                >
-                  Open RSS
-                </a>
-
-
-                <a
-                  class="btn secondary"
-                  href="browse/${slug(season)}/"
-                >
-                  Browse
-                </a>
-
-
-                <button
-                  class="btn secondary"
-                  type="button"
-                  data-copy="${escapeHtml(feedUrl)}"
-                >
-                  Copy URL
-                </button>
-
-
-                ${spotifyButton}
-
-              </div>
-
-            </article>
-
-          `;
-
-        })
-
-      );
-
-
-      feeds.innerHTML =
-        cards.join("");
-
-
-      /*
-       * Copy URL buttons.
-       */
-
-      feeds
-        .querySelectorAll("[data-copy]")
-        .forEach(button => {
-
-          button.addEventListener(
-            "click",
-            async () => {
-
-              const value =
-                new URL(
-                  button.dataset.copy,
-                  location.href
-                ).href;
-
-
-              try {
-
-                await navigator.clipboard.writeText(
-                  value
-                );
-
-                const old =
-                  button.textContent;
-
-                button.textContent =
-                  "Copied";
-
-                setTimeout(
-                  () => {
-                    button.textContent =
-                      old;
-                  },
-                  1200
-                );
-
-              } catch {
-
-                button.textContent =
-                  "Copy failed";
-
-                setTimeout(
-                  () => {
-                    button.textContent =
-                      "Copy URL";
-                  },
-                  1200
-                );
-
-              }
-
-            }
-          );
-
-        });
-
-    }
-
-
-    /*
-     * Start.
-     */
-
-    render();
-
-  </script>
-
+<div class="shell">
+<nav class="topbar" aria-label="Main navigation">
+<a class="brand" href="./" aria-label="AniPlaylist home"><div class="brand-mark">AP♪</div><div><div class="brand-name">ani<span>playlist</span></div><div class="brand-sub">soundtrack to your season</div></div></a>
+<div class="top-actions"><a class="quiet-link" href="https://aniplaylist.com/" target="_blank" rel="noopener noreferrer">Source ↗</a><a class="quiet-link" href="https://github.com/chintu-io/aniplaylist-rss" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="icon-btn" id="themeToggle" aria-label="Switch theme" title="Switch dark/light theme"><svg class="icon" id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button></div>
+</nav>
+<header class="hero"><div><div class="eyebrow">Your seasonal anime music library</div><h1>Every season has<br>a <span class="highlight">soundtrack.</span></h1><p>Openings, endings, insert songs and OSTs — find the track, play the video, or jump to your music app. No maze of pages. Just press play.</p></div><div class="hero-art" aria-label="Animated record illustration"><span class="art-label">SIDE A · ANIME SONGS</span><span class="art-sticker">NOW SPINNING ↗</span><div class="disc"></div><div class="sound-bars"><i style="--h:8px"></i><i style="--h:17px"></i><i style="--h:25px"></i><i style="--h:13px"></i><i style="--h:31px"></i><i style="--h:20px"></i><i style="--h:10px"></i></div></div></header>
+<div class="stats" aria-label="Library summary"><div class="stat"><strong id="statTracks">—</strong><span>Tracks in season</span></div><div class="stat"><strong id="statServices">3</strong><span>Ways to listen</span></div><div class="stat"><strong id="statSeasons">—</strong><span>Seasons loaded</span></div></div>
+<main class="catalog" id="catalog">
+<div class="sectionline"><div><h2>Browse the library <span style="color:var(--accent)">↘</span></h2><p id="seasonSubtitle">Pick a season and find your next repeat.</p></div><div class="section-tools"><button class="outline-btn" id="copyFeedTop" title="Copy RSS URL">⌁ Copy RSS</button></div></div>
+<div class="season-row" id="seasonRow" aria-label="Choose a season"></div>
+<section class="filter-panel" aria-label="Search and filters"><div class="search-row"><label class="searchbox"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search anime, song, or artist…" autocomplete="off" aria-label="Search anime, song, or artist"><span class="search-hint">/</span></label><div class="language-toggle" aria-label="Title language"><button class="active" data-lang="english">English</button><button data-lang="romaji">Romaji</button><button data-lang="japanese">日本語</button></div></div><div class="filter-row"><span class="filter-label">Track type</span><button class="chip active" data-kind="ALL">All</button><button class="chip" data-kind="OP">OP Opening</button><button class="chip" data-kind="ED">ED Ending</button><button class="chip" data-kind="IN">IN Insert</button><button class="chip" data-kind="OST">OST</button><button class="chip" data-kind="Other">Other</button><span class="filter-spacer"></span><button class="chip video" id="videoOnly">▷ Video available</button></div></section>
+<div class="results-head"><span id="resultsCount" aria-live="polite">Loading library…</span><div class="results-actions"><button class="text-btn" id="clearFilters">Reset filters</button><button class="text-btn" id="refresh">↻ Refresh</button></div></div>
+<section id="trackList" class="track-list" aria-label="Anime music tracks"><div class="empty">Loading seasonal music…</div></section><nav id="pagination" class="pagination" aria-label="Result pages"></nav>
+<section class="extra" aria-label="Listen and subscribe"><div class="extra-card"><h3>Listen to the season <span style="color:var(--green)">♫</span></h3><p>Take the season with you. Open its curated Spotify playlist when one is available.</p><div class="feed-buttons" id="playlistActions"><span class="tiny-note">Checking playlists…</span></div></div><div class="extra-card"><h3>Prefer your own feed reader? <span style="color:var(--accent)">⌁</span></h3><p>Subscribe to this season’s RSS feed. New matching entries appear when the feed refreshes.</p><div class="feed-buttons"><a class="outline-btn" id="openFeed" href="rss/fall-2026.xml" target="_blank" rel="noopener">Open RSS ↗</a><button class="outline-btn" id="copyFeed">Copy feed URL</button></div><div class="tiny-note">Feeds refresh automatically about every 30 minutes. Only tracks included in the generated RSS feed are sent to your reader.</div></div></section>
+</main>
+<footer class="footer"><span>AniPlaylist · made for the songs you Shazam during the OP.</span><span><a href="https://aniplaylist.com/" target="_blank" rel="noopener noreferrer">AniPlaylist source</a> · <a href="https://github.com/chintu-io/aniplaylist-rss" target="_blank" rel="noopener noreferrer">Open-source project</a></span></footer>
+</div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+"use strict";
+const $ = (s, root = document) => root.querySelector(s);
+const $$ = (s, root = document) => [...root.querySelectorAll(s)];
+const state = {seasons:[],chosen:"",playlistMap:{},records:[],allRecords:[],kind:"ALL",lang:"english",videoOnly:false,query:"",page:1,theme:"dark"};
+const PAGE_SIZE=25; let toastTimer;
+const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const seasonUrl = season => "rss/"+slug(season)+".xml";
+const fullUrl = relative => new URL(relative,location.href).href;
+function notify(message){const el=$("#toast");el.textContent=message;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),1800)}
+async function getJSON(url){const response=await fetch(url,{cache:"no-store"});if(!response.ok)throw new Error("Could not load "+url+" ("+response.status+")");return response.json()}
+function variants(rec,type){
+ const key=type==="anime"?"animeCandidates":"titleCandidates";const raw=rec[key];
+ if(Array.isArray(raw)&&raw.length){const jp=raw.find(x=>/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const plain=raw.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const romaji=raw.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x)&&x!==plain)||plain||raw[0];return {english:plain||raw[0],romaji:romaji,japanese:jp||plain||raw[0],all:raw.join(" ")}}
+ const list=String(rec[type]||"").split(/\s*,\s*/).filter(Boolean);const jp=list.find(x=>/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const eng=list.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x))||list[0]||"";return {english:eng,romaji:eng,japanese:jp||eng,all:list.join(" ")}
+}
+function titleFor(rec,type){const v=variants(rec,type);return v[state.lang]||v.english||rec[type]||"Unknown"}
+function kindFor(rec){let k=String(rec.kind||rec.song_type_short||rec.song_type||rec.type||"Other").toUpperCase();if(["OP","OPENING"].includes(k))return"OP";if(["ED","ENDING"].includes(k))return"ED";if(["IN","INSERT","INSERT SONG","INSERT SONGS"].includes(k))return"IN";if(["OST","SOUNDTRACK","ORIGINAL SOUNDTRACK"].includes(k))return"OST";return["OTHER","UNKNOWN"].includes(k)?"Other":["OP","ED","IN","OST"].includes(k)?k:"Other"}
+function linkFrom(rec,service){
+ const aliases=service==="apple"?["apple","appleMusic","apple_music"]:service==="spotify"?["spotify"]: [service];const candidates=aliases.flatMap(key=>[rec[key],rec[key+"Url"],rec[key+"_url"]]);
+ for(const value of candidates)if(typeof value==="string"&&/^https?:\/\//i.test(value))return value;
+ const platforms=rec.platforms||{};for(const key of [service,service.toLowerCase()])if(typeof platforms[key]==="string")return platforms[key];
+ if(Array.isArray(rec.links)){const item=rec.links.find(x=>String(x.platform||x.service||x.name||"").toLowerCase().includes(service.toLowerCase()));if(item)return item.url||item.href||""}return""
+}
+function normalize(rec){return {...rec,kind:kindFor(rec),spotify:linkFrom(rec,"spotify"),apple:linkFrom(rec,"apple")||linkFrom(rec,"appleMusic")||linkFrom(rec,"apple_music")}}
+function videoUrl(rec){const v=rec.animethemesVideo||rec.animeThemesVideo||null;if(v&&typeof v==="object"&&v.url)return v.url;return rec.animeThemesUrl||rec.animethemesUrl||rec.videoUrl||rec.video_url||(typeof rec.animethemes==="string"?rec.animethemes:"")||(typeof rec.video==="string"?rec.video:"")||rec.themeVideo||rec.theme_url||""}
+function hasVideo(rec){return !!videoUrl(rec)}
+function coverFor(rec){return rec.thumbnail||rec.image||rec.cover||rec.artwork||""}
+async function loadSeasonRecords(season){
+ try{const response=await fetch("catalog.json",{cache:"no-store"});if(response.ok){const payload=await response.json();const collection=Array.isArray(payload)?payload:Array.isArray(payload.records)?payload.records:Object.values(payload||{});const matched=collection.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase());if(matched.length)return matched.map(normalize)}}catch{}
+ try{const payload=await getJSON("state.json");const records=Array.isArray(payload)?payload:Object.values(payload||{});const matched=records.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase()&&(rec.spotify||rec.apple));if(matched.length)return matched.map(normalize)}catch{}
+ try{const response=await fetch(seasonUrl(season),{cache:"no-store"});if(response.ok){const xml=new DOMParser().parseFromString(await response.text(),"application/xml");return [...xml.querySelectorAll("item")].map(item=>{const text=tag=>item.querySelector(tag)?.textContent?.trim()||"";return normalize({anime:text("category")||text("title").replace(/^\[[^\]]+\]\s*/,""),song:text("description"),kind:(text("title").match(/^\[([^\]]+)\]/)||[])[1]||"Other",detailUrl:text("link"),season})})}}catch{}return[]
+}
+function dedupe(records){const map=new Map();for(const rec of records){const key=String(rec.id||rec.detailUrl||[rec.anime,rec.song,rec.artist,rec.kind].join("|")).toLowerCase();if(!map.has(key))map.set(key,rec)}return[...map.values()]}
+function renderSeasons(){$("#seasonRow").innerHTML=state.seasons.map(s=>{const count=state.allRecords.filter(r=>r.season===s).length;return '<button class="season-btn '+(s===state.chosen?"active":"")+'" data-season="'+escapeHtml(s)+'">'+escapeHtml(s)+'<small>'+(count?count+" tracks":"browse season")+"</small></button>"}).join("");$("#statSeasons").textContent=state.seasons.length}
+function filteredRecords(){const q=state.query.trim().toLowerCase();return state.records.filter(r=>{if(state.kind!=="ALL"&&r.kind!==state.kind)return false;if(state.videoOnly&&!hasVideo(r))return false;if(!q)return true;return [r.song,r.anime,r.artist,variants(r,"anime").all,variants(r,"title").all,r.title,r.detailUrl,r.kind].join(" ").toLowerCase().includes(q)}).sort((a,b)=>{const order={OP:0,ED:1,IN:2,OST:3,Other:4};return(order[a.kind]??4)-(order[b.kind]??4)||titleFor(a,"anime").localeCompare(titleFor(b,"anime"))})}
+const spotifyIcon='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.8a10.2 10.2 0 1 0 0 20.4 10.2 10.2 0 0 0 0-20.4Zm4.68 14.7a.63.63 0 0 1-.87.21c-2.39-1.46-5.4-1.79-8.95-.98a.63.63 0 1 1-.28-1.23c3.88-.89 7.2-.52 9.89 1.12.3.18.39.57.21.88Zm1.24-2.76a.79.79 0 0 1-1.08.26c-2.73-1.68-6.9-2.17-10.13-1.18a.79.79 0 1 1-.46-1.51c3.69-1.12 8.28-.58 11.41 1.34.37.23.49.72.26 1.09Zm.11-2.88c-3.27-1.94-8.67-2.12-11.79-1.17a.95.95 0 1 1-.55-1.82c3.59-1.09 9.56-.88 13.35 1.37a.95.95 0 0 1-1.01 1.62Z"/></svg>';
+const appleIcon='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.7c.02 2.23 1.96 2.98 1.98 2.99-.02.05-.31 1.07-1.02 2.12-.61.9-1.24 1.79-2.23 1.81-.97.02-1.28-.58-2.39-.58-1.1 0-1.45.56-2.36.6-.95.04-1.67-.97-2.28-1.86-1.25-1.8-2.21-5.09-.92-7.3.64-1.1 1.78-1.8 3.08-1.82.96-.02 1.86.65 2.45.65.58 0 1.68-.8 2.83-.68.48.02 1.84.19 2.71 1.47-.07.04-1.62.95-1.6 2.6ZM14.52 6.94c.5-.6.84-1.44.75-2.27-.72.03-1.6.48-2.12 1.08-.47.52-.88 1.38-.77 2.19.81.06 1.64-.41 2.14-1Z"/></svg>';
+const videoIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 10 6-10 6z"/></svg>';
+function serviceButton(url,label,cls,icon=""){if(!url||!/^https?:\/\//i.test(url))return"";return '<a class="service-btn '+cls+'" href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+escapeHtml(label)+'" title="'+escapeHtml(label)+'">'+icon+(label?'<span>'+escapeHtml(label)+"</span>":"")+"</a>"}
+function trackHTML(r){const title=titleFor(r,"song")||r.song||"Untitled track";const anime=titleFor(r,"anime")||r.anime||"Unknown anime";const cover=coverFor(r);const kindClass=r.kind.toLowerCase()==="op"?"op":r.kind.toLowerCase()==="ed"?"ed":"";const coverHTML=cover&&/^https?:\/\//i.test(cover)?'<img loading="lazy" src="'+escapeHtml(cover)+'" alt="" onerror="this.parentElement.innerHTML=\'♪\'">':"♪";const links=[serviceButton(r.spotify,"Spotify","spotify",spotifyIcon),serviceButton(r.apple,"Apple Music","apple",appleIcon),hasVideo(r)?serviceButton(videoUrl(r),"Watch","video",videoIcon):"",r.detailUrl&&/^https?:\/\//i.test(r.detailUrl)?serviceButton(r.detailUrl,"","detail",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M10 14 21 3M19 13v7H4V5h7"/></svg>'):""].filter(Boolean).join("");return '<article class="track"><div class="cover">'+coverHTML+'</div><div class="track-main"><div class="track-topline"><span class="kind '+kindClass+'">'+escapeHtml(r.kind)+'</span><div class="track-title" title="'+escapeHtml(title)+'">'+escapeHtml(title)+'</div></div><div class="track-anime" title="'+escapeHtml(anime)+'">'+escapeHtml(anime)+'</div>'+(r.artist?'<div class="track-artist">'+escapeHtml(r.artist)+'</div>':"")+'</div><div class="track-actions">'+links+"</div></article>"}
+function renderPagination(totalPages){const el=$("#pagination");if(totalPages<=1){el.innerHTML="";return}let html='<button class="page-btn" data-page="'+(state.page-1)+'" '+(state.page===1?"disabled":"")+' aria-label="Previous page">‹</button>';const pages=[...new Set([1,totalPages,state.page,state.page-1,state.page+1].filter(n=>n>=1&&n<=totalPages))].sort((a,b)=>a-b);let last=0;for(const p of pages){if(last&&p-last>1)html+='<span style="padding:0 4px;color:var(--muted)">…</span>';html+='<button class="page-btn '+(state.page===p?"active":"")+'" data-page="'+p+'" aria-label="Page '+p+'" '+(state.page===p?'aria-current="page"':"")+'>'+p+"</button>";last=p}html+='<button class="page-btn" data-page="'+(state.page+1)+'" '+(state.page===totalPages?"disabled":"")+' aria-label="Next page">›</button>';el.innerHTML=html}
+function renderPlaylist(){const p=state.playlistMap[state.chosen];const url=p&&(p.url||p.spotify||p.playlistUrl);$("#playlistActions").innerHTML=url?'<a class="service-btn spotify" href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+spotifyIcon+'<span>Open Spotify playlist</span></a>':'<span class="tiny-note">No Spotify playlist is listed for this season yet.</span>'}
+function updateFeedControls(){const url=seasonUrl(state.chosen);$("#openFeed").href=url;$("#copyFeedTop").dataset.feed=url;$("#copyFeed").dataset.feed=url}
+function render(){const list=filteredRecords();const pages=Math.max(1,Math.ceil(list.length/ PAGE_SIZE));state.page=Math.min(state.page,pages);const start=(state.page-1)*PAGE_SIZE;$("#resultsCount").innerHTML="<strong>"+list.length.toLocaleString()+"</strong> "+(list.length===1?"track":"tracks")+" "+(state.query?"matching your search":"in "+escapeHtml(state.chosen))+(list.length?" <span>· showing "+(start+1)+"–"+Math.min(start+PAGE_SIZE,list.length)+"</span>":"");$("#trackList").innerHTML=list.slice(start,start+PAGE_SIZE).map(trackHTML).join("")||'<div class="empty"><strong>No tracks found. Yet.</strong><p>Try another title, change the type, or clear the video filter.</p><button class="outline-btn" id="emptyReset">Reset filters</button></div>';$("#statTracks").textContent=state.records.length.toLocaleString();renderPagination(pages);renderPlaylist();updateFeedControls();renderSeasons();$("#emptyReset")?.addEventListener("click",resetFilters)}
+async function selectSeason(season){if(!state.seasons.includes(season))return;state.chosen=season;state.records=[];state.page=1;$("#seasonSubtitle").textContent="Loading "+season+" releases…";$("#trackList").innerHTML='<div class="empty">Finding the season’s tracks…</div>';renderSeasons();const records=await loadSeasonRecords(season);state.records=dedupe(records.map(r=>({...r,season})));state.allRecords=state.allRecords.filter(r=>r.season!==season).concat(state.records);$("#seasonSubtitle").textContent="Browse "+season+" releases. Search, filter, and listen without leaving this page.";render()}
+function resetFilters(){state.kind="ALL";state.videoOnly=false;state.query="";state.page=1;$("#search").value="";$$(".chip[data-kind]").forEach(b=>b.classList.toggle("active",b.dataset.kind==="ALL"));$("#videoOnly").classList.remove("active");render()}
+function applyTheme(theme){state.theme=theme;document.documentElement.dataset.theme=theme;const dark=theme==="dark";$("#themeIcon").innerHTML=dark?'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>':'<path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>';$("#themeToggle").setAttribute("aria-label","Switch to "+(dark?"light":"dark")+" theme");try{localStorage.setItem("aniplaylist-theme",theme)}catch{}}
+async function copyFeed(){const url=fullUrl(seasonUrl(state.chosen));try{await navigator.clipboard.writeText(url);notify("RSS URL copied")}catch{prompt("Copy this RSS URL:",url)}}
+async function init(){try{const [config,playlists]=await Promise.all([getJSON("seasons.json"),getJSON("spotify-playlists.json").catch(()=>({}))]);state.seasons=Array.isArray(config.seasons)?config.seasons:[];state.playlistMap=playlists||{};if(!state.seasons.length)throw new Error("No seasons are configured.");$("#statSeasons").textContent=state.seasons.length;await selectSeason(state.seasons.find(s=>/Fall 2026/i.test(s))||state.seasons[0])}catch(err){$("#trackList").innerHTML='<div class="empty"><strong>Couldn’t load the library.</strong><p>'+escapeHtml(err.message||"Try refreshing the page.")+'</p><button class="outline-btn" id="retryLoad">Try again</button></div>';$("#retryLoad")?.addEventListener("click",init);$("#resultsCount").textContent="Library unavailable"}}
+$("#seasonRow").addEventListener("click",e=>{const b=e.target.closest("[data-season]");if(b&&b.dataset.season!==state.chosen)selectSeason(b.dataset.season)});
+$$(".chip[data-kind]").forEach(b=>b.addEventListener("click",()=>{state.kind=b.dataset.kind;state.page=1;$$(".chip[data-kind]").forEach(x=>x.classList.toggle("active",x===b));render()}));
+$("#videoOnly").addEventListener("click",()=>{state.videoOnly=!state.videoOnly;state.page=1;$("#videoOnly").classList.toggle("active",state.videoOnly);render()});
+$("#search").addEventListener("input",e=>{state.query=e.target.value;state.page=1;render()});
+$$(".language-toggle button").forEach(b=>b.addEventListener("click",()=>{state.lang=b.dataset.lang;$$(".language-toggle button").forEach(x=>x.classList.toggle("active",x===b));render()}));
+$("#clearFilters").addEventListener("click",resetFilters);
+$("#refresh").addEventListener("click",async()=>{const season=state.chosen;$("#refresh").textContent="↻ Loading";await selectSeason(season);$("#refresh").textContent="↻ Refresh";notify("Season refreshed")});
+$("#copyFeed").addEventListener("click",copyFeed);$("#copyFeedTop").addEventListener("click",copyFeed);
+$("#pagination").addEventListener("click",e=>{const b=e.target.closest("[data-page]");if(!b||b.disabled)return;state.page=Number(b.dataset.page);render();$("#catalog").scrollIntoView({behavior:"smooth",block:"start"})});
+$("#themeToggle").addEventListener("click",()=>applyTheme(state.theme==="dark"?"light":"dark"));
+document.addEventListener("keydown",e=>{if(e.key==="/"&&!["INPUT","TEXTAREA"].includes(document.activeElement.tagName)){e.preventDefault();$("#search").focus()}if(e.key==="Escape"&&document.activeElement===$("#search")){$("#search").value="";state.query="";state.page=1;render();$("#search").blur()}});
+try{const saved=localStorage.getItem("aniplaylist-theme");if(saved==="light"||saved==="dark")applyTheme(saved)}catch{}init();
+})();
+</script>
 </body>
 </html>
