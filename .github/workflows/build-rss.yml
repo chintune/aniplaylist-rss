@@ -77,7 +77,8 @@ jobs:
       # build runs, so no manual patching of scrape.mjs is required.
       #
       # The new source keeps BOTH direct Spotify track URLs and album/OST
-      # URLs, together with the song/artist metadata needed by spotify.mjs.
+      # URLs, together with metadata. It uses rssItems only after buildRss()
+      # has sorted them, so Spotify inherits the website's newest-first order.
       # --------------------------------------------------
 
       - name: Prepare Spotify source
@@ -91,7 +92,7 @@ jobs:
           const newBlock = [
             '  currentSpotifyTracks[season] = [',
             '    ...new Map(',
-            '      usable',
+            '      rssItems',
             '        .filter(item => !!item.spotify)',
             '        .map(item => {',
             '          const match = String(item.spotify || "").match(',
@@ -111,6 +112,7 @@ jobs:
             '            artist: item.artist || "",',
             '            kind: item.kind || "",',
             '            aniPlaylistId: item.id || "",',
+            '            firstSeen: item.firstSeen || item.pubDate || "",',
             '          };',
             '        })',
             '        .filter(Boolean)',
