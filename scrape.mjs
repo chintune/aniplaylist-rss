@@ -277,6 +277,30 @@ function findAppleMusic(value, depth = 0) {
   return "";
 }
 
+function formatArtistNames(values) {
+  const names = unique((values || []).map(clean).filter(isLikelyArtistDisplay));
+  if (names.length < 2) return names[0] || "";
+  if (names.length === 2) return names[0] + " & " + names[1];
+  return names.slice(0, -1).join(", ") + " & " + names[names.length - 1];
+}
+
+function sourceKindLabel(hit, kind) {
+  // Preserve source labels such as "Insert (ep 3)" rather than only "IN".
+  const candidates = [
+    ...collectStrings(hit.type),
+    ...collectStrings(hit.song_type),
+    ...collectStrings(hit.label),
+    ...collectStrings(hit.tags),
+  ].map(clean).filter(Boolean);
+  const pattern = /^(opening|ending|insert(?:ion)?(?:\s+song)?|theme\s+song|ost|original soundtrack|character song|vocal album|image album|image song|music video|pv song)\b/i;
+  const labels = candidates.filter(value => pattern.test(value));
+  const detailed = labels.find(value =>
+    /\b(?:ep|episode)\s*\.?\s*#?\s*\d+\b/i.test(value)
+    || /\(\s*ep\b[^)]*\)/i.test(value)
+  );
+  return detailed || labels[0] || prettyKind(kind) || kind || "Other";
+}
+
 function normaliseHit(hit) {
   const titles = textListFrom(hit.titles, ["title", "name", "text"]);
   const animeTitles = textListFrom(hit.anime_titles, ["title", "name", "text"]);
@@ -296,8 +320,9 @@ function normaliseHit(hit) {
     || textFrom(hit.name, ["name", "title"])
     || textFrom(hit.title, ["title", "name"]);
 
-  const artist = displayArtists[0]
-    || artists[0]
+  // Preserve all display artists; the old code kept only displayArtists[0].
+  const artist = formatArtistNames(displayArtists)
+    || artists.find(isLikelyArtistDisplay)
     || textFrom(hit.artist, ["name", "artist"]);
 
   const kind = clean(
@@ -306,6 +331,7 @@ function normaliseHit(hit) {
     || hit.type
     || ""
   );
+  const kindLabel = sourceKindLabel(hit, kind);
 
   const spotify = findSpotify(hit.links) || findSpotify(hit.platforms);
   const apple = findAppleMusic(hit.links) || findAppleMusic(hit.platforms);
@@ -320,7 +346,9 @@ function normaliseHit(hit) {
     anime,
     song,
     artist,
+    artistDisplay: artist,
     kind,
+    kindLabel,
     spotify,
     apple,
     thumbnail: findAniPlaylistThumbnail(hit.thumbnail)
@@ -2071,7 +2099,7 @@ function buildBrowsePage(season, items, options = {}) {
 
         <div class="song-main">
           <div class="song-head">
-            <span class="kind kind-${htmlEscape(kind.toLowerCase())}">${htmlEscape(kind)}</span>
+            <span class="kind kind-${htmlEscape(kind.toLowerCase())}">${htmlEscape(item.kindLabel || prettyKind(kind))}</span>
             <span class="date">${htmlEscape(dateText)}</span>
           </div>
 
@@ -3612,7 +3640,9 @@ async function makeRssItem(item, season) {
     anime: item.anime,
     song: item.song,
     artist: item.artist,
+    artistDisplay: item.artistDisplay || item.artist,
     kind: item.kind,
+    kindLabel: item.kindLabel || prettyKind(item.kind),
     animeCandidates: Array.isArray(item.animeCandidates) ? item.animeCandidates : [],
     titleCandidates: Array.isArray(item.titleCandidates) ? item.titleCandidates : [],
     artistCandidates: Array.isArray(item.artistCandidates) ? item.artistCandidates : [],
