@@ -199,6 +199,12 @@ jobs:
       - name: Build RSS
         run: node scrape.mjs
 
+      # scrape.mjs still generates the legacy landing page as part of its
+      # data build. Keep the redesigned, repository-managed single-page UI
+      # for the Pages artifact while retaining generated browse/song pages.
+      - name: Preserve redesigned homepage
+        run: git checkout -- site/index.html
+
 
       # --------------------------------------------------
       # Sync Spotify playlists
