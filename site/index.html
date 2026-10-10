@@ -7,6 +7,8 @@
 <meta name="theme-color" content="#111311">
 <title>AniPlaylist — anime music, in one place</title>
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="preconnect" href="https://v.animethemes.moe" crossorigin>
+<link rel="dns-prefetch" href="//v.animethemes.moe">
 <style>
 :root{color-scheme:dark;--bg:#111311;--surface:#191c18;--surface2:#222620;--line:#343a31;--text:#f3f1e8;--muted:#a2a79a;--accent:#ff684a;--lime:#d6f36a;--green:#31d17c;--shadow:0 20px 65px #0003}
 html[data-theme="light"]{color-scheme:light;--bg:#f6f4ec;--surface:#fffdf6;--surface2:#efeee4;--line:#deddd1;--text:#1c211a;--muted:#697064;--accent:#e84e35;--lime:#d8ee76;--green:#12844c;--shadow:0 20px 55px #4c47300d}
@@ -378,6 +380,60 @@ body{font-size:15px}
  .footer{font-size:12px}
 }
 
+
+/* Compact desktop masthead: bring the searchable catalog into view sooner. */
+@media(min-width:781px){
+ .topbar{height:70px}
+ .hero{padding:31px 0 21px;grid-template-columns:minmax(0,1fr) 220px;gap:28px}
+ .hero h1{font-size:clamp(43px,4.4vw,58px);line-height:.99;letter-spacing:-.07em;margin:12px 0 10px}
+ .hero p{font-size:15px;line-height:1.65;max-width:680px}
+ .hero-art{height:145px;border-radius:18px}
+ .disc{width:112px;height:112px}
+ .disc:before{width:43px;height:43px;border-width:6px}
+ .art-label{font-size:8px;left:12px;top:12px}
+ .art-sticker{font-size:8px;padding:5px 6px;right:9px;top:9px}
+ .sound-bars{right:14px;bottom:13px;transform:scale(.85);transform-origin:right bottom}
+ .stats{margin:7px 0 19px}
+ .stat{padding:11px 16px 11px 0;margin-right:17px;min-width:115px}
+ .stat strong{font-size:24px}
+ .stat span{font-size:10px;letter-spacing:.09em}
+ .catalog{padding-bottom:38px}
+ .sectionline{margin-bottom:11px}
+ .sectionline h2{font-size:26px}
+ .sectionline p{font-size:13px;margin-top:4px}
+ .season-row{gap:8px;padding:2px 0 12px}
+ .season-btn{padding:9px 13px;font-size:13px}
+ .season-btn small{font-size:10px;margin-top:3px}
+ .filter-panel{padding:12px;margin-bottom:10px}
+ .searchbox{height:47px;padding:0 14px}
+ .searchbox input{font-size:15px}
+ .filter-row{gap:7px;padding-top:10px}
+ .filter-label{font-size:11px}
+ .chip{font-size:12px;padding:8px 12px}
+ .results-head{font-size:13px;padding:10px 2px 11px}
+ .extra{gap:14px;margin-top:21px}
+ .extra-card{padding:17px;border-radius:14px}
+ .extra-card h3{font-size:17px;margin-bottom:5px}
+ .extra-card p{font-size:13px;line-height:1.55;margin-bottom:10px}
+ .feed-buttons{gap:8px}
+ .feed-buttons .outline-btn{min-height:41px;font-size:12px}
+ .tiny-note{font-size:11px;line-height:1.55;margin-top:9px}
+ .footer{padding:17px 0 21px;font-size:11px}
+}
+.video-stage{position:relative;min-height:190px;background:#050605;border-radius:12px;overflow:hidden;display:grid;place-items:center}
+.video-stage #videoPlayer{position:relative;z-index:1}
+.video-loading[hidden]{display:none!important}
+.video-loading{position:absolute;z-index:2;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;flex-direction:column;padding:22px;background:rgba(5,6,5,.78);color:#f3f1e8;text-align:center;font-size:13px;line-height:1.5;pointer-events:none}
+.buffer-spinner{width:32px;height:32px;border:3px solid rgba(255,255,255,.2);border-top-color:var(--lime);border-right-color:var(--accent);border-radius:50%;animation:buffer-spin .8s linear infinite}
+.video-loading.is-error .buffer-spinner{display:none}
+.video-loading.is-error{color:#ffb7a8}
+@keyframes buffer-spin{to{transform:rotate(360deg)}}
+#videoPlayer{width:100%;min-height:180px;object-fit:contain}
+@media(max-width:780px){
+ .video-stage{min-height:150px}
+ #videoPlayer{min-height:150px}
+}
+
 </style>
 </head>
 <body>
@@ -404,7 +460,7 @@ body{font-size:15px}
    <div class="media-dialog-title"><span class="media-dialog-kicker" id="videoModalKicker">AnimeThemes · OP</span><strong id="videoModalTitle">Now playing</strong></div>
    <button type="button" class="media-close" id="closeVideo" aria-label="Close video player">×</button>
   </div>
-  <video id="videoPlayer" controls playsinline preload="metadata"></video>
+  <div class="video-stage"><div class="video-loading" id="videoLoading" role="status" aria-live="polite"><span class="buffer-spinner" aria-hidden="true"></span><span id="videoLoadingText">Connecting to the video server…</span></div><video id="videoPlayer" controls playsinline preload="auto"></video></div>
   <div class="media-dialog-foot"><span>Video plays here on AniPlaylist</span><a id="videoDirectLink" href="#" target="_blank" rel="noopener noreferrer">Open video file ↗</a></div>
  </div>
 </div>
@@ -525,9 +581,9 @@ function isValidDetailUrl(value){
  if(!value||!/^https?:\/\//i.test(value))return false;
  try{return new URL(value).pathname.replace(/\/+$/,"")!=="/hidden"}catch{return false}
 }
-function videoButton(url,title,kind){
+function videoButton(url,title,kind,poster){
  if(!url||!/^https?:\/\//i.test(url))return "";
- return '<button type="button" class="service-btn video" data-video-url="'+escapeHtml(url)+'" data-video-title="'+escapeHtml(title||"Anime theme")+'" data-video-kind="'+escapeHtml(kind||"OP")+'" aria-label="Play video for '+escapeHtml(title||"anime song")+'" title="Play video on this page">'+videoIcon+'<span>Watch</span></button>';
+ return '<button type="button" class="service-btn video" data-video-url="'+escapeHtml(url)+'" data-video-title="'+escapeHtml(title||"Anime theme")+'" data-video-kind="'+escapeHtml(kind||"OP")+'" data-video-poster="'+escapeHtml(poster||"")+'" aria-label="Play video for '+escapeHtml(title||"anime song")+'" title="Play video on this page">'+videoIcon+'<span>Watch</span></button>';
 }
 function trackHTML(r){
  const title=titleFor(r,"song")||r.song||"Untitled track";
@@ -539,7 +595,7 @@ function trackHTML(r){
  const links=[
   serviceButton(r.spotify,"Spotify","spotify",spotifyIcon),
   serviceButton(r.apple,"Apple Music","apple",appleIcon),
-  hasVideo(r)?videoButton(videoUrl(r),title,r.kind):"",
+  hasVideo(r)?videoButton(videoUrl(r),title,r.kind,cover):"",
   isValidDetailUrl(r.detailUrl)?serviceButton(r.detailUrl,"","detail",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M10 14 21 3M19 13v7H4V5h7"/></svg>'):""
  ].filter(Boolean).join("");
  return '<article class="track"><div class="cover">'+coverHTML+'</div><div class="track-main"><div class="track-topline"><span class="kind '+kindClass+'">'+escapeHtml(r.kind)+'</span><div class="track-title" title="'+escapeHtml(title)+'">'+escapeHtml(title)+'</div></div><div class="track-anime" title="'+escapeHtml(anime)+'">'+escapeHtml(anime)+'</div>'+(artist?'<div class="track-artist">'+escapeHtml(artist)+'</div>':"")+'</div><div class="track-actions">'+links+"</div></article>";
@@ -614,10 +670,19 @@ document.addEventListener("keydown",e=>{if(e.key==="/"&&!["INPUT","TEXTAREA"].in
 function syncScrollLock(){
  document.body.style.overflow=(!$("#videoModal").hidden||!$("#imageModal").hidden)?"hidden":"";
 }
-function openVideo(url,title,kind){
+function setVideoLoading(visible,message,isError=false){
+ const panel=$("#videoLoading");
+ panel.hidden=!visible;
+ panel.classList.toggle("is-error",!!isError);
+ if(message)$("#videoLoadingText").textContent=message;
+}
+function openVideo(url,title,kind,poster){
  if(!url||!/^https?:\/\//i.test(url))return;
  const modal=$("#videoModal"),player=$("#videoPlayer");
  player.pause();player.removeAttribute("src");player.load();
+ player.poster=poster||"";
+ player.preload="auto";
+ setVideoLoading(true,"Connecting to the video server…");
  $("#videoModalTitle").textContent=title||"Anime theme";
  $("#videoModalKicker").textContent="AnimeThemes · "+(kind||"OP");
  $("#videoDirectLink").href=url;
@@ -625,13 +690,26 @@ function openVideo(url,title,kind){
  player.src=url;player.load();
  $("#closeVideo").focus();
  const playPromise=player.play();
- if(playPromise&&typeof playPromise.catch==="function")playPromise.catch(()=>notify("Press play to start the video"));
+ if(playPromise&&typeof playPromise.catch==="function")playPromise.catch(()=>{
+  // Keep the loading state if the network is still resolving; media events will
+  // show either the playable state or a useful direct-link fallback.
+  if(player.error) setVideoLoading(true,"Playback failed. Try opening the video file below.",true);
+  else notify("Video is loading. Press play if it doesn't start automatically.");
+ });
 }
 function closeVideo(){
  const modal=$("#videoModal"),player=$("#videoPlayer");
  player.pause();player.removeAttribute("src");player.load();
  modal.hidden=true;syncScrollLock();
 }
+const videoElement=$("#videoPlayer");
+videoElement.addEventListener("loadstart",()=>setVideoLoading(true,"Loading video…"));
+videoElement.addEventListener("waiting",()=>setVideoLoading(true,"Buffering video…"));
+videoElement.addEventListener("stalled",()=>setVideoLoading(true,"Waiting for video data…"));
+videoElement.addEventListener("canplay",()=>setVideoLoading(false));
+videoElement.addEventListener("playing",()=>setVideoLoading(false));
+videoElement.addEventListener("error",()=>setVideoLoading(true,"Playback failed. Try opening the video file below.",true));
+
 function openImage(src,caption){
  if(!src)return;
  $("#largeCover").src=src;
@@ -644,7 +722,7 @@ function closeImage(){
 }
 $("#trackList").addEventListener("click",e=>{
  const play=e.target.closest("[data-video-url]");
- if(play){e.preventDefault();openVideo(play.dataset.videoUrl,play.dataset.videoTitle,play.dataset.videoKind);return;}
+ if(play){e.preventDefault();openVideo(play.dataset.videoUrl,play.dataset.videoTitle,play.dataset.videoKind,play.dataset.videoPoster);return;}
  const image=e.target.closest("[data-cover-preview]");
  if(image){openImage(image.currentSrc||image.src,image.alt);return;}
 });
