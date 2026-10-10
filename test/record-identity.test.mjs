@@ -86,6 +86,9 @@ test("uses a unique validated detail URL, not /hidden, for migration matching", 
   const exactUrlPrior = record({ id: "legacy-id" });
   const hiddenPrior = record({
     id: "other-id",
+    song: "A different song",
+    anime: "A different anime",
+    artist: "A different artist",
     detailUrl: "https://aniplaylist.com/hidden",
   });
 
