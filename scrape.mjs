@@ -1014,6 +1014,16 @@ function isLikelyArtistDisplay(value) {
   return true;
 }
 
+function normalizeForMatch(value) {
+  return String(value ?? "")
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/[^\p{Letter}\p{Number}]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function titleVariantScore(value, mode) {
   const text = normalizeForMatch(value);
   if (!text) return -Infinity;
