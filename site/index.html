@@ -175,6 +175,97 @@ body{font-size:15px}
  .cover img{cursor:zoom-in}
 }
 
+
+/* Mobile-first readability pass: give text and controls room to breathe. */
+@media(max-width:780px){
+ body{font-size:16px}
+ .eyebrow{font-size:11px;letter-spacing:.13em}
+ .hero p{font-size:15px;line-height:1.7}
+ .stat strong{font-size:21px}
+ .stat span{font-size:10px;line-height:1.4;letter-spacing:.045em}
+ .sectionline h2{font-size:23px}
+ .sectionline p{font-size:14px;line-height:1.5}
+ .season-btn{font-size:14px;padding:12px 15px}
+ .season-btn small{font-size:11px}
+ .searchbox{min-height:50px}
+ .searchbox input{font-size:16px}
+ .language-toggle button{font-size:13px;min-height:40px}
+ .filter-label{font-size:12px}
+ .chip{font-size:13px;padding:10px 12px;min-height:39px}
+ .results-head{font-size:13px}
+ .track{grid-template-columns:52px minmax(0,1fr);gap:12px;padding:18px 3px}
+ .cover{width:52px;height:52px}
+ .track-title{font-size:16px;line-height:1.35;letter-spacing:-.015em}
+ .track-anime{font-size:14px;line-height:1.5}
+ .track-artist{font-size:13px;line-height:1.5;margin-top:5px}
+ .track-actions{padding-left:64px;gap:8px;margin-top:3px}
+ .service-btn{min-height:41px;height:41px;padding:0 12px;font-size:12px;gap:7px}
+ .service-btn svg{width:16px;height:16px}
+ .extra-card h3{font-size:18px}
+ .extra-card p{font-size:14px;line-height:1.65}
+ .tiny-note{font-size:12px;line-height:1.6}
+ .outline-btn,.pill-btn{font-size:13px;min-height:44px}
+ .footer{font-size:12px;line-height:1.6}
+}
+@media(max-width:480px){
+ .shell{width:calc(100% - 24px)}
+ .topbar{height:64px}
+ .brand-mark{width:37px;height:37px}
+ .brand-name{font-size:18px}
+ .hero{padding-top:25px;padding-bottom:22px}
+ .eyebrow{font-size:10px;letter-spacing:.105em}
+ .hero h1{font-size:clamp(39px,10vw,45px);line-height:1.02}
+ .hero p{font-size:14px}
+ .stats{margin:9px 0 23px}
+ .stat{padding-right:8px;margin-right:8px}
+ .stat strong{font-size:18px}
+ .stat span{font-size:9px;letter-spacing:.015em}
+ .sectionline{align-items:flex-start;gap:9px;margin-bottom:13px}
+ .sectionline h2{font-size:21px}
+ .sectionline p{font-size:13px}
+ .section-tools .outline-btn{font-size:11px;min-height:40px;padding:0 10px}
+ .season-btn{font-size:13px;padding:11px 13px}
+ .season-btn small{font-size:10px}
+ .filter-panel{padding:12px}
+ .searchbox{height:49px;padding:0 12px}
+ .language-toggle button{font-size:12px;padding:0 6px}
+ .filter-row{gap:7px}
+ .filter-label{font-size:11px}
+ .chip{font-size:12px;min-height:40px;padding:10px 11px}
+ .results-head{display:flex;flex-direction:column;align-items:stretch;gap:7px;padding:12px 2px 12px}
+ .results-head #resultsCount{max-width:none;width:100%;font-size:13px;line-height:1.55}
+ .results-actions{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;flex-wrap:wrap;gap:8px}
+ .text-btn{font-size:13px;min-height:36px;padding:7px 9px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+ .track{grid-template-columns:52px minmax(0,1fr);gap:11px;padding:18px 2px}
+ .cover{width:52px;height:52px}
+ .track-title{font-size:16px;line-height:1.35;-webkit-line-clamp:3}
+ .track-anime{font-size:14px;line-height:1.5;-webkit-line-clamp:3}
+ .track-artist{font-size:13px;line-height:1.5}
+ .track-actions{padding-left:63px;gap:7px}
+ .service-btn{height:41px;min-height:41px;padding:0 11px;font-size:12px}
+ .service-btn span{display:inline}
+ .track-actions .detail{display:none}
+ .extra{gap:12px}
+ .extra-card{padding:16px}
+ .extra-card h3{font-size:17px}
+ .extra-card p{font-size:14px}
+ .feed-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+ .feed-buttons .outline-btn{width:100%;min-width:0;min-height:46px;padding:0 10px;font-size:13px;white-space:nowrap}
+ .feed-buttons .service-btn{justify-content:center;min-width:0}
+ .tiny-note{font-size:12px}
+ .pagination{gap:6px}
+ .page-btn{height:39px;min-width:39px;font-size:12px}
+}
+@media(max-width:360px){
+ .hero h1{font-size:38px}
+ .stat span{font-size:8px}
+ .track{grid-template-columns:46px minmax(0,1fr);gap:9px}
+ .cover{width:46px;height:46px}
+ .track-actions{padding-left:55px;gap:6px}
+ .service-btn{padding:0 9px;font-size:11px}
+ .chip{font-size:11px;padding:9px 9px}
+}
+
 </style>
 </head>
 <body>
