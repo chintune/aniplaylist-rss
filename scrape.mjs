@@ -685,6 +685,565 @@ function buildSongPage(item, season, key) {
   });
 }
 
+function htmlEscape(s) {
+  return rssEscape(s);
+}
+
+function makePlatformHtml(label, url) {
+  return `<p><strong>${htmlEscape(label)}</strong> — <a href="${htmlEscape(url)}">Open ${htmlEscape(label)}</a></p>`;
+}
+
+function browsePlatformIcon(className) {
+  const icons = {
+    spotify: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.4a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0-9.6-9.6Zm4.1 13.6a.58.58 0 0 1-.8.2c-2.2-1.35-4.97-1.65-8.24-.91a.58.58 0 1 1-.26-1.13c3.58-.82 6.65-.48 9.14 1.03.28.17.37.53.16.81Zm1.12-2.51a.72.72 0 0 1-.99.24c-2.51-1.54-6.35-1.99-9.32-1.08a.72.72 0 1 1-.42-1.38c3.4-1.04 7.65-.54 10.48 1.19.34.21.45.66.25 1.03Zm.1-2.65c-3.01-1.78-7.97-1.95-10.85-1.08a.87.87 0 1 1-.5-1.67c3.31-1 8.8-.81 12.29 1.26a.87.87 0 0 1-.94 1.49Z"/></svg>',
+    apple: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.9 12.8c0-2 1.6-3 1.7-3.1-.9-1.3-2.4-1.5-2.9-1.5-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.8-3.2 1.9-1.4 2.3-.4 5.7 1 7.5.7.9 1.4 1.9 2.5 1.8 1 0 1.4-.6 2.6-.6 1.2 0 1.5.6 2.6.6 1.1 0 1.8-.9 2.5-1.8.8-1 1.1-2.1 1.1-2.2-.1 0-2.1-.8-2.5-2.6Zm-1.9-5.8c.5-.7.9-1.7.8-2.7-.9 0-1.9.6-2.5 1.3-.5.6-.9 1.6-.8 2.5 1 .1 1.9-.4 2.5-1.1Z"/></svg>',
+    watch: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.3v13.4a1.1 1.1 0 0 0 1.68.94l9.8-6.7a1.12 1.12 0 0 0 0-1.88l-9.8-6.7A1.1 1.1 0 0 0 8 5.3Z"/></svg>',
+  };
+  return icons[className] || "";
+}
+
+function browsePlatformButton(label, url, className) {
+  if (!url) return "";
+  const icon = browsePlatformIcon(className);
+  const aria = "Open " + label;
+  return `<a class="platform ${className} icon-only" href="${htmlEscape(url)}" target="_blank" rel="noopener noreferrer" title="${htmlEscape(aria)}" aria-label="${htmlEscape(aria)}">${icon}<span class="sr-only">${htmlEscape(label)}</span></a>`;
+}
+
+
+const JAPANESE_TITLE_RE = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff66-\uff9f]/;
+
+const ENGLISH_HINTS = new Set([
+  "a", "an", "the", "and", "or", "of", "to", "in", "on", "with", "from",
+  "for", "is", "are", "be", "my", "your", "our", "world", "worlds",
+  "strongest", "witch", "secret", "saint", "tale", "great", "reincarnated",
+  "limitless", "influence", "idol", "days", "season", "story", "dream",
+  "star", "stars", "night", "moon", "sun", "love", "heart", "life",
+  "girl", "girls", "boy", "boys", "school", "hero", "heroes", "magic",
+  "king", "queen", "road", "brick", "flower", "flowers", "song", "songs",
+  "again", "tomorrow", "beyond", "past", "super", "psychic", "policeman",
+  "bloom", "blue", "sky", "future", "memory", "memories", "eternal", "beautiful",
+]);
+
+const ROMAJI_HINTS = new Set([
+  "no", "wa", "ga", "wo", "o", "ni", "de", "to", "mo", "he", "kara", "made",
+  "nara", "ne", "yo", "desu", "masu", "shita", "shite", "suru", "seka",
+  "sekai", "majo", "hajimemashita", "tensei", "reijou", "jou", "kanashii",
+  "bokura", "kimi", "boku", "watashi", "kokoro", "hoshi", "meguru",
+  "eikyouroku", "saikyou", "uta", "yoru", "kaze", "hana",
+  "mata", "ashita", "choujun", "choujou", "senpai", "mikansei", "mirai",
+  "yume", "sora", "koi", "suki", "daisuki", "natsu", "haru", "fuyu", "aki",
+  "niji", "sakura", "akari", "hikari", "yami", "ame", "arigatou", "tsuki",
+  "aisuru", "aisite", "minna", "kirai", "shiawase", "hajimari", "owari",
+]);
+
+function hasJapaneseScript(value) {
+  return JAPANESE_TITLE_RE.test(String(value || ""));
+}
+
+function isLikelyArtistDisplay(value) {
+  const s = clean(value);
+  if (!s) return false;
+  if (/^\d+$/.test(s)) return false;
+  // Preserve long all-lowercase romanizations (e.g. senntimirimenntaru);
+  // platform IDs normally contain digits, mixed case, underscores, or hyphens.
+  if (/^[A-Za-z0-9_-]{16,}$/.test(s) && !/\s/.test(s)
+      && (/[0-9]/.test(s) || /[A-Z]/.test(s) || /[_-]/.test(s))) return false;
+  return true;
+}
+
+function normalizeForMatch(value) {
+  return String(value ?? "")
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/[^\p{Letter}\p{Number}]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function titleVariantScore(value, mode) {
+  const text = normalizeForMatch(value);
+  if (!text) return -Infinity;
+
+  const words = text.split(" ").filter(Boolean);
+  const englishHits = words.filter(w => ENGLISH_HINTS.has(w)).length;
+  const romajiHits = words.filter(w => ROMAJI_HINTS.has(w)).length;
+
+  if (mode === "english") {
+    return (englishHits * 6)
+      - (romajiHits * 4)
+      + (words.length > 1 ? 1 : 0)
+      + (/^[A-Za-z0-9 .,'’!?:+&-]+$/.test(String(value || "")) ? 1 : 0);
+  }
+
+  if (mode === "romaji") {
+    return (romajiHits * 6)
+      - (englishHits * 4)
+      + (/[aeiou]/i.test(String(value || "")) ? 1 : 0);
+  }
+
+  return 0;
+}
+
+function chooseBestCandidate(candidates, mode, exclude = "") {
+  const pool = unique(candidates).filter(v => v && v !== exclude && !hasJapaneseScript(v));
+  if (!pool.length) return "";
+
+  return pool
+    .map((value, index) => ({
+      value,
+      score: titleVariantScore(value, mode),
+      index,
+    }))
+    .sort((a, b) => b.score - a.score || a.index - b.index)[0].value;
+}
+
+function getTitleVariants(candidates, fallback = "") {
+  const all = unique([...(Array.isArray(candidates) ? candidates : []), fallback]).filter(Boolean);
+  if (!all.length) {
+    return { english: "", romaji: "", japanese: "" };
+  }
+
+  const japanese = all.find(hasJapaneseScript) || "";
+  const latin = all.filter(v => !hasJapaneseScript(v));
+
+  let english = chooseBestCandidate(latin, "english");
+  let romaji = chooseBestCandidate(latin, "romaji", english);
+
+  if (!english) english = latin[0] || fallback || japanese;
+  if (!romaji) romaji = latin.find(v => v !== english) || english || fallback || japanese;
+
+  if (latin.length === 1) {
+    english = latin[0];
+    romaji = latin[0];
+  }
+
+  return {
+    english: english || fallback || romaji || japanese,
+    romaji: romaji || fallback || english || japanese,
+    japanese: japanese || fallback || english || romaji,
+  };
+}
+
+
+const ANIMETHEMES_INCLUDE =
+  "animesynonyms,animethemes.animethemeentries.videos,animethemes.song,animethemes.song.artists";
+
+function animeThemesNormalize(value) {
+  return String(value || "")
+    .toLocaleLowerCase()
+    .normalize("NFKC")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function animeThemesScore(query, candidate) {
+  const a = animeThemesNormalize(query);
+  const b = animeThemesNormalize(candidate);
+  if (!a || !b) return 0;
+  if (a === b) return 1000;
+
+  const compactA = a.replace(/\s+/g, "");
+  const compactB = b.replace(/\s+/g, "");
+
+  if (compactA && compactA === compactB) return 950;
+  if (a.includes(b) || b.includes(a)) return 650;
+
+  const aw = new Set(a.split(" ").filter(Boolean));
+  const bw = new Set(b.split(" ").filter(Boolean));
+  let overlap = 0;
+  for (const word of aw) if (bw.has(word)) overlap++;
+  return overlap ? 300 * overlap / Math.max(aw.size, bw.size) : 0;
+}
+
+function animeThemesBestScore(queries, candidates) {
+  let best = 0;
+  for (const query of queries || []) {
+    for (const candidate of candidates || []) {
+      best = Math.max(best, animeThemesScore(query, candidate));
+    }
+  }
+  return best;
+}
+
+function animeThemeArtistNames(theme) {
+  const names = [];
+
+  if (Array.isArray(theme?.song?.performances)) {
+    for (const performance of theme.song.performances) {
+      names.push(performance?.as);
+      names.push(performance?.alias);
+      names.push(performance?.artist?.name);
+    }
+  }
+
+  if (Array.isArray(theme?.song?.artists)) {
+    for (const artist of theme.song.artists) {
+      names.push(artist?.name);
+      names.push(artist?.artistsong?.as);
+    }
+  }
+
+  return unique(names);
+}
+
+function animeThemeVideoUrl(video) {
+  const direct = clean(video?.link || "");
+  if (/^https?:\/\//i.test(direct)) return direct;
+
+  const basename = clean(video?.basename || "");
+  return basename ? `https://v.animethemes.moe/${basename}` : "";
+}
+
+function chooseAnimeThemeVideo(theme) {
+  const candidates = [];
+
+  for (const entry of (theme?.entries || theme?.animethemeentries || [])) {
+    if (entry?.deleted_at || entry?.spoiler || entry?.nsfw) continue;
+
+    for (const video of entry?.videos || []) {
+      if (video?.deleted_at) continue;
+
+      const url = animeThemeVideoUrl(video);
+      if (!url) continue;
+
+      const tags = String(video?.tags || "")
+        .toLocaleLowerCase()
+        .split(/[\s,]+/)
+        .filter(Boolean);
+
+      let score = 0;
+      if (video?.nc) score += 500;
+      if (!tags.includes("spoiler")) score += 120;
+      if (!tags.includes("nsfw")) score += 120;
+      if (video?.overlap === "None" || video?.overlap === "none") score += 60;
+      if (video?.source === "WEB") score += 20;
+      if (video?.uncen) score += 10;
+      if (video?.subbed) score += 5;
+      if (video?.lyrics) score -= 2;
+
+      const resolution = Number(video?.resolution) || 0;
+      score += Math.min(resolution, 2160) / 10;
+
+      const version = Number(entry?.version) || 1;
+      score -= Math.min(version - 1, 5) * 8;
+
+      candidates.push({
+        url,
+        basename: clean(video?.basename || ""),
+        resolution,
+        score,
+        version,
+      });
+    }
+  }
+
+  return candidates.sort(
+    (a, b) => b.score - a.score || b.resolution - a.resolution || a.version - b.version
+  )[0] || null;
+}
+
+async function fetchAnimeThemesSeason(page, season) {
+  const match = String(season || "").match(/^(Winter|Spring|Summer|Fall)\s+(\d{4})$/i);
+  if (!match) return [];
+
+  const seasonName = match[1].toLocaleLowerCase();
+  const year = match[2];
+  const url = `https://animethemes.moe/year/${year}/${seasonName}`;
+
+  try {
+    await page.goto(url, {
+      waitUntil: "domcontentloaded",
+      timeout: 45000,
+    });
+
+    await page.waitForTimeout(800);
+
+    const animeLinks = await page.locator('a[href^="/anime/"]').evaluateAll(links =>
+      links
+        .map(link => ({
+          name: String(link.textContent || "").replace(/\s+/g, " ").trim(),
+          href: link.getAttribute("href") || "",
+        }))
+        .filter(item => /^\/anime\/[^/]+\/?$/.test(item.href))
+        .map(item => ({
+          name: item.name,
+          slug: item.href.replace(/^\/anime\//, "").replace(/\/$/, ""),
+        }))
+    );
+
+    const uniqueLinks = [];
+    const seen = new Set();
+
+    for (const item of animeLinks) {
+      if (!item.slug || seen.has(item.slug)) continue;
+      seen.add(item.slug);
+      uniqueLinks.push(item);
+    }
+
+    console.log(
+      `AnimeThemes ${season}: season page=${url} anime links=${uniqueLinks.length}`
+    );
+
+    return uniqueLinks;
+  } catch (error) {
+    console.warn(`AnimeThemes season page failed for ${season}:`, error);
+    return [];
+  }
+}
+
+function pickAnimeThemesIndexAnime(item, indexAnimes) {
+  const animeCandidates = unique([
+    ...(item.animeCandidates || []),
+    item.anime,
+  ]).filter(Boolean);
+
+  let bestAnime = null;
+  let bestScore = 0;
+
+  for (const anime of indexAnimes || []) {
+    const names = [anime?.name, anime?.slug].filter(Boolean);
+    const score = animeThemesBestScore(animeCandidates, names);
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestAnime = anime;
+    }
+  }
+
+  return { bestAnime, bestScore };
+}
+
+const animeThemesPageCache = new Map();
+
+async function fetchAnimeThemesAnimePage(page, animeSlug) {
+  const slugValue = clean(animeSlug);
+  if (!slugValue) return null;
+
+  if (animeThemesPageCache.has(slugValue)) {
+    return animeThemesPageCache.get(slugValue);
+  }
+
+  const promise = (async () => {
+    const url = `https://animethemes.moe/anime/${encodeURIComponent(slugValue)}`;
+
+    try {
+      await page.goto(url, {
+        waitUntil: "domcontentloaded",
+        timeout: 45000,
+      });
+
+      const raw = await page.locator("#__NEXT_DATA__").textContent().catch(() => "");
+      if (!raw) {
+        console.warn(`AnimeThemes page has no __NEXT_DATA__ for ${slugValue}`);
+        return null;
+      }
+
+      const json = JSON.parse(raw);
+      const anime =
+        json?.props?.pageProps?.anime ||
+        json?.props?.pageProps?.data?.anime ||
+        null;
+
+      if (!anime) {
+        console.warn(`AnimeThemes page has no anime data for ${slugValue}`);
+        return null;
+      }
+
+      return anime;
+    } catch (error) {
+      console.warn(`AnimeThemes anime page failed for ${slugValue}:`, error);
+      return null;
+    }
+  })();
+
+  animeThemesPageCache.set(slugValue, promise);
+  return promise;
+}
+
+async function loadAnimeThemesSeasonDetails(page, indexAnimes, items) {
+  const candidates = [];
+
+  for (const item of items || []) {
+    const picked = pickAnimeThemesIndexAnime(item, indexAnimes);
+    if (picked.bestAnime && picked.bestScore >= 650) {
+      candidates.push(picked.bestAnime);
+    }
+  }
+
+  const uniqueAnimes = [];
+  const seen = new Set();
+
+  for (const anime of candidates) {
+    if (!anime?.slug || seen.has(anime.slug)) continue;
+    seen.add(anime.slug);
+    uniqueAnimes.push(anime);
+  }
+
+  const details = [];
+  let failed = 0;
+
+  for (const anime of uniqueAnimes) {
+    const detail = await fetchAnimeThemesAnimePage(page, anime.slug);
+    if (detail) details.push(detail);
+    else failed++;
+  }
+
+  console.log(
+    `AnimeThemes detail pages: requested=${uniqueAnimes.length} ok=${details.length} failed=${failed}`
+  );
+
+  return details;
+}
+
+function pickAnimeThemesAnime(item, detailedAnimes) {
+  const animeCandidates = unique([
+    ...(item.animeCandidates || []),
+    item.anime,
+  ]).filter(Boolean);
+
+  let bestAnime = null;
+  let bestScore = 0;
+
+  for (const anime of detailedAnimes || []) {
+    const names = [
+      anime?.name,
+      anime?.slug,
+      ...(Array.isArray(anime?.synonyms)
+        ? anime.synonyms.map(x => x?.text)
+        : []),
+      ...(Array.isArray(anime?.animesynonyms)
+        ? anime.animesynonyms.map(x => x?.text)
+        : []),
+    ].filter(Boolean);
+
+    const score = animeThemesBestScore(animeCandidates, names);
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestAnime = anime;
+    }
+  }
+
+  return { bestAnime, bestScore };
+}
+
+async function attachAnimeThemesVideo(item, detailedAnimes) {
+  const picked = pickAnimeThemesAnime(item, detailedAnimes);
+
+  if (!picked.bestAnime || picked.bestScore < 650) {
+    return null;
+  }
+
+  const kind = String(item.kind || "").toUpperCase();
+  if (!["OP", "ED"].includes(kind)) return null;
+
+  const songCandidates = unique([
+    ...(item.titleCandidates || []),
+    item.song,
+  ]).filter(Boolean);
+
+  const artistCandidates = unique([
+    ...(item.artistCandidates || []),
+    item.artist,
+  ]).filter(Boolean);
+
+  let bestTheme = null;
+  let bestThemeScore = 0;
+
+  for (const theme of (picked.bestAnime.themes || picked.bestAnime.animethemes || [])) {
+    if (String(theme?.type || "").toUpperCase() !== kind) continue;
+
+    const artistScore = animeThemesBestScore(
+      artistCandidates,
+      animeThemeArtistNames(theme)
+    );
+
+    const songScore = animeThemesBestScore(
+      songCandidates,
+      theme?.song?.title ? [theme.song.title] : []
+    );
+
+    // Song title is the primary identity check. Artist matching is used as
+    // corroboration but is not mandatory because AnimeThemes can list aliases
+    // differently from AniPlaylist.
+    if (songScore < 650) continue;
+
+    let score = songScore * 2 + artistScore;
+
+    if ((Number(theme?.sequence) || 0) === 1) score += 20;
+    if (songScore >= 1000) score += 250;
+    if (artistScore >= 650) score += 50;
+
+    if (score > bestThemeScore) {
+      bestThemeScore = score;
+      bestTheme = theme;
+    }
+  }
+
+  if (!bestTheme) return null;
+
+  const video = chooseAnimeThemeVideo(bestTheme);
+  if (!video) return null;
+
+  return {
+    url: video.url,
+    basename: video.basename,
+    animeSlug: clean(picked.bestAnime.slug || ""),
+    themeSlug: clean(bestTheme.slug || ""),
+    type: kind,
+    sequence: Number(bestTheme.sequence) || 1,
+    version: video.version,
+  };
+}
+
+async function resolveAnimeThemesForSeason(page, items, season) {
+  const needsWatch = items.filter(item =>
+    ["OP", "ED"].includes(String(item.kind || "").toUpperCase())
+  );
+
+  if (!needsWatch.length) {
+    return { matched: 0, checked: 0, seasonLinks: 0 };
+  }
+
+  const indexAnimes = await fetchAnimeThemesSeason(page, season);
+  const detailedAnimes = await loadAnimeThemesSeasonDetails(
+    page,
+    indexAnimes,
+    needsWatch
+  );
+
+  let matched = 0;
+  let animeMatched = 0;
+
+  for (const item of needsWatch) {
+    const picked = pickAnimeThemesAnime(item, detailedAnimes);
+
+    if (picked.bestAnime && picked.bestScore >= 650) {
+      animeMatched++;
+    }
+
+    const video = await attachAnimeThemesVideo(item, detailedAnimes);
+    item.animethemesVideo = video;
+
+    if (video) matched++;
+  }
+
+  console.log(
+    `AnimeThemes ${season}: checked=${needsWatch.length} animeMatched=${animeMatched} videosMatched=${matched}`
+  );
+
+  return {
+    matched,
+    checked: needsWatch.length,
+    seasonLinks: indexAnimes.length,
+  };
+}
+
+
 function buildBrowsePage(season, items, options = {}) {
   const slugSeason = slug(season);
   const canonical = `${SITE_BASE}/browse/${slugSeason}/`;
