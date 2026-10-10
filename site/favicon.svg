@@ -1,50 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
-  <title id="title">AniPlaylist RSS</title>
-  <desc id="desc">A pink and blue music note surrounded by an orbit on a deep navy background.</desc>
-  <defs>
-    <linearGradient id="bg" x1="70" y1="40" x2="440" y2="480" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#17124a"/>
-      <stop offset=".55" stop-color="#101733"/>
-      <stop offset="1" stop-color="#08111f"/>
-    </linearGradient>
-    <linearGradient id="note" x1="160" y1="150" x2="365" y2="390" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ff79d2"/>
-      <stop offset=".5" stop-color="#b26cff"/>
-      <stop offset="1" stop-color="#5ea7ff"/>
-    </linearGradient>
-    <linearGradient id="orbit" x1="100" y1="370" x2="414" y2="170" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ff72cf"/>
-      <stop offset=".52" stop-color="#b26cff"/>
-      <stop offset="1" stop-color="#69b8ff"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="22"/>
-    </filter>
-  </defs>
-
-  <rect x="12" y="12" width="488" height="488" rx="116" fill="url(#bg)"/>
-  <circle cx="338" cy="152" r="112" fill="#7335ff" opacity=".14" filter="url(#soft)"/>
-  <circle cx="164" cy="370" r="100" fill="#ff4dbb" opacity=".09" filter="url(#soft)"/>
-
-  <g filter="url(#glow)" fill="url(#note)">
-    <path d="M186 116h176v46h-98v159.5c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72c10.5 0 20.6 2.2 29.7 6.3V116z"/>
-    <circle cx="192" cy="321" r="62"/>
-  </g>
-
-  <ellipse cx="260" cy="287" rx="205" ry="86" transform="rotate(-24 260 287)"
-           fill="none" stroke="url(#orbit)" stroke-width="13" opacity=".95"/>
-
-  <g fill="#fff">
-    <path d="M99 126l7 19 19 7-19 7-7 19-7-19-19-7 19-7 7-19z"/>
-    <path d="M401 342l6 16 16 6-16 6-6 16-6-16-16-6 16-6 6-16z"/>
-    <circle cx="412" cy="120" r="6"/>
-    <circle cx="118" cy="414" r="5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">AniPlaylist</title>
+  <rect x="3" y="3" width="58" height="58" rx="17" fill="#ff684a" transform="rotate(-5 32 32)"/>
+  <g fill="#fff" font-family="Inter, Arial, sans-serif" font-weight="900">
+    <text x="10" y="39" font-size="21" letter-spacing="-2">AP</text>
+    <path d="M46 18v16.5a5.5 5.5 0 1 1-3.5-5.14V22l10-2v12.5a5.5 5.5 0 1 1-3.5-5.14V16.5z" transform="translate(-1 0) scale(.82) translate(11 3)"/>
   </g>
 </svg>
