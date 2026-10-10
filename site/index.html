@@ -266,6 +266,68 @@ body{font-size:15px}
  .chip{font-size:11px;padding:9px 9px}
 }
 
+
+/* Phone layout: prioritize the catalog; reveal advanced filters only on request. */
+.mobile-season-picker,.mobile-filter-toggle{display:none}
+@media(max-width:780px){
+ .hero{padding-top:20px;padding-bottom:17px}
+ .hero h1{font-size:clamp(32px,7.7vw,42px);line-height:1.01;letter-spacing:-.065em;margin:12px 0 0}
+ .hero p{display:none}
+ .hero .eyebrow{font-size:10px}
+ .stats{margin:7px 0 19px}
+ .stat{padding-top:10px;padding-bottom:10px}
+ .stat strong{font-size:18px}
+ .stat span{font-size:9px}
+ .catalog{padding-bottom:36px}
+ .sectionline{margin-bottom:10px}
+ .sectionline h2{font-size:20px}
+ .sectionline p{font-size:12px;line-height:1.4;margin-top:3px}
+ .season-row{gap:7px;padding-bottom:12px}
+ .season-btn{padding:10px 12px;font-size:12px}
+ .season-btn small{font-size:10px}
+ .filter-panel{padding:10px;margin-bottom:10px}
+ .mobile-filter-toggle{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);background:var(--surface2);border-radius:11px;padding:10px 12px;margin-top:9px;text-align:left;color:var(--text);cursor:pointer}
+ .mobile-filter-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+ .mobile-filter-copy strong{font-size:13px}
+ .mobile-filter-copy small{font-size:11px;line-height:1.35;color:var(--muted)}
+ .mobile-filter-chevron{font-size:19px;color:var(--accent);line-height:1;flex:none}
+ .filter-row{display:none;padding-top:13px}
+ .filter-panel.filters-open .filter-row{display:flex}
+ .filter-label{margin:0 0 3px}
+ .chip{min-height:36px;padding:8px 10px}
+}
+@media(max-width:480px){
+ .hero{padding-top:16px;padding-bottom:14px}
+ .hero h1{font-size:clamp(30px,8vw,35px);line-height:1.02;margin:10px 0 0}
+ .hero .eyebrow{font-size:9px;letter-spacing:.09em}
+ .stats{margin:6px 0 17px}
+ .stat{padding-top:9px;padding-bottom:9px;padding-right:5px;margin-right:5px}
+ .stat strong{font-size:16px}
+ .stat span{font-size:8px;letter-spacing:0;line-height:1.25}
+ .sectionline{align-items:center;margin-bottom:8px}
+ .sectionline h2{font-size:18px}
+ .sectionline p{display:none}
+ .section-tools .outline-btn{min-height:36px;font-size:10px;padding:0 9px}
+ .season-row{display:none}
+ .mobile-season-picker{display:flex;align-items:center;gap:12px;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:9px 12px;margin:9px 0 10px}
+ .mobile-season-picker>span{flex:none;font-size:10px;text-transform:uppercase;font-weight:850;letter-spacing:.12em;color:var(--muted)}
+ .mobile-season-picker select{min-width:0;flex:1;appearance:auto;border:0;outline:0;background:transparent;color:var(--text);font:700 14px/1.3 inherit;padding:3px 0}
+ .mobile-season-picker select option{background:var(--surface);color:var(--text)}
+ .filter-panel{padding:10px;border-radius:13px}
+ .search-row{gap:8px}
+ .searchbox{height:45px;min-height:45px}
+ .language-toggle button{min-height:36px;height:36px}
+ .mobile-filter-toggle{margin-top:8px;padding:9px 11px}
+ .filter-panel.filters-open .filter-row{padding-top:11px}
+ .filter-row{gap:6px}
+ .filter-label{font-size:10px}
+ .chip{font-size:11px;min-height:34px;padding:7px 9px}
+ .results-head{padding:9px 2px 8px;gap:5px}
+ .results-head #resultsCount{font-size:12px;line-height:1.4}
+ .results-actions{gap:6px}
+ .text-btn{font-size:11px;min-height:32px;padding:5px 8px}
+}
+
 </style>
 </head>
 <body>
@@ -279,7 +341,8 @@ body{font-size:15px}
 <main class="catalog" id="catalog">
 <div class="sectionline"><div><h2>Browse the library <span style="color:var(--accent)">↘</span></h2><p id="seasonSubtitle">Pick a season and find your next repeat.</p></div><div class="section-tools"><button class="outline-btn" id="copyFeedTop" title="Copy RSS URL">⌁ Copy RSS</button></div></div>
 <div class="season-row" id="seasonRow" aria-label="Choose a season"></div>
-<section class="filter-panel" aria-label="Search and filters"><div class="search-row"><label class="searchbox"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search anime, song, or artist…" autocomplete="off" aria-label="Search anime, song, or artist"><span class="search-hint">/</span></label><div class="language-toggle" aria-label="Title language"><button class="active" data-lang="english">English</button><button data-lang="romaji">Romaji</button><button data-lang="japanese">日本語</button></div></div><div class="filter-row"><span class="filter-label">Track type</span><button class="chip active" data-kind="ALL">All</button><button class="chip" data-kind="OP">OP Opening</button><button class="chip" data-kind="ED">ED Ending</button><button class="chip" data-kind="IN">IN Insert</button><button class="chip" data-kind="OST">OST</button><button class="chip" data-kind="Other">Other</button><span class="filter-spacer"></span><button class="chip video" id="videoOnly">▷ Video available</button></div></section>
+<label class="mobile-season-picker" for="mobileSeasonSelect"><span>Season</span><select id="mobileSeasonSelect" aria-label="Choose anime season"></select></label>
+<section class="filter-panel" aria-label="Search and filters"><div class="search-row"><label class="searchbox"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search anime, song, or artist…" autocomplete="off" aria-label="Search anime, song, or artist"><span class="search-hint">/</span></label><div class="language-toggle" aria-label="Title language"><button class="active" data-lang="english">English</button><button data-lang="romaji">Romaji</button><button data-lang="japanese">日本語</button></div></div><button type="button" class="mobile-filter-toggle" id="mobileFilterToggle" aria-expanded="false" aria-controls="filterOptions"><span class="mobile-filter-copy"><strong>Filters</strong><small id="mobileFilterSummary">All types · All videos</small></span><span class="mobile-filter-chevron" id="mobileFilterChevron" aria-hidden="true">＋</span></button><div class="filter-row" id="filterOptions"><span class="filter-label">Track type</span><button class="chip active" data-kind="ALL">All</button><button class="chip" data-kind="OP">OP Opening</button><button class="chip" data-kind="ED">ED Ending</button><button class="chip" data-kind="IN">IN Insert</button><button class="chip" data-kind="OST">OST</button><button class="chip" data-kind="Other">Other</button><span class="filter-spacer"></span><button class="chip video" id="videoOnly">▷ Video available</button></div></section>
 <div class="results-head"><span id="resultsCount" aria-live="polite">Loading library…</span><div class="results-actions"><button class="text-btn" id="clearFilters">Reset filters</button><button class="text-btn" id="refresh">↻ Refresh</button></div></div>
 <section id="trackList" class="track-list" aria-label="Anime music tracks"><div class="empty">Loading seasonal music…</div></section><nav id="pagination" class="pagination" aria-label="Result pages"></nav>
 <section class="extra" aria-label="Listen and subscribe"><div class="extra-card"><h3>Listen to the season <span style="color:var(--green)">♫</span></h3><p>Take the season with you. Open its curated Spotify playlist when one is available.</p><div class="feed-buttons" id="playlistActions"><span class="tiny-note">Checking playlists…</span></div></div><div class="extra-card"><h3>Prefer your own feed reader? <span style="color:var(--accent)">⌁</span></h3><p>Subscribe to this season’s RSS feed. New matching entries appear when the feed refreshes.</p><div class="feed-buttons"><a class="outline-btn" id="openFeed" href="rss/fall-2026.xml" target="_blank" rel="noopener">Open RSS ↗</a><button class="outline-btn" id="copyFeed">Copy feed URL</button></div><div class="tiny-note">Feeds refresh automatically about every 30 minutes. Only tracks included in the generated RSS feed are sent to your reader.</div></div></section>
@@ -372,7 +435,18 @@ async function loadSeasonRecords(season){
  return[]
 }
 function dedupe(records){const map=new Map();for(const rec of records){const key=String(rec.id||rec.detailUrl||[rec.anime,rec.song,rec.artist,rec.kind].join("|")).toLowerCase();if(!map.has(key))map.set(key,rec)}return[...map.values()]}
-function renderSeasons(){$("#seasonRow").innerHTML=state.seasons.map(s=>{const count=state.allRecords.filter(r=>r.season===s).length;return '<button class="season-btn '+(s===state.chosen?"active":"")+'" data-season="'+escapeHtml(s)+'">'+escapeHtml(s)+'<small>'+(count?count+" tracks":"browse season")+"</small></button>"}).join("");$("#statSeasons").textContent=state.seasons.length}
+function renderSeasons(){
+ const countFor=season=>state.allRecords.filter(r=>r.season===season).length;
+ $("#seasonRow").innerHTML=state.seasons.map(s=>{const count=countFor(s);return '<button class="season-btn '+(s===state.chosen?"active":"")+'" data-season="'+escapeHtml(s)+'">'+escapeHtml(s)+'<small>'+(count?count+" tracks":"browse season")+"</small></button>"}).join("");
+ $("#mobileSeasonSelect").innerHTML=state.seasons.map(s=>{const count=countFor(s);return '<option value="'+escapeHtml(s)+'" '+(s===state.chosen?"selected":"")+'>'+escapeHtml(s)+(count?" ("+count+")":"")+"</option>"}).join("");
+ $("#statSeasons").textContent=state.seasons.length;
+}
+function updateMobileFilterSummary(){
+ const names={ALL:"All types",OP:"Openings",ED:"Endings",IN:"Insert songs",OST:"OST",Other:"Other"};
+ const bits=[names[state.kind]||"All types",state.videoOnly?"Video only":"All videos"];
+ $("#mobileFilterSummary").textContent=bits.join(" · ");
+ $("#mobileFilterChevron").textContent=$("#mobileFilterToggle").getAttribute("aria-expanded")==="true"?"−":"＋";
+}
 function filteredRecords(){
  const q=state.query.trim().toLowerCase();
  // Keep the catalog's release order. Language toggles and filters must never re-sort it.
@@ -415,7 +489,7 @@ function trackHTML(r){
 function renderPagination(totalPages){const el=$("#pagination");if(totalPages<=1){el.innerHTML="";return}let html='<button class="page-btn" data-page="'+(state.page-1)+'" '+(state.page===1?"disabled":"")+' aria-label="Previous page">‹</button>';const pages=[...new Set([1,totalPages,state.page,state.page-1,state.page+1].filter(n=>n>=1&&n<=totalPages))].sort((a,b)=>a-b);let last=0;for(const p of pages){if(last&&p-last>1)html+='<span style="padding:0 4px;color:var(--muted)">…</span>';html+='<button class="page-btn '+(state.page===p?"active":"")+'" data-page="'+p+'" aria-label="Page '+p+'" '+(state.page===p?'aria-current="page"':"")+'>'+p+"</button>";last=p}html+='<button class="page-btn" data-page="'+(state.page+1)+'" '+(state.page===totalPages?"disabled":"")+' aria-label="Next page">›</button>';el.innerHTML=html}
 function renderPlaylist(){const p=state.playlistMap[state.chosen];const url=p&&(p.url||p.spotify||p.playlistUrl);$("#playlistActions").innerHTML=url?'<a class="service-btn spotify" href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+spotifyIcon+'<span>Open Spotify playlist</span></a>':'<span class="tiny-note">No Spotify playlist is listed for this season yet.</span>'}
 function updateFeedControls(){const url=seasonUrl(state.chosen);$("#openFeed").href=url;$("#copyFeedTop").dataset.feed=url;$("#copyFeed").dataset.feed=url}
-function render(){const list=filteredRecords();const pages=Math.max(1,Math.ceil(list.length/ PAGE_SIZE));state.page=Math.min(state.page,pages);const start=(state.page-1)*PAGE_SIZE;$("#resultsCount").innerHTML="<strong>"+list.length.toLocaleString()+"</strong> "+(list.length===1?"track":"tracks")+" "+(state.query?"matching your search":"in "+escapeHtml(state.chosen))+(list.length?" <span>· showing "+(start+1)+"–"+Math.min(start+PAGE_SIZE,list.length)+"</span>":"");$("#trackList").innerHTML=list.slice(start,start+PAGE_SIZE).map(trackHTML).join("")||'<div class="empty"><strong>No tracks found. Yet.</strong><p>Try another title, change the type, or clear the video filter.</p><button class="outline-btn" id="emptyReset">Reset filters</button></div>';$("#statTracks").textContent=state.records.length.toLocaleString();renderPagination(pages);renderPlaylist();updateFeedControls();renderSeasons();$("#emptyReset")?.addEventListener("click",resetFilters)}
+function render(){const list=filteredRecords();const pages=Math.max(1,Math.ceil(list.length/ PAGE_SIZE));state.page=Math.min(state.page,pages);const start=(state.page-1)*PAGE_SIZE;$("#resultsCount").innerHTML="<strong>"+list.length.toLocaleString()+"</strong> "+(list.length===1?"track":"tracks")+" "+(state.query?"matching your search":"in "+escapeHtml(state.chosen))+(list.length?" <span>· showing "+(start+1)+"–"+Math.min(start+PAGE_SIZE,list.length)+"</span>":"");$("#trackList").innerHTML=list.slice(start,start+PAGE_SIZE).map(trackHTML).join("")||'<div class="empty"><strong>No tracks found. Yet.</strong><p>Try another title, change the type, or clear the video filter.</p><button class="outline-btn" id="emptyReset">Reset filters</button></div>';$("#statTracks").textContent=state.records.length.toLocaleString();renderPagination(pages);renderPlaylist();updateFeedControls();renderSeasons();updateMobileFilterSummary();$("#emptyReset")?.addEventListener("click",resetFilters)}
 async function selectSeason(season){
  if(!state.seasons.includes(season))return;
  state.chosen=season;state.records=[];state.page=1;
@@ -438,6 +512,14 @@ function applyTheme(theme){state.theme=theme;document.documentElement.dataset.th
 async function copyFeed(){const url=fullUrl(seasonUrl(state.chosen));try{await navigator.clipboard.writeText(url);notify("RSS URL copied")}catch{prompt("Copy this RSS URL:",url)}}
 async function init(){try{const [config,playlists]=await Promise.all([getJSON("seasons.json"),getJSON("spotify-playlists.json").catch(()=>({}))]);state.seasons=Array.isArray(config.seasons)?config.seasons:[];state.playlistMap=playlists||{};if(!state.seasons.length)throw new Error("No seasons are configured.");$("#statSeasons").textContent=state.seasons.length;await selectSeason(state.seasons.find(s=>/Fall 2026/i.test(s))||state.seasons[0])}catch(err){$("#trackList").innerHTML='<div class="empty"><strong>Couldn’t load the library.</strong><p>'+escapeHtml(err.message||"Try refreshing the page.")+'</p><button class="outline-btn" id="retryLoad">Try again</button></div>';$("#retryLoad")?.addEventListener("click",init);$("#resultsCount").textContent="Library unavailable"}}
 $("#seasonRow").addEventListener("click",e=>{const b=e.target.closest("[data-season]");if(b&&b.dataset.season!==state.chosen)selectSeason(b.dataset.season)});
+$("#mobileSeasonSelect").addEventListener("change",e=>{if(e.target.value!==state.chosen)selectSeason(e.target.value)});
+$("#mobileFilterToggle").addEventListener("click",()=>{
+ const panel=$(".filter-panel"),button=$("#mobileFilterToggle");
+ const expanded=button.getAttribute("aria-expanded")==="true";
+ button.setAttribute("aria-expanded",String(!expanded));
+ panel.classList.toggle("filters-open",!expanded);
+ updateMobileFilterSummary();
+});
 $$(".chip[data-kind]").forEach(b=>b.addEventListener("click",()=>{state.kind=b.dataset.kind;state.page=1;$$(".chip[data-kind]").forEach(x=>x.classList.toggle("active",x===b));render()}));
 $("#videoOnly").addEventListener("click",()=>{state.videoOnly=!state.videoOnly;state.page=1;$("#videoOnly").classList.toggle("active",state.videoOnly);render()});
 $("#search").addEventListener("input",e=>{state.query=e.target.value;state.page=1;render()});
