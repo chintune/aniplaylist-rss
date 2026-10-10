@@ -4044,23 +4044,6 @@ for (const season of CFG.seasons) {
    * belonging to the current RSS, rather than anything historical
    * in state.json.
    */
-  currentSpotifyTracks[season] = [
-    ...new Set(
-      usable
-        .map(item => {
-          const match = String(item.spotify || "").match(
-            /https?:\/\/open\.spotify\.com\/track\/([A-Za-z0-9]+)/i
-          );
-
-          return match?.[1] || "";
-        })
-        .filter(Boolean)
-    ),
-  ];
-
-  console.log(
-    `${season}: current Spotify tracks=${currentSpotifyTracks[season].length}`
-  );
 
   // For the small set that actually enters the RSS feed, resolve the image
   // from the exact AniPlaylist detail page when the record did not give us a
@@ -4167,6 +4150,26 @@ for (const season of CFG.seasons) {
   await fs.writeFile(
     path.join(RSS_DIR, `${slug(season)}.xml`),
     rssXml
+  );
+
+  // buildRss sorts rssItems in place with the same comparator used by the
+  // website catalog: newest first, stable source-ID tie-break for same-batch entries.
+  // Create Spotify refs only after this sort, so playlist order follows the site.
+  currentSpotifyTracks[season] = [
+    ...new Set(
+      rssItems
+        .map(item => {
+          const match = String(item.spotify || "").match(
+            /https?:\/\/open\.spotify\.com\/track\/([A-Za-z0-9]+)/i
+          );
+          return match?.[1] || "";
+        })
+        .filter(Boolean)
+    ),
+  ];
+
+  console.log(
+    `${season}: current Spotify tracks=${currentSpotifyTracks[season].length}`
   );
   catalogRecords.push(...rssItems.map(item => ({
     ...item,
