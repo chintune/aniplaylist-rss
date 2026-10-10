@@ -226,10 +226,29 @@ const fullUrl = relative => new URL(relative,location.href).href;
 function notify(message){const el=$("#toast");el.textContent=message;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),1800)}
 async function getJSON(url){const response=await fetch(url,{cache:"no-store"});if(!response.ok)throw new Error("Could not load "+url+" ("+response.status+")");return response.json()}
 function variants(rec,type){
- const key=type==="anime"?"animeCandidates":"titleCandidates";const raw=rec[key];
- if(Array.isArray(raw)&&raw.length){const jp=raw.find(x=>/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const plain=raw.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const romaji=raw.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x)&&x!==plain)||plain||raw[0];return {english:plain||raw[0],romaji:romaji,japanese:jp||plain||raw[0],all:raw.join(" ")}}
- const list=String(rec[type]||"").split(/\s*,\s*/).filter(Boolean);const jp=list.find(x=>/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const eng=list.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x))||list[0]||"";return {english:eng,romaji:eng,japanese:jp||eng,all:list.join(" ")}
+ const key=type==="anime"?"animeCandidates":type==="artist"?"artistCandidates":"titleCandidates";
+ const source=rec[key];
+ const isJapanese=value=>/[\u3040-\u30ff\u3400-\u9fff]/.test(value);
+ const candidates=(Array.isArray(source)?source:[])
+  .map(value=>String(value??"").trim())
+  .filter(value=>{
+   if(!value)return false;
+   // artistCandidates also contains database IDs, Spotify IDs and channel IDs.
+   if(type==="artist"&&(/^\d+$/.test(value)||/^[A-Za-z0-9_-]{16,}$/.test(value)))return false;
+   return true;
+  });
+ if(candidates.length){
+  const jp=candidates.find(isJapanese);
+  const plain=candidates.find(value=>!isJapanese(value));
+  const romaji=candidates.find(value=>!isJapanese(value)&&value!==plain)||plain||candidates[0];
+  return {english:plain||candidates[0],romaji:romaji,japanese:jp||plain||candidates[0],all:candidates.join(" ")};
+ }
+ const list=String(rec[type]||"").split(/\s*,\s*/).map(x=>x.trim()).filter(Boolean);
+ const jp=list.find(isJapanese);
+ const eng=list.find(x=>!isJapanese(x))||list[0]||"";
+ return {english:eng,romaji:eng,japanese:jp||eng,all:list.join(" ")};
 }
+
 function titleFor(rec,type){const v=variants(rec,type);return v[state.lang]||v.english||rec[type]||"Unknown"}
 function kindFor(rec){let k=String(rec.kind||rec.song_type_short||rec.song_type||rec.type||"Other").toUpperCase();if(["OP","OPENING"].includes(k))return"OP";if(["ED","ENDING"].includes(k))return"ED";if(["IN","INSERT","INSERT SONG","INSERT SONGS"].includes(k))return"IN";if(["OST","SOUNDTRACK","ORIGINAL SOUNDTRACK"].includes(k))return"OST";return["OTHER","UNKNOWN"].includes(k)?"Other":["OP","ED","IN","OST"].includes(k)?k:"Other"}
 function linkFrom(rec,service){
@@ -270,7 +289,7 @@ function filteredRecords(){
   if(state.kind!=="ALL"&&r.kind!==state.kind)return false;
   if(state.videoOnly&&!hasVideo(r))return false;
   if(!q)return true;
-  return [r.song,r.anime,r.artist,variants(r,"anime").all,variants(r,"title").all,r.title,r.detailUrl,r.kind].join(" ").toLowerCase().includes(q);
+  return [r.song,r.anime,r.artist,variants(r,"anime").all,variants(r,"title").all,variants(r,"artist").all,r.title,r.detailUrl,r.kind].join(" ").toLowerCase().includes(q);
  });
 }
 
@@ -289,6 +308,7 @@ function videoButton(url,title,kind){
 function trackHTML(r){
  const title=titleFor(r,"song")||r.song||"Untitled track";
  const anime=titleFor(r,"anime")||r.anime||"Unknown anime";
+ const artist=titleFor(r,"artist")||r.artist||"";
  const cover=coverFor(r);
  const kindClass=r.kind.toLowerCase()==="op"?"op":r.kind.toLowerCase()==="ed"?"ed":"";
  const coverHTML=cover&&/^https?:\/\//i.test(cover)?'<img data-cover-preview="1" tabindex="0" role="button" aria-label="Enlarge cover art for '+escapeHtml(title)+'" loading="lazy" src="'+escapeHtml(cover)+'" alt="'+escapeHtml(title)+' cover art" onerror="this.parentElement.innerHTML=\'♪\'">':"♪";
@@ -298,7 +318,7 @@ function trackHTML(r){
   hasVideo(r)?videoButton(videoUrl(r),title,r.kind):"",
   isValidDetailUrl(r.detailUrl)?serviceButton(r.detailUrl,"","detail",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M10 14 21 3M19 13v7H4V5h7"/></svg>'):""
  ].filter(Boolean).join("");
- return '<article class="track"><div class="cover">'+coverHTML+'</div><div class="track-main"><div class="track-topline"><span class="kind '+kindClass+'">'+escapeHtml(r.kind)+'</span><div class="track-title" title="'+escapeHtml(title)+'">'+escapeHtml(title)+'</div></div><div class="track-anime" title="'+escapeHtml(anime)+'">'+escapeHtml(anime)+'</div>'+(r.artist?'<div class="track-artist">'+escapeHtml(r.artist)+'</div>':"")+'</div><div class="track-actions">'+links+"</div></article>";
+ return '<article class="track"><div class="cover">'+coverHTML+'</div><div class="track-main"><div class="track-topline"><span class="kind '+kindClass+'">'+escapeHtml(r.kind)+'</span><div class="track-title" title="'+escapeHtml(title)+'">'+escapeHtml(title)+'</div></div><div class="track-anime" title="'+escapeHtml(anime)+'">'+escapeHtml(anime)+'</div>'+(artist?'<div class="track-artist">'+escapeHtml(artist)+'</div>':"")+'</div><div class="track-actions">'+links+"</div></article>";
 }
 
 function renderPagination(totalPages){const el=$("#pagination");if(totalPages<=1){el.innerHTML="";return}let html='<button class="page-btn" data-page="'+(state.page-1)+'" '+(state.page===1?"disabled":"")+' aria-label="Previous page">‹</button>';const pages=[...new Set([1,totalPages,state.page,state.page-1,state.page+1].filter(n=>n>=1&&n<=totalPages))].sort((a,b)=>a-b);let last=0;for(const p of pages){if(last&&p-last>1)html+='<span style="padding:0 4px;color:var(--muted)">…</span>';html+='<button class="page-btn '+(state.page===p?"active":"")+'" data-page="'+p+'" aria-label="Page '+p+'" '+(state.page===p?'aria-current="page"':"")+'>'+p+"</button>";last=p}html+='<button class="page-btn" data-page="'+(state.page+1)+'" '+(state.page===totalPages?"disabled":"")+' aria-label="Next page">›</button>';el.innerHTML=html}
