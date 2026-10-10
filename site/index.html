@@ -622,11 +622,18 @@ async function selectSeason(season){
  $("#trackList").innerHTML='<div class="empty">Finding the season’s tracks…</div>';
  renderSeasons();
  const records=await loadSeasonRecords(season);
- state.records=dedupe(records.map((r,index)=>({...r,season,_catalogIndex:index}))).sort((a,b)=>{
+ const orderedRecords=records.map(r=>({...r,season})).sort((a,b)=>{
   const aDate=Date.parse(a.firstSeen||a.pubDate||0)||0;
   const bDate=Date.parse(b.firstSeen||b.pubDate||0)||0;
-  return bDate-aDate||(a._catalogIndex??0)-(b._catalogIndex??0);
+  const byNewest=bDate-aDate;
+  if(byNewest)return byNewest;
+  // Use content-based tie breaking, not API result order, so repeated builds stay deterministic.
+  const aKey=[a.id||"",a.anime||"",a.song||"",a.artist||"",a.kind||"",a.detailUrl||""].join("|").toLowerCase();
+  const bKey=[b.id||"",b.anime||"",b.song||"",b.artist||"",b.kind||"",b.detailUrl||""].join("|").toLowerCase();
+  return aKey.localeCompare(bKey);
  });
+ // Sort before de-duplication so the newest version of a repeated track ID wins.
+ state.records=dedupe(orderedRecords);
  state.allRecords=state.allRecords.filter(r=>r.season!==season).concat(state.records);
  $("#seasonSubtitle").textContent="Browse "+season+" releases. Search, filter, and listen without leaving this page.";
  render();
