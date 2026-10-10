@@ -39,6 +39,10 @@ const SITE_BASE = String(
   process.env.SITE_BASE || "https://chintu-io.github.io/aniplaylist-rss"
 ).replace(/\/$/, "");
 
+// One shared timestamp per scrape: tracks first detected in the same build
+// then use the numeric source ID as a deterministic newest-first tie-breaker.
+const BUILD_STARTED_AT = new Date().toISOString();
+
 let state = {};
 let resolveCache = {};
 
@@ -3743,7 +3747,7 @@ async function makeRssItem(item, season) {
     .filter(Number.isFinite);
   const firstSeen = priorDates.length
     ? new Date(Math.min(...priorDates)).toISOString()
-    : (priorRecord?.firstSeen || new Date().toISOString());
+    : (priorRecord?.firstSeen || BUILD_STARTED_AT);
 
   const mergeCandidates = field => unique([
     ...(Array.isArray(item[field]) ? item[field] : []),
