@@ -328,6 +328,56 @@ body{font-size:15px}
  .text-btn{font-size:11px;min-height:32px;padding:5px 8px}
 }
 
+
+/* Desktop readability: larger type and more generous controls, without affecting phone layouts. */
+@media(min-width:781px){
+ body{font-size:16px}
+ .topbar{height:80px}
+ .brand-mark{width:42px;height:42px}
+ .brand-name{font-size:21px}
+ .brand-sub{font-size:11px}
+ .quiet-link{font-size:14px}
+ .hero{padding-top:62px;padding-bottom:39px}
+ .hero p{font-size:17px;line-height:1.8;max-width:700px}
+ .eyebrow{font-size:12px}
+ .stat{padding-top:18px;padding-bottom:18px;min-width:120px}
+ .stat strong{font-size:26px}
+ .stat span{font-size:12px}
+ .sectionline h2{font-size:29px}
+ .sectionline p{font-size:15px;line-height:1.55}
+ .section-tools .outline-btn{min-height:46px;font-size:14px;padding:0 15px}
+ .season-row{gap:10px;padding-bottom:19px}
+ .season-btn{font-size:14px;padding:12px 17px}
+ .season-btn small{font-size:11px}
+ .filter-panel{padding:16px;margin-bottom:18px}
+ .searchbox{height:53px;padding:0 16px}
+ .searchbox input{font-size:16px}
+ .search-hint{font-size:11px}
+ .filter-row{gap:9px;padding-top:14px}
+ .filter-label{font-size:12px}
+ .chip{font-size:13px;padding:10px 14px}
+ .results-head{font-size:14px;padding:13px 3px 16px}
+ .text-btn{font-size:13px;padding:7px 9px}
+ .track{grid-template-columns:50px minmax(0,1fr) auto;gap:15px;padding:17px 10px}
+ .cover{width:50px;height:50px}
+ .track-title{font-size:17px;line-height:1.4}
+ .track-anime{font-size:14px;line-height:1.55;margin-top:6px}
+ .track-artist{font-size:13px;line-height:1.5;margin-top:5px}
+ .kind{font-size:10px;padding:5px 7px}
+ .track-actions{gap:8px}
+ .service-btn{height:39px;min-width:39px;padding:0 11px;font-size:12px}
+ .service-btn svg{width:16px;height:16px}
+ .page-btn{height:39px;min-width:39px;font-size:12px}
+ .extra{gap:16px;margin-top:29px}
+ .extra-card{padding:23px}
+ .extra-card h3{font-size:18px}
+ .extra-card p{font-size:15px;line-height:1.7}
+ .feed-buttons{gap:10px}
+ .feed-buttons .outline-btn{font-size:13px;min-height:46px}
+ .tiny-note{font-size:12px;line-height:1.65}
+ .footer{font-size:12px}
+}
+
 </style>
 </head>
 <body>
@@ -371,7 +421,7 @@ body{font-size:15px}
 "use strict";
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
-const state = {seasons:[],chosen:"",playlistMap:{},records:[],allRecords:[],kind:"ALL",lang:"english",videoOnly:false,query:"",page:1,theme:"dark"};
+const state = {seasons:[],chosen:"",playlistMap:{},records:[],allRecords:[],catalogRecords:[],catalogLoaded:false,kind:"ALL",lang:"english",videoOnly:false,query:"",page:1,theme:"dark"};
 const PAGE_SIZE=25; let toastTimer;
 const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -416,29 +466,38 @@ function videoUrl(rec){const v=rec.animethemesVideo||rec.animeThemesVideo||null;
 function hasVideo(rec){return !!videoUrl(rec)}
 function coverFor(rec){return rec.thumbnail||rec.image||rec.cover||rec.artwork||""}
 async function loadSeasonRecords(season){
+ if(state.catalogLoaded){
+  return state.catalogRecords.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase()).map(normalize);
+ }
+ // Compatibility fallback while a deployment is being updated or catalog.json is unavailable.
  try{
-  const response=await fetch("catalog.json",{cache:"no-store"});
-  if(response.ok){
-   const payload=await response.json();
-   const collection=Array.isArray(payload)?payload:Array.isArray(payload.records)?payload.records:[];
-   // An empty match is meaningful: this season currently has no listenable releases.
-   return collection.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase()).map(normalize);
-  }
+  const payload=await getJSON("catalog.json");
+  const collection=Array.isArray(payload)?payload:Array.isArray(payload.records)?payload.records:[];
+  state.catalogRecords=collection.map(normalize);
+  state.catalogLoaded=true;
+  state.allRecords=state.catalogRecords.slice();
+  renderSeasons();
+  return state.catalogRecords.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase());
  }catch{}
- // Compatibility fallback for a deployment that has not generated catalog.json yet.
  try{
   const payload=await getJSON("state.json");
   const records=Array.isArray(payload)?payload:Object.values(payload||{});
   const matched=records.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase()&&(rec.spotify||rec.apple));
   if(matched.length)return matched.map(normalize);
  }catch{}
- return[]
+ return[];
 }
 function dedupe(records){const map=new Map();for(const rec of records){const key=String(rec.id||rec.detailUrl||[rec.anime,rec.song,rec.artist,rec.kind].join("|")).toLowerCase();if(!map.has(key))map.set(key,rec)}return[...map.values()]}
 function renderSeasons(){
- const countFor=season=>state.allRecords.filter(r=>r.season===season).length;
- $("#seasonRow").innerHTML=state.seasons.map(s=>{const count=countFor(s);return '<button class="season-btn '+(s===state.chosen?"active":"")+'" data-season="'+escapeHtml(s)+'">'+escapeHtml(s)+'<small>'+(count?count+" tracks":"browse season")+"</small></button>"}).join("");
- $("#mobileSeasonSelect").innerHTML=state.seasons.map(s=>{const count=countFor(s);return '<option value="'+escapeHtml(s)+'" '+(s===state.chosen?"selected":"")+'>'+escapeHtml(s)+(count?" ("+count+")":"")+"</option>"}).join("");
+ const countSource=state.catalogLoaded?state.catalogRecords:state.allRecords;
+ const countFor=season=>countSource.filter(r=>String(r.season||"").toLowerCase()===season.toLowerCase()).length;
+ const seasonCaption=season=>{
+  const count=countFor(season);
+  if(count>0)return count+" tracks";
+  return state.catalogLoaded?"No tracks yet":"browse season";
+ };
+ $("#seasonRow").innerHTML=state.seasons.map(s=>{return '<button class="season-btn '+(s===state.chosen?"active":"")+'" data-season="'+escapeHtml(s)+'">'+escapeHtml(s)+'<small>'+escapeHtml(seasonCaption(s))+"</small></button>"}).join("");
+ $("#mobileSeasonSelect").innerHTML=state.seasons.map(s=>{const count=countFor(s);return '<option value="'+escapeHtml(s)+'" '+(s===state.chosen?"selected":"")+'>'+escapeHtml(s)+(count?" ("+count+")":state.catalogLoaded?" (0 tracks)":"")+"</option>"}).join("");
  $("#statSeasons").textContent=state.seasons.length;
 }
 function updateMobileFilterSummary(){
@@ -510,7 +569,28 @@ async function selectSeason(season){
 function resetFilters(){state.kind="ALL";state.videoOnly=false;state.query="";state.page=1;$("#search").value="";$$(".chip[data-kind]").forEach(b=>b.classList.toggle("active",b.dataset.kind==="ALL"));$("#videoOnly").classList.remove("active");render()}
 function applyTheme(theme){state.theme=theme;document.documentElement.dataset.theme=theme;const dark=theme==="dark";$("#themeIcon").innerHTML=dark?'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>':'<path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>';$("#themeToggle").setAttribute("aria-label","Switch to "+(dark?"light":"dark")+" theme");try{localStorage.setItem("aniplaylist-theme",theme)}catch{}}
 async function copyFeed(){const url=fullUrl(seasonUrl(state.chosen));try{await navigator.clipboard.writeText(url);notify("RSS URL copied")}catch{prompt("Copy this RSS URL:",url)}}
-async function init(){try{const [config,playlists]=await Promise.all([getJSON("seasons.json"),getJSON("spotify-playlists.json").catch(()=>({}))]);state.seasons=Array.isArray(config.seasons)?config.seasons:[];state.playlistMap=playlists||{};if(!state.seasons.length)throw new Error("No seasons are configured.");$("#statSeasons").textContent=state.seasons.length;await selectSeason(state.seasons.find(s=>/Fall 2026/i.test(s))||state.seasons[0])}catch(err){$("#trackList").innerHTML='<div class="empty"><strong>Couldn’t load the library.</strong><p>'+escapeHtml(err.message||"Try refreshing the page.")+'</p><button class="outline-btn" id="retryLoad">Try again</button></div>';$("#retryLoad")?.addEventListener("click",init);$("#resultsCount").textContent="Library unavailable"}}
+async function init(){try{
+ const [config,playlists,catalog]=await Promise.all([
+  getJSON("seasons.json"),
+  getJSON("spotify-playlists.json").catch(()=>({})),
+  getJSON("catalog.json").catch(()=>null)
+ ]);
+ state.seasons=Array.isArray(config.seasons)?config.seasons:[];
+ state.playlistMap=playlists||{};
+ if(catalog&&Array.isArray(catalog.records)){
+  state.catalogRecords=catalog.records.map(normalize);
+  state.catalogLoaded=true;
+  state.allRecords=state.catalogRecords.slice();
+ }
+ if(!state.seasons.length)throw new Error("No seasons are configured.");
+ $("#statSeasons").textContent=state.seasons.length;
+ renderSeasons();
+ await selectSeason(state.seasons.find(s=>/Fall 2026/i.test(s))||state.seasons[0]);
+ }catch(err){
+  $("#trackList").innerHTML='<div class="empty"><strong>Couldn’t load the library.</strong><p>'+escapeHtml(err.message||"Try refreshing the page.")+'</p><button class="outline-btn" id="retryLoad">Try again</button></div>';
+  $("#retryLoad")?.addEventListener("click",init);
+  $("#resultsCount").textContent="Library unavailable";
+ }}
 $("#seasonRow").addEventListener("click",e=>{const b=e.target.closest("[data-season]");if(b&&b.dataset.season!==state.chosen)selectSeason(b.dataset.season)});
 $("#mobileSeasonSelect").addEventListener("change",e=>{if(e.target.value!==state.chosen)selectSeason(e.target.value)});
 $("#mobileFilterToggle").addEventListener("click",()=>{
