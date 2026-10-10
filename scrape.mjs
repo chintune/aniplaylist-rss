@@ -284,8 +284,20 @@ function formatArtistNames(values) {
   return names.slice(0, -1).join(", ") + " & " + names[names.length - 1];
 }
 
-function sourceKindLabel(hit, kind) {
-  // Preserve source labels such as "Insert (ep 3)" rather than only "IN".
+function episodeValues(value) {
+  const values = Array.isArray(value) ? value : value == null ? [] : [value];
+  return unique(values.map(entry => {
+    const raw = entry && typeof entry === "object"
+      ? textFrom(entry, ["episode", "episode_number", "number", "name", "title", "value"])
+      : clean(entry);
+    if (!raw) return "";
+    const match = raw.match(/(?:episode|ep)\s*\.?\s*#?\s*(\d+(?:\.\d+)?)/i)
+      || raw.match(/^#?\s*(\d+(?:\.\d+)?)$/);
+    return match ? match[1] : raw;
+  }));
+}
+
+function sourceKindLabel(hit, kind, episodes = episodeValues(hit?.episodes)) {
   const candidates = [
     ...collectStrings(hit.type),
     ...collectStrings(hit.song_type),
@@ -298,7 +310,11 @@ function sourceKindLabel(hit, kind) {
     /\b(?:ep|episode)\s*\.?\s*#?\s*\d+\b/i.test(value)
     || /\(\s*ep\b[^)]*\)/i.test(value)
   );
-  return detailed || labels[0] || prettyKind(kind) || kind || "Other";
+  const base = detailed || labels[0] || prettyKind(kind) || kind || "Other";
+  if (/^insert(?:ion)?(?:\s+song)?\b/i.test(base) && episodes.length && !/\(\s*ep\b/i.test(base)) {
+    return "Insert (ep " + episodes.join(", ") + ")";
+  }
+  return base;
 }
 
 function normaliseHit(hit) {
@@ -334,7 +350,8 @@ function normaliseHit(hit) {
     || hit.type
     || ""
   );
-  const kindLabel = sourceKindLabel(hit, kind);
+  const episodes = episodeValues(hit.episodes);
+  const kindLabel = sourceKindLabel(hit, kind, episodes);
 
   const spotify = findSpotify(hit.links) || findSpotify(hit.platforms);
   const apple = findAppleMusic(hit.links) || findAppleMusic(hit.platforms);
@@ -353,6 +370,7 @@ function normaliseHit(hit) {
     artistDisplayCount,
     kind,
     kindLabel,
+    episodes,
     spotify,
     apple,
     thumbnail: findAniPlaylistThumbnail(hit.thumbnail)
@@ -3630,130 +3648,161 @@ function buildBrowseRedirectPage(season, items) {
 
 async function makeRssItem(item, season) {
   const kind = item.kind || "Other";
-  const title = `[${kind}] ${item.anime || "Unknown anime"}`;
 
-  // Look up historical identity by source ID first. Metadata such as artist
-  // spelling/localization can change, but that must not make an old track new.
   const itemId = clean(item.id);
   const itemDetailUrl = clean(item.detailUrl);
-  let priorEntries = itemId
+  const identityText = value => clean(value).toLowerCase().normalize("NFKC")
+    .replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/g, "");
+  const candidateSet = (record, candidateKey, field) => new Set(
+    unique([...(Array.isArray(record?.[candidateKey]) ? record[candidateKey] : []), record?.[field]])
+      .map(identityText)
+      .filter(Boolean)
+  );
+  const artistIdentitySet = record => new Set(
+    unique([...(Array.isArray(record?.artistCandidates) ? record.artistCandidates : []),
+      record?.artist, record?.artistDisplay])
+      .filter(isLikelyArtistDisplay)
+      .map(identityText)
+      .filter(Boolean)
+  );
+  const intersects = (a, b) => [...a].some(value => b.has(value));
+  const currentTitles = candidateSet(item, "titleCandidates", "song");
+  const currentAnime = candidateSet(item, "animeCandidates", "anime");
+  const currentArtists = artistIdentitySet(item);
+  const currentEpisodes = new Set(episodeValues(item.episodes));
+  const currentKind = clean(item.kind).toUpperCase();
+
+  // Keep possible prior identities from IDs, canonical URLs, and source aliases.
+  // AniPlaylist has migrated legacy us_* IDs to numeric IDs, so the same song
+  // must retain its original firstSeen timestamp and URL identity.
+  const priorByKey = new Map();
+  const addPrior = entries => {
+    for (const [key, value] of entries) if (value && !priorByKey.has(key)) priorByKey.set(key, value);
+  };
+  const exactIdEntries = itemId
     ? Object.entries(state).filter(([, value]) =>
         value && String(value.season || "") === String(season)
         && String(value.id || "") === itemId
       )
     : [];
-  if (!priorEntries.length && itemDetailUrl) {
-    priorEntries = Object.entries(state).filter(([, value]) =>
-      value && String(value.season || "") === String(season)
-      && clean(value.detailUrl) === itemDetailUrl
-    );
-  }
-  // If AniPlaylist migrated a legacy record to a new numeric ID, recognize
-  // the same song by its canonical title, anime, type, and artist aliases.
-  // This prevents an ID migration from making an old release look brand-new.
-  const identityText = value => clean(value).toLowerCase().normalize("NFKC")
-    .replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/g, "");
-  const primaryCandidate = (record, candidateKey, field) => {
-    const values = Array.isArray(record[candidateKey]) ? record[candidateKey] : [];
-    return identityText(values[0] || record[field] || "");
+  const detailEntries = itemDetailUrl
+    ? Object.entries(state).filter(([, value]) =>
+        value && String(value.season || "") === String(season)
+        && clean(value.detailUrl) === itemDetailUrl
+      )
+    : [];
+  addPrior(exactIdEntries);
+  addPrior(detailEntries);
+
+  const aliasEntries = Object.entries(state).filter(([, value]) => {
+    if (!value || String(value.season || "") !== String(season)) return false;
+    if (clean(value.kind).toUpperCase() !== currentKind) return false;
+    const priorTitles = candidateSet(value, "titleCandidates", "song");
+    const priorAnime = candidateSet(value, "animeCandidates", "anime");
+    const priorArtists = artistIdentitySet(value);
+    if (!intersects(currentTitles, priorTitles)
+        || !intersects(currentAnime, priorAnime)
+        || !intersects(currentArtists, priorArtists)) return false;
+
+    const priorEpisodes = new Set(episodeValues(value.episodes));
+    if (currentEpisodes.size && priorEpisodes.size && !intersects(currentEpisodes, priorEpisodes)) return false;
+    return true;
+  });
+  addPrior(aliasEntries);
+
+  const priorEntries = [...priorByKey.entries()];
+  const similarity = value => {
+    const titles = candidateSet(value, "titleCandidates", "song");
+    const anime = candidateSet(value, "animeCandidates", "anime");
+    const artists = artistIdentitySet(value);
+    const episodes = new Set(episodeValues(value.episodes));
+    return (itemId && String(value.id || "") === itemId ? 12 : 0)
+      + (itemDetailUrl && clean(value.detailUrl) === itemDetailUrl ? 20 : 0)
+      + (intersects(currentTitles, titles) ? 8 : 0)
+      + (intersects(currentAnime, anime) ? 8 : 0)
+      + (intersects(currentArtists, artists) ? 6 : 0)
+      + (currentEpisodes.size && episodes.size && intersects(currentEpisodes, episodes) ? 4 : 0);
   };
-  const artistIdentitySet = record => new Set(
-    unique([...(Array.isArray(record.artistCandidates) ? record.artistCandidates : []),
-      record.artist, record.artistDisplay])
-      .filter(isLikelyArtistDisplay)
-      .map(identityText)
-      .filter(Boolean)
-  );
-  if (!priorEntries.length) {
-    const currentSong = primaryCandidate(item, "titleCandidates", "song");
-    const currentAnime = primaryCandidate(item, "animeCandidates", "anime");
-    const currentKind = clean(item.kind).toUpperCase();
-    const currentArtists = artistIdentitySet(item);
-    if (currentSong && currentAnime && currentKind && currentArtists.size) {
-      priorEntries = Object.entries(state).filter(([, value]) => {
-        if (!value || String(value.season || "") !== String(season)) return false;
-        if (clean(value.kind).toUpperCase() !== currentKind) return false;
-        if (primaryCandidate(value, "titleCandidates", "song") !== currentSong) return false;
-        if (primaryCandidate(value, "animeCandidates", "anime") !== currentAnime) return false;
-        const priorArtists = artistIdentitySet(value);
-        return [...priorArtists].some(name => currentArtists.has(name));
-      });
-    }
-  }
-  const similarity = value =>
-    (primaryCandidate(value, "titleCandidates", "song") === primaryCandidate(item, "titleCandidates", "song") ? 4 : 0)
-    + (artistIdentitySet(value).size && [...artistIdentitySet(value)].some(name => artistIdentitySet(item).has(name)) ? 2 : 0)
-    + (clean(value.artist).toLowerCase() === clean(item.artist).toLowerCase() ? 1 : 0)
-    + (itemDetailUrl && clean(value.detailUrl) === itemDetailUrl ? 3 : 0);
   priorEntries.sort((a, b) =>
     similarity(b[1]) - similarity(a[1])
-    || (Date.parse(a[1].firstSeen || "") || 0) - (Date.parse(b[1].firstSeen || "") || 0)
+    || (Date.parse(a[1].firstSeen || "") || Infinity) - (Date.parse(b[1].firstSeen || "") || Infinity)
     || a[0].localeCompare(b[0])
   );
-  const priorEntry = priorEntries[0] || null;
-  const legacyKey = sha1([
-    season,
-    item.id || "",
-    item.anime,
-    item.kind,
-    item.song,
-    item.artist,
-  ].join("|"));
-  const key = priorEntry?.[0]
+
+  const exactPrior = exactIdEntries[0] || null;
+  const detailPrior = detailEntries[0] || null;
+  const bestPrior = priorEntries[0] || null;
+  const legacyKey = sha1([season, item.id || "", item.anime, item.kind, item.song, item.artist].join("|"));
+  // Keep the active ID's key when it already exists; for a true ID migration,
+  // reuse the best historical key so RSS GUIDs don't churn.
+  const key = exactPrior?.[0] || detailPrior?.[0] || bestPrior?.[0]
     || (itemId ? sha1([season, "id", itemId].join("|")) : legacyKey);
-  const priorRecord = priorEntry?.[1] || state[key] || null;
-  const firstSeen = priorRecord?.firstSeen || new Date().toISOString();
-  state[key] = {
+  const priorRecord = state[key] || bestPrior?.[1] || null;
+
+  const priorDates = priorEntries.map(([, value]) => Date.parse(value.firstSeen || ""))
+    .filter(Number.isFinite);
+  const firstSeen = priorDates.length
+    ? new Date(Math.min(...priorDates)).toISOString()
+    : (priorRecord?.firstSeen || new Date().toISOString());
+
+  const mergeCandidates = field => unique([
+    ...(Array.isArray(item[field]) ? item[field] : []),
+    ...priorEntries.flatMap(([, value]) => Array.isArray(value[field]) ? value[field] : []),
+  ]);
+  const mergedItem = {
     ...(priorRecord || {}),
+    ...item,
     firstSeen,
     season,
-    ...item,
+    kind,
+    kindLabel: item.kindLabel || priorRecord?.kindLabel || prettyKind(kind),
+    episodes: episodeValues(item.episodes).length ? episodeValues(item.episodes) : episodeValues(priorRecord?.episodes),
+    titleCandidates: mergeCandidates("titleCandidates"),
+    animeCandidates: mergeCandidates("animeCandidates"),
+    artistCandidates: mergeCandidates("artistCandidates"),
   };
+  state[key] = mergedItem;
 
-  const relativePage = `song/${key}/`;
+  const relativePage = "song/" + key + "/";
   const pageDir = path.join(SITE_DIR, relativePage);
   await fs.mkdir(pageDir, { recursive: true });
-  await fs.writeFile(
-    path.join(pageDir, "index.html"),
-    buildSongPage(item, season, key)
-  );
+  await fs.writeFile(path.join(pageDir, "index.html"), buildSongPage(mergedItem, season, key));
 
-  const pageUrl = `${SITE_BASE}/${relativePage}`;
-
+  const pageUrl = SITE_BASE + "/" + relativePage;
   const descriptionLines = [
-    item.artist && item.song
-      ? `${item.artist} - ${item.song}`
-      : (item.song || item.artist || ""),
+    mergedItem.artist && mergedItem.song
+      ? mergedItem.artist + " - " + mergedItem.song
+      : (mergedItem.song || mergedItem.artist || ""),
   ].filter(Boolean);
 
   return {
-    title,
+    title: "[" + kind + "] " + (mergedItem.anime || "Unknown anime"),
     description: descriptionLines.join("\n"),
     link: pageUrl,
-    guid: `aniplaylist:${key}`,
+    guid: "aniplaylist:" + key,
     pubDate: firstSeen,
     key,
     id: item.id || "",
     season,
     firstSeen,
-    detailUrl: item.detailUrl || "",
-    anime: item.anime,
-    song: item.song,
-    artist: item.artist,
-    artistDisplay: item.artistDisplay || item.artist,
-    artistDisplayCount: item.artistDisplayCount || (item.artist ? 1 : 0),
-    kind: item.kind,
-    kindLabel: item.kindLabel || prettyKind(item.kind),
-    animeCandidates: Array.isArray(item.animeCandidates) ? item.animeCandidates : [],
-    titleCandidates: Array.isArray(item.titleCandidates) ? item.titleCandidates : [],
-    artistCandidates: Array.isArray(item.artistCandidates) ? item.artistCandidates : [],
-    thumbnail: item.thumbnail,
-    spotify: item.spotify,
-    apple: item.apple,
-    animethemesVideo: item.animethemesVideo || null,
+    detailUrl: mergedItem.detailUrl || "",
+    anime: mergedItem.anime,
+    song: mergedItem.song,
+    artist: mergedItem.artist,
+    artistDisplay: mergedItem.artistDisplay || mergedItem.artist,
+    artistDisplayCount: mergedItem.artistDisplayCount || (mergedItem.artist ? 1 : 0),
+    kind: mergedItem.kind,
+    kindLabel: mergedItem.kindLabel || prettyKind(mergedItem.kind),
+    episodes: episodeValues(mergedItem.episodes),
+    animeCandidates: mergedItem.animeCandidates,
+    titleCandidates: mergedItem.titleCandidates,
+    artistCandidates: mergedItem.artistCandidates,
+    thumbnail: mergedItem.thumbnail,
+    spotify: mergedItem.spotify,
+    apple: mergedItem.apple,
+    animethemesVideo: mergedItem.animethemesVideo || null,
   };
 }
-
 
 function buildRss(season, items) {
   items.sort(compareReleaseOrder);
