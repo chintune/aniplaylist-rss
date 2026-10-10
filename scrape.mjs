@@ -320,10 +320,12 @@ function normaliseHit(hit) {
     || textFrom(hit.name, ["name", "title"])
     || textFrom(hit.title, ["title", "name"]);
 
-  // Preserve all display artists; the old code kept only displayArtists[0].
-  const artist = formatArtistNames(displayArtists)
+  // Keep the primary artist stable for RSS identity and playlist sync, while
+  // retaining the full collaboration credit for the website display.
+  const artist = displayArtists.find(isLikelyArtistDisplay)
     || artists.find(isLikelyArtistDisplay)
     || textFrom(hit.artist, ["name", "artist"]);
+  const artistDisplay = formatArtistNames(displayArtists) || artist;
 
   const kind = clean(
     hit.song_type_short
@@ -346,7 +348,7 @@ function normaliseHit(hit) {
     anime,
     song,
     artist,
-    artistDisplay: artist,
+    artistDisplay,
     kind,
     kindLabel,
     spotify,
@@ -2072,6 +2074,7 @@ function buildBrowsePage(season, items, options = {}) {
       item.anime,
       item.song,
       item.artist,
+      item.artistDisplay,
       item.kind,
       ...(item.animeCandidates || []),
       ...(item.titleCandidates || []),
@@ -2105,7 +2108,7 @@ function buildBrowsePage(season, items, options = {}) {
 
           <h2 class="anime-title" ${variantAttrs(animeVariants)}>${htmlEscape(animeVariants.english || "Unknown anime")}</h2>
           <div class="song-title" ${variantAttrs(songVariants)}>${htmlEscape(songVariants.english || "Unknown song")}</div>
-          ${artistVariants.english ? `<div class="artist" ${variantAttrs(artistVariants)}>${htmlEscape(artistVariants.english)}</div>` : ""}
+          ${artistVariants.english ? `<div class="artist" ${variantAttrs(artistVariants)}>${htmlEscape(item.artistDisplay || artistVariants.english)}</div>` : ""}
 
           <div class="card-bottom">
             <div class="platforms">${platforms}</div>
