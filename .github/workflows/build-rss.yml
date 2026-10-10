@@ -4,26 +4,39 @@ on:
   workflow_dispatch:
 
   push:
+    branches:
+      - main
     paths:
       - "scrape.mjs"
-      - "site/index.html"
+      - "spotify.mjs"
+      - "package.json"
+      - "package-lock.json"
+      - "seasons.json"
+      - "spotify-playlists.json"
+      - "lib/**"
+      - "test/**"
+      - "site/**"
       - ".github/workflows/build-rss.yml"
 
   schedule:
     - cron: "7,37 * * * *"
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
 
     env:
       PLAYWRIGHT_BROWSERS_PATH: 0
@@ -36,7 +49,7 @@ jobs:
       # --------------------------------------------------
 
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
 
@@ -46,7 +59,7 @@ jobs:
       # --------------------------------------------------
 
       - name: Setup Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: 22
           package-manager-cache: false
@@ -57,7 +70,20 @@ jobs:
       # --------------------------------------------------
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+
+      # --------------------------------------------------
+      # Validate code before installing Chromium or scraping
+      # --------------------------------------------------
+
+      - name: Validate JavaScript
+        run: |
+          node --check scrape.mjs
+          node --check spotify.mjs
+          node --check lib/scrape-safety.mjs
+          node --check lib/spotify-safety.mjs
+          npm test
 
 
       # --------------------------------------------------
@@ -69,145 +95,11 @@ jobs:
 
 
       # --------------------------------------------------
-      # Apply Spotify source fix to scrape.mjs in the runner
-      # --------------------------------------------------
-      #
-      # The repository's scrape.mjs remains untouched. This step applies
-      # the Spotify-source upgrade to the checked-out copy before the RSS
-      # build runs, so no manual patching of scrape.mjs is required.
-      #
-      # The new source keeps BOTH direct Spotify track URLs and album/OST
-      # URLs, together with metadata. It uses rssItems only after buildRss()
-      # has sorted them, so Spotify inherits the website's newest-first order.
-      # --------------------------------------------------
-
-      - name: Prepare Spotify source
-        run: |
-          node <<'NODE'
-          import fs from "node:fs/promises";
-
-          const file = "scrape.mjs";
-          let source = await fs.readFile(file, "utf8");
-
-          const newBlock = [
-            '  currentSpotifyTracks[season] = [',
-            '    ...new Map(',
-            '      rssItems',
-            '        .filter(item => !!item.spotify)',
-            '        .map(item => {',
-            '          const match = String(item.spotify || "").match(',
-            '            /https?:\\/\\/open\\.spotify\\.com\\/(?:intl-[^/]+\\/)?(track|album)\\/([A-Za-z0-9]+)/i',
-            '          );',
-            '',
-            '          if (!match) {',
-            '            return null;',
-            '          }',
-            '',
-            '          return {',
-            '            type: match[1].toLowerCase(),',
-            '            id: match[2],',
-            '            url: String(item.spotify || ""),',
-            '            anime: item.anime || "",',
-            '            song: item.song || "",',
-            '            artist: item.artist || "",',
-            '            kind: item.kind || "",',
-            '            aniPlaylistId: item.id || "",',
-            '            firstSeen: item.firstSeen || item.pubDate || "",',
-            '          };',
-            '        })',
-            '        .filter(Boolean)',
-            '        .map(ref => [',
-            '          [ref.type, ref.id, ref.song, ref.artist].join(":"),',
-            '          ref,',
-            '        ])',
-            '    ).values(),',
-            '  ];',
-          ].join("\n");
-
-          const newWrite = [
-            "await fs.writeFile(",
-            "  SPOTIFY_CURRENT_PATH,",
-            "  JSON.stringify(",
-            "    {",
-            "      version: 1,",
-            "      generatedAt: new Date().toISOString(),",
-            "      seasons: currentSpotifyTracks,",
-            "    },",
-            "    null,",
-            "    2",
-            '  ) + "\\n"',
-            ");",
-          ].join("\n");
-
-          const alreadyPatched =
-            source.includes(".filter(item => !!item.spotify)") &&
-            source.includes("type: match[1].toLowerCase()") &&
-            source.includes("seasons: currentSpotifyTracks");
-
-          if (alreadyPatched) {
-            console.log("Spotify source fix is already present; nothing to change.");
-            process.exit(0);
-          }
-
-          const start = source.indexOf("  currentSpotifyTracks[season] = [");
-          const end = source.indexOf("\n\n  console.log(", start);
-
-          if (start < 0 || end < 0) {
-            throw new Error(
-              "Could not locate the expected currentSpotifyTracks block in scrape.mjs."
-            );
-          }
-
-          source = source.slice(0, start) + newBlock + source.slice(end);
-
-          const writeStart = source.indexOf(
-            "await fs.writeFile(\n  SPOTIFY_CURRENT_PATH,"
-          );
-          const writeEnd =
-            writeStart >= 0 ? source.indexOf("\n);", writeStart) : -1;
-
-          if (writeStart < 0 || writeEnd < 0) {
-            throw new Error(
-              "Could not locate the expected spotify-current.json write block in scrape.mjs."
-            );
-          }
-
-          source =
-            source.slice(0, writeStart) +
-            newWrite +
-            source.slice(writeEnd + 3);
-
-          await fs.writeFile(file, source, "utf8");
-
-          console.log("Spotify source fix applied to runner copy of scrape.mjs.");
-          console.log("The repository's scrape.mjs is not modified or committed.");
-          NODE
-
-
-
-      # --------------------------------------------------
-      # Validate JavaScript before any remote Spotify changes
-      # --------------------------------------------------
-
-      - name: Validate JavaScript
-        run: |
-          node --check scrape.mjs
-          node --check spotify.mjs
-
-
-      # --------------------------------------------------
       # Build AniPlaylist RSS
       # --------------------------------------------------
 
       - name: Build RSS
         run: node scrape.mjs
-
-      # scrape.mjs still generates the legacy landing page as part of its
-      # data build. Keep the redesigned, repository-managed single-page UI
-      # for the Pages artifact while retaining generated browse/song pages.
-      - name: Preserve redesigned homepage
-        run: git checkout -- site/index.html
-
 
       # --------------------------------------------------
       # Sync Spotify playlists
@@ -254,11 +146,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add state.json
-          git add resolve-cache.json
           git add build-summary.txt
           git add spotify-playlists.json
 
-          git add -f debug/*.json debug/*.png 2>/dev/null || true
+          git add -f debug/*.json 2>/dev/null || true
 
           echo "===== STAGED FILES ====="
           git status --short
@@ -305,9 +196,19 @@ jobs:
       # --------------------------------------------------
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         with:
           path: site_build
+
+
+      - name: Upload scraper screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: scraper-debug-screenshots
+          path: debug/*.png
+          if-no-files-found: ignore
+          retention-days: 7
 
 
       # --------------------------------------------------
@@ -315,8 +216,9 @@ jobs:
       # --------------------------------------------------
 
       - name: Deploy Pages
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
       
 # homepage: dedicated landing page
 
 # home rebuild trigger
+

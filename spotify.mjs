@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { validateSpotifySources } from "./lib/spotify-safety.mjs";
 
 const ROOT = process.cwd();
 const CONFIG_PATH = path.join(ROOT, "spotify-playlists.json");
@@ -19,6 +20,7 @@ const API = "https://api.spotify.com/v1";
 const TOKEN_URL = "https://accounts.spotify.com/api/token";
 const MAX_ITEMS_PER_REQUEST = 100;
 const MAX_RETRIES = 5;
+const REQUEST_TIMEOUT_MS = 30000;
 
 async function readJson(file) {
   return JSON.parse(await fs.readFile(file, "utf8"));
@@ -79,7 +81,7 @@ function normalizeCurrentSource(data) {
     return data.seasons;
   }
 
-  return data;
+  throw new Error("spotify-current.json must contain a seasons object.");
 }
 
 async function refreshAccessToken() {
@@ -91,6 +93,7 @@ async function refreshAccessToken() {
 
   const response = await fetch(TOKEN_URL, {
     method: "POST",
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -124,16 +127,36 @@ async function refreshAccessToken() {
     );
   }
 
+  if (data.refresh_token && data.refresh_token !== REFRESH_TOKEN) {
+    console.warn(
+      "Spotify returned a replacement refresh token. Update the SPOTIFY_REFRESH_TOKEN Actions secret before the next scheduled sync."
+    );
+  }
+
   return data.access_token;
+}
+
+function retryDelay(attempt, retryAfter) {
+  const retryAfterMs = retryAfter
+    ? (/^\d+(?:\.\d+)?$/.test(retryAfter)
+      ? Number(retryAfter) * 1000
+      : Math.max(0, Date.parse(retryAfter) - Date.now()))
+    : 0;
+  const backoffMs = Math.min(30000, 1000 * 2 ** (attempt - 1));
+  return Math.max(Number.isFinite(retryAfterMs) ? retryAfterMs : 0, backoffMs);
 }
 
 async function spotifyRequest(token, endpoint, options = {}) {
   let lastError = null;
+  const method = String(options.method || "GET").toUpperCase();
+  const safeToRetryTransport = ["GET", "PUT", "DELETE"].includes(method);
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    let response;
     try {
-      const response = await fetch(API + endpoint, {
+      response = await fetch(API + endpoint, {
         ...options,
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
         headers: {
           Accept: "application/json",
           Authorization: "Bearer " + token,
@@ -144,100 +167,90 @@ async function spotifyRequest(token, endpoint, options = {}) {
         },
       });
 
-      const text = await response.text();
-
-      let data = null;
-      if (text) {
-        try {
-          data = JSON.parse(text);
-        } catch {
-          data = text;
-        }
-      }
-
-      if (response.ok) {
-        return data;
-      }
-
-      const retryAfter = response.headers.get("retry-after");
-      const retryable =
-        response.status === 429 ||
-        response.status >= 500;
-
-      if (!retryable || attempt === MAX_RETRIES) {
-        let message =
-          "Spotify API request failed (" +
-          response.status +
-          ") " +
-          endpoint;
-
-        if (retryAfter) {
-          message += "; Retry-After: " + retryAfter;
-        }
-
-        if (typeof data === "string") {
-          message += ": " + data.slice(0, 1000);
-        } else {
-          message += ": " + JSON.stringify(data);
-        }
-
-        throw new Error(message);
-      }
-
-      const retryAfterMs =
-        retryAfter && /^\d+(?:\.\d+)?$/.test(retryAfter)
-          ? Number(retryAfter) * 1000
-          : 0;
-
-      const backoffMs = Math.min(
-        30000,
-        1000 * 2 ** (attempt - 1)
-      );
-
-      const waitMs = Math.max(
-        retryAfterMs,
-        backoffMs
-      );
-
-      console.warn(
-        "Spotify API " +
-          response.status +
-          " on " +
-          endpoint +
-          "; retrying in " +
-          Math.ceil(waitMs / 1000) +
-          "s (attempt " +
-          attempt +
-          "/" +
-          MAX_RETRIES +
-          ")"
-      );
-
-      await sleep(waitMs);
     } catch (error) {
       lastError = error;
 
-      if (attempt === MAX_RETRIES) {
-        break;
+      if (!safeToRetryTransport || attempt === MAX_RETRIES) {
+        throw new Error(
+          "Spotify request failed for " + endpoint + " (" + method + "): " + error.message,
+          { cause: error }
+        );
       }
 
-      const waitMs = Math.min(
-        30000,
-        1000 * 2 ** (attempt - 1)
-      );
+      const waitMs = retryDelay(attempt);
 
       console.warn(
-        "Spotify request error on " +
+        "Spotify transport error on " +
           endpoint +
           ": " +
           error.message +
-          ". Retrying in " +
+          ". Retrying safe " + method + " request in " +
           Math.ceil(waitMs / 1000) +
-          "s..."
+          "s (attempt " + attempt + "/" + MAX_RETRIES + ")"
       );
 
       await sleep(waitMs);
+      continue;
     }
+
+    let text;
+    try {
+      text = await response.text();
+    } catch (error) {
+      lastError = error;
+      if (!safeToRetryTransport || attempt === MAX_RETRIES) {
+        throw new Error(
+          "Could not read Spotify response for " + endpoint + ": " + error.message,
+          { cause: error }
+        );
+      }
+      const waitMs = retryDelay(attempt);
+      console.warn(
+        "Spotify response read failed for " + endpoint + "; retrying safe " +
+          method + " request in " + Math.ceil(waitMs / 1000) + "s."
+      );
+      await sleep(waitMs);
+      continue;
+    }
+
+    let data = null;
+    if (text) {
+      try {
+        data = JSON.parse(text);
+      } catch {
+        data = text;
+      }
+    }
+
+    if (response.ok) {
+      return data;
+    }
+
+    const retryAfter = response.headers.get("retry-after");
+    const retryableStatus = response.status === 429 ||
+      (response.status >= 500 && safeToRetryTransport);
+
+    if (!retryableStatus || attempt === MAX_RETRIES) {
+      let message =
+        "Spotify API request failed (" +
+        response.status +
+        ") " +
+        endpoint;
+
+      if (retryAfter) message += "; Retry-After: " + retryAfter;
+      message += typeof data === "string"
+        ? ": " + data.slice(0, 1000)
+        : ": " + JSON.stringify(data);
+      throw new Error(message);
+    }
+
+    const waitMs = retryDelay(attempt, retryAfter);
+    console.warn(
+      "Spotify API " + response.status + " on " + endpoint +
+        "; retrying in " + Math.ceil(waitMs / 1000) +
+        "s (attempt " + attempt + "/" + MAX_RETRIES + ")"
+    );
+    await sleep(waitMs);
   }
 
   throw lastError || new Error(
@@ -436,13 +449,9 @@ async function resolveReference(token, ref, season, index) {
     typeof ref !== "object" ||
     Array.isArray(ref)
   ) {
-    console.warn(
-      season +
-        ": skipping invalid Spotify reference #" +
-        (index + 1) +
-        "."
+    throw new Error(
+      season + ": invalid Spotify reference #" + (index + 1) + "."
     );
-    return "";
   }
 
   const type = String(
@@ -457,17 +466,10 @@ async function resolveReference(token, ref, season, index) {
     !id ||
     !["track", "album"].includes(type)
   ) {
-    console.warn(
-      season +
-        ": skipping invalid/unsupported Spotify reference #" +
-        (index + 1) +
-        " (type=" +
-        type +
-        ", id=" +
-        id +
-        ")."
+    throw new Error(
+      season + ": invalid/unsupported Spotify reference #" + (index + 1) +
+        " (type=" + type + ", id=" + id + ")."
     );
-    return "";
   }
 
   if (type === "track") {
@@ -484,7 +486,14 @@ async function resolveReference(token, ref, season, index) {
       }
     );
 
-  return resolved?.id || "";
+  if (!resolved?.id) {
+    throw new Error(
+      season + ": could not resolve Spotify album reference #" + (index + 1) +
+        " (" + ref.id + "). Playlist sync aborted to preserve the existing playlist."
+    );
+  }
+
+  return resolved.id;
 }
 
 async function resolveSeasonTracks(
@@ -509,12 +518,26 @@ async function resolveSeasonTracks(
 
   const trackIds = [];
   const seen = new Set();
+  const seenReferences = new Set();
 
   for (
     let index = 0;
     index < refs.length;
     index++
   ) {
+    const ref = refs[index];
+    const refType = String(ref.type).toLowerCase();
+    const refKey = refType === "track"
+      ? `${refType}:${String(ref.id).trim()}`
+      : [refType, String(ref.id).trim(), ref.song || "", ref.artist || ""].join(":");
+    if (seenReferences.has(refKey)) {
+      console.log(
+        season + ": duplicate Spotify source reference " + refKey + "; keeping first occurrence."
+      );
+      continue;
+    }
+    seenReferences.add(refKey);
+
     const trackId =
       await resolveReference(
         token,
@@ -522,8 +545,6 @@ async function resolveSeasonTracks(
         season,
         index
       );
-
-    if (!trackId) continue;
 
     if (seen.has(trackId)) {
       console.log(
@@ -729,6 +750,8 @@ try {
   );
 }
 
+const currentRefsBySeason = validateSpotifySources(seasons, currentSource);
+
 const accessToken =
   await refreshAccessToken();
 
@@ -751,8 +774,7 @@ for (const season of seasons) {
       " ==="
   );
 
-  const refs =
-    currentSource[season] || [];
+  const refs = currentRefsBySeason[season];
 
   desiredBySeason[season] =
     await resolveSeasonTracks(
@@ -1005,3 +1027,4 @@ console.log(
   "Historical state.json is not used for Spotify playlist membership."
 );
 console.log("========================");
+

@@ -1,0 +1,6 @@
+node_modules/
+site_build/
+spotify-current.json
+debug/*.png
+rss/*.xml
+
