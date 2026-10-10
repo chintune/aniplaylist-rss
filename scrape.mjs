@@ -3648,9 +3648,42 @@ async function makeRssItem(item, season) {
       && clean(value.detailUrl) === itemDetailUrl
     );
   }
+  // If AniPlaylist migrated a legacy record to a new numeric ID, recognize
+  // the same song by its canonical title, anime, type, and artist aliases.
+  // This prevents an ID migration from making an old release look brand-new.
+  const identityText = value => clean(value).toLowerCase().normalize("NFKC")
+    .replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/g, "");
+  const primaryCandidate = (record, candidateKey, field) => {
+    const values = Array.isArray(record[candidateKey]) ? record[candidateKey] : [];
+    return identityText(values[0] || record[field] || "");
+  };
+  const artistIdentitySet = record => new Set(
+    unique([...(Array.isArray(record.artistCandidates) ? record.artistCandidates : []),
+      record.artist, record.artistDisplay])
+      .filter(isLikelyArtistDisplay)
+      .map(identityText)
+      .filter(Boolean)
+  );
+  if (!priorEntries.length) {
+    const currentSong = primaryCandidate(item, "titleCandidates", "song");
+    const currentAnime = primaryCandidate(item, "animeCandidates", "anime");
+    const currentKind = clean(item.kind).toUpperCase();
+    const currentArtists = artistIdentitySet(item);
+    if (currentSong && currentAnime && currentKind && currentArtists.size) {
+      priorEntries = Object.entries(state).filter(([, value]) => {
+        if (!value || String(value.season || "") !== String(season)) return false;
+        if (clean(value.kind).toUpperCase() !== currentKind) return false;
+        if (primaryCandidate(value, "titleCandidates", "song") !== currentSong) return false;
+        if (primaryCandidate(value, "animeCandidates", "anime") !== currentAnime) return false;
+        const priorArtists = artistIdentitySet(value);
+        return [...priorArtists].some(name => currentArtists.has(name));
+      });
+    }
+  }
   const similarity = value =>
-    (clean(value.song).toLowerCase() === clean(item.song).toLowerCase() ? 4 : 0)
-    + (clean(value.artist).toLowerCase() === clean(item.artist).toLowerCase() ? 2 : 0)
+    (primaryCandidate(value, "titleCandidates", "song") === primaryCandidate(item, "titleCandidates", "song") ? 4 : 0)
+    + (artistIdentitySet(value).size && [...artistIdentitySet(value)].some(name => artistIdentitySet(item).has(name)) ? 2 : 0)
+    + (clean(value.artist).toLowerCase() === clean(item.artist).toLowerCase() ? 1 : 0)
     + (itemDetailUrl && clean(value.detailUrl) === itemDetailUrl ? 3 : 0);
   priorEntries.sort((a, b) =>
     similarity(b[1]) - similarity(a[1])
