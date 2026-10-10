@@ -521,13 +521,14 @@ function variants(rec,type){
 
 function titleFor(rec,type){const v=variants(rec,type);return v[state.lang]||v.english||rec[type]||"Unknown"}
 function kindFor(rec){let k=String(rec.kind||rec.song_type_short||rec.song_type||rec.type||"Other").toUpperCase();if(["OP","OPENING"].includes(k))return"OP";if(["ED","ENDING"].includes(k))return"ED";if(["IN","INSERT","INSERT SONG","INSERT SONGS"].includes(k))return"IN";if(["OST","SOUNDTRACK","ORIGINAL SOUNDTRACK"].includes(k))return"OST";return["OTHER","UNKNOWN"].includes(k)?"Other":["OP","ED","IN","OST"].includes(k)?k:"Other"}
+function kindLabelFor(rec){const supplied=String(rec.kindLabel||rec.song_type||rec.type||"").trim();if(supplied&&!/^(OP|ED|IN|OST|TS|CS|VA|IMGA|IMGS|MV|PV|OTHER|UNKNOWN)$/i.test(supplied))return supplied;const code=String(rec.kind||rec.song_type_short||rec.song_type||rec.type||"").trim().toUpperCase();const labels={OP:"Opening",ED:"Ending",IN:"Insert",OST:"OST",CS:"Character Song",VA:"Vocal Album",IMGA:"Image Album",IMGS:"Image Song",TS:"Theme Song",MV:"Music Video",PV:"PV Song"};return labels[code]||supplied||"Other"}
 function linkFrom(rec,service){
  const aliases=service==="apple"?["apple","appleMusic","apple_music"]:service==="spotify"?["spotify"]: [service];const candidates=aliases.flatMap(key=>[rec[key],rec[key+"Url"],rec[key+"_url"]]);
  for(const value of candidates)if(typeof value==="string"&&/^https?:\/\//i.test(value))return value;
  const platforms=rec.platforms||{};for(const key of [service,service.toLowerCase()])if(typeof platforms[key]==="string")return platforms[key];
  if(Array.isArray(rec.links)){const item=rec.links.find(x=>String(x.platform||x.service||x.name||"").toLowerCase().includes(service.toLowerCase()));if(item)return item.url||item.href||""}return""
 }
-function normalize(rec){return {...rec,kind:kindFor(rec),spotify:linkFrom(rec,"spotify"),apple:linkFrom(rec,"apple")||linkFrom(rec,"appleMusic")||linkFrom(rec,"apple_music")}}
+function normalize(rec){const kindLabel=kindLabelFor(rec);return {...rec,kind:kindFor(rec),kindLabel,artistDisplay:rec.artistDisplay||rec.artist||"",spotify:linkFrom(rec,"spotify"),apple:linkFrom(rec,"apple")||linkFrom(rec,"appleMusic")||linkFrom(rec,"apple_music")}}
 function videoUrl(rec){const v=rec.animethemesVideo||rec.animeThemesVideo||null;if(v&&typeof v==="object"&&v.url)return v.url;return rec.animeThemesUrl||rec.animethemesUrl||rec.videoUrl||rec.video_url||(typeof rec.animethemes==="string"?rec.animethemes:"")||(typeof rec.video==="string"?rec.video:"")||rec.themeVideo||rec.theme_url||""}
 function hasVideo(rec){return !!videoUrl(rec)}
 function coverFor(rec){return rec.thumbnail||rec.image||rec.cover||rec.artwork||""}
@@ -579,7 +580,7 @@ function filteredRecords(){
   if(state.kind!=="ALL"&&r.kind!==state.kind)return false;
   if(state.videoOnly&&!hasVideo(r))return false;
   if(!q)return true;
-  return [r.song,r.anime,r.artist,variants(r,"anime").all,variants(r,"title").all,variants(r,"artist").all,r.title,r.detailUrl,r.kind].join(" ").toLowerCase().includes(q);
+  return [r.song,r.anime,r.artist,variants(r,"anime").all,variants(r,"title").all,variants(r,"artist").all,r.title,r.detailUrl,r.kind,r.kindLabel].join(" ").toLowerCase().includes(q);
  });
 }
 
@@ -598,7 +599,7 @@ function videoButton(url,title,kind,poster){
 function trackHTML(r){
  const title=titleFor(r,"song")||r.song||"Untitled track";
  const anime=titleFor(r,"anime")||r.anime||"Unknown anime";
- const artist=titleFor(r,"artist")||r.artist||"";
+ const artist=r.artistDisplay||r.artist||titleFor(r,"artist")||"";
  const cover=coverFor(r);
  const kindClass=r.kind.toLowerCase()==="op"?"op":r.kind.toLowerCase()==="ed"?"ed":"";
  const coverHTML=cover&&/^https?:\/\//i.test(cover)?'<img data-cover-preview="1" tabindex="0" role="button" aria-label="Enlarge cover art for '+escapeHtml(title)+'" loading="lazy" src="'+escapeHtml(cover)+'" alt="'+escapeHtml(title)+' cover art" onerror="this.parentElement.innerHTML=\'♪\'">':"♪";
@@ -608,7 +609,7 @@ function trackHTML(r){
   hasVideo(r)?videoButton(videoUrl(r),title,r.kind,cover):"",
   isValidDetailUrl(r.detailUrl)?serviceButton(r.detailUrl,"","detail",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M10 14 21 3M19 13v7H4V5h7"/></svg>'):""
  ].filter(Boolean).join("");
- return '<article class="track"><div class="cover">'+coverHTML+'</div><div class="track-main"><div class="track-topline"><span class="kind '+kindClass+'">'+escapeHtml(r.kind)+'</span><div class="track-title" title="'+escapeHtml(title)+'">'+escapeHtml(title)+'</div></div><div class="track-anime" title="'+escapeHtml(anime)+'"><span class="track-meta-label">Anime</span>'+escapeHtml(anime)+'</div>'+(artist?'<div class="track-artist"><span class="track-meta-label">Artist</span>'+escapeHtml(artist)+'</div>':"")+'</div><div class="track-actions">'+links+"</div></article>";
+ return '<article class="track"><div class="cover">'+coverHTML+'</div><div class="track-main"><div class="track-topline"><span class="kind '+kindClass+'">'+escapeHtml(r.kindLabel||r.kind)+'</span><div class="track-title" title="'+escapeHtml(title)+'">'+escapeHtml(title)+'</div></div><div class="track-anime" title="'+escapeHtml(anime)+'"><span class="track-meta-label">Anime</span>'+escapeHtml(anime)+'</div>'+(artist?'<div class="track-artist"><span class="track-meta-label">Artist</span>'+escapeHtml(artist)+'</div>':"")+'</div><div class="track-actions">'+links+"</div></article>";
 }
 
 function renderPagination(totalPages){const el=$("#pagination");if(totalPages<=1){el.innerHTML="";return}let html='<button class="page-btn" data-page="'+(state.page-1)+'" '+(state.page===1?"disabled":"")+' aria-label="Previous page">‹</button>';const pages=[...new Set([1,totalPages,state.page,state.page-1,state.page+1].filter(n=>n>=1&&n<=totalPages))].sort((a,b)=>a-b);let last=0;for(const p of pages){if(last&&p-last>1)html+='<span style="padding:0 4px;color:var(--muted)">…</span>';html+='<button class="page-btn '+(state.page===p?"active":"")+'" data-page="'+p+'" aria-label="Page '+p+'" '+(state.page===p?'aria-current="page"':"")+'>'+p+"</button>";last=p}html+='<button class="page-btn" data-page="'+(state.page+1)+'" '+(state.page===totalPages?"disabled":"")+' aria-label="Next page">›</button>';el.innerHTML=html}
