@@ -3605,6 +3605,10 @@ async function makeRssItem(item, season) {
     guid: `aniplaylist:${key}`,
     pubDate: firstSeen,
     key,
+    id: item.id || "",
+    season,
+    firstSeen,
+    detailUrl: item.detailUrl || "",
     anime: item.anime,
     song: item.song,
     artist: item.artist,
@@ -3661,6 +3665,7 @@ const context = await browser.newContext({
 
 const page = await context.newPage();
 const summary = [];
+const catalogRecords = [];
 let homeSeason = "";
 let homeSeasonItems = [];
 console.log(`Thumbnail resolver self-test: ${thumbnailResolverSelfTest()}`);
@@ -3954,10 +3959,18 @@ for (const season of CFG.seasons) {
     homeSeasonItems = rssItems;
   }
 
+  // buildRss sorts by pubDate (firstSeen) descending; preserve that exact
+  // previous Browse/RSS order in the single-page catalog.
+  const rssXml = buildRss(season, rssItems);
   await fs.writeFile(
     path.join(RSS_DIR, `${slug(season)}.xml`),
-    buildRss(season, rssItems)
+    rssXml
   );
+  catalogRecords.push(...rssItems.map(item => ({
+    ...item,
+    season,
+    firstSeen: item.firstSeen || item.pubDate,
+  })));
 
   console.log(
     `${season}: results=${diag.resultCount ?? "?"} uniqueHits=${diag.uniqueHits} normalized=${diag.normalized} directSpotify=${diag.withSpotify} resolvedSpotify=${diag.resolvedSpotify}`
@@ -3965,6 +3978,17 @@ for (const season of CFG.seasons) {
 
   summary.push(diag);
 }
+
+// The catalog is made from this run's actual usable releases, not all the
+// historical records retained in state.json. That keeps artwork, links, and
+// release order aligned with the original season RSS/Browse pages.
+await fs.writeFile(
+  path.join(SITE_DIR, "catalog.json"),
+  JSON.stringify({
+    generatedAt: new Date().toISOString(),
+    records: catalogRecords,
+  }, null, 2) + "\n"
+);
 
 /*
  * The root URL is the primary UI. Keep it focused on the first populated
