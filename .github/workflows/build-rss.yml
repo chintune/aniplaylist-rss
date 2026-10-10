@@ -295,7 +295,7 @@ jobs:
           );
           await fs.writeFile(
             "site_build/catalog.json",
-            JSON.stringify({ generatedAt: new Date().toISOString(), records }, null, 2) + "\\n"
+            JSON.stringify({ generatedAt: new Date().toISOString(), records }, null, 2) + "\n"
           );
           console.log(`Catalog records exported: ${records.length}`);
           NODE
