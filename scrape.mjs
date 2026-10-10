@@ -41,7 +41,7 @@ const SITE_BASE = String(
 
 // One shared timestamp per scrape: tracks first detected in the same build
 // then use the numeric source ID as a deterministic newest-first tie-breaker.
-const BUILD_STARTED_AT = new Date().toISOString();
+const BUILD_STARTED_AT = new Date(Math.floor(Date.now() / 1000) * 1000).toISOString();
 
 let state = {};
 let resolveCache = {};
@@ -3746,7 +3746,9 @@ async function makeRssItem(item, season) {
   const priorDates = priorEntries.map(([, value]) => Date.parse(value.firstSeen || ""))
     .filter(Number.isFinite);
   const firstSeen = priorDates.length
-    ? new Date(Math.min(...priorDates)).toISOString()
+    // Sub-second differences come from Promise scheduling within one scrape,
+    // not meaningful release order. Normalize them so the ID tie-break applies.
+    ? new Date(Math.floor(Math.min(...priorDates) / 1000) * 1000).toISOString()
     : (priorRecord?.firstSeen || BUILD_STARTED_AT);
 
   const mergeCandidates = field => unique([
