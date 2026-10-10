@@ -116,7 +116,7 @@ function trackHTML(r){
  const anime=titleFor(r,"anime")||r.anime||"Unknown anime";
  const cover=coverFor(r);
  const kindClass=r.kind.toLowerCase()==="op"?"op":r.kind.toLowerCase()==="ed"?"ed":"";
- const coverHTML=cover&&/^https?:\/\//i.test(cover)?'<img loading="lazy" src="'+escapeHtml(cover)+'" alt="" onerror="this.parentElement.innerHTML=\\'♪\\'">':"♪";
+ const coverHTML=cover&&/^https?:\/\//i.test(cover)?'<img loading="lazy" src="'+escapeHtml(cover)+'" alt="" onerror="this.parentElement.innerHTML=\'♪\'">':"♪";
  const links=[
   serviceButton(r.spotify,"Spotify","spotify",spotifyIcon),
   serviceButton(r.apple,"Apple Music","apple",appleIcon),
