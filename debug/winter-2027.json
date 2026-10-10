@@ -15,7 +15,7 @@
   "normalized": 13,
   "withSpotify": 2,
   "withApple": 2,
-  "withDetailUrl": 13,
+  "withDetailUrl": 2,
   "resolvedSpotify": 2,
   "recordThumbnails": 13,
   "detailImagesResolved": 0,
@@ -35,7 +35,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d8e7432d5facf939ff335fba004c7315c52fb8b0@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -101,7 +101,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d8e7432d5facf939ff335fba004c7315c52fb8b0@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -161,7 +161,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b563f7d81b57eddceec15435c23f346cb272d30e@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -209,7 +209,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/28d5f3f00ab8d9fe557195fee08a11d31fc5ae9a@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -267,7 +267,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5282e7bf3206848f6009da09ac7d7e2c72a923d9@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -471,7 +471,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d8e7432d5facf939ff335fba004c7315c52fb8b0@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -537,7 +537,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d8e7432d5facf939ff335fba004c7315c52fb8b0@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -597,7 +597,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b563f7d81b57eddceec15435c23f346cb272d30e@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -645,7 +645,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/28d5f3f00ab8d9fe557195fee08a11d31fc5ae9a@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -703,7 +703,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5282e7bf3206848f6009da09ac7d7e2c72a923d9@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -761,7 +761,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5282e7bf3206848f6009da09ac7d7e2c72a923d9@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -946,7 +946,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -1011,7 +1011,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/d19b5ced7f05f8110d9dab66aeca360fda81d889@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -1076,7 +1076,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/931cefc04a09ca914551815414c3efbb2700b857@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -1133,7 +1133,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/c09f8111cb10fca7c672220c9ec9160e856facc1@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -1191,7 +1191,7 @@
       "spotify": "",
       "apple": "",
       "thumbnail": "https://cdn.aniplaylist.com/thumbnails/5fa6ff6ca107aa497a8eb30d78b6fa6b7079f2bb@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/hidden",
+      "detailUrl": "",
       "season": "Winter 2027",
       "rawKeys": [
         "id",
@@ -1240,48 +1240,6 @@
   "sourceMetadataSamples": [],
   "detailUrlSamples": [
     {
-      "id": "us_3302",
-      "anime": "Zombie no Afureta Sekai de Ore dake ga Osowarenai",
-      "song": "Tsukikage",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3301",
-      "anime": "Zombie no Afureta Sekai de Ore dake ga Osowarenai",
-      "song": "No Reaction",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3297",
-      "anime": "Kidou Senshi Gundam SEED Freedom Zero",
-      "song": "Original Soundtrack",
-      "kind": "OST",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3294",
-      "anime": "Magical Buffs: The Support Caster Is Stronger Than He Realized!",
-      "song": "Ecstatic Buffer",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3266",
-      "anime": "The Kept Man of the Princess Knight",
-      "song": "TRUE-TABOO",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3267",
-      "anime": "The Kept Man of the Princess Knight",
-      "song": "Gika",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
       "id": "27894",
       "anime": "Inherit the Winds",
       "song": "Jinsuke no Theme",
@@ -1294,41 +1252,6 @@
       "song": "Breed",
       "kind": "OP",
       "detailUrl": "https://aniplaylist.com/play/the-guy-she-was-interested-in-wasnt-a-guy-at-all-opening"
-    },
-    {
-      "id": "us_3215",
-      "anime": "Inherit the Winds",
-      "song": "Namida no Kawa",
-      "kind": "ED",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3214",
-      "anime": "Inherit the Winds",
-      "song": "Kaze o Tsugumono",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3097",
-      "anime": "The Strongest Man, Born from Misfortune",
-      "song": "Luck Out",
-      "kind": "IMGS",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_3018",
-      "anime": "Matsurika Kanriden",
-      "song": "Hanabanashi",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/hidden"
-    },
-    {
-      "id": "us_2832",
-      "anime": "ghost / Yoru no Hate",
-      "song": "Sugar",
-      "kind": "IN",
-      "detailUrl": "https://aniplaylist.com/hidden"
     }
   ],
   "usableSamples": [
