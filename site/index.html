@@ -656,7 +656,8 @@ async function init(){try{
  const seasonName=month<=3?"Winter":month<=6?"Spring":month<=9?"Summer":"Fall";
  const currentSeason=seasonName+" "+now.getFullYear();
  const preferred=state.seasons.find(s=>s.toLowerCase()===currentSeason.toLowerCase());
- const chosen=preferred||state.seasons.find(s=>/^(Winter|Spring|Summer|Fall) \\d{4}$/i.test(s)&&((parseInt(s.match(/\\d{4}/)[0],10)*4+["Winter","Spring","Summer","Fall"].indexOf(s.split(" ")[0])) >= (now.getFullYear()*4+["Winter","Spring","Summer","Fall"].indexOf(seasonName))));
+ const seasonOrder=s=>{const parts=s.split(" ");const index=["Winter","Spring","Summer","Fall"].indexOf(parts[0]);const year=Number(parts[1]);return index>=0&&Number.isFinite(year)?year*4+index:Infinity};
+ const chosen=preferred||state.seasons.find(s=>seasonOrder(s)>=seasonOrder(currentSeason));
  await selectSeason(chosen||state.seasons[state.seasons.length-1]||state.seasons[0]);
  }catch(err){
   $("#trackList").innerHTML='<div class="empty"><strong>Couldn’t load the library.</strong><p>'+escapeHtml(err.message||"Try refreshing the page.")+'</p><button class="outline-btn" id="retryLoad">Try again</button></div>';
