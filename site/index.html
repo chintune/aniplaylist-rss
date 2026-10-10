@@ -56,7 +56,7 @@ function notify(message){const el=$("#toast");el.textContent=message;el.classLis
 async function getJSON(url){const response=await fetch(url,{cache:"no-store"});if(!response.ok)throw new Error("Could not load "+url+" ("+response.status+")");return response.json()}
 function variants(rec,type){
  const key=type==="anime"?"animeCandidates":"titleCandidates";const raw=rec[key];
- if(Array.isArray(raw)&&raw.length){const jp=raw.find(x=>/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const plain=raw.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x));return {english:plain||raw[0],romaji:plain||raw[0],japanese:jp||plain||raw[0],all:raw.join(" ")}}
+ if(Array.isArray(raw)&&raw.length){const jp=raw.find(x=>/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const plain=raw.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const romaji=raw.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x)&&x!==plain)||plain||raw[0];return {english:plain||raw[0],romaji:romaji,japanese:jp||plain||raw[0],all:raw.join(" ")}}
  const list=String(rec[type]||"").split(/\s*,\s*/).filter(Boolean);const jp=list.find(x=>/[\u3040-\u30ff\u3400-\u9fff]/.test(x));const eng=list.find(x=>!/[\u3040-\u30ff\u3400-\u9fff]/.test(x))||list[0]||"";return {english:eng,romaji:eng,japanese:jp||eng,all:list.join(" ")}
 }
 function titleFor(rec,type){const v=variants(rec,type);return v[state.lang]||v.english||rec[type]||"Unknown"}
