@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 30785)
-Total output lines: 3676
-
 import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
@@ -1737,7 +1734,128 @@ function buildBrowsePage(season, items, options = {}) {
     }
 
     .brand-link strong { font-size: 15px; }
-    .brand-link span:last-child { color: v…785 tokens truncated…h-child(6) { height: 64px; animation-delay: -.1s; }
+    .brand-link span:last-child { color: var(--muted); font-size: 12px; font-weight: 700; }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .back:hover { color: var(--text); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        radial-gradient(500px 240px at 12% 0%, rgba(169,120,255,.17), transparent 72%),
+        radial-gradient(600px 260px at 84% 100%, rgba(255,92,168,.08), transparent 72%),
+        linear-gradient(135deg, rgba(23,18,37,.94), rgba(13,10,22,.9));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -130px;
+      top: -150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(169,120,255,.18), transparent 66%);
+      filter: blur(4px);
+      pointer-events: none;
+    }
+
+    .hero-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid rgba(169,120,255,.24);
+      border-radius: 999px;
+      background: rgba(169,120,255,.08);
+      color: #ceb8ff;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--pink);
+      box-shadow: 0 0 14px rgba(255,92,168,.8);
+    }
+
+    h1 {
+      margin: 12px 0 0;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: .94;
+      letter-spacing: -.06em;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hero-copy strong { color: #e4d8ff; }
+
+    .hero-visual {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: flex-end;
+      gap: 7px;
+      min-height: 94px;
+      padding: 0 8px 8px 0;
+    }
+
+    .eq {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 90px;
+    }
+
+    .eq i {
+      display: block;
+      width: 7px;
+      min-height: 14px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, #f6eaff, #a978ff 52%, #6b50ff);
+      box-shadow: 0 0 22px rgba(169,120,255,.28);
+      animation: equalize 1s ease-in-out infinite alternate;
+      transform-origin: bottom;
+    }
+
+    .eq i:nth-child(1) { height: 26px; animation-delay: -.55s; }
+    .eq i:nth-child(2) { height: 58px; animation-delay: -.2s; }
+    .eq i:nth-child(3) { height: 40px; animation-delay: -.75s; }
+    .eq i:nth-child(4) { height: 76px; animation-delay: -.35s; }
+    .eq i:nth-child(5) { height: 32px; animation-delay: -.6s; }
+    .eq i:nth-child(6) { height: 64px; animation-delay: -.1s; }
     .eq i:nth-child(7) { height: 46px; animation-delay: -.45s; }
 
     @keyframes equalize {
@@ -3555,4 +3673,3 @@ for (const [season, source] of Object.entries(currentSpotifySources)) {
   console.log(`${season}: ${source.refs.length} references`);
 }
 console.log(`Written: ${SPOTIFY_CURRENT_PATH}`);
-
