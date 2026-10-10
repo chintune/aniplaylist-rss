@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://chintu-io.github.io/aniplaylist-rss/">
-    <img src="https://raw.githubusercontent.com/chintu-io/aniplaylist-rss/main/site/favicon.svg" alt="AniPlaylist orange AP logo" width="76">
+    <img src="https://raw.githubusercontent.com/chintu-io/aniplaylist-rss/main/site/favicon.svg?v=4" alt="AniPlaylist orange AP logo" width="76">
   </a>
 </p>
 
