@@ -320,12 +320,13 @@ function normaliseHit(hit) {
     || textFrom(hit.name, ["name", "title"])
     || textFrom(hit.title, ["title", "name"]);
 
-  // Keep the primary artist stable for RSS identity and playlist sync, while
-  // retaining the full collaboration credit for the website display.
-  const artist = displayArtists.find(isLikelyArtistDisplay)
-    || artists.find(isLikelyArtistDisplay)
+  // Keep the primary artist stable and Latin-first for RSS identity. The full
+  // displayed credit is stored separately so collaborations are not lost.
+  const artist = artists.find(isLikelyArtistDisplay)
+    || displayArtists.find(isLikelyArtistDisplay)
     || textFrom(hit.artist, ["name", "artist"]);
   const artistDisplay = formatArtistNames(displayArtists) || artist;
+  const artistDisplayCount = displayArtists.length || (artist ? 1 : 0);
 
   const kind = clean(
     hit.song_type_short
@@ -349,6 +350,7 @@ function normaliseHit(hit) {
     song,
     artist,
     artistDisplay,
+    artistDisplayCount,
     kind,
     kindLabel,
     spotify,
@@ -606,6 +608,29 @@ function firstUrl(value, depth = 0) {
     }
   }
   return "";
+}
+
+function releaseTimestamp(item) {
+  const raw = item?.firstSeen || item?.pubDate || item?.created_at || item?.updated_at || "";
+  const parsed = raw ? Date.parse(raw) : 0;
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function releaseNumericId(item) {
+  const id = String(item?.id || "");
+  return /^\d+$/.test(id) ? Number(id) : null;
+}
+
+function compareReleaseOrder(a, b) {
+  const byDate = releaseTimestamp(b) - releaseTimestamp(a);
+  if (byDate) return byDate;
+  // Several songs first discovered in one build can share a millisecond.
+  // AniPlaylist's numeric IDs are monotonic, so show the newest ID first.
+  const aId = releaseNumericId(a);
+  const bId = releaseNumericId(b);
+  if (aId !== null && bId !== null && aId !== bId) return bId - aId;
+  return String(b?.id || "").localeCompare(String(a?.id || ""))
+    || String(a?.song || "").localeCompare(String(b?.song || ""));
 }
 
 function prettyKind(kind) {
@@ -1066,6 +1091,8 @@ const ENGLISH_HINTS = new Set([
   "star", "stars", "night", "moon", "sun", "love", "heart", "life",
   "girl", "girls", "boy", "boys", "school", "hero", "heroes", "magic",
   "king", "queen", "road", "brick", "flower", "flowers", "song", "songs",
+  "again", "tomorrow", "beyond", "past", "super", "psychic", "policeman",
+  "bloom", "blue", "sky", "future", "memory", "memories", "eternal", "beautiful",
 ]);
 
 const ROMAJI_HINTS = new Set([
@@ -1074,6 +1101,10 @@ const ROMAJI_HINTS = new Set([
   "sekai", "majo", "hajimemashita", "tensei", "reijou", "jou", "kanashii",
   "bokura", "kimi", "boku", "watashi", "kokoro", "hoshi", "meguru",
   "eikyouroku", "saikyou", "uta", "yoru", "kaze", "hana",
+  "mata", "ashita", "choujun", "choujou", "senpai", "mikansei", "mirai",
+  "yume", "sora", "koi", "suki", "daisuki", "natsu", "haru", "fuyu", "aki",
+  "niji", "sakura", "akari", "hikari", "yami", "ame", "arigatou", "tsuki",
+  "aisuru", "aisite", "minna", "kirai", "shiawase", "hajimari", "owari",
 ]);
 
 function hasJapaneseScript(value) {
@@ -1084,7 +1115,10 @@ function isLikelyArtistDisplay(value) {
   const s = clean(value);
   if (!s) return false;
   if (/^\d+$/.test(s)) return false;
-  if (/^[A-Za-z0-9_-]{16,}$/.test(s) && !/\s/.test(s)) return false;
+  // Preserve long all-lowercase romanizations (e.g. senntimirimenntaru);
+  // platform IDs normally contain digits, mixed case, underscores, or hyphens.
+  if (/^[A-Za-z0-9_-]{16,}$/.test(s) && !/\s/.test(s)
+      && (/[0-9]/.test(s) || /[A-Z]/.test(s) || /[_-]/.test(s))) return false;
   return true;
 }
 
@@ -2010,9 +2044,7 @@ function buildBrowsePage(season, items, options = {}) {
   const isHome = options.isHome === true;
   const slugSeason = slug(season);
   const feedUrl = `${SITE_BASE}/rss/${slugSeason}.xml`;
-  const orderedItems = items
-    .slice()
-    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+  const orderedItems = items.slice().sort(compareReleaseOrder);
 
   const watchCount = orderedItems.filter(item =>
     item.animethemesVideo?.url &&
@@ -2069,6 +2101,9 @@ function buildBrowsePage(season, items, options = {}) {
     const songVariants = getTitleVariants(item.titleCandidates, item.song);
     const artistCandidates = (item.artistCandidates || []).filter(isLikelyArtistDisplay);
     const artistVariants = getTitleVariants(artistCandidates, item.artist);
+    const artistLabel = Number(item.artistDisplayCount || 1) > 1
+      ? (item.artistDisplay || artistVariants.english)
+      : (artistVariants.english || item.artistDisplay || item.artist);
 
     const searchText = unique([
       item.anime,
@@ -2108,7 +2143,7 @@ function buildBrowsePage(season, items, options = {}) {
 
           <h2 class="anime-title" ${variantAttrs(animeVariants)}>${htmlEscape(animeVariants.english || "Unknown anime")}</h2>
           <div class="song-title" ${variantAttrs(songVariants)}>${htmlEscape(songVariants.english || "Unknown song")}</div>
-          ${artistVariants.english ? `<div class="artist" ${variantAttrs(artistVariants)}>${htmlEscape(item.artistDisplay || artistVariants.english)}</div>` : ""}
+          ${artistLabel ? `<div class="artist" ${variantAttrs(artistVariants)}>${htmlEscape(artistLabel)}</div>` : ""}
 
           <div class="card-bottom">
             <div class="platforms">${platforms}</div>
@@ -3597,7 +3632,33 @@ async function makeRssItem(item, season) {
   const kind = item.kind || "Other";
   const title = `[${kind}] ${item.anime || "Unknown anime"}`;
 
-  const key = sha1([
+  // Look up historical identity by source ID first. Metadata such as artist
+  // spelling/localization can change, but that must not make an old track new.
+  const itemId = clean(item.id);
+  const itemDetailUrl = clean(item.detailUrl);
+  let priorEntries = itemId
+    ? Object.entries(state).filter(([, value]) =>
+        value && String(value.season || "") === String(season)
+        && String(value.id || "") === itemId
+      )
+    : [];
+  if (!priorEntries.length && itemDetailUrl) {
+    priorEntries = Object.entries(state).filter(([, value]) =>
+      value && String(value.season || "") === String(season)
+      && clean(value.detailUrl) === itemDetailUrl
+    );
+  }
+  const similarity = value =>
+    (clean(value.song).toLowerCase() === clean(item.song).toLowerCase() ? 4 : 0)
+    + (clean(value.artist).toLowerCase() === clean(item.artist).toLowerCase() ? 2 : 0)
+    + (itemDetailUrl && clean(value.detailUrl) === itemDetailUrl ? 3 : 0);
+  priorEntries.sort((a, b) =>
+    similarity(b[1]) - similarity(a[1])
+    || (Date.parse(a[1].firstSeen || "") || 0) - (Date.parse(b[1].firstSeen || "") || 0)
+    || a[0].localeCompare(b[0])
+  );
+  const priorEntry = priorEntries[0] || null;
+  const legacyKey = sha1([
     season,
     item.id || "",
     item.anime,
@@ -3605,9 +3666,12 @@ async function makeRssItem(item, season) {
     item.song,
     item.artist,
   ].join("|"));
-
-  const firstSeen = state[key]?.firstSeen || new Date().toISOString();
+  const key = priorEntry?.[0]
+    || (itemId ? sha1([season, "id", itemId].join("|")) : legacyKey);
+  const priorRecord = priorEntry?.[1] || state[key] || null;
+  const firstSeen = priorRecord?.firstSeen || new Date().toISOString();
   state[key] = {
+    ...(priorRecord || {}),
     firstSeen,
     season,
     ...item,
@@ -3644,6 +3708,7 @@ async function makeRssItem(item, season) {
     song: item.song,
     artist: item.artist,
     artistDisplay: item.artistDisplay || item.artist,
+    artistDisplayCount: item.artistDisplayCount || (item.artist ? 1 : 0),
     kind: item.kind,
     kindLabel: item.kindLabel || prettyKind(item.kind),
     animeCandidates: Array.isArray(item.animeCandidates) ? item.animeCandidates : [],
@@ -3658,7 +3723,7 @@ async function makeRssItem(item, season) {
 
 
 function buildRss(season, items) {
-  items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+  items.sort(compareReleaseOrder);
 
   const body = items.map(i => `    <item>
       <title>${rssEscape(i.title)}</title>
@@ -3949,6 +4014,22 @@ for (const season of CFG.seasons) {
         count: x.hits.length,
       })),
       normalizedSamples: normalized.slice(0, 30),
+      sourceMetadataSamples: rawHits.filter(hit => {
+        const titles = textListFrom(hit.titles, ["title", "name", "text"]);
+        const label = titles.join(" ");
+        return /Kanawanai|Mata Ashita|TINY LUCK|Hikari|Dead Flutter|Steel My Soul|pavilion|Choux Cream|Hoshizora ni Akogare/i.test(label);
+      }).slice(0, 12).map(hit => ({
+        id: clean(hit.objectID || hit.id || hit.song_key || ""),
+        titles: hit.titles,
+        rawArtists: hit.artists,
+        rawDisplayArtists: hit.display_artists,
+        type: hit.type,
+        song_type: hit.song_type,
+        song_type_short: hit.song_type_short,
+        label: hit.label,
+        tags: hit.tags,
+        episodeFields: Object.fromEntries(Object.entries(hit).filter(([key]) => /episode|\bep\b|sequence|number|track|order|position|type|label|tag/i.test(key))),
+      })),
       detailUrlSamples: normalized.filter(x => x.detailUrl).slice(0, 30).map(x => ({
         id: x.id,
         anime: x.anime,
