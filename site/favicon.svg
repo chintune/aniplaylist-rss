@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
   <title id="title">AniPlaylist</title>
-  <rect x="3" y="3" width="58" height="58" rx="17" fill="#ff684a" transform="rotate(-5 32 32)"/>
-  <g fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="900">
-    <text x="8" y="41" font-size="25" letter-spacing="-2.5">AP</text>
-    <text x="42" y="27" font-size="15">♪</text>
+  <g transform="rotate(-5 32 32)">
+    <rect x="3" y="3" width="58" height="58" rx="18" fill="#ff684a"/>
+    <text x="8.5" y="40" fill="#fff" font-family="Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="23" font-weight="900" letter-spacing="-2.3">AP♪</text>
   </g>
 </svg>
