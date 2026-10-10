@@ -267,7 +267,9 @@ jobs:
             git commit -m "Update AniPlaylist RSS and Spotify playlists"
 
             git fetch origin main
-            if git merge-base --is-ancestor HEAD origin/main; then
+            # The generated state commit must be based on the current remote tip.
+            # Check that origin/main is an ancestor of HEAD, not the reverse.
+            if git merge-base --is-ancestor origin/main HEAD; then
               git push origin HEAD:main
             else
               echo "Remote main advanced during the build; skipping state push."
