@@ -72,8 +72,8 @@ function videoUrl(rec){const v=rec.animethemesVideo||rec.animeThemesVideo||null;
 function hasVideo(rec){return !!videoUrl(rec)}
 function coverFor(rec){return rec.thumbnail||rec.image||rec.cover||rec.artwork||""}
 async function loadSeasonRecords(season){
+ try{const response=await fetch("catalog.json",{cache:"no-store"});if(response.ok){const payload=await response.json();const collection=Array.isArray(payload)?payload:Array.isArray(payload.records)?payload.records:Object.values(payload||{});const matched=collection.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase());if(matched.length)return matched.map(normalize)}}catch{}
  try{const payload=await getJSON("state.json");const records=Array.isArray(payload)?payload:Object.values(payload||{});const matched=records.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase()&&(rec.spotify||rec.apple));if(matched.length)return matched.map(normalize)}catch{}
- try{const debug=await getJSON("debug/"+slug(season)+".json");const data=Array.isArray(debug)?debug:Array.isArray(debug.records)?debug.records:Array.isArray(debug.items)?debug.items:Array.isArray(debug.sample)?debug.sample:[];if(data.length)return data.map(normalize)}catch{}
  try{const response=await fetch(seasonUrl(season),{cache:"no-store"});if(response.ok){const xml=new DOMParser().parseFromString(await response.text(),"application/xml");return [...xml.querySelectorAll("item")].map(item=>{const text=tag=>item.querySelector(tag)?.textContent?.trim()||"";return normalize({anime:text("category")||text("title").replace(/^\[[^\]]+\]\s*/,""),song:text("description"),kind:(text("title").match(/^\[([^\]]+)\]/)||[])[1]||"Other",detailUrl:text("link"),season})})}}catch{}return[]
 }
 function dedupe(records){const map=new Map();for(const rec of records){const key=String(rec.id||rec.detailUrl||[rec.anime,rec.song,rec.artist,rec.kind].join("|")).toLowerCase();if(!map.has(key))map.set(key,rec)}return[...map.values()]}
