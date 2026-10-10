@@ -3,6 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { chromium } from "playwright";
 import { assertCompleteScrape, buildSpotifyReferences, cdataSafe } from "./lib/scrape-safety.mjs";
+import { findHistoricalRecord, isValidAniPlaylistDetailUrl, recordKeyFor } from "./lib/record-identity.mjs";
 
 const ROOT = process.cwd();
 const CFG = JSON.parse(await fs.readFile(path.join(ROOT, "seasons.json"), "utf8"));
@@ -30,6 +31,8 @@ const STATE_PATH = path.join(ROOT, "state.json");
 const SPOTIFY_CURRENT_PATH = path.join(ROOT, "spotify-current.json");
 const SPOTIFY_PLAYLISTS_PATH = path.join(ROOT, "spotify-playlists.json");
 const currentSpotifySources = {};
+// Track keys already assigned in this build; a collision should stop publication.
+const claimedRecordKeys = new Map();
 let spotifyPlaylists = {};
 spotifyPlaylists = JSON.parse(await fs.readFile(SPOTIFY_PLAYLISTS_PATH, "utf8"));
 if (!spotifyPlaylists || typeof spotifyPlaylists !== "object" || Array.isArray(spotifyPlaylists)) {
@@ -364,10 +367,11 @@ function normaliseHit(hit) {
   const spotify = findSpotify(hit.links) || findSpotify(hit.platforms);
   const apple = findAppleMusic(hit.links) || findAppleMusic(hit.platforms);
 
-  const detailUrl =
-    firstAniPlaylistUrl(hit.web)
-    || firstAniPlaylistUrl(hit.short_link)
-    || firstAniPlaylistUrl(hit.url);
+  const detailUrl = [
+    firstAniPlaylistUrl(hit.web),
+    firstAniPlaylistUrl(hit.short_link),
+    firstAniPlaylistUrl(hit.url),
+  ].find(isValidAniPlaylistDetailUrl) || "";
 
   return {
     id: clean(hit.objectID || hit.id || hit.song_key || ""),
@@ -3093,119 +3097,59 @@ async function makeRssItem(item, season) {
   const kind = item.kind || "Other";
 
   const itemId = clean(item.id);
-  const itemDetailUrl = clean(item.detailUrl);
-  const identityText = value => clean(value).toLowerCase().normalize("NFKC")
-    .replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/g, "");
-  const candidateSet = (record, candidateKey, field) => new Set(
-    unique([...(Array.isArray(record?.[candidateKey]) ? record[candidateKey] : []), record?.[field]])
-      .map(identityText)
-      .filter(Boolean)
-  );
-  const artistIdentitySet = record => new Set(
-    unique([...(Array.isArray(record?.artistCandidates) ? record.artistCandidates : []),
-      record?.artist, record?.artistDisplay])
-      .filter(isLikelyArtistDisplay)
-      .map(identityText)
-      .filter(Boolean)
-  );
-  const intersects = (a, b) => [...a].some(value => b.has(value));
-  const currentTitles = candidateSet(item, "titleCandidates", "song");
-  const currentAnime = candidateSet(item, "animeCandidates", "anime");
-  const currentArtists = artistIdentitySet(item);
-  const currentEpisodes = new Set(episodeValues(item.episodes));
-  const currentKind = clean(item.kind).toUpperCase();
+  const itemDetailUrl = isValidAniPlaylistDetailUrl(item.detailUrl) ? clean(item.detailUrl) : "";
+  const sourceItem = { ...item, detailUrl: itemDetailUrl };
+  const matchedPrior = findHistoricalRecord(sourceItem, season, state);
+  const priorRecord = matchedPrior?.record || null;
 
-  // Keep possible prior identities from IDs, canonical URLs, and source aliases.
-  // AniPlaylist has migrated legacy us_* IDs to numeric IDs, so the same song
-  // must retain its original firstSeen timestamp and URL identity.
-  const priorByKey = new Map();
-  const addPrior = entries => {
-    for (const [key, value] of entries) if (value && !priorByKey.has(key)) priorByKey.set(key, value);
-  };
-  const exactIdEntries = itemId
-    ? Object.entries(state).filter(([, value]) =>
-        value && String(value.season || "") === String(season)
-        && String(value.id || "") === itemId
-      )
-    : [];
-  const detailEntries = itemDetailUrl
-    ? Object.entries(state).filter(([, value]) =>
-        value && String(value.season || "") === String(season)
-        && clean(value.detailUrl) === itemDetailUrl
-      )
-    : [];
-  addPrior(exactIdEntries);
-  addPrior(detailEntries);
-
-  const aliasEntries = Object.entries(state).filter(([, value]) => {
-    if (!value || String(value.season || "") !== String(season)) return false;
-    if (clean(value.kind).toUpperCase() !== currentKind) return false;
-    const priorTitles = candidateSet(value, "titleCandidates", "song");
-    const priorAnime = candidateSet(value, "animeCandidates", "anime");
-    const priorArtists = artistIdentitySet(value);
-    if (!intersects(currentTitles, priorTitles)
-        || !intersects(currentAnime, priorAnime)
-        || !intersects(currentArtists, priorArtists)) return false;
-
-    const priorEpisodes = new Set(episodeValues(value.episodes));
-    if (currentEpisodes.size && priorEpisodes.size && !intersects(currentEpisodes, priorEpisodes)) return false;
-    return true;
+  // Numeric source IDs always retain a deterministic, per-track key. A shared
+  // placeholder URL such as /hidden can never make two releases share a GUID.
+  const key = recordKeyFor({
+    season,
+    item: sourceItem,
+    priorKey: matchedPrior?.key || null,
   });
-  addPrior(aliasEntries);
+  const owner = `${season}|${itemId || [item.anime, item.kind, item.song, item.artist].join("|")}`;
+  const keyOwner = claimedRecordKeys.get(key);
+  if (keyOwner && keyOwner !== owner) {
+    throw new Error(`${season}: record key collision ${key} between ${keyOwner} and ${owner}`);
+  }
+  claimedRecordKeys.set(key, owner);
 
-  const priorEntries = [...priorByKey.entries()];
-  const similarity = value => {
-    const titles = candidateSet(value, "titleCandidates", "song");
-    const anime = candidateSet(value, "animeCandidates", "anime");
-    const artists = artistIdentitySet(value);
-    const episodes = new Set(episodeValues(value.episodes));
-    return (itemId && String(value.id || "") === itemId ? 12 : 0)
-      + (itemDetailUrl && clean(value.detailUrl) === itemDetailUrl ? 20 : 0)
-      + (intersects(currentTitles, titles) ? 8 : 0)
-      + (intersects(currentAnime, anime) ? 8 : 0)
-      + (intersects(currentArtists, artists) ? 6 : 0)
-      + (currentEpisodes.size && episodes.size && intersects(currentEpisodes, episodes) ? 4 : 0);
-  };
-  priorEntries.sort((a, b) =>
-    similarity(b[1]) - similarity(a[1])
-    || (Date.parse(a[1].firstSeen || "") || Infinity) - (Date.parse(b[1].firstSeen || "") || Infinity)
-    || a[0].localeCompare(b[0])
-  );
-
-  const exactPrior = exactIdEntries[0] || null;
-  const detailPrior = detailEntries[0] || null;
-  const bestPrior = priorEntries[0] || null;
-  const legacyKey = sha1([season, item.id || "", item.anime, item.kind, item.song, item.artist].join("|"));
-  // Keep the active ID's key when it already exists; for a true ID migration,
-  // reuse the best historical key so RSS GUIDs don't churn.
-  const key = exactPrior?.[0] || detailPrior?.[0] || bestPrior?.[0]
-    || (itemId ? sha1([season, "id", itemId].join("|")) : legacyKey);
-  const priorRecord = state[key] || bestPrior?.[1] || null;
-
-  const priorDates = priorEntries.map(([, value]) => Date.parse(value.firstSeen || ""))
-    .filter(Number.isFinite);
-  const firstSeen = priorDates.length
-    // Sub-second differences come from Promise scheduling within one scrape,
-    // not meaningful release order. Normalize them so the ID tie-break applies.
-    ? new Date(Math.floor(Math.min(...priorDates) / 1000) * 1000).toISOString()
+  const priorTimestamp = Date.parse(priorRecord?.firstSeen || "");
+  const firstSeen = Number.isFinite(priorTimestamp)
+    ? new Date(Math.floor(priorTimestamp / 1000) * 1000).toISOString()
     : (priorRecord?.firstSeen || BUILD_STARTED_AT);
 
-  const mergeCandidates = field => unique([
-    ...(Array.isArray(item[field]) ? item[field] : []),
-    ...priorEntries.flatMap(([, value]) => Array.isArray(value[field]) ? value[field] : []),
-  ]);
+  const currentEpisodes = episodeValues(item.episodes);
   const mergedItem = {
     ...(priorRecord || {}),
     ...item,
+    id: itemId,
+    detailUrl: itemDetailUrl,
     firstSeen,
     season,
     kind,
-    kindLabel: item.kindLabel || priorRecord?.kindLabel || prettyKind(kind),
-    episodes: episodeValues(item.episodes).length ? episodeValues(item.episodes) : episodeValues(priorRecord?.episodes),
-    titleCandidates: mergeCandidates("titleCandidates"),
-    animeCandidates: mergeCandidates("animeCandidates"),
-    artistCandidates: mergeCandidates("artistCandidates"),
+    kindLabel: item.kindLabel || prettyKind(kind),
+    episodes: currentEpisodes.length ? currentEpisodes : episodeValues(priorRecord?.episodes),
+    // Never merge translation candidates from historical records. Each array
+    // must describe this source hit only; old state may already be polluted.
+    titleCandidates: Array.isArray(item.titleCandidates) ? [...item.titleCandidates] : [],
+    animeCandidates: Array.isArray(item.animeCandidates) ? [...item.animeCandidates] : [],
+    artistCandidates: Array.isArray(item.artistCandidates) ? [...item.artistCandidates] : [],
   };
+
+  // Remove duplicate historical entries for the same source ID after migrating
+  // it back to its canonical key. This cleans up keys created by older builds.
+  if (itemId) {
+    for (const [oldKey, oldRecord] of Object.entries(state)) {
+      if (oldKey !== key
+          && String(oldRecord?.season || "") === String(season)
+          && clean(oldRecord?.id) === itemId) {
+        delete state[oldKey];
+      }
+    }
+  }
   state[key] = mergedItem;
 
   const relativePage = "song/" + key + "/";
