@@ -72,23 +72,81 @@ function videoUrl(rec){const v=rec.animethemesVideo||rec.animeThemesVideo||null;
 function hasVideo(rec){return !!videoUrl(rec)}
 function coverFor(rec){return rec.thumbnail||rec.image||rec.cover||rec.artwork||""}
 async function loadSeasonRecords(season){
- try{const response=await fetch("catalog.json",{cache:"no-store"});if(response.ok){const payload=await response.json();const collection=Array.isArray(payload)?payload:Array.isArray(payload.records)?payload.records:Object.values(payload||{});const matched=collection.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase());if(matched.length)return matched.map(normalize)}}catch{}
- try{const payload=await getJSON("state.json");const records=Array.isArray(payload)?payload:Object.values(payload||{});const matched=records.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase()&&(rec.spotify||rec.apple));if(matched.length)return matched.map(normalize)}catch{}
- try{const response=await fetch(seasonUrl(season),{cache:"no-store"});if(response.ok){const xml=new DOMParser().parseFromString(await response.text(),"application/xml");return [...xml.querySelectorAll("item")].map(item=>{const text=tag=>item.querySelector(tag)?.textContent?.trim()||"";return normalize({anime:text("category")||text("title").replace(/^\[[^\]]+\]\s*/,""),song:text("description"),kind:(text("title").match(/^\[([^\]]+)\]/)||[])[1]||"Other",detailUrl:text("link"),season})})}}catch{}return[]
+ try{
+  const response=await fetch("catalog.json",{cache:"no-store"});
+  if(response.ok){
+   const payload=await response.json();
+   const collection=Array.isArray(payload)?payload:Array.isArray(payload.records)?payload.records:[];
+   // An empty match is meaningful: this season currently has no listenable releases.
+   return collection.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase()).map(normalize);
+  }
+ }catch{}
+ // Compatibility fallback for a deployment that has not generated catalog.json yet.
+ try{
+  const payload=await getJSON("state.json");
+  const records=Array.isArray(payload)?payload:Object.values(payload||{});
+  const matched=records.filter(rec=>String(rec.season||"").toLowerCase()===season.toLowerCase()&&(rec.spotify||rec.apple));
+  if(matched.length)return matched.map(normalize);
+ }catch{}
+ return[]
 }
 function dedupe(records){const map=new Map();for(const rec of records){const key=String(rec.id||rec.detailUrl||[rec.anime,rec.song,rec.artist,rec.kind].join("|")).toLowerCase();if(!map.has(key))map.set(key,rec)}return[...map.values()]}
 function renderSeasons(){$("#seasonRow").innerHTML=state.seasons.map(s=>{const count=state.allRecords.filter(r=>r.season===s).length;return '<button class="season-btn '+(s===state.chosen?"active":"")+'" data-season="'+escapeHtml(s)+'">'+escapeHtml(s)+'<small>'+(count?count+" tracks":"browse season")+"</small></button>"}).join("");$("#statSeasons").textContent=state.seasons.length}
-function filteredRecords(){const q=state.query.trim().toLowerCase();return state.records.filter(r=>{if(state.kind!=="ALL"&&r.kind!==state.kind)return false;if(state.videoOnly&&!hasVideo(r))return false;if(!q)return true;return [r.song,r.anime,r.artist,variants(r,"anime").all,variants(r,"title").all,r.title,r.detailUrl,r.kind].join(" ").toLowerCase().includes(q)}).sort((a,b)=>{const order={OP:0,ED:1,IN:2,OST:3,Other:4};return(order[a.kind]??4)-(order[b.kind]??4)||titleFor(a,"anime").localeCompare(titleFor(b,"anime"))})}
+function filteredRecords(){
+ const q=state.query.trim().toLowerCase();
+ // Keep the catalog's release order. Language toggles and filters must never re-sort it.
+ return state.records.filter(r=>{
+  if(state.kind!=="ALL"&&r.kind!==state.kind)return false;
+  if(state.videoOnly&&!hasVideo(r))return false;
+  if(!q)return true;
+  return [r.song,r.anime,r.artist,variants(r,"anime").all,variants(r,"title").all,r.title,r.detailUrl,r.kind].join(" ").toLowerCase().includes(q);
+ });
+}
+
 const spotifyIcon='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.8a10.2 10.2 0 1 0 0 20.4 10.2 10.2 0 0 0 0-20.4Zm4.68 14.7a.63.63 0 0 1-.87.21c-2.39-1.46-5.4-1.79-8.95-.98a.63.63 0 1 1-.28-1.23c3.88-.89 7.2-.52 9.89 1.12.3.18.39.57.21.88Zm1.24-2.76a.79.79 0 0 1-1.08.26c-2.73-1.68-6.9-2.17-10.13-1.18a.79.79 0 1 1-.46-1.51c3.69-1.12 8.28-.58 11.41 1.34.37.23.49.72.26 1.09Zm.11-2.88c-3.27-1.94-8.67-2.12-11.79-1.17a.95.95 0 1 1-.55-1.82c3.59-1.09 9.56-.88 13.35 1.37a.95.95 0 0 1-1.01 1.62Z"/></svg>';
 const appleIcon='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.7c.02 2.23 1.96 2.98 1.98 2.99-.02.05-.31 1.07-1.02 2.12-.61.9-1.24 1.79-2.23 1.81-.97.02-1.28-.58-2.39-.58-1.1 0-1.45.56-2.36.6-.95.04-1.67-.97-2.28-1.86-1.25-1.8-2.21-5.09-.92-7.3.64-1.1 1.78-1.8 3.08-1.82.96-.02 1.86.65 2.45.65.58 0 1.68-.8 2.83-.68.48.02 1.84.19 2.71 1.47-.07.04-1.62.95-1.6 2.6ZM14.52 6.94c.5-.6.84-1.44.75-2.27-.72.03-1.6.48-2.12 1.08-.47.52-.88 1.38-.77 2.19.81.06 1.64-.41 2.14-1Z"/></svg>';
 const videoIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 10 6-10 6z"/></svg>';
 function serviceButton(url,label,cls,icon=""){if(!url||!/^https?:\/\//i.test(url))return"";return '<a class="service-btn '+cls+'" href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+escapeHtml(label)+'" title="'+escapeHtml(label)+'">'+icon+(label?'<span>'+escapeHtml(label)+"</span>":"")+"</a>"}
-function trackHTML(r){const title=titleFor(r,"song")||r.song||"Untitled track";const anime=titleFor(r,"anime")||r.anime||"Unknown anime";const cover=coverFor(r);const kindClass=r.kind.toLowerCase()==="op"?"op":r.kind.toLowerCase()==="ed"?"ed":"";const coverHTML=cover&&/^https?:\/\//i.test(cover)?'<img loading="lazy" src="'+escapeHtml(cover)+'" alt="" onerror="this.parentElement.innerHTML=\'♪\'">':"♪";const links=[serviceButton(r.spotify,"Spotify","spotify",spotifyIcon),serviceButton(r.apple,"Apple Music","apple",appleIcon),hasVideo(r)?serviceButton(videoUrl(r),"Watch","video",videoIcon):"",r.detailUrl&&/^https?:\/\//i.test(r.detailUrl)?serviceButton(r.detailUrl,"","detail",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M10 14 21 3M19 13v7H4V5h7"/></svg>'):""].filter(Boolean).join("");return '<article class="track"><div class="cover">'+coverHTML+'</div><div class="track-main"><div class="track-topline"><span class="kind '+kindClass+'">'+escapeHtml(r.kind)+'</span><div class="track-title" title="'+escapeHtml(title)+'">'+escapeHtml(title)+'</div></div><div class="track-anime" title="'+escapeHtml(anime)+'">'+escapeHtml(anime)+'</div>'+(r.artist?'<div class="track-artist">'+escapeHtml(r.artist)+'</div>':"")+'</div><div class="track-actions">'+links+"</div></article>"}
+function isValidDetailUrl(value){
+ if(!value||!/^https?:\/\//i.test(value))return false;
+ try{return new URL(value).pathname.replace(/\/+$/,"")!=="/hidden"}catch{return false}
+}
+function trackHTML(r){
+ const title=titleFor(r,"song")||r.song||"Untitled track";
+ const anime=titleFor(r,"anime")||r.anime||"Unknown anime";
+ const cover=coverFor(r);
+ const kindClass=r.kind.toLowerCase()==="op"?"op":r.kind.toLowerCase()==="ed"?"ed":"";
+ const coverHTML=cover&&/^https?:\/\//i.test(cover)?'<img loading="lazy" src="'+escapeHtml(cover)+'" alt="" onerror="this.parentElement.innerHTML=\\'♪\\'">':"♪";
+ const links=[
+  serviceButton(r.spotify,"Spotify","spotify",spotifyIcon),
+  serviceButton(r.apple,"Apple Music","apple",appleIcon),
+  hasVideo(r)?serviceButton(videoUrl(r),"Watch","video",videoIcon):"",
+  isValidDetailUrl(r.detailUrl)?serviceButton(r.detailUrl,"","detail",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M10 14 21 3M19 13v7H4V5h7"/></svg>'):""
+ ].filter(Boolean).join("");
+ return '<article class="track"><div class="cover">'+coverHTML+'</div><div class="track-main"><div class="track-topline"><span class="kind '+kindClass+'">'+escapeHtml(r.kind)+'</span><div class="track-title" title="'+escapeHtml(title)+'">'+escapeHtml(title)+'</div></div><div class="track-anime" title="'+escapeHtml(anime)+'">'+escapeHtml(anime)+'</div>'+(r.artist?'<div class="track-artist">'+escapeHtml(r.artist)+'</div>':"")+'</div><div class="track-actions">'+links+"</div></article>";
+}
+
 function renderPagination(totalPages){const el=$("#pagination");if(totalPages<=1){el.innerHTML="";return}let html='<button class="page-btn" data-page="'+(state.page-1)+'" '+(state.page===1?"disabled":"")+' aria-label="Previous page">‹</button>';const pages=[...new Set([1,totalPages,state.page,state.page-1,state.page+1].filter(n=>n>=1&&n<=totalPages))].sort((a,b)=>a-b);let last=0;for(const p of pages){if(last&&p-last>1)html+='<span style="padding:0 4px;color:var(--muted)">…</span>';html+='<button class="page-btn '+(state.page===p?"active":"")+'" data-page="'+p+'" aria-label="Page '+p+'" '+(state.page===p?'aria-current="page"':"")+'>'+p+"</button>";last=p}html+='<button class="page-btn" data-page="'+(state.page+1)+'" '+(state.page===totalPages?"disabled":"")+' aria-label="Next page">›</button>';el.innerHTML=html}
 function renderPlaylist(){const p=state.playlistMap[state.chosen];const url=p&&(p.url||p.spotify||p.playlistUrl);$("#playlistActions").innerHTML=url?'<a class="service-btn spotify" href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+spotifyIcon+'<span>Open Spotify playlist</span></a>':'<span class="tiny-note">No Spotify playlist is listed for this season yet.</span>'}
 function updateFeedControls(){const url=seasonUrl(state.chosen);$("#openFeed").href=url;$("#copyFeedTop").dataset.feed=url;$("#copyFeed").dataset.feed=url}
 function render(){const list=filteredRecords();const pages=Math.max(1,Math.ceil(list.length/ PAGE_SIZE));state.page=Math.min(state.page,pages);const start=(state.page-1)*PAGE_SIZE;$("#resultsCount").innerHTML="<strong>"+list.length.toLocaleString()+"</strong> "+(list.length===1?"track":"tracks")+" "+(state.query?"matching your search":"in "+escapeHtml(state.chosen))+(list.length?" <span>· showing "+(start+1)+"–"+Math.min(start+PAGE_SIZE,list.length)+"</span>":"");$("#trackList").innerHTML=list.slice(start,start+PAGE_SIZE).map(trackHTML).join("")||'<div class="empty"><strong>No tracks found. Yet.</strong><p>Try another title, change the type, or clear the video filter.</p><button class="outline-btn" id="emptyReset">Reset filters</button></div>';$("#statTracks").textContent=state.records.length.toLocaleString();renderPagination(pages);renderPlaylist();updateFeedControls();renderSeasons();$("#emptyReset")?.addEventListener("click",resetFilters)}
-async function selectSeason(season){if(!state.seasons.includes(season))return;state.chosen=season;state.records=[];state.page=1;$("#seasonSubtitle").textContent="Loading "+season+" releases…";$("#trackList").innerHTML='<div class="empty">Finding the season’s tracks…</div>';renderSeasons();const records=await loadSeasonRecords(season);state.records=dedupe(records.map(r=>({...r,season})));state.allRecords=state.allRecords.filter(r=>r.season!==season).concat(state.records);$("#seasonSubtitle").textContent="Browse "+season+" releases. Search, filter, and listen without leaving this page.";render()}
+async function selectSeason(season){
+ if(!state.seasons.includes(season))return;
+ state.chosen=season;state.records=[];state.page=1;
+ $("#seasonSubtitle").textContent="Loading "+season+" releases…";
+ $("#trackList").innerHTML='<div class="empty">Finding the season’s tracks…</div>';
+ renderSeasons();
+ const records=await loadSeasonRecords(season);
+ state.records=dedupe(records.map((r,index)=>({...r,season,_catalogIndex:index}))).sort((a,b)=>{
+  const aDate=Date.parse(a.firstSeen||a.pubDate||0)||0;
+  const bDate=Date.parse(b.firstSeen||b.pubDate||0)||0;
+  return bDate-aDate||(a._catalogIndex??0)-(b._catalogIndex??0);
+ });
+ state.allRecords=state.allRecords.filter(r=>r.season!==season).concat(state.records);
+ $("#seasonSubtitle").textContent="Browse "+season+" releases. Search, filter, and listen without leaving this page.";
+ render();
+}
+
 function resetFilters(){state.kind="ALL";state.videoOnly=false;state.query="";state.page=1;$("#search").value="";$$(".chip[data-kind]").forEach(b=>b.classList.toggle("active",b.dataset.kind==="ALL"));$("#videoOnly").classList.remove("active");render()}
 function applyTheme(theme){state.theme=theme;document.documentElement.dataset.theme=theme;const dark=theme==="dark";$("#themeIcon").innerHTML=dark?'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>':'<path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>';$("#themeToggle").setAttribute("aria-label","Switch to "+(dark?"light":"dark")+" theme");try{localStorage.setItem("aniplaylist-theme",theme)}catch{}}
 async function copyFeed(){const url=fullUrl(seasonUrl(state.chosen));try{await navigator.clipboard.writeText(url);notify("RSS URL copied")}catch{prompt("Copy this RSS URL:",url)}}
