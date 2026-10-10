@@ -1,21 +1,21 @@
 {
   "season": "Fall 2026",
   "url": "https://aniplaylist.com/?seasons=Fall%202026",
-  "resultCount": 184,
-  "animeThemesChecked": 99,
-  "animeThemesMatched": 57,
-  "animeThemesSeasonLinks": 58,
+  "resultCount": 185,
+  "animeThemesChecked": 106,
+  "animeThemesMatched": 60,
+  "animeThemesSeasonLinks": 59,
   "jsonResponses": 26,
   "algoliaResponses": 12,
   "hitArrays": 24,
-  "rawHits": 184,
-  "uniqueHits": 184,
-  "normalized": 184,
-  "withSpotify": 116,
-  "withApple": 114,
-  "withDetailUrl": 184,
-  "resolvedSpotify": 116,
-  "recordThumbnails": 184,
+  "rawHits": 185,
+  "uniqueHits": 185,
+  "normalized": 185,
+  "withSpotify": 123,
+  "withApple": 120,
+  "withDetailUrl": 185,
+  "resolvedSpotify": 123,
+  "recordThumbnails": 185,
   "detailImagesResolved": 0,
   "unavailableDetailPages": 0,
   "mismatchedDetailPages": 0,
@@ -82,6 +82,70 @@
         "0m9WOjDNpMnKYhZzafarEL",
         "1562080702",
         "UC5ZqsmAgThtRr6QsrV6a8_A"
+      ]
+    },
+    {
+      "id": "28066",
+      "anime": "Beyblade X",
+      "song": "Fearless",
+      "artist": "&TEAM",
+      "artistDisplay": "&TEAM",
+      "artistDisplayCount": 1,
+      "kind": "OP",
+      "kindLabel": "Opening",
+      "episodes": [],
+      "spotify": "https://open.spotify.com/track/678sads3sdt8tInJEM6AYv",
+      "apple": "https://geo.music.apple.com/album/6819172154?i=6819172155&at=1001l384j&ct=website-beyblade-x-op5&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/8aa9b8202a63b042d6c648bbd2f1e2d397e5b8ba@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/beyblade-x-opening-5",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Fearless"
+      ],
+      "animeCandidates": [
+        "Beyblade X",
+        "ベイブレードエックス"
+      ],
+      "artistCandidates": [
+        "16491",
+        "&TEAM",
+        "andTeam",
+        "앤팀",
+        "2xfxRiKxoHl5tI0MKyvqV7",
+        "1654437478",
+        "189785997",
+        "UCnISvkDLbC4WGs3ikE56ZNA"
       ]
     },
     {
@@ -281,70 +345,6 @@
         "263554940",
         "4929099"
       ]
-    },
-    {
-      "id": "28060",
-      "anime": "Firefly Wedding",
-      "song": "Yumegokochi",
-      "artist": "TOOBOE",
-      "artistDisplay": "TOOBOE",
-      "artistDisplayCount": 1,
-      "kind": "ED",
-      "kindLabel": "Ending",
-      "episodes": [],
-      "spotify": "https://open.spotify.com/track/3i3FrUmNLW2C7Kg3d1teK2",
-      "apple": "https://geo.music.apple.com/album/6810941092?i=6810941097&at=1001l384j&ct=website-firefly-wedding-ed&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/0a5126ffb7d7577e0a38d14906b5a05564c1f20b@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/firefly-wedding-ending",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Yumegokochi",
-        "夢心地"
-      ],
-      "animeCandidates": [
-        "Firefly Wedding",
-        "Hotaru no Yomeiri",
-        "ホタルの嫁入り",
-        "Les Noces des Lucioles"
-      ],
-      "artistCandidates": [
-        "13175",
-        "TOOBOE",
-        "0HZLpOSMHpalBlUnONhynN",
-        "1534682693",
-        "109350802",
-        "UCLI_vItz-HMYnbh1OmKCD6w"
-      ]
     }
   ],
   "errors": [],
@@ -358,6 +358,16 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/b9b036180fe4e019ba1ae386e4e48ae080e0364e@2xl.jpg"
+    },
+    {
+      "id": "28066",
+      "thumbnailType": "string",
+      "thumbnail": "thumbnails/8aa9b8202a63b042d6c648bbd2f1e2d397e5b8ba.jpeg",
+      "thumbnailHashType": "string",
+      "thumbnail_hash": "LeH{_;RUIVR%.kW.bcfA%2WUJRn%",
+      "blurImageType": "number",
+      "blur_image": 0,
+      "resolved": "https://cdn.aniplaylist.com/thumbnails/8aa9b8202a63b042d6c648bbd2f1e2d397e5b8ba@2xl.jpeg"
     },
     {
       "id": "28058",
@@ -458,23 +468,13 @@
       "blurImageType": "number",
       "blur_image": 0,
       "resolved": "https://cdn.aniplaylist.com/thumbnails/a8bbb123bf5823f5df43a71a59321d84d6c072b2@2xl.jpg"
-    },
-    {
-      "id": "28046",
-      "thumbnailType": "string",
-      "thumbnail": "thumbnails/2aab051a5960e85e8847c10748331087529273ee.jpg",
-      "thumbnailHashType": "string",
-      "thumbnail_hash": "LBMQ;f.S00s;ys~X%MY700rpY7pJ",
-      "blurImageType": "number",
-      "blur_image": 0,
-      "resolved": "https://cdn.aniplaylist.com/thumbnails/2aab051a5960e85e8847c10748331087529273ee@2xl.jpg"
     }
   ],
   "hitMeta": [
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 0,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -490,7 +490,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 1,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -506,7 +506,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 2,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -522,7 +522,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 3,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -538,7 +538,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 4,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -554,7 +554,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 5,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -570,7 +570,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 6,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -586,7 +586,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 7,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -602,7 +602,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 8,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -618,7 +618,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 9,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -634,7 +634,7 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 10,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
       "count": 16
@@ -650,10 +650,10 @@
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
       "page": 11,
-      "nbHits": 184,
+      "nbHits": 185,
       "hitsPerPage": 16,
       "nbPages": 12,
-      "count": 8
+      "count": 9
     },
     {
       "url": "https://p4b7ht5p18-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.26.0)%3B%20Browser%20(lite)&x-algolia-api-key=cd90c9c918df8b42327310ade1f599bd&x-algolia-application-id=P4B7HT5P18",
@@ -737,6 +737,71 @@
         "sequence": 1,
         "version": 1
       }
+    },
+    {
+      "id": "28066",
+      "anime": "Beyblade X",
+      "song": "Fearless",
+      "artist": "&TEAM",
+      "artistDisplay": "&TEAM",
+      "artistDisplayCount": 1,
+      "kind": "OP",
+      "kindLabel": "Opening",
+      "episodes": [],
+      "spotify": "https://open.spotify.com/track/678sads3sdt8tInJEM6AYv",
+      "apple": "https://geo.music.apple.com/album/6819172154?i=6819172155&at=1001l384j&ct=website-beyblade-x-op5&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/8aa9b8202a63b042d6c648bbd2f1e2d397e5b8ba@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/beyblade-x-opening-5",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Fearless"
+      ],
+      "animeCandidates": [
+        "Beyblade X",
+        "ベイブレードエックス"
+      ],
+      "artistCandidates": [
+        "16491",
+        "&TEAM",
+        "andTeam",
+        "앤팀",
+        "2xfxRiKxoHl5tI0MKyvqV7",
+        "1654437478",
+        "189785997",
+        "UCnISvkDLbC4WGs3ikE56ZNA"
+      ],
+      "animethemesVideo": null
     },
     {
       "id": "28058",
@@ -1081,7 +1146,15 @@
         "72080352",
         "UCqM8y7cbNcekfXHhvitCLyw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/ShuiroNoKamen-ED1.webm",
+        "basename": "ShuiroNoKamen-ED1.webm",
+        "animeSlug": "shuiro_no_kamen",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "28054",
@@ -2813,79 +2886,6 @@
         "animeSlug": "black_clover_2nd_season",
         "themeSlug": "",
         "type": "ED",
-        "sequence": 1,
-        "version": 1
-      }
-    },
-    {
-      "id": "27949",
-      "anime": "So What's Wrong with Getting Reborn as a Goblin?",
-      "song": "Hello",
-      "artist": "Sou",
-      "artistDisplay": "Sou",
-      "artistDisplayCount": 1,
-      "kind": "OP",
-      "kindLabel": "Opening",
-      "episodes": [],
-      "spotify": "https://open.spotify.com/track/6pv2nnWVOXg6Vn6fJyeifT",
-      "apple": "https://geo.music.apple.com/album/6812963206?i=6812963207&at=1001l384j&ct=website-so-whats-wrong-with-getting-r-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b2d02e581a29275a496987f983a7ff73d7b6f142@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/so-whats-wrong-with-getting-reborn-as-a-goblin-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Hello",
-        "ハロー"
-      ],
-      "animeCandidates": [
-        "So What's Wrong with Getting Reborn as a Goblin?",
-        "Tensei Goblin dakedo Shitsumon Aru?",
-        "転生ゴブリンだけど質問ある？",
-        "Tengobu"
-      ],
-      "artistCandidates": [
-        "2694",
-        "Sou",
-        "04ZUR9nJSI7nr1ZrHKLGJ8",
-        "1411296734",
-        "1313592",
-        "UCsy-WAGWKgaPSDGoPBhgSsw"
-      ],
-      "animethemesVideo": {
-        "url": "https://v.animethemes.moe/TenGobu-OP1.webm",
-        "basename": "TenGobu-OP1.webm",
-        "animeSlug": "tensei_goblin_dakedo_shitsumon_aru",
-        "themeSlug": "",
-        "type": "OP",
         "sequence": 1,
         "version": 1
       }
@@ -3491,6 +3491,13 @@
       "detailUrl": "https://aniplaylist.com/play/sasaki-and-peeps-season-2-ending"
     },
     {
+      "id": "28066",
+      "anime": "Beyblade X",
+      "song": "Fearless",
+      "kind": "OP",
+      "detailUrl": "https://aniplaylist.com/play/beyblade-x-opening-5"
+    },
+    {
       "id": "28058",
       "anime": "Detective Conan",
       "song": "Ai de Zenbu Dakishimete Aishite",
@@ -3685,13 +3692,6 @@
       "song": "Yellow Brick Road",
       "kind": "ED",
       "detailUrl": "https://aniplaylist.com/play/black-clover-2nd-season-ending"
-    },
-    {
-      "id": "27949",
-      "anime": "So What's Wrong with Getting Reborn as a Goblin?",
-      "song": "Hello",
-      "kind": "OP",
-      "detailUrl": "https://aniplaylist.com/play/so-whats-wrong-with-getting-reborn-as-a-goblin-opening"
     }
   ],
   "usableSamples": [
@@ -3767,6 +3767,71 @@
         "sequence": 1,
         "version": 1
       }
+    },
+    {
+      "id": "28066",
+      "anime": "Beyblade X",
+      "song": "Fearless",
+      "artist": "&TEAM",
+      "artistDisplay": "&TEAM",
+      "artistDisplayCount": 1,
+      "kind": "OP",
+      "kindLabel": "Opening",
+      "episodes": [],
+      "spotify": "https://open.spotify.com/track/678sads3sdt8tInJEM6AYv",
+      "apple": "https://geo.music.apple.com/album/6819172154?i=6819172155&at=1001l384j&ct=website-beyblade-x-op5&app=music",
+      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/8aa9b8202a63b042d6c648bbd2f1e2d397e5b8ba@2xl.jpeg",
+      "detailUrl": "https://aniplaylist.com/play/beyblade-x-opening-5",
+      "season": "Fall 2026",
+      "rawKeys": [
+        "id",
+        "alert_id",
+        "anime_id",
+        "type",
+        "score",
+        "titles",
+        "created_at",
+        "updated_at",
+        "season",
+        "artists",
+        "links",
+        "platforms",
+        "preview_url",
+        "song_key",
+        "song_number",
+        "song_type",
+        "song_type_short",
+        "anime_titles",
+        "thumbnail",
+        "thumbnail_hash",
+        "blur_image",
+        "display_artists",
+        "label",
+        "short_link",
+        "status",
+        "tags",
+        "other_link_ids",
+        "unreleased",
+        "objectID"
+      ],
+      "titleCandidates": [
+        "Fearless"
+      ],
+      "animeCandidates": [
+        "Beyblade X",
+        "ベイブレードエックス"
+      ],
+      "artistCandidates": [
+        "16491",
+        "&TEAM",
+        "andTeam",
+        "앤팀",
+        "2xfxRiKxoHl5tI0MKyvqV7",
+        "1654437478",
+        "189785997",
+        "UCnISvkDLbC4WGs3ikE56ZNA"
+      ],
+      "animethemesVideo": null
     },
     {
       "id": "28058",
@@ -4111,7 +4176,15 @@
         "72080352",
         "UCqM8y7cbNcekfXHhvitCLyw"
       ],
-      "animethemesVideo": null
+      "animethemesVideo": {
+        "url": "https://v.animethemes.moe/ShuiroNoKamen-ED1.webm",
+        "basename": "ShuiroNoKamen-ED1.webm",
+        "animeSlug": "shuiro_no_kamen",
+        "themeSlug": "",
+        "type": "ED",
+        "sequence": 1,
+        "version": 1
+      }
     },
     {
       "id": "28054",
@@ -5846,79 +5919,6 @@
         "sequence": 1,
         "version": 1
       }
-    },
-    {
-      "id": "27949",
-      "anime": "So What's Wrong with Getting Reborn as a Goblin?",
-      "song": "Hello",
-      "artist": "Sou",
-      "artistDisplay": "Sou",
-      "artistDisplayCount": 1,
-      "kind": "OP",
-      "kindLabel": "Opening",
-      "episodes": [],
-      "spotify": "https://open.spotify.com/track/6pv2nnWVOXg6Vn6fJyeifT",
-      "apple": "https://geo.music.apple.com/album/6812963206?i=6812963207&at=1001l384j&ct=website-so-whats-wrong-with-getting-r-op&app=music",
-      "thumbnail": "https://cdn.aniplaylist.com/thumbnails/b2d02e581a29275a496987f983a7ff73d7b6f142@2xl.jpg",
-      "detailUrl": "https://aniplaylist.com/play/so-whats-wrong-with-getting-reborn-as-a-goblin-opening",
-      "season": "Fall 2026",
-      "rawKeys": [
-        "id",
-        "alert_id",
-        "anime_id",
-        "type",
-        "score",
-        "titles",
-        "created_at",
-        "updated_at",
-        "season",
-        "artists",
-        "links",
-        "platforms",
-        "preview_url",
-        "song_key",
-        "song_type",
-        "song_type_short",
-        "anime_titles",
-        "thumbnail",
-        "thumbnail_hash",
-        "blur_image",
-        "display_artists",
-        "label",
-        "short_link",
-        "status",
-        "tags",
-        "other_link_ids",
-        "unreleased",
-        "objectID"
-      ],
-      "titleCandidates": [
-        "Hello",
-        "ハロー"
-      ],
-      "animeCandidates": [
-        "So What's Wrong with Getting Reborn as a Goblin?",
-        "Tensei Goblin dakedo Shitsumon Aru?",
-        "転生ゴブリンだけど質問ある？",
-        "Tengobu"
-      ],
-      "artistCandidates": [
-        "2694",
-        "Sou",
-        "04ZUR9nJSI7nr1ZrHKLGJ8",
-        "1411296734",
-        "1313592",
-        "UCsy-WAGWKgaPSDGoPBhgSsw"
-      ],
-      "animethemesVideo": {
-        "url": "https://v.animethemes.moe/TenGobu-OP1.webm",
-        "basename": "TenGobu-OP1.webm",
-        "animeSlug": "tensei_goblin_dakedo_shitsumon_aru",
-        "themeSlug": "",
-        "type": "OP",
-        "sequence": 1,
-        "version": 1
-      }
     }
   ],
   "platformSamples": [
@@ -5929,6 +5929,14 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/3LcqYzHDhd75YdL01ZES8f",
       "apple": "https://geo.music.apple.com/album/6812629588?i=6812629589&at=1001l384j&ct=website-sasaki-and-peeps-season-2-ed&app=music"
+    },
+    {
+      "id": "28066",
+      "anime": "Beyblade X",
+      "song": "Fearless",
+      "kind": "OP",
+      "spotify": "https://open.spotify.com/track/678sads3sdt8tInJEM6AYv",
+      "apple": "https://geo.music.apple.com/album/6819172154?i=6819172155&at=1001l384j&ct=website-beyblade-x-op5&app=music"
     },
     {
       "id": "28058",
@@ -6153,14 +6161,6 @@
       "kind": "ED",
       "spotify": "https://open.spotify.com/track/4Duhsnc052Fq0ifYaPGuY5",
       "apple": "https://geo.music.apple.com/album/6815891682?i=6815891957&at=1001l384j&ct=website-black-clover-2nd-season-ed&app=music"
-    },
-    {
-      "id": "27949",
-      "anime": "So What's Wrong with Getting Reborn as a Goblin?",
-      "song": "Hello",
-      "kind": "OP",
-      "spotify": "https://open.spotify.com/track/6pv2nnWVOXg6Vn6fJyeifT",
-      "apple": "https://geo.music.apple.com/album/6812963206?i=6812963207&at=1001l384j&ct=website-so-whats-wrong-with-getting-r-op&app=music"
     }
   ]
 }
